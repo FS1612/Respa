@@ -84,5 +84,15 @@ namespace ProgettoRespa.net
         {
             
         }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
