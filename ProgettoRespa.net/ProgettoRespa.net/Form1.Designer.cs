@@ -74,16 +74,18 @@ namespace ProgettoRespa.net
             this.bOTTONI_PANEL.Controls.Add(this.button_presenza);
             this.bOTTONI_PANEL.Controls.Add(this.button_RESET);
             this.bOTTONI_PANEL.Controls.Add(this.button_START);
-            this.bOTTONI_PANEL.Location = new System.Drawing.Point(12, 12);
+            this.bOTTONI_PANEL.Location = new System.Drawing.Point(18, 18);
+            this.bOTTONI_PANEL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bOTTONI_PANEL.Name = "bOTTONI_PANEL";
-            this.bOTTONI_PANEL.Size = new System.Drawing.Size(1195, 82);
+            this.bOTTONI_PANEL.Size = new System.Drawing.Size(1792, 126);
             this.bOTTONI_PANEL.TabIndex = 5;
             // 
             // button_presenza
             // 
-            this.button_presenza.Location = new System.Drawing.Point(945, 13);
+            this.button_presenza.Location = new System.Drawing.Point(1418, 20);
+            this.button_presenza.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_presenza.Name = "button_presenza";
-            this.button_presenza.Size = new System.Drawing.Size(210, 44);
+            this.button_presenza.Size = new System.Drawing.Size(315, 68);
             this.button_presenza.TabIndex = 2;
             this.button_presenza.Text = "PRESENTE";
             this.button_presenza.UseVisualStyleBackColor = true;
@@ -91,9 +93,10 @@ namespace ProgettoRespa.net
             // 
             // button_RESET
             // 
-            this.button_RESET.Location = new System.Drawing.Point(490, 13);
+            this.button_RESET.Location = new System.Drawing.Point(735, 20);
+            this.button_RESET.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_RESET.Name = "button_RESET";
-            this.button_RESET.Size = new System.Drawing.Size(210, 44);
+            this.button_RESET.Size = new System.Drawing.Size(315, 68);
             this.button_RESET.TabIndex = 1;
             this.button_RESET.Text = "RESET";
             this.button_RESET.UseVisualStyleBackColor = true;
@@ -101,9 +104,10 @@ namespace ProgettoRespa.net
             // 
             // button_START
             // 
-            this.button_START.Location = new System.Drawing.Point(19, 13);
+            this.button_START.Location = new System.Drawing.Point(28, 20);
+            this.button_START.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button_START.Name = "button_START";
-            this.button_START.Size = new System.Drawing.Size(210, 44);
+            this.button_START.Size = new System.Drawing.Size(315, 68);
             this.button_START.TabIndex = 0;
             this.button_START.Text = "START";
             this.button_START.UseVisualStyleBackColor = true;
@@ -127,9 +131,11 @@ namespace ProgettoRespa.net
             this.groupBox2.Controls.Add(this.fcsFinestra);
             this.groupBox2.Controls.Add(this.fcdPorta);
             this.groupBox2.Controls.Add(this.fcsPorta);
-            this.groupBox2.Location = new System.Drawing.Point(12, 110);
+            this.groupBox2.Location = new System.Drawing.Point(18, 169);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(482, 397);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(723, 611);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SENSORI";
@@ -137,19 +143,21 @@ namespace ProgettoRespa.net
             // textPersonaggio
             // 
             this.textPersonaggio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textPersonaggio.Location = new System.Drawing.Point(309, 343);
+            this.textPersonaggio.Location = new System.Drawing.Point(464, 528);
+            this.textPersonaggio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textPersonaggio.Name = "textPersonaggio";
             this.textPersonaggio.ReadOnly = true;
-            this.textPersonaggio.Size = new System.Drawing.Size(100, 20);
+            this.textPersonaggio.Size = new System.Drawing.Size(149, 26);
             this.textPersonaggio.TabIndex = 29;
             // 
             // personaggio
             // 
             this.personaggio.AutoSize = true;
             this.personaggio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.personaggio.Location = new System.Drawing.Point(86, 336);
+            this.personaggio.Location = new System.Drawing.Point(129, 517);
+            this.personaggio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.personaggio.Name = "personaggio";
-            this.personaggio.Size = new System.Drawing.Size(173, 50);
+            this.personaggio.Size = new System.Drawing.Size(265, 74);
             this.personaggio.TabIndex = 28;
             this.personaggio.Text = "PERSONAGGIO \r\nPRESENTE";
             // 
@@ -157,70 +165,79 @@ namespace ProgettoRespa.net
             // 
             this.reset.AutoSize = true;
             this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset.Location = new System.Drawing.Point(86, 282);
+            this.reset.Location = new System.Drawing.Point(129, 434);
+            this.reset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(82, 25);
+            this.reset.Size = new System.Drawing.Size(122, 37);
             this.reset.TabIndex = 27;
             this.reset.Text = "RESET";
             // 
             // textReset
             // 
             this.textReset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textReset.Location = new System.Drawing.Point(309, 287);
+            this.textReset.Location = new System.Drawing.Point(464, 442);
+            this.textReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textReset.Name = "textReset";
             this.textReset.ReadOnly = true;
-            this.textReset.Size = new System.Drawing.Size(100, 20);
+            this.textReset.Size = new System.Drawing.Size(149, 26);
             this.textReset.TabIndex = 26;
             // 
             // textStart
             // 
-            this.textStart.Location = new System.Drawing.Point(309, 245);
+            this.textStart.Location = new System.Drawing.Point(464, 377);
+            this.textStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textStart.Name = "textStart";
-            this.textStart.Size = new System.Drawing.Size(100, 20);
+            this.textStart.Size = new System.Drawing.Size(148, 26);
             this.textStart.TabIndex = 25;
             // 
             // textTemperatura
             // 
-            this.textTemperatura.Location = new System.Drawing.Point(309, 199);
+            this.textTemperatura.Location = new System.Drawing.Point(464, 306);
+            this.textTemperatura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textTemperatura.Name = "textTemperatura";
-            this.textTemperatura.Size = new System.Drawing.Size(100, 20);
+            this.textTemperatura.Size = new System.Drawing.Size(148, 26);
             this.textTemperatura.TabIndex = 24;
             // 
             // textFcdFinestra
             // 
-            this.textFcdFinestra.Location = new System.Drawing.Point(309, 157);
+            this.textFcdFinestra.Location = new System.Drawing.Point(464, 242);
+            this.textFcdFinestra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textFcdFinestra.Name = "textFcdFinestra";
-            this.textFcdFinestra.Size = new System.Drawing.Size(100, 20);
+            this.textFcdFinestra.Size = new System.Drawing.Size(148, 26);
             this.textFcdFinestra.TabIndex = 23;
             // 
             // textFcsFinestra
             // 
-            this.textFcsFinestra.Location = new System.Drawing.Point(309, 118);
+            this.textFcsFinestra.Location = new System.Drawing.Point(464, 182);
+            this.textFcsFinestra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textFcsFinestra.Name = "textFcsFinestra";
-            this.textFcsFinestra.Size = new System.Drawing.Size(100, 20);
+            this.textFcsFinestra.Size = new System.Drawing.Size(148, 26);
             this.textFcsFinestra.TabIndex = 22;
             // 
             // textFcdPorta
             // 
-            this.textFcdPorta.Location = new System.Drawing.Point(309, 73);
+            this.textFcdPorta.Location = new System.Drawing.Point(464, 112);
+            this.textFcdPorta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textFcdPorta.Name = "textFcdPorta";
-            this.textFcdPorta.Size = new System.Drawing.Size(100, 20);
+            this.textFcdPorta.Size = new System.Drawing.Size(148, 26);
             this.textFcdPorta.TabIndex = 21;
             // 
             // textFcsPorta
             // 
-            this.textFcsPorta.Location = new System.Drawing.Point(309, 28);
+            this.textFcsPorta.Location = new System.Drawing.Point(464, 43);
+            this.textFcsPorta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textFcsPorta.Name = "textFcsPorta";
-            this.textFcsPorta.Size = new System.Drawing.Size(100, 20);
+            this.textFcsPorta.Size = new System.Drawing.Size(148, 26);
             this.textFcsPorta.TabIndex = 20;
             // 
             // temperatura
             // 
             this.temperatura.AutoSize = true;
             this.temperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.temperatura.Location = new System.Drawing.Point(86, 199);
+            this.temperatura.Location = new System.Drawing.Point(129, 306);
+            this.temperatura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.temperatura.Name = "temperatura";
-            this.temperatura.Size = new System.Drawing.Size(171, 25);
+            this.temperatura.Size = new System.Drawing.Size(257, 37);
             this.temperatura.TabIndex = 19;
             this.temperatura.Text = "TEMPERATURA\r\n";
             // 
@@ -228,9 +245,10 @@ namespace ProgettoRespa.net
             // 
             this.start.AutoSize = true;
             this.start.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start.Location = new System.Drawing.Point(86, 239);
+            this.start.Location = new System.Drawing.Point(129, 368);
+            this.start.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(81, 25);
+            this.start.Size = new System.Drawing.Size(122, 37);
             this.start.TabIndex = 18;
             this.start.Text = "START";
             // 
@@ -238,9 +256,10 @@ namespace ProgettoRespa.net
             // 
             this.fcdFinestra.AutoSize = true;
             this.fcdFinestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fcdFinestra.Location = new System.Drawing.Point(86, 151);
+            this.fcdFinestra.Location = new System.Drawing.Point(129, 232);
+            this.fcdFinestra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcdFinestra.Name = "fcdFinestra";
-            this.fcdFinestra.Size = new System.Drawing.Size(164, 25);
+            this.fcdFinestra.Size = new System.Drawing.Size(250, 37);
             this.fcdFinestra.TabIndex = 17;
             this.fcdFinestra.Text = "FCD FINESTRA";
             // 
@@ -248,9 +267,10 @@ namespace ProgettoRespa.net
             // 
             this.fcsFinestra.AutoSize = true;
             this.fcsFinestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fcsFinestra.Location = new System.Drawing.Point(86, 112);
+            this.fcsFinestra.Location = new System.Drawing.Point(129, 172);
+            this.fcsFinestra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcsFinestra.Name = "fcsFinestra";
-            this.fcsFinestra.Size = new System.Drawing.Size(138, 25);
+            this.fcsFinestra.Size = new System.Drawing.Size(206, 37);
             this.fcsFinestra.TabIndex = 16;
             this.fcsFinestra.Text = "FCS Finestra";
             // 
@@ -258,9 +278,10 @@ namespace ProgettoRespa.net
             // 
             this.fcdPorta.AutoSize = true;
             this.fcdPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fcdPorta.Location = new System.Drawing.Point(86, 67);
+            this.fcdPorta.Location = new System.Drawing.Point(129, 103);
+            this.fcdPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcdPorta.Name = "fcdPorta";
-            this.fcdPorta.Size = new System.Drawing.Size(112, 25);
+            this.fcdPorta.Size = new System.Drawing.Size(169, 37);
             this.fcdPorta.TabIndex = 15;
             this.fcdPorta.Text = "FCD Porta";
             // 
@@ -268,9 +289,10 @@ namespace ProgettoRespa.net
             // 
             this.fcsPorta.AutoSize = true;
             this.fcsPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fcsPorta.Location = new System.Drawing.Point(87, 27);
+            this.fcsPorta.Location = new System.Drawing.Point(130, 42);
+            this.fcsPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcsPorta.Name = "fcsPorta";
-            this.fcsPorta.Size = new System.Drawing.Size(111, 25);
+            this.fcsPorta.Size = new System.Drawing.Size(167, 37);
             this.fcsPorta.TabIndex = 14;
             this.fcsPorta.Text = "FCS Porta";
             this.fcsPorta.Click += new System.EventHandler(this.label14_Click);
@@ -287,55 +309,63 @@ namespace ProgettoRespa.net
             this.groupBox1.Controls.Add(this.DX_FINESTRA);
             this.groupBox1.Controls.Add(this.SX_PORTA);
             this.groupBox1.Controls.Add(this.DX_PORTA);
-            this.groupBox1.Location = new System.Drawing.Point(626, 115);
+            this.groupBox1.Location = new System.Drawing.Point(939, 177);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(494, 392);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(741, 603);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
             // 
             // text_ALLARME
             // 
-            this.text_ALLARME.Location = new System.Drawing.Point(309, 199);
+            this.text_ALLARME.Location = new System.Drawing.Point(464, 306);
+            this.text_ALLARME.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.text_ALLARME.Name = "text_ALLARME";
-            this.text_ALLARME.Size = new System.Drawing.Size(100, 20);
+            this.text_ALLARME.Size = new System.Drawing.Size(148, 26);
             this.text_ALLARME.TabIndex = 24;
             // 
             // text_sxfinestra
             // 
-            this.text_sxfinestra.Location = new System.Drawing.Point(309, 157);
+            this.text_sxfinestra.Location = new System.Drawing.Point(464, 242);
+            this.text_sxfinestra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.text_sxfinestra.Name = "text_sxfinestra";
-            this.text_sxfinestra.Size = new System.Drawing.Size(100, 20);
+            this.text_sxfinestra.Size = new System.Drawing.Size(148, 26);
             this.text_sxfinestra.TabIndex = 23;
             // 
             // text_dxfinestra
             // 
-            this.text_dxfinestra.Location = new System.Drawing.Point(309, 118);
+            this.text_dxfinestra.Location = new System.Drawing.Point(464, 182);
+            this.text_dxfinestra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.text_dxfinestra.Name = "text_dxfinestra";
-            this.text_dxfinestra.Size = new System.Drawing.Size(100, 20);
+            this.text_dxfinestra.Size = new System.Drawing.Size(148, 26);
             this.text_dxfinestra.TabIndex = 22;
             // 
             // text_sxporta
             // 
-            this.text_sxporta.Location = new System.Drawing.Point(309, 73);
+            this.text_sxporta.Location = new System.Drawing.Point(464, 112);
+            this.text_sxporta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.text_sxporta.Name = "text_sxporta";
-            this.text_sxporta.Size = new System.Drawing.Size(100, 20);
+            this.text_sxporta.Size = new System.Drawing.Size(148, 26);
             this.text_sxporta.TabIndex = 21;
             // 
             // text_dxporta
             // 
-            this.text_dxporta.Location = new System.Drawing.Point(309, 28);
+            this.text_dxporta.Location = new System.Drawing.Point(464, 43);
+            this.text_dxporta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.text_dxporta.Name = "text_dxporta";
-            this.text_dxporta.Size = new System.Drawing.Size(100, 20);
+            this.text_dxporta.Size = new System.Drawing.Size(148, 26);
             this.text_dxporta.TabIndex = 20;
             // 
             // ALLARME
             // 
             this.ALLARME.AutoSize = true;
             this.ALLARME.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ALLARME.Location = new System.Drawing.Point(86, 199);
+            this.ALLARME.Location = new System.Drawing.Point(129, 306);
+            this.ALLARME.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ALLARME.Name = "ALLARME";
-            this.ALLARME.Size = new System.Drawing.Size(111, 25);
+            this.ALLARME.Size = new System.Drawing.Size(166, 37);
             this.ALLARME.TabIndex = 19;
             this.ALLARME.Text = "ALLARME";
             // 
@@ -343,9 +373,10 @@ namespace ProgettoRespa.net
             // 
             this.SX_FINESTRA.AutoSize = true;
             this.SX_FINESTRA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SX_FINESTRA.Location = new System.Drawing.Point(86, 151);
+            this.SX_FINESTRA.Location = new System.Drawing.Point(129, 232);
+            this.SX_FINESTRA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SX_FINESTRA.Name = "SX_FINESTRA";
-            this.SX_FINESTRA.Size = new System.Drawing.Size(149, 25);
+            this.SX_FINESTRA.Size = new System.Drawing.Size(226, 37);
             this.SX_FINESTRA.TabIndex = 17;
             this.SX_FINESTRA.Text = "SX FINESTRA";
             // 
@@ -353,29 +384,32 @@ namespace ProgettoRespa.net
             // 
             this.DX_FINESTRA.AutoSize = true;
             this.DX_FINESTRA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DX_FINESTRA.Location = new System.Drawing.Point(86, 112);
+            this.DX_FINESTRA.Location = new System.Drawing.Point(129, 172);
+            this.DX_FINESTRA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DX_FINESTRA.Name = "DX_FINESTRA";
-            this.DX_FINESTRA.Size = new System.Drawing.Size(125, 25);
+            this.DX_FINESTRA.Size = new System.Drawing.Size(228, 37);
             this.DX_FINESTRA.TabIndex = 16;
-            this.DX_FINESTRA.Text = "DX Finestra";
+            this.DX_FINESTRA.Text = "DX FINESTRA";
             // 
             // SX_PORTA
             // 
             this.SX_PORTA.AutoSize = true;
             this.SX_PORTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SX_PORTA.Location = new System.Drawing.Point(86, 67);
+            this.SX_PORTA.Location = new System.Drawing.Point(129, 103);
+            this.SX_PORTA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SX_PORTA.Name = "SX_PORTA";
-            this.SX_PORTA.Size = new System.Drawing.Size(97, 25);
+            this.SX_PORTA.Size = new System.Drawing.Size(178, 37);
             this.SX_PORTA.TabIndex = 15;
-            this.SX_PORTA.Text = "SX Porta";
+            this.SX_PORTA.Text = "SX PORTA";
             // 
             // DX_PORTA
             // 
             this.DX_PORTA.AutoSize = true;
             this.DX_PORTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DX_PORTA.Location = new System.Drawing.Point(86, 23);
+            this.DX_PORTA.Location = new System.Drawing.Point(129, 35);
+            this.DX_PORTA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DX_PORTA.Name = "DX_PORTA";
-            this.DX_PORTA.Size = new System.Drawing.Size(119, 25);
+            this.DX_PORTA.Size = new System.Drawing.Size(180, 37);
             this.DX_PORTA.TabIndex = 14;
             this.DX_PORTA.Text = "DX PORTA";
             // 
@@ -390,12 +424,13 @@ namespace ProgettoRespa.net
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 800);
+            this.ClientSize = new System.Drawing.Size(1924, 1050);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bOTTONI_PANEL);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
