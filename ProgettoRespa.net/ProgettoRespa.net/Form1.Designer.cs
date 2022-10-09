@@ -270,9 +270,9 @@ namespace ProgettoRespa.net
             this.fcsFinestra.Location = new System.Drawing.Point(129, 172);
             this.fcsFinestra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcsFinestra.Name = "fcsFinestra";
-            this.fcsFinestra.Size = new System.Drawing.Size(206, 37);
+            this.fcsFinestra.Size = new System.Drawing.Size(248, 37);
             this.fcsFinestra.TabIndex = 16;
-            this.fcsFinestra.Text = "FCS Finestra";
+            this.fcsFinestra.Text = "FCS FINESTRA";
             // 
             // fcdPorta
             // 
@@ -281,9 +281,9 @@ namespace ProgettoRespa.net
             this.fcdPorta.Location = new System.Drawing.Point(129, 103);
             this.fcdPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcdPorta.Name = "fcdPorta";
-            this.fcdPorta.Size = new System.Drawing.Size(169, 37);
+            this.fcdPorta.Size = new System.Drawing.Size(202, 37);
             this.fcdPorta.TabIndex = 15;
-            this.fcdPorta.Text = "FCD Porta";
+            this.fcdPorta.Text = "FCD PORTA";
             // 
             // fcsPorta
             // 
@@ -292,9 +292,9 @@ namespace ProgettoRespa.net
             this.fcsPorta.Location = new System.Drawing.Point(130, 42);
             this.fcsPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fcsPorta.Name = "fcsPorta";
-            this.fcsPorta.Size = new System.Drawing.Size(167, 37);
+            this.fcsPorta.Size = new System.Drawing.Size(200, 37);
             this.fcsPorta.TabIndex = 14;
-            this.fcsPorta.Text = "FCS Porta";
+            this.fcsPorta.Text = "FCS PORTA";
             this.fcsPorta.Click += new System.EventHandler(this.label14_Click);
             // 
             // groupBox1
