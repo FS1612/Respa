@@ -21,8 +21,10 @@ namespace ProgettoRespa.net
         Boolean Start = false;
         Boolean Porta_timer = false;
         Boolean Tempo_porta = false;
-
+        int chiusura = 0;
+        Boolean Chiusura_aggiornata = false; 
         int pos;
+
         public Form1()
         {
 
@@ -31,6 +33,7 @@ namespace ProgettoRespa.net
             AggiornamentoPresenza();
             Porta_timer = false;
             Tempo_porta = false;
+            Chiusura_aggiornata = false;
         }
 
         private void AggiornamentoPresenza()
@@ -47,6 +50,7 @@ namespace ProgettoRespa.net
                 textPersonaggio.Text = "Presente";
                 textPersonaggio.BackColor = Color.Green;
             }
+            
         }
 
         private void button_START_Click(object sender, EventArgs e)
@@ -90,6 +94,11 @@ namespace ProgettoRespa.net
 
         private void button_RESET_Click(object sender, EventArgs e)
         {
+            Start = false;
+            Porta_timer = false;
+            Tempo_porta = false;
+            chiusura = 0;
+            Chiusura_aggiornata = false;
             presente = false;
             AggiornamentoPresenza();
         }
@@ -100,7 +109,7 @@ namespace ProgettoRespa.net
             delta = masterTimer.Interval;
             if (Start)
             {
-                if (TextSensProssimita_porta.Text.Equals("True"))
+                if (TextSensProssimita_porta.Text.Equals("True") || (TextSensorePortaInterno.Text.Equals("True")))
                 {
                     posAttuale = posAttuale + (int)(delta * spostamento) / durataspostamento;
                     textFcsPorta.Text = "False";
@@ -108,20 +117,40 @@ namespace ProgettoRespa.net
                 }
                 if (pos > 547)
                 {
+                    if (!Chiusura_aggiornata)
+                    {
+                        Chiusura_aggiornata = true;
+                        chiusura++;
+                    }
                     pos = 547;
                     textFcdPorta.Text = "True";
                     textFcdPorta.BackColor = Color.Green;
                     TextSensProssimita_porta.Text = "";
+                    TextSensorePortaInterno.Text = "";
 
                 }
                 if (pos < 250)
+
                 {
+                    Chiusura_aggiornata = false;
+                  
+                    if (chiusura == 1)
+                    {
+                        presente = true;
+                        AggiornamentoPresenza();
+                    }
+                    if (chiusura > 1)
+                    {
+                        presente = false;
+                        AggiornamentoPresenza();
+                    }
+
                     pos = 250;
                     textFcsPorta.Text = "True";
                     textFcsPorta.BackColor = Color.Green;
 
                 }
-                if (TextSensProssimita_porta.Text.Equals(""))
+                if (TextSensProssimita_porta.Text.Equals("") && (TextSensorePortaInterno.Text.Equals("")))
                 {
                     if (!Porta_timer)
                     {
@@ -130,6 +159,7 @@ namespace ProgettoRespa.net
                     }
                     if (Tempo_porta)
                     {
+                        
                         textFcdPorta.Text = "False";
                         textFcdPorta.BackColor = Color.Red;
                         posAttuale = posAttuale - (int)(delta * spostamento) / durataspostamento;
@@ -153,10 +183,7 @@ namespace ProgettoRespa.net
         {
 
         }
-        private void PresenzaPlayer()
-        {
-
-        }
+        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -166,6 +193,17 @@ namespace ProgettoRespa.net
         private void PortaTimer_Tick(object sender, EventArgs e)
         {
             Tempo_porta = true;
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
