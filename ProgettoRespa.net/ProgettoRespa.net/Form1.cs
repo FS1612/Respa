@@ -55,9 +55,11 @@ namespace ProgettoRespa.net
 
         private void button_START_Click(object sender, EventArgs e)
         {
-            textStart.Text = "TRUE";
+            textStart.Text = "True";
+            textStart.BackColor = Color.Green;
             masterTimer.Enabled = true;
             startTimer.Enabled = true;
+
             Start = true;
         }
 
@@ -78,7 +80,8 @@ namespace ProgettoRespa.net
 
         private void startTimer_Tick(object sender, EventArgs e)
         {
-            textStart.Text = "FALSE";
+            textStart.Text = "False";
+            textStart.BackColor = Color.Red;
 
         }
 
@@ -94,6 +97,11 @@ namespace ProgettoRespa.net
 
         private void button_RESET_Click(object sender, EventArgs e)
         {
+            textReset.Text = "True";
+            textReset.BackColor = Color.Green;
+            resetTimer.Enabled = true;
+           
+
             Start = false;
             Porta_timer = false;
             Tempo_porta = false;
@@ -109,6 +117,8 @@ namespace ProgettoRespa.net
             delta = masterTimer.Interval;
             if (Start)
             {
+                textFcdPorta.Text = "False";
+                textFcdPorta.BackColor = Color.Red;
                 if (TextSensProssimita_porta.Text.Equals("True") || (TextSensorePortaInterno.Text.Equals("True")))
                 {
                     posAttuale = posAttuale + (int)(delta * spostamento) / durataspostamento;
@@ -204,6 +214,17 @@ namespace ProgettoRespa.net
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void text_dxporta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void resetTimer_Tick(object sender, EventArgs e)
+        {
+            textReset.Text = "False";
+            textReset.BackColor = Color.Red;
         }
     }
 }
