@@ -65,10 +65,10 @@ namespace ProgettoRespa.net
             this.masterTimer = new System.Windows.Forms.Timer(this.components);
             this.startTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Prossimitainterna_sensore = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.Sensore_Prossimità = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.Sensore_Prossimitàesterna = new System.Windows.Forms.PictureBox();
+            this.fcdSensore = new System.Windows.Forms.PictureBox();
             this.fcs_sensore = new System.Windows.Forms.PictureBox();
             this.porta = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -82,14 +82,15 @@ namespace ProgettoRespa.net
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PortaTimer = new System.Windows.Forms.Timer(this.components);
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
+            this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimità)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcdSensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcs_sensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -108,18 +109,16 @@ namespace ProgettoRespa.net
             this.bOTTONI_PANEL.Controls.Add(this.button_presenza);
             this.bOTTONI_PANEL.Controls.Add(this.button_RESET);
             this.bOTTONI_PANEL.Controls.Add(this.button_START);
-            this.bOTTONI_PANEL.Location = new System.Drawing.Point(18, 5);
-            this.bOTTONI_PANEL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bOTTONI_PANEL.Location = new System.Drawing.Point(12, 3);
             this.bOTTONI_PANEL.Name = "bOTTONI_PANEL";
-            this.bOTTONI_PANEL.Size = new System.Drawing.Size(1746, 49);
+            this.bOTTONI_PANEL.Size = new System.Drawing.Size(1164, 32);
             this.bOTTONI_PANEL.TabIndex = 5;
             // 
             // button_presenza
             // 
-            this.button_presenza.Location = new System.Drawing.Point(1272, 8);
-            this.button_presenza.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button_presenza.Location = new System.Drawing.Point(848, 5);
             this.button_presenza.Name = "button_presenza";
-            this.button_presenza.Size = new System.Drawing.Size(240, 29);
+            this.button_presenza.Size = new System.Drawing.Size(160, 19);
             this.button_presenza.TabIndex = 2;
             this.button_presenza.Text = "PRESENTE";
             this.button_presenza.UseVisualStyleBackColor = true;
@@ -127,10 +126,9 @@ namespace ProgettoRespa.net
             // 
             // button_RESET
             // 
-            this.button_RESET.Location = new System.Drawing.Point(554, 5);
-            this.button_RESET.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button_RESET.Location = new System.Drawing.Point(369, 3);
             this.button_RESET.Name = "button_RESET";
-            this.button_RESET.Size = new System.Drawing.Size(248, 34);
+            this.button_RESET.Size = new System.Drawing.Size(165, 22);
             this.button_RESET.TabIndex = 1;
             this.button_RESET.Text = "RESET";
             this.button_RESET.UseVisualStyleBackColor = true;
@@ -138,10 +136,9 @@ namespace ProgettoRespa.net
             // 
             // button_START
             // 
-            this.button_START.Location = new System.Drawing.Point(4, 5);
-            this.button_START.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button_START.Location = new System.Drawing.Point(3, 3);
             this.button_START.Name = "button_START";
-            this.button_START.Size = new System.Drawing.Size(182, 34);
+            this.button_START.Size = new System.Drawing.Size(121, 22);
             this.button_START.TabIndex = 0;
             this.button_START.Text = "START";
             this.button_START.UseVisualStyleBackColor = true;
@@ -165,74 +162,63 @@ namespace ProgettoRespa.net
             this.groupBox2.Controls.Add(this.start);
             this.groupBox2.Controls.Add(this.fcdPorta);
             this.groupBox2.Controls.Add(this.fcsPorta);
-            this.groupBox2.Location = new System.Drawing.Point(14, 62);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Location = new System.Drawing.Point(9, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(800, 434);
+            this.groupBox2.Size = new System.Drawing.Size(533, 282);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SENSORI";
             // 
             // TextSensorePortaInterno
             // 
-            this.TextSensorePortaInterno.Location = new System.Drawing.Point(545, 99);
-            this.TextSensorePortaInterno.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TextSensorePortaInterno.Location = new System.Drawing.Point(363, 64);
             this.TextSensorePortaInterno.Name = "TextSensorePortaInterno";
-            this.TextSensorePortaInterno.Size = new System.Drawing.Size(148, 26);
+            this.TextSensorePortaInterno.Size = new System.Drawing.Size(100, 20);
             this.TextSensorePortaInterno.TabIndex = 33;
-            
             // 
             // SensorePortaInterno
             // 
             this.SensorePortaInterno.AutoSize = true;
             this.SensorePortaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.SensorePortaInterno.Location = new System.Drawing.Point(365, 98);
-            this.SensorePortaInterno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SensorePortaInterno.Location = new System.Drawing.Point(243, 64);
             this.SensorePortaInterno.Name = "SensorePortaInterno";
-            this.SensorePortaInterno.Size = new System.Drawing.Size(172, 20);
+            this.SensorePortaInterno.Size = new System.Drawing.Size(110, 13);
             this.SensorePortaInterno.TabIndex = 32;
             this.SensorePortaInterno.Text = "Sensore Porta Interno";
-           
             // 
             // TextSensProssimita_porta
             // 
-            this.TextSensProssimita_porta.Location = new System.Drawing.Point(545, 42);
-            this.TextSensProssimita_porta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TextSensProssimita_porta.Location = new System.Drawing.Point(363, 27);
             this.TextSensProssimita_porta.Name = "TextSensProssimita_porta";
-            this.TextSensProssimita_porta.Size = new System.Drawing.Size(148, 26);
+            this.TextSensProssimita_porta.Size = new System.Drawing.Size(100, 20);
             this.TextSensProssimita_porta.TabIndex = 31;
-            
             // 
             // sens_prossimita
             // 
             this.sens_prossimita.AutoSize = true;
             this.sens_prossimita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sens_prossimita.Location = new System.Drawing.Point(365, 48);
-            this.sens_prossimita.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sens_prossimita.Location = new System.Drawing.Point(243, 31);
             this.sens_prossimita.Name = "sens_prossimita";
-            this.sens_prossimita.Size = new System.Drawing.Size(116, 20);
+            this.sens_prossimita.Size = new System.Drawing.Size(74, 13);
             this.sens_prossimita.TabIndex = 30;
             this.sens_prossimita.Text = "Sensore Porta";
             // 
             // textPersonaggio
             // 
             this.textPersonaggio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textPersonaggio.Location = new System.Drawing.Point(144, 266);
-            this.textPersonaggio.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textPersonaggio.Location = new System.Drawing.Point(96, 173);
             this.textPersonaggio.Name = "textPersonaggio";
             this.textPersonaggio.ReadOnly = true;
-            this.textPersonaggio.Size = new System.Drawing.Size(149, 26);
+            this.textPersonaggio.Size = new System.Drawing.Size(100, 20);
             this.textPersonaggio.TabIndex = 29;
             // 
             // personaggio
             // 
             this.personaggio.AutoSize = true;
             this.personaggio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.personaggio.Location = new System.Drawing.Point(4, 268);
-            this.personaggio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.personaggio.Location = new System.Drawing.Point(3, 174);
             this.personaggio.Name = "personaggio";
-            this.personaggio.Size = new System.Drawing.Size(138, 40);
+            this.personaggio.Size = new System.Drawing.Size(89, 26);
             this.personaggio.TabIndex = 28;
             this.personaggio.Text = "PERSONAGGIO \r\nPRESENTE";
             // 
@@ -240,63 +226,56 @@ namespace ProgettoRespa.net
             // 
             this.reset.AutoSize = true;
             this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.reset.Location = new System.Drawing.Point(4, 216);
-            this.reset.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.reset.Location = new System.Drawing.Point(3, 140);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(64, 20);
+            this.reset.Size = new System.Drawing.Size(43, 13);
             this.reset.TabIndex = 27;
             this.reset.Text = "RESET";
             // 
             // textReset
             // 
             this.textReset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textReset.Location = new System.Drawing.Point(144, 214);
-            this.textReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textReset.Location = new System.Drawing.Point(96, 139);
             this.textReset.Name = "textReset";
             this.textReset.ReadOnly = true;
-            this.textReset.Size = new System.Drawing.Size(149, 26);
+            this.textReset.Size = new System.Drawing.Size(100, 20);
             this.textReset.TabIndex = 26;
             // 
             // textStart
             // 
-            this.textStart.Location = new System.Drawing.Point(144, 168);
-            this.textStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textStart.Location = new System.Drawing.Point(96, 109);
             this.textStart.Name = "textStart";
-            this.textStart.Size = new System.Drawing.Size(148, 26);
+            this.textStart.Size = new System.Drawing.Size(100, 20);
             this.textStart.TabIndex = 25;
             // 
             // textTemperatura
             // 
-            this.textTemperatura.Location = new System.Drawing.Point(144, 122);
-            this.textTemperatura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textTemperatura.Location = new System.Drawing.Point(96, 79);
             this.textTemperatura.Name = "textTemperatura";
-            this.textTemperatura.Size = new System.Drawing.Size(148, 26);
+            this.textTemperatura.Size = new System.Drawing.Size(100, 20);
             this.textTemperatura.TabIndex = 24;
             // 
             // textFcdPorta
             // 
-            this.textFcdPorta.Location = new System.Drawing.Point(144, 74);
-            this.textFcdPorta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textFcdPorta.Location = new System.Drawing.Point(96, 48);
             this.textFcdPorta.Name = "textFcdPorta";
-            this.textFcdPorta.Size = new System.Drawing.Size(148, 26);
+            this.textFcdPorta.Size = new System.Drawing.Size(100, 20);
             this.textFcdPorta.TabIndex = 21;
             // 
             // textFcsPorta
             // 
-            this.textFcsPorta.Location = new System.Drawing.Point(144, 28);
-            this.textFcsPorta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textFcsPorta.Location = new System.Drawing.Point(96, 18);
             this.textFcsPorta.Name = "textFcsPorta";
-            this.textFcsPorta.Size = new System.Drawing.Size(148, 26);
+            this.textFcsPorta.Size = new System.Drawing.Size(100, 20);
             this.textFcsPorta.TabIndex = 20;
             // 
             // temperatura
             // 
             this.temperatura.AutoSize = true;
             this.temperatura.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.temperatura.Location = new System.Drawing.Point(-1, 122);
-            this.temperatura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.temperatura.Location = new System.Drawing.Point(-1, 79);
             this.temperatura.Name = "temperatura";
-            this.temperatura.Size = new System.Drawing.Size(134, 20);
+            this.temperatura.Size = new System.Drawing.Size(89, 13);
             this.temperatura.TabIndex = 19;
             this.temperatura.Text = "TEMPERATURA\r\n";
             // 
@@ -304,10 +283,9 @@ namespace ProgettoRespa.net
             // 
             this.start.AutoSize = true;
             this.start.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.start.Location = new System.Drawing.Point(4, 171);
-            this.start.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.start.Location = new System.Drawing.Point(3, 111);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(63, 20);
+            this.start.Size = new System.Drawing.Size(43, 13);
             this.start.TabIndex = 18;
             this.start.Text = "START";
             // 
@@ -315,10 +293,9 @@ namespace ProgettoRespa.net
             // 
             this.fcdPorta.AutoSize = true;
             this.fcdPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcdPorta.Location = new System.Drawing.Point(8, 74);
-            this.fcdPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fcdPorta.Location = new System.Drawing.Point(5, 48);
             this.fcdPorta.Name = "fcdPorta";
-            this.fcdPorta.Size = new System.Drawing.Size(106, 20);
+            this.fcdPorta.Size = new System.Drawing.Size(68, 13);
             this.fcdPorta.TabIndex = 15;
             this.fcdPorta.Text = "FCD PORTA";
             // 
@@ -326,13 +303,11 @@ namespace ProgettoRespa.net
             // 
             this.fcsPorta.AutoSize = true;
             this.fcsPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcsPorta.Location = new System.Drawing.Point(8, 34);
-            this.fcsPorta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fcsPorta.Location = new System.Drawing.Point(5, 22);
             this.fcsPorta.Name = "fcsPorta";
-            this.fcsPorta.Size = new System.Drawing.Size(104, 20);
+            this.fcsPorta.Size = new System.Drawing.Size(67, 13);
             this.fcsPorta.TabIndex = 14;
             this.fcsPorta.Text = "FCS PORTA";
-           
             // 
             // groupBox1
             // 
@@ -346,64 +321,55 @@ namespace ProgettoRespa.net
             this.groupBox1.Controls.Add(this.TEMPERATURA_DESIDERATA);
             this.groupBox1.Controls.Add(this.LUCE_SPENTA);
             this.groupBox1.Controls.Add(this.LUCE_ACCESA);
-            this.groupBox1.Location = new System.Drawing.Point(1084, 62);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(723, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(646, 348);
+            this.groupBox1.Size = new System.Drawing.Size(431, 226);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
             // 
             // text_ALLARME
             // 
-            this.text_ALLARME.Location = new System.Drawing.Point(202, 298);
-            this.text_ALLARME.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.text_ALLARME.Location = new System.Drawing.Point(135, 194);
             this.text_ALLARME.Name = "text_ALLARME";
-            this.text_ALLARME.Size = new System.Drawing.Size(148, 26);
+            this.text_ALLARME.Size = new System.Drawing.Size(100, 20);
             this.text_ALLARME.TabIndex = 24;
             // 
             // text_indumentodesiderato
             // 
-            this.text_indumentodesiderato.Location = new System.Drawing.Point(202, 225);
-            this.text_indumentodesiderato.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.text_indumentodesiderato.Location = new System.Drawing.Point(135, 146);
             this.text_indumentodesiderato.Name = "text_indumentodesiderato";
-            this.text_indumentodesiderato.Size = new System.Drawing.Size(148, 26);
+            this.text_indumentodesiderato.Size = new System.Drawing.Size(100, 20);
             this.text_indumentodesiderato.TabIndex = 23;
             // 
             // text_tempdesiderata
             // 
-            this.text_tempdesiderata.Location = new System.Drawing.Point(206, 151);
-            this.text_tempdesiderata.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.text_tempdesiderata.Location = new System.Drawing.Point(137, 98);
             this.text_tempdesiderata.Name = "text_tempdesiderata";
-            this.text_tempdesiderata.Size = new System.Drawing.Size(148, 26);
+            this.text_tempdesiderata.Size = new System.Drawing.Size(100, 20);
             this.text_tempdesiderata.TabIndex = 22;
             // 
             // text_lucespenta
             // 
-            this.text_lucespenta.Location = new System.Drawing.Point(202, 92);
-            this.text_lucespenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.text_lucespenta.Location = new System.Drawing.Point(135, 60);
             this.text_lucespenta.Name = "text_lucespenta";
-            this.text_lucespenta.Size = new System.Drawing.Size(148, 26);
+            this.text_lucespenta.Size = new System.Drawing.Size(100, 20);
             this.text_lucespenta.TabIndex = 21;
             // 
             // text_luceaccesa
             // 
-            this.text_luceaccesa.Location = new System.Drawing.Point(202, 28);
-            this.text_luceaccesa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.text_luceaccesa.Location = new System.Drawing.Point(135, 18);
             this.text_luceaccesa.Name = "text_luceaccesa";
-            this.text_luceaccesa.Size = new System.Drawing.Size(148, 26);
+            this.text_luceaccesa.Size = new System.Drawing.Size(100, 20);
             this.text_luceaccesa.TabIndex = 20;
-            
             // 
             // ALLARME
             // 
             this.ALLARME.AutoSize = true;
             this.ALLARME.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.ALLARME.Location = new System.Drawing.Point(18, 305);
-            this.ALLARME.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ALLARME.Location = new System.Drawing.Point(12, 198);
             this.ALLARME.Name = "ALLARME";
-            this.ALLARME.Size = new System.Drawing.Size(85, 20);
+            this.ALLARME.Size = new System.Drawing.Size(57, 13);
             this.ALLARME.TabIndex = 19;
             this.ALLARME.Text = "ALLARME";
             // 
@@ -411,10 +377,9 @@ namespace ProgettoRespa.net
             // 
             this.INDUMENTO_DESIDERATO.AutoSize = true;
             this.INDUMENTO_DESIDERATO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.INDUMENTO_DESIDERATO.Location = new System.Drawing.Point(22, 216);
-            this.INDUMENTO_DESIDERATO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.INDUMENTO_DESIDERATO.Location = new System.Drawing.Point(15, 140);
             this.INDUMENTO_DESIDERATO.Name = "INDUMENTO_DESIDERATO";
-            this.INDUMENTO_DESIDERATO.Size = new System.Drawing.Size(115, 60);
+            this.INDUMENTO_DESIDERATO.Size = new System.Drawing.Size(77, 39);
             this.INDUMENTO_DESIDERATO.TabIndex = 17;
             this.INDUMENTO_DESIDERATO.Text = "INDUMENTO \r\nDESIDERATO\r\n\r\n";
             // 
@@ -422,10 +387,9 @@ namespace ProgettoRespa.net
             // 
             this.TEMPERATURA_DESIDERATA.AutoSize = true;
             this.TEMPERATURA_DESIDERATA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.TEMPERATURA_DESIDERATA.Location = new System.Drawing.Point(18, 151);
-            this.TEMPERATURA_DESIDERATA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TEMPERATURA_DESIDERATA.Location = new System.Drawing.Point(12, 98);
             this.TEMPERATURA_DESIDERATA.Name = "TEMPERATURA_DESIDERATA";
-            this.TEMPERATURA_DESIDERATA.Size = new System.Drawing.Size(134, 40);
+            this.TEMPERATURA_DESIDERATA.Size = new System.Drawing.Size(92, 26);
             this.TEMPERATURA_DESIDERATA.TabIndex = 16;
             this.TEMPERATURA_DESIDERATA.Text = "TEMPERATURA \r\nDESIDERATA\r\n";
             // 
@@ -433,10 +397,9 @@ namespace ProgettoRespa.net
             // 
             this.LUCE_SPENTA.AutoSize = true;
             this.LUCE_SPENTA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.LUCE_SPENTA.Location = new System.Drawing.Point(18, 102);
-            this.LUCE_SPENTA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LUCE_SPENTA.Location = new System.Drawing.Point(12, 66);
             this.LUCE_SPENTA.Name = "LUCE_SPENTA";
-            this.LUCE_SPENTA.Size = new System.Drawing.Size(119, 20);
+            this.LUCE_SPENTA.Size = new System.Drawing.Size(81, 13);
             this.LUCE_SPENTA.TabIndex = 15;
             this.LUCE_SPENTA.Text = "LUCE SPENTA";
             // 
@@ -444,10 +407,9 @@ namespace ProgettoRespa.net
             // 
             this.LUCE_ACCESA.AutoSize = true;
             this.LUCE_ACCESA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.LUCE_ACCESA.Location = new System.Drawing.Point(18, 34);
-            this.LUCE_ACCESA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LUCE_ACCESA.Location = new System.Drawing.Point(12, 22);
             this.LUCE_ACCESA.Name = "LUCE_ACCESA";
-            this.LUCE_ACCESA.Size = new System.Drawing.Size(122, 20);
+            this.LUCE_ACCESA.Size = new System.Drawing.Size(80, 13);
             this.LUCE_ACCESA.TabIndex = 14;
             this.LUCE_ACCESA.Text = "LUCE ACCESA";
             // 
@@ -462,10 +424,10 @@ namespace ProgettoRespa.net
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.Prossimitainterna_sensore);
             this.panel1.Controls.Add(this.pictureBox21);
-            this.panel1.Controls.Add(this.Sensore_Prossimità);
-            this.panel1.Controls.Add(this.pictureBox17);
+            this.panel1.Controls.Add(this.Sensore_Prossimitàesterna);
+            this.panel1.Controls.Add(this.fcdSensore);
             this.panel1.Controls.Add(this.fcs_sensore);
             this.panel1.Controls.Add(this.porta);
             this.panel1.Controls.Add(this.pictureBox11);
@@ -477,144 +439,159 @@ namespace ProgettoRespa.net
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-2, 503);
+            this.panel1.Location = new System.Drawing.Point(-1, 327);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1912, 535);
+            this.panel1.Size = new System.Drawing.Size(1275, 348);
             this.panel1.TabIndex = 8;
             // 
-            // pictureBox2
+            // Prossimitainterna_sensore
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DarkViolet;
-            this.pictureBox2.Location = new System.Drawing.Point(820, 365);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
+            this.Prossimitainterna_sensore.BackColor = System.Drawing.Color.DarkViolet;
+            this.Prossimitainterna_sensore.Location = new System.Drawing.Point(547, 237);
+            this.Prossimitainterna_sensore.Margin = new System.Windows.Forms.Padding(2);
+            this.Prossimitainterna_sensore.Name = "Prossimitainterna_sensore";
+            this.Prossimitainterna_sensore.Size = new System.Drawing.Size(15, 14);
+            this.Prossimitainterna_sensore.TabIndex = 21;
+            this.Prossimitainterna_sensore.TabStop = false;
             // 
             // pictureBox21
             // 
             this.pictureBox21.BackColor = System.Drawing.Color.DeepPink;
-            this.pictureBox21.Location = new System.Drawing.Point(128, 145);
+            this.pictureBox21.Location = new System.Drawing.Point(85, 94);
+            this.pictureBox21.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(33, 120);
+            this.pictureBox21.Size = new System.Drawing.Size(22, 78);
             this.pictureBox21.TabIndex = 20;
             this.pictureBox21.TabStop = false;
             // 
-            // Sensore_Prossimità
+            // Sensore_Prossimitàesterna
             // 
-            this.Sensore_Prossimità.BackColor = System.Drawing.Color.DarkViolet;
-            this.Sensore_Prossimità.Location = new System.Drawing.Point(358, 428);
-            this.Sensore_Prossimità.Name = "Sensore_Prossimità";
-            this.Sensore_Prossimità.Size = new System.Drawing.Size(22, 22);
-            this.Sensore_Prossimità.TabIndex = 19;
-            this.Sensore_Prossimità.TabStop = false;
+            this.Sensore_Prossimitàesterna.BackColor = System.Drawing.Color.DarkViolet;
+            this.Sensore_Prossimitàesterna.Location = new System.Drawing.Point(239, 278);
+            this.Sensore_Prossimitàesterna.Margin = new System.Windows.Forms.Padding(2);
+            this.Sensore_Prossimitàesterna.Name = "Sensore_Prossimitàesterna";
+            this.Sensore_Prossimitàesterna.Size = new System.Drawing.Size(15, 14);
+            this.Sensore_Prossimitàesterna.TabIndex = 19;
+            this.Sensore_Prossimitàesterna.TabStop = false;
             // 
-            // pictureBox17
+            // fcdSensore
             // 
-            this.pictureBox17.BackColor = System.Drawing.Color.Red;
-            this.pictureBox17.Location = new System.Drawing.Point(909, 365);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(22, 22);
-            this.pictureBox17.TabIndex = 16;
-            this.pictureBox17.TabStop = false;
+            this.fcdSensore.BackColor = System.Drawing.Color.Red;
+            this.fcdSensore.Location = new System.Drawing.Point(840, 237);
+            this.fcdSensore.Margin = new System.Windows.Forms.Padding(2);
+            this.fcdSensore.Name = "fcdSensore";
+            this.fcdSensore.Size = new System.Drawing.Size(15, 14);
+            this.fcdSensore.TabIndex = 16;
+            this.fcdSensore.TabStop = false;
             // 
             // fcs_sensore
             // 
             this.fcs_sensore.BackColor = System.Drawing.Color.Lime;
-            this.fcs_sensore.Location = new System.Drawing.Point(358, 365);
+            this.fcs_sensore.Location = new System.Drawing.Point(239, 237);
+            this.fcs_sensore.Margin = new System.Windows.Forms.Padding(2);
             this.fcs_sensore.Name = "fcs_sensore";
-            this.fcs_sensore.Size = new System.Drawing.Size(22, 22);
+            this.fcs_sensore.Size = new System.Drawing.Size(15, 14);
             this.fcs_sensore.TabIndex = 15;
             this.fcs_sensore.TabStop = false;
             // 
             // porta
             // 
             this.porta.BackColor = System.Drawing.Color.Maroon;
-            this.porta.Location = new System.Drawing.Point(375, 392);
+            this.porta.Location = new System.Drawing.Point(250, 255);
+            this.porta.Margin = new System.Windows.Forms.Padding(2);
             this.porta.Name = "porta";
-            this.porta.Size = new System.Drawing.Size(446, 18);
+            this.porta.Size = new System.Drawing.Size(297, 12);
             this.porta.TabIndex = 13;
             this.porta.TabStop = false;
-            
             // 
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox11.Location = new System.Drawing.Point(68, 382);
+            this.pictureBox11.Location = new System.Drawing.Point(45, 248);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(312, 49);
+            this.pictureBox11.Size = new System.Drawing.Size(208, 32);
             this.pictureBox11.TabIndex = 10;
             this.pictureBox11.TabStop = false;
             // 
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox9.Location = new System.Drawing.Point(820, 382);
+            this.pictureBox9.Location = new System.Drawing.Point(547, 248);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(600, 49);
+            this.pictureBox9.Size = new System.Drawing.Size(400, 32);
             this.pictureBox9.TabIndex = 8;
             this.pictureBox9.TabStop = false;
             // 
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox8.Location = new System.Drawing.Point(1394, 382);
+            this.pictureBox8.Location = new System.Drawing.Point(929, 248);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(312, 49);
+            this.pictureBox8.Size = new System.Drawing.Size(208, 32);
             this.pictureBox8.TabIndex = 7;
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox7.Location = new System.Drawing.Point(1394, 3);
+            this.pictureBox7.Location = new System.Drawing.Point(929, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(312, 49);
+            this.pictureBox7.Size = new System.Drawing.Size(208, 32);
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox6.Location = new System.Drawing.Point(820, 3);
+            this.pictureBox6.Location = new System.Drawing.Point(547, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(585, 49);
+            this.pictureBox6.Size = new System.Drawing.Size(390, 32);
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox5.Location = new System.Drawing.Point(552, 3);
+            this.pictureBox5.Location = new System.Drawing.Point(368, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(312, 49);
+            this.pictureBox5.Size = new System.Drawing.Size(208, 32);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox4.Location = new System.Drawing.Point(68, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(45, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(498, 49);
+            this.pictureBox4.Size = new System.Drawing.Size(332, 32);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox3.Location = new System.Drawing.Point(1652, 38);
+            this.pictureBox3.Location = new System.Drawing.Point(1101, 25);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(54, 394);
+            this.pictureBox3.Size = new System.Drawing.Size(36, 256);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 394);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 256);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -628,16 +605,20 @@ namespace ProgettoRespa.net
             this.resetTimer.Interval = 500;
             this.resetTimer.Tick += new System.EventHandler(this.resetTimer_Tick);
             // 
+            // timerTemp
+            // 
+            this.timerTemp.Interval = 500;
+            this.timerTemp.Tick += new System.EventHandler(this.timerTemp_Tick);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1049);
+            this.ClientSize = new System.Drawing.Size(1283, 682);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.bOTTONI_PANEL);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -647,10 +628,10 @@ namespace ProgettoRespa.net
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimità)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcdSensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcs_sensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.porta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -709,17 +690,18 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox porta;
-        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox fcdSensore;
         private System.Windows.Forms.PictureBox fcs_sensore;
         private System.Windows.Forms.PictureBox pictureBox21;
-        private System.Windows.Forms.PictureBox Sensore_Prossimità;
+        private System.Windows.Forms.PictureBox Sensore_Prossimitàesterna;
         private System.Windows.Forms.TextBox TextSensProssimita_porta;
         private System.Windows.Forms.Label sens_prossimita;
         private System.Windows.Forms.Timer PortaTimer;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Prossimitainterna_sensore;
         private System.Windows.Forms.Label SensorePortaInterno;
         private System.Windows.Forms.TextBox TextSensorePortaInterno;
         private System.Windows.Forms.Timer resetTimer;
+        private System.Windows.Forms.Timer timerTemp;
     }
 }
 

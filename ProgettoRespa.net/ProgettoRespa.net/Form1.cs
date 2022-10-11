@@ -24,16 +24,20 @@ namespace ProgettoRespa.net
         int chiusura = 0;
         Boolean Chiusura_aggiornata = false; 
         int pos;
-
+        double tempAttuale;
+        int tempIniziale = 19;
+        int temp1;
         public Form1()
         {
 
             InitializeComponent();
-
+            tempAttuale = tempIniziale;
+            textTemperatura.Text = tempAttuale.ToString();
             AggiornamentoPresenza();
             Porta_timer = false;
             Tempo_porta = false;
             Chiusura_aggiornata = false;
+            
         }
 
         private void AggiornamentoPresenza()
@@ -98,13 +102,14 @@ namespace ProgettoRespa.net
             resetTimer.Enabled = true;
            
 
-            Start = false;
+            //Start = false;
             Porta_timer = false;
             Tempo_porta = false;
             chiusura = 0;
             Chiusura_aggiornata = false;
             presente = false;
             AggiornamentoPresenza();
+            
         }
 
         private void masterTimer_Tick(object sender, EventArgs e)
@@ -113,13 +118,26 @@ namespace ProgettoRespa.net
             delta = masterTimer.Interval;
             if (Start)
             {
-                textFcdPorta.Text = "False";
+                Sensore_Prossimitàesterna.BackColor = Color.Red;
+                Prossimitainterna_sensore.BackColor = Color.Red;
+                fcdSensore.BackColor = Color.Red;
                 textFcdPorta.BackColor = Color.Red;
+
                 if (TextSensProssimita_porta.Text.Equals("True") || (TextSensorePortaInterno.Text.Equals("True")))
                 {
                     posAttuale = posAttuale + (int)(delta * spostamento) / durataspostamento;
                     textFcsPorta.Text = "False";
                     textFcsPorta.BackColor = Color.Red;
+                    fcs_sensore.BackColor = Color.Red;
+                    if (TextSensProssimita_porta.Text.Equals("True"))
+                    {
+                        Sensore_Prossimitàesterna.BackColor = Color.Green;
+                    }
+                    if (TextSensorePortaInterno.Text.Equals("True"))
+                    {
+                        Prossimitainterna_sensore.BackColor = Color.Green;
+
+                    }
                 }
                 if (pos > 547)
                 {
@@ -131,6 +149,7 @@ namespace ProgettoRespa.net
                     pos = 547;
                     textFcdPorta.Text = "True";
                     textFcdPorta.BackColor = Color.Green;
+                    fcdSensore.BackColor = Color.Green;
                     TextSensProssimita_porta.Text = "";
                     TextSensorePortaInterno.Text = "";
 
@@ -154,6 +173,7 @@ namespace ProgettoRespa.net
                     pos = 250;
                     textFcsPorta.Text = "True";
                     textFcsPorta.BackColor = Color.Green;
+                    fcs_sensore.BackColor = Color.Green;
 
                 }
                 if (TextSensProssimita_porta.Text.Equals("") && (TextSensorePortaInterno.Text.Equals("")))
@@ -176,7 +196,7 @@ namespace ProgettoRespa.net
 
                 porta.Left = pos;
 
-
+                AggiornamentoTemperatura();
             }
         }
 
@@ -195,5 +215,59 @@ namespace ProgettoRespa.net
             textReset.Text = "False";
             textReset.BackColor = Color.Red;
         }
+        private void AggiornamentoTemperatura() 
+        {
+            
+            String temp = text_tempdesiderata.Text;
+            
+            if (temp != string.Empty)
+
+            {
+                
+                try
+                {
+                    tempAttuale = int.Parse(textTemperatura.Text);
+                     temp1 = int.Parse(temp);
+                    timerTemp.Enabled = true;
+                    
+
+
+                }
+                catch (FormatException)
+                {
+                    
+                    
+                }
+                
+            }
+            
+
+            
+        }
+
+        private void timerTemp_Tick(object sender, EventArgs e)
+        {
+             
+            if (tempAttuale < temp1&&textFcsPorta.Text.Equals("True") && textPersonaggio.Text.Equals("Presente"))
+            {
+                tempAttuale = tempAttuale + 0.5;
+            }
+            if(tempAttuale > tempIniziale && !textFcsPorta.Text.Equals("True"))
+            {
+                tempAttuale = tempAttuale - 0.5;
+            }
+            if(tempAttuale > temp1)
+            {
+                tempAttuale = temp1;
+            } 
+             if (tempAttuale < tempIniziale)
+            {
+                tempAttuale = tempIniziale;
+            }
+
+            textTemperatura.Text = tempAttuale.ToString();
+        }
+
+        
     }
 }
