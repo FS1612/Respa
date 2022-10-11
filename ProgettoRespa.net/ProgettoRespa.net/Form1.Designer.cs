@@ -181,7 +181,7 @@ namespace ProgettoRespa.net
             this.TextSensorePortaInterno.Name = "TextSensorePortaInterno";
             this.TextSensorePortaInterno.Size = new System.Drawing.Size(148, 26);
             this.TextSensorePortaInterno.TabIndex = 33;
-            this.TextSensorePortaInterno.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            
             // 
             // SensorePortaInterno
             // 
@@ -193,7 +193,7 @@ namespace ProgettoRespa.net
             this.SensorePortaInterno.Size = new System.Drawing.Size(172, 20);
             this.SensorePortaInterno.TabIndex = 32;
             this.SensorePortaInterno.Text = "Sensore Porta Interno";
-            this.SensorePortaInterno.Click += new System.EventHandler(this.label1_Click);
+           
             // 
             // TextSensProssimita_porta
             // 
@@ -202,7 +202,7 @@ namespace ProgettoRespa.net
             this.TextSensProssimita_porta.Name = "TextSensProssimita_porta";
             this.TextSensProssimita_porta.Size = new System.Drawing.Size(148, 26);
             this.TextSensProssimita_porta.TabIndex = 31;
-            this.TextSensProssimita_porta.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // sens_prossimita
             // 
@@ -332,7 +332,7 @@ namespace ProgettoRespa.net
             this.fcsPorta.Size = new System.Drawing.Size(104, 20);
             this.fcsPorta.TabIndex = 14;
             this.fcsPorta.Text = "FCS PORTA";
-            this.fcsPorta.Click += new System.EventHandler(this.label14_Click);
+           
             // 
             // groupBox1
             // 
@@ -394,7 +394,7 @@ namespace ProgettoRespa.net
             this.text_luceaccesa.Name = "text_luceaccesa";
             this.text_luceaccesa.Size = new System.Drawing.Size(148, 26);
             this.text_luceaccesa.TabIndex = 20;
-            this.text_luceaccesa.TextChanged += new System.EventHandler(this.text_dxporta_TextChanged);
+            
             // 
             // ALLARME
             // 
@@ -535,7 +535,7 @@ namespace ProgettoRespa.net
             this.porta.Size = new System.Drawing.Size(446, 18);
             this.porta.TabIndex = 13;
             this.porta.TabStop = false;
-            this.porta.Click += new System.EventHandler(this.pictureBox14_Click);
+            
             // 
             // pictureBox11
             // 

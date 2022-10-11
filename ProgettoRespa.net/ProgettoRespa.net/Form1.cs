@@ -85,11 +85,7 @@ namespace ProgettoRespa.net
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -184,21 +180,7 @@ namespace ProgettoRespa.net
             }
         }
 
-        private void pictureBox12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox14_Click(object sender, EventArgs e)
-        {
-
-        }
         
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void PortaTimer_Tick(object sender, EventArgs e)
         {
@@ -206,20 +188,7 @@ namespace ProgettoRespa.net
             
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void text_dxporta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void resetTimer_Tick(object sender, EventArgs e)
         {
