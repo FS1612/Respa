@@ -28,7 +28,8 @@ namespace ProgettoRespa.net
         int tempIniziale = 19;//temperatura iniziale della stanza
         int temp1;
         Boolean Robot = false;
-        int posinizialeRobot = 782;
+        //int posinizialeRobot = 782;
+        int posinizialeRobot = 521;
         int durataspostRobot = 5000;
         int spostRobot = 740;
         int deltaRobot;
