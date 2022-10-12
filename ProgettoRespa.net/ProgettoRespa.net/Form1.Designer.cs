@@ -35,6 +35,16 @@ namespace ProgettoRespa.net
             this.button_RESET = new System.Windows.Forms.Button();
             this.button_START = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textFcsRobot = new System.Windows.Forms.TextBox();
+            this.textBasso = new System.Windows.Forms.TextBox();
+            this.textAlto = new System.Windows.Forms.TextBox();
+            this.textFcdRobot = new System.Windows.Forms.TextBox();
+            this.sensAlto = new System.Windows.Forms.Label();
+            this.sensBasso = new System.Windows.Forms.Label();
+            this.fcdRobot = new System.Windows.Forms.Label();
+            this.fcsRobot = new System.Windows.Forms.Label();
+            this.textRobot = new System.Windows.Forms.TextBox();
+            this.sens_robot = new System.Windows.Forms.Label();
             this.TextSensorePortaInterno = new System.Windows.Forms.TextBox();
             this.SensorePortaInterno = new System.Windows.Forms.Label();
             this.TextSensProssimita_porta = new System.Windows.Forms.TextBox();
@@ -65,6 +75,16 @@ namespace ProgettoRespa.net
             this.masterTimer = new System.Windows.Forms.Timer(this.components);
             this.startTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.scarpenere = new System.Windows.Forms.PictureBox();
+            this.scarpebianche = new System.Windows.Forms.PictureBox();
+            this.jeans = new System.Windows.Forms.PictureBox();
+            this.pantalonenero = new System.Windows.Forms.PictureBox();
+            this.braccio2 = new System.Windows.Forms.PictureBox();
+            this.braccio1 = new System.Windows.Forms.PictureBox();
+            this.robot = new System.Windows.Forms.PictureBox();
+            this.magliettanera = new System.Windows.Forms.PictureBox();
+            this.magliettarossa = new System.Windows.Forms.PictureBox();
+            this.magliettabianca = new System.Windows.Forms.PictureBox();
             this.Prossimitainterna_sensore = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.Sensore_Prossimitàesterna = new System.Windows.Forms.PictureBox();
@@ -83,30 +103,33 @@ namespace ProgettoRespa.net
             this.PortaTimer = new System.Windows.Forms.Timer(this.components);
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
-            this.magliettabianca = new System.Windows.Forms.PictureBox();
-            this.magliettarossa = new System.Windows.Forms.PictureBox();
-            this.magliettanera = new System.Windows.Forms.PictureBox();
-            this.robot = new System.Windows.Forms.PictureBox();
-            this.braccio1 = new System.Windows.Forms.PictureBox();
-            this.braccio2 = new System.Windows.Forms.PictureBox();
-            this.pantalonenero = new System.Windows.Forms.PictureBox();
-            this.jeans = new System.Windows.Forms.PictureBox();
-            this.scarpebianche = new System.Windows.Forms.PictureBox();
-            this.scarpenere = new System.Windows.Forms.PictureBox();
-            this.sens_robot = new System.Windows.Forms.Label();
-            this.textRobot = new System.Windows.Forms.TextBox();
-            this.fcsRobot = new System.Windows.Forms.Label();
-            this.fcdRobot = new System.Windows.Forms.Label();
-            this.sensBasso = new System.Windows.Forms.Label();
-            this.sensAlto = new System.Windows.Forms.Label();
-            this.textFcdRobot = new System.Windows.Forms.TextBox();
-            this.textAlto = new System.Windows.Forms.TextBox();
-            this.textBasso = new System.Windows.Forms.TextBox();
-            this.textFcsRobot = new System.Windows.Forms.TextBox();
+            this.TimerRobot = new System.Windows.Forms.Timer(this.components);
+            this.fcs_Robot = new System.Windows.Forms.PictureBox();
+            this.fcd_Robot = new System.Windows.Forms.PictureBox();
+            this.basso_Robot = new System.Windows.Forms.PictureBox();
+            this.alto_Robot = new System.Windows.Forms.PictureBox();
+            this.dx_Robot = new System.Windows.Forms.Label();
+            this.sx_Robot = new System.Windows.Forms.Label();
+            this.altoRobot = new System.Windows.Forms.Label();
+            this.bassoRobot = new System.Windows.Forms.Label();
+            this.textDxRobot = new System.Windows.Forms.TextBox();
+            this.textSxRobot = new System.Windows.Forms.TextBox();
+            this.textAltoRobot = new System.Windows.Forms.TextBox();
+            this.textBassoRobot = new System.Windows.Forms.TextBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jeans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pantalonenero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.braccio2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.braccio1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettanera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettarossa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettabianca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).BeginInit();
@@ -122,16 +145,10 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettabianca)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettarossa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettanera)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.braccio1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.braccio2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pantalonenero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jeans)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).BeginInit();
             this.SuspendLayout();
             // 
             // bOTTONI_PANEL
@@ -214,6 +231,102 @@ namespace ProgettoRespa.net
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SENSORI";
+            // 
+            // textFcsRobot
+            // 
+            this.textFcsRobot.Location = new System.Drawing.Point(544, 211);
+            this.textFcsRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textFcsRobot.Name = "textFcsRobot";
+            this.textFcsRobot.Size = new System.Drawing.Size(148, 26);
+            this.textFcsRobot.TabIndex = 43;
+            // 
+            // textBasso
+            // 
+            this.textBasso.Location = new System.Drawing.Point(544, 343);
+            this.textBasso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBasso.Name = "textBasso";
+            this.textBasso.Size = new System.Drawing.Size(148, 26);
+            this.textBasso.TabIndex = 42;
+            // 
+            // textAlto
+            // 
+            this.textAlto.Location = new System.Drawing.Point(544, 298);
+            this.textAlto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textAlto.Name = "textAlto";
+            this.textAlto.Size = new System.Drawing.Size(148, 26);
+            this.textAlto.TabIndex = 41;
+            // 
+            // textFcdRobot
+            // 
+            this.textFcdRobot.Location = new System.Drawing.Point(544, 260);
+            this.textFcdRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textFcdRobot.Name = "textFcdRobot";
+            this.textFcdRobot.Size = new System.Drawing.Size(148, 26);
+            this.textFcdRobot.TabIndex = 40;
+            // 
+            // sensAlto
+            // 
+            this.sensAlto.AutoSize = true;
+            this.sensAlto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.sensAlto.Location = new System.Drawing.Point(373, 305);
+            this.sensAlto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sensAlto.Name = "sensAlto";
+            this.sensAlto.Size = new System.Drawing.Size(53, 20);
+            this.sensAlto.TabIndex = 39;
+            this.sensAlto.Text = "ALTO";
+            // 
+            // sensBasso
+            // 
+            this.sensBasso.AutoSize = true;
+            this.sensBasso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.sensBasso.Location = new System.Drawing.Point(373, 349);
+            this.sensBasso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sensBasso.Name = "sensBasso";
+            this.sensBasso.Size = new System.Drawing.Size(67, 20);
+            this.sensBasso.TabIndex = 38;
+            this.sensBasso.Text = "BASSO";
+            // 
+            // fcdRobot
+            // 
+            this.fcdRobot.AutoSize = true;
+            this.fcdRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.fcdRobot.Location = new System.Drawing.Point(371, 266);
+            this.fcdRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fcdRobot.Name = "fcdRobot";
+            this.fcdRobot.Size = new System.Drawing.Size(109, 20);
+            this.fcdRobot.TabIndex = 37;
+            this.fcdRobot.Text = "FCD ROBOT";
+            // 
+            // fcsRobot
+            // 
+            this.fcsRobot.AutoSize = true;
+            this.fcsRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.fcsRobot.Location = new System.Drawing.Point(373, 214);
+            this.fcsRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fcsRobot.Name = "fcsRobot";
+            this.fcsRobot.Size = new System.Drawing.Size(107, 20);
+            this.fcsRobot.TabIndex = 36;
+            this.fcsRobot.Text = "FCS ROBOT";
+            // 
+            // textRobot
+            // 
+            this.textRobot.Location = new System.Drawing.Point(544, 154);
+            this.textRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textRobot.Name = "textRobot";
+            this.textRobot.Size = new System.Drawing.Size(148, 26);
+            this.textRobot.TabIndex = 35;
+            // 
+            // sens_robot
+            // 
+            this.sens_robot.AutoSize = true;
+            this.sens_robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.sens_robot.Location = new System.Drawing.Point(384, 157);
+            this.sens_robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sens_robot.Name = "sens_robot";
+            this.sens_robot.Size = new System.Drawing.Size(53, 20);
+            this.sens_robot.TabIndex = 34;
+            this.sens_robot.Text = "Robot";
+            this.sens_robot.Click += new System.EventHandler(this.sens_robot_Click);
             // 
             // TextSensorePortaInterno
             // 
@@ -374,6 +487,14 @@ namespace ProgettoRespa.net
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBassoRobot);
+            this.groupBox1.Controls.Add(this.textAltoRobot);
+            this.groupBox1.Controls.Add(this.textSxRobot);
+            this.groupBox1.Controls.Add(this.textDxRobot);
+            this.groupBox1.Controls.Add(this.bassoRobot);
+            this.groupBox1.Controls.Add(this.altoRobot);
+            this.groupBox1.Controls.Add(this.sx_Robot);
+            this.groupBox1.Controls.Add(this.dx_Robot);
             this.groupBox1.Controls.Add(this.text_ALLARME);
             this.groupBox1.Controls.Add(this.text_indumentodesiderato);
             this.groupBox1.Controls.Add(this.text_tempdesiderata);
@@ -388,7 +509,7 @@ namespace ProgettoRespa.net
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(646, 348);
+            this.groupBox1.Size = new System.Drawing.Size(827, 348);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
@@ -499,6 +620,10 @@ namespace ProgettoRespa.net
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.alto_Robot);
+            this.panel1.Controls.Add(this.basso_Robot);
+            this.panel1.Controls.Add(this.fcd_Robot);
+            this.panel1.Controls.Add(this.fcs_Robot);
             this.panel1.Controls.Add(this.scarpenere);
             this.panel1.Controls.Add(this.scarpebianche);
             this.panel1.Controls.Add(this.jeans);
@@ -528,6 +653,98 @@ namespace ProgettoRespa.net
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1912, 535);
             this.panel1.TabIndex = 8;
+            // 
+            // scarpenere
+            // 
+            this.scarpenere.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.scarpenere.Location = new System.Drawing.Point(1288, 337);
+            this.scarpenere.Name = "scarpenere";
+            this.scarpenere.Size = new System.Drawing.Size(100, 50);
+            this.scarpenere.TabIndex = 32;
+            this.scarpenere.TabStop = false;
+            // 
+            // scarpebianche
+            // 
+            this.scarpebianche.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.scarpebianche.Location = new System.Drawing.Point(1126, 337);
+            this.scarpebianche.Name = "scarpebianche";
+            this.scarpebianche.Size = new System.Drawing.Size(100, 50);
+            this.scarpebianche.TabIndex = 31;
+            this.scarpebianche.TabStop = false;
+            // 
+            // jeans
+            // 
+            this.jeans.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.jeans.Location = new System.Drawing.Point(1603, 250);
+            this.jeans.Name = "jeans";
+            this.jeans.Size = new System.Drawing.Size(54, 92);
+            this.jeans.TabIndex = 30;
+            this.jeans.TabStop = false;
+            // 
+            // pantalonenero
+            // 
+            this.pantalonenero.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pantalonenero.Location = new System.Drawing.Point(1603, 124);
+            this.pantalonenero.Name = "pantalonenero";
+            this.pantalonenero.Size = new System.Drawing.Size(54, 92);
+            this.pantalonenero.TabIndex = 29;
+            this.pantalonenero.TabStop = false;
+            // 
+            // braccio2
+            // 
+            this.braccio2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.braccio2.Location = new System.Drawing.Point(782, 218);
+            this.braccio2.Name = "braccio2";
+            this.braccio2.Size = new System.Drawing.Size(120, 17);
+            this.braccio2.TabIndex = 27;
+            this.braccio2.TabStop = false;
+            // 
+            // braccio1
+            // 
+            this.braccio1.BackColor = System.Drawing.Color.SaddleBrown;
+            this.braccio1.Location = new System.Drawing.Point(811, 182);
+            this.braccio1.Name = "braccio1";
+            this.braccio1.Size = new System.Drawing.Size(20, 53);
+            this.braccio1.TabIndex = 26;
+            this.braccio1.TabStop = false;
+            // 
+            // robot
+            // 
+            this.robot.BackColor = System.Drawing.Color.Magenta;
+            this.robot.Location = new System.Drawing.Point(782, 182);
+            this.robot.Name = "robot";
+            this.robot.Size = new System.Drawing.Size(82, 83);
+            this.robot.TabIndex = 25;
+            this.robot.TabStop = false;
+            this.robot.Click += new System.EventHandler(this.robot_Click);
+            // 
+            // magliettanera
+            // 
+            this.magliettanera.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.magliettanera.Location = new System.Drawing.Point(1288, 49);
+            this.magliettanera.Name = "magliettanera";
+            this.magliettanera.Size = new System.Drawing.Size(100, 50);
+            this.magliettanera.TabIndex = 24;
+            this.magliettanera.TabStop = false;
+            // 
+            // magliettarossa
+            // 
+            this.magliettarossa.BackColor = System.Drawing.Color.DarkRed;
+            this.magliettarossa.Location = new System.Drawing.Point(1449, 49);
+            this.magliettarossa.Name = "magliettarossa";
+            this.magliettarossa.Size = new System.Drawing.Size(100, 50);
+            this.magliettarossa.TabIndex = 23;
+            this.magliettarossa.TabStop = false;
+            // 
+            // magliettabianca
+            // 
+            this.magliettabianca.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.magliettabianca.Location = new System.Drawing.Point(1126, 49);
+            this.magliettabianca.Name = "magliettabianca";
+            this.magliettabianca.Size = new System.Drawing.Size(100, 50);
+            this.magliettabianca.TabIndex = 22;
+            this.magliettabianca.TabStop = false;
+            this.magliettabianca.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Prossimitainterna_sensore
             // 
@@ -577,7 +794,7 @@ namespace ProgettoRespa.net
             // porta
             // 
             this.porta.BackColor = System.Drawing.Color.Maroon;
-            this.porta.Location = new System.Drawing.Point(376, 409);
+            this.porta.Location = new System.Drawing.Point(376, 404);
             this.porta.Name = "porta";
             this.porta.Size = new System.Drawing.Size(446, 18);
             this.porta.TabIndex = 13;
@@ -679,193 +896,121 @@ namespace ProgettoRespa.net
             this.timerTemp.Interval = 500;
             this.timerTemp.Tick += new System.EventHandler(this.timerTemp_Tick);
             // 
-            // magliettabianca
+            // TimerRobot
             // 
-            this.magliettabianca.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.magliettabianca.Location = new System.Drawing.Point(1126, 49);
-            this.magliettabianca.Name = "magliettabianca";
-            this.magliettabianca.Size = new System.Drawing.Size(100, 50);
-            this.magliettabianca.TabIndex = 22;
-            this.magliettabianca.TabStop = false;
-            this.magliettabianca.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
             // 
-            // magliettarossa
+            // fcs_Robot
             // 
-            this.magliettarossa.BackColor = System.Drawing.Color.DarkRed;
-            this.magliettarossa.Location = new System.Drawing.Point(1449, 49);
-            this.magliettarossa.Name = "magliettarossa";
-            this.magliettarossa.Size = new System.Drawing.Size(100, 50);
-            this.magliettarossa.TabIndex = 23;
-            this.magliettarossa.TabStop = false;
+            this.fcs_Robot.BackColor = System.Drawing.Color.Green;
+            this.fcs_Robot.Location = new System.Drawing.Point(782, 245);
+            this.fcs_Robot.Name = "fcs_Robot";
+            this.fcs_Robot.Size = new System.Drawing.Size(19, 20);
+            this.fcs_Robot.TabIndex = 33;
+            this.fcs_Robot.TabStop = false;
             // 
-            // magliettanera
+            // fcd_Robot
             // 
-            this.magliettanera.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.magliettanera.Location = new System.Drawing.Point(1288, 49);
-            this.magliettanera.Name = "magliettanera";
-            this.magliettanera.Size = new System.Drawing.Size(100, 50);
-            this.magliettanera.TabIndex = 24;
-            this.magliettanera.TabStop = false;
+            this.fcd_Robot.BackColor = System.Drawing.Color.Green;
+            this.fcd_Robot.Location = new System.Drawing.Point(845, 245);
+            this.fcd_Robot.Name = "fcd_Robot";
+            this.fcd_Robot.Size = new System.Drawing.Size(19, 20);
+            this.fcd_Robot.TabIndex = 34;
+            this.fcd_Robot.TabStop = false;
             // 
-            // robot
+            // basso_Robot
             // 
-            this.robot.BackColor = System.Drawing.Color.Cyan;
-            this.robot.Location = new System.Drawing.Point(782, 182);
-            this.robot.Name = "robot";
-            this.robot.Size = new System.Drawing.Size(60, 62);
-            this.robot.TabIndex = 25;
-            this.robot.TabStop = false;
-            this.robot.Click += new System.EventHandler(this.robot_Click);
+            this.basso_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.basso_Robot.Location = new System.Drawing.Point(845, 182);
+            this.basso_Robot.Name = "basso_Robot";
+            this.basso_Robot.Size = new System.Drawing.Size(19, 20);
+            this.basso_Robot.TabIndex = 35;
+            this.basso_Robot.TabStop = false;
             // 
-            // braccio1
+            // alto_Robot
             // 
-            this.braccio1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.braccio1.Location = new System.Drawing.Point(802, 163);
-            this.braccio1.Name = "braccio1";
-            this.braccio1.Size = new System.Drawing.Size(20, 53);
-            this.braccio1.TabIndex = 26;
-            this.braccio1.TabStop = false;
+            this.alto_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.alto_Robot.Location = new System.Drawing.Point(782, 182);
+            this.alto_Robot.Name = "alto_Robot";
+            this.alto_Robot.Size = new System.Drawing.Size(19, 20);
+            this.alto_Robot.TabIndex = 36;
+            this.alto_Robot.TabStop = false;
             // 
-            // braccio2
+            // dx_Robot
             // 
-            this.braccio2.BackColor = System.Drawing.Color.SaddleBrown;
-            this.braccio2.Location = new System.Drawing.Point(802, 199);
-            this.braccio2.Name = "braccio2";
-            this.braccio2.Size = new System.Drawing.Size(62, 17);
-            this.braccio2.TabIndex = 27;
-            this.braccio2.TabStop = false;
+            this.dx_Robot.AutoSize = true;
+            this.dx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dx_Robot.Location = new System.Drawing.Point(386, 34);
+            this.dx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dx_Robot.Name = "dx_Robot";
+            this.dx_Robot.Size = new System.Drawing.Size(92, 20);
+            this.dx_Robot.TabIndex = 25;
+            this.dx_Robot.Text = "DX ROBOT";
             // 
-            // pantalonenero
+            // sx_Robot
             // 
-            this.pantalonenero.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pantalonenero.Location = new System.Drawing.Point(1603, 124);
-            this.pantalonenero.Name = "pantalonenero";
-            this.pantalonenero.Size = new System.Drawing.Size(54, 92);
-            this.pantalonenero.TabIndex = 29;
-            this.pantalonenero.TabStop = false;
+            this.sx_Robot.AutoSize = true;
+            this.sx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.sx_Robot.Location = new System.Drawing.Point(386, 95);
+            this.sx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sx_Robot.Name = "sx_Robot";
+            this.sx_Robot.Size = new System.Drawing.Size(91, 20);
+            this.sx_Robot.TabIndex = 26;
+            this.sx_Robot.Text = "SX ROBOT";
             // 
-            // jeans
+            // altoRobot
             // 
-            this.jeans.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.jeans.Location = new System.Drawing.Point(1603, 250);
-            this.jeans.Name = "jeans";
-            this.jeans.Size = new System.Drawing.Size(54, 92);
-            this.jeans.TabIndex = 30;
-            this.jeans.TabStop = false;
+            this.altoRobot.AutoSize = true;
+            this.altoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.altoRobot.Location = new System.Drawing.Point(386, 154);
+            this.altoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.altoRobot.Name = "altoRobot";
+            this.altoRobot.Size = new System.Drawing.Size(110, 20);
+            this.altoRobot.TabIndex = 27;
+            this.altoRobot.Text = "ALTO ROBOT";
             // 
-            // scarpebianche
+            // bassoRobot
             // 
-            this.scarpebianche.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.scarpebianche.Location = new System.Drawing.Point(1126, 337);
-            this.scarpebianche.Name = "scarpebianche";
-            this.scarpebianche.Size = new System.Drawing.Size(100, 50);
-            this.scarpebianche.TabIndex = 31;
-            this.scarpebianche.TabStop = false;
+            this.bassoRobot.AutoSize = true;
+            this.bassoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.bassoRobot.Location = new System.Drawing.Point(386, 225);
+            this.bassoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.bassoRobot.Name = "bassoRobot";
+            this.bassoRobot.Size = new System.Drawing.Size(125, 20);
+            this.bassoRobot.TabIndex = 28;
+            this.bassoRobot.Text = "BASSO ROBOT";
             // 
-            // scarpenere
+            // textDxRobot
             // 
-            this.scarpenere.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.scarpenere.Location = new System.Drawing.Point(1288, 337);
-            this.scarpenere.Name = "scarpenere";
-            this.scarpenere.Size = new System.Drawing.Size(100, 50);
-            this.scarpenere.TabIndex = 32;
-            this.scarpenere.TabStop = false;
+            this.textDxRobot.Location = new System.Drawing.Point(566, 28);
+            this.textDxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textDxRobot.Name = "textDxRobot";
+            this.textDxRobot.Size = new System.Drawing.Size(148, 26);
+            this.textDxRobot.TabIndex = 29;
             // 
-            // sens_robot
+            // textSxRobot
             // 
-            this.sens_robot.AutoSize = true;
-            this.sens_robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sens_robot.Location = new System.Drawing.Point(384, 157);
-            this.sens_robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sens_robot.Name = "sens_robot";
-            this.sens_robot.Size = new System.Drawing.Size(53, 20);
-            this.sens_robot.TabIndex = 34;
-            this.sens_robot.Text = "Robot";
-            this.sens_robot.Click += new System.EventHandler(this.sens_robot_Click);
+            this.textSxRobot.Location = new System.Drawing.Point(566, 95);
+            this.textSxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textSxRobot.Name = "textSxRobot";
+            this.textSxRobot.Size = new System.Drawing.Size(148, 26);
+            this.textSxRobot.TabIndex = 30;
             // 
-            // textRobot
+            // textAltoRobot
             // 
-            this.textRobot.Location = new System.Drawing.Point(544, 154);
-            this.textRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textRobot.Name = "textRobot";
-            this.textRobot.Size = new System.Drawing.Size(148, 26);
-            this.textRobot.TabIndex = 35;
+            this.textAltoRobot.Location = new System.Drawing.Point(566, 151);
+            this.textAltoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textAltoRobot.Name = "textAltoRobot";
+            this.textAltoRobot.Size = new System.Drawing.Size(148, 26);
+            this.textAltoRobot.TabIndex = 31;
             // 
-            // fcsRobot
+            // textBassoRobot
             // 
-            this.fcsRobot.AutoSize = true;
-            this.fcsRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcsRobot.Location = new System.Drawing.Point(373, 214);
-            this.fcsRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fcsRobot.Name = "fcsRobot";
-            this.fcsRobot.Size = new System.Drawing.Size(107, 20);
-            this.fcsRobot.TabIndex = 36;
-            this.fcsRobot.Text = "FCS ROBOT";
-            // 
-            // fcdRobot
-            // 
-            this.fcdRobot.AutoSize = true;
-            this.fcdRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcdRobot.Location = new System.Drawing.Point(371, 266);
-            this.fcdRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fcdRobot.Name = "fcdRobot";
-            this.fcdRobot.Size = new System.Drawing.Size(109, 20);
-            this.fcdRobot.TabIndex = 37;
-            this.fcdRobot.Text = "FCD ROBOT";
-            // 
-            // sensBasso
-            // 
-            this.sensBasso.AutoSize = true;
-            this.sensBasso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sensBasso.Location = new System.Drawing.Point(373, 349);
-            this.sensBasso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sensBasso.Name = "sensBasso";
-            this.sensBasso.Size = new System.Drawing.Size(67, 20);
-            this.sensBasso.TabIndex = 38;
-            this.sensBasso.Text = "BASSO";
-            // 
-            // sensAlto
-            // 
-            this.sensAlto.AutoSize = true;
-            this.sensAlto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sensAlto.Location = new System.Drawing.Point(373, 305);
-            this.sensAlto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sensAlto.Name = "sensAlto";
-            this.sensAlto.Size = new System.Drawing.Size(53, 20);
-            this.sensAlto.TabIndex = 39;
-            this.sensAlto.Text = "ALTO";
-            // 
-            // textFcdRobot
-            // 
-            this.textFcdRobot.Location = new System.Drawing.Point(544, 260);
-            this.textFcdRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textFcdRobot.Name = "textFcdRobot";
-            this.textFcdRobot.Size = new System.Drawing.Size(148, 26);
-            this.textFcdRobot.TabIndex = 40;
-            // 
-            // textAlto
-            // 
-            this.textAlto.Location = new System.Drawing.Point(544, 298);
-            this.textAlto.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textAlto.Name = "textAlto";
-            this.textAlto.Size = new System.Drawing.Size(148, 26);
-            this.textAlto.TabIndex = 41;
-            // 
-            // textBasso
-            // 
-            this.textBasso.Location = new System.Drawing.Point(544, 343);
-            this.textBasso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBasso.Name = "textBasso";
-            this.textBasso.Size = new System.Drawing.Size(148, 26);
-            this.textBasso.TabIndex = 42;
-            // 
-            // textFcsRobot
-            // 
-            this.textFcsRobot.Location = new System.Drawing.Point(544, 211);
-            this.textFcsRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textFcsRobot.Name = "textFcsRobot";
-            this.textFcsRobot.Size = new System.Drawing.Size(148, 26);
-            this.textFcsRobot.TabIndex = 43;
+            this.textBassoRobot.Location = new System.Drawing.Point(566, 225);
+            this.textBassoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBassoRobot.Name = "textBassoRobot";
+            this.textBassoRobot.Size = new System.Drawing.Size(148, 26);
+            this.textBassoRobot.TabIndex = 32;
             // 
             // Form1
             // 
@@ -886,6 +1031,16 @@ namespace ProgettoRespa.net
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jeans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pantalonenero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.braccio2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.braccio1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettanera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettarossa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.magliettabianca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).EndInit();
@@ -901,16 +1056,10 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettabianca)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettarossa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.magliettanera)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.robot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.braccio1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.braccio2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pantalonenero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jeans)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -990,6 +1139,19 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox textBasso;
         private System.Windows.Forms.TextBox textAlto;
         private System.Windows.Forms.TextBox textFcdRobot;
+        private System.Windows.Forms.Timer TimerRobot;
+        private System.Windows.Forms.PictureBox alto_Robot;
+        private System.Windows.Forms.PictureBox basso_Robot;
+        private System.Windows.Forms.PictureBox fcd_Robot;
+        private System.Windows.Forms.PictureBox fcs_Robot;
+        private System.Windows.Forms.TextBox textBassoRobot;
+        private System.Windows.Forms.TextBox textAltoRobot;
+        private System.Windows.Forms.TextBox textSxRobot;
+        private System.Windows.Forms.TextBox textDxRobot;
+        private System.Windows.Forms.Label bassoRobot;
+        private System.Windows.Forms.Label altoRobot;
+        private System.Windows.Forms.Label sx_Robot;
+        private System.Windows.Forms.Label dx_Robot;
     }
 }
 

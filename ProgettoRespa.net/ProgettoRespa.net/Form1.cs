@@ -30,7 +30,13 @@ namespace ProgettoRespa.net
         Boolean Robot = false;
         int posinizialeRobot = 782;
         int durataspostRobot = 5000;
-        int spostRobot=
+        int spostRobot = 740;
+        int deltaRobot;
+        int posAttualeRobot;
+        int posRobot;
+
+        public object CranePicture { get; private set; }
+
         public Form1()
         {
 
@@ -41,7 +47,7 @@ namespace ProgettoRespa.net
             Porta_timer = false;
             Tempo_porta = false;
             Chiusura_aggiornata = false;
-            
+
         }
         private void AggiornamentoPresenza()
         {
@@ -58,7 +64,7 @@ namespace ProgettoRespa.net
                 textPersonaggio.Text = "Presente";
                 textPersonaggio.BackColor = Color.Green;
             }
-            
+
         }
         private void button_START_Click(object sender, EventArgs e)
         {
@@ -66,7 +72,7 @@ namespace ProgettoRespa.net
             textStart.BackColor = Color.Green;
             masterTimer.Enabled = true;
             startTimer.Enabled = true;
-
+            TimerRobot.Enabled = true;
             Start = true;
         }
         private void button_presenza_Click(object sender, EventArgs e)
@@ -88,7 +94,7 @@ namespace ProgettoRespa.net
             textStart.Text = "False";
             textStart.BackColor = Color.Red;
 
-        }     
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -98,7 +104,7 @@ namespace ProgettoRespa.net
             textReset.Text = "True";
             textReset.BackColor = Color.Green;
             resetTimer.Enabled = true;
-           // si può resettare il timer?
+            // si può resettare il timer?
 
             //Start = false;
             Porta_timer = false;
@@ -107,11 +113,11 @@ namespace ProgettoRespa.net
             Chiusura_aggiornata = false;
             presente = false;
             AggiornamentoPresenza();
-            
+
         }
         private void masterTimer_Tick(object sender, EventArgs e)
         {//ciclo di funzionamento del programma
-            
+
             pos = posAttuale + posiniziale;
             delta = masterTimer.Interval;
             if (Start)
@@ -153,10 +159,10 @@ namespace ProgettoRespa.net
 
                 }
                 if (pos < 250)
-                    //se mi trovo a x=250 allora la porta è completamente chiusa e fcs è true
+                //se mi trovo a x=250 allora la porta è completamente chiusa e fcs è true
                 {
                     Chiusura_aggiornata = false;
-                  //la variabile booleana di appoccio chiusura porta viene settata a true appena la porta si apre e riportata a false appena la porta si richiude cosi che il contatore delle chiusure sia aggiornato una sola volta per ciclo
+                    //la variabile booleana di appoccio chiusura porta viene settata a true appena la porta si apre e riportata a false appena la porta si richiude cosi che il contatore delle chiusure sia aggiornato una sola volta per ciclo
                     if (chiusura == 1)
                     {
                         presente = true;
@@ -183,35 +189,35 @@ namespace ProgettoRespa.net
                     }
                     if (Tempo_porta)
                     {
-                        
+
                         textFcdPorta.Text = "False";
                         textFcdPorta.BackColor = Color.Red;
                         posAttuale = posAttuale - (int)(delta * spostamento) / durataspostamento;
                     }
-                   
+
                 }
 
 
                 porta.Left = pos;
-                
+
                 AggiornamentoTemperatura();
             }
         }
         private void PortaTimer_Tick(object sender, EventArgs e)
         {//timer che pone a true la variabile tempo_porta permettendo la ciusura della porta appena trascorso il tempo
             Tempo_porta = true;
-            
+
         }
         private void resetTimer_Tick(object sender, EventArgs e)
         {
             textReset.Text = "False";
             textReset.BackColor = Color.Red;
         }
-        private void AggiornamentoTemperatura() 
+        private void AggiornamentoTemperatura()
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
             String temp = text_tempdesiderata.Text;
-            
+
             if (temp != string.Empty)
 
             {
@@ -220,42 +226,42 @@ namespace ProgettoRespa.net
                 {
                     // in questo blocco definisco ciò che il codice deve fare 
                     tempAttuale = int.Parse(textTemperatura.Text);
-                     temp1 = int.Parse(temp);
+                    temp1 = int.Parse(temp);
                     timerTemp.Enabled = true;
-                    
+
 
 
                 }
                 catch (FormatException)
                 {
-                  //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
-                    
+                    //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
+
                 }
                 finally
                 {
                     //per far eseguire al codice qualcosa indipendentemente dall'esito del try
                 }
-                
-            } 
+
+            }
         }
         private void timerTemp_Tick(object sender, EventArgs e)
         {
-             // voglio che la temperatura aumenti solo se la temperatura della staza risulta minore della temperatura desiderata, se la porta è chiusa e se il personaggio è presente
-            if (tempAttuale < temp1&&textFcsPorta.Text.Equals("True") && textPersonaggio.Text.Equals("Presente"))
+            // voglio che la temperatura aumenti solo se la temperatura della staza risulta minore della temperatura desiderata, se la porta è chiusa e se il personaggio è presente
+            if (tempAttuale < temp1 && textFcsPorta.Text.Equals("True") && textPersonaggio.Text.Equals("Presente"))
             {
                 tempAttuale = tempAttuale + 0.5;
             }
             //se la temperatura attuale della stanza è maggiore di quella iniziale allora, essendo la porta aperta, deve diminuire
-            if(tempAttuale > tempIniziale && !textFcsPorta.Text.Equals("True"))
+            if (tempAttuale > tempIniziale && !textFcsPorta.Text.Equals("True"))
             {
                 tempAttuale = tempAttuale - 0.5;
             }
             //la temperatura deve rimanere compresa fra la temperatura minima e la temperatura max
-            if(tempAttuale > temp1)
+            if (tempAttuale > temp1)
             {
                 tempAttuale = temp1;
-            } 
-             if (tempAttuale < tempIniziale)
+            }
+            if (tempAttuale < tempIniziale)
             {
                 tempAttuale = tempIniziale;
             }
@@ -282,5 +288,58 @@ namespace ProgettoRespa.net
         {
 
         }
+
+        private void TimerRobot_Tick(object sender, EventArgs e)
+        {
+            if (textDxRobot.Text.Equals("True"))
+                {
+
+                    posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
+
+                }
+                if (textSxRobot.Text.Equals("True"))
+                {
+                    posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+
+                }
+                if (posAttualeRobot >= spostRobot)
+                {
+                    posAttuale = spostRobot;
+                    fcd_Robot.BackColor = Color.Green;
+                    textFcdRobot.Text = "True";
+                }
+                    else
+            {
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+            }
+            
+                if(posAttualeRobot <= 0)
+                {
+                    posAttualeRobot = 0;
+                    fcs_Robot.BackColor= Color.Green;
+                    textFcsRobot.Text = "True";
+
+
+            }
+                 else
+            {
+                fcs_Robot.BackColor = Color.Red;
+                textFcsRobot.Text = "False";
+
+
+
+            }
+                robot.Left = posinizialeRobot + posAttualeRobot;
+            }
+
+        }
     }
-}
+
+    
+
+
+
+
+
+
