@@ -27,6 +27,10 @@ namespace ProgettoRespa.net
         double tempAttuale;
         int tempIniziale = 19;//temperatura iniziale della stanza
         int temp1;
+        Boolean Robot = false;
+        int posinizialeRobot = 782;
+        int durataspostRobot = 5000;
+        int spostRobot=
         public Form1()
         {
 
@@ -257,6 +261,26 @@ namespace ProgettoRespa.net
             }
 
             textTemperatura.Text = tempAttuale.ToString();
-        } 
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void robot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SensorePortaInterno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sens_robot_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
