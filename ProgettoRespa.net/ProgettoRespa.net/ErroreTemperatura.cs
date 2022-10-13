@@ -25,11 +25,11 @@ namespace ProgettoRespa.net
                 messaggio = "Brrrr, che freddo conviene alzare la temperatura";
                 valore = num;
             }
-            if (num < tempIniziale)
+            if (num < tempIniziale&& num > 0)
             {
-                messaggio = "Attenzione la temperatura non può essere minore della temperatura iniziale dellastanza";
+                messaggio = "Attenzione la temperatura non può essere minore della temperatura iniziale della stanza";
             }
-            if (num > tempmax)
+            if (num > tempmax&& num > 0)
             {
                 string t = tempmax.ToString();
                 messaggio = "attenzione la temperatura della stanza non può superare: " + t + " gradi, perfavore abbassare la temperatura";

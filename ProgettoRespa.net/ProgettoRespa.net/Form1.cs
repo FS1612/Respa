@@ -223,9 +223,9 @@ namespace ProgettoRespa.net
             String temp = text_tempdesiderata.Text;
             errTemp.SetTempIniziale(tempIniziale);
             errTemp.SetTempmax(tempmax);
-            //if (temp != string.Empty)
+            if (presente)
 
-            //{
+            {
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
                 {
@@ -250,23 +250,23 @@ namespace ProgettoRespa.net
                         throw new ErroreTemperatura(-1);
                     }
                     temp1 = int.Parse(temp);
-                    if (temp1 < tempmax && temp1 > tempIniziale) { timerTemp.Enabled = true; }
+                    if (temp1 <= tempmax && temp1 >= tempIniziale) {
+                        timerTemp.Enabled = true; }
                     else
                     {
-                        if (!ErroreTempNonValida) {
-                            ErroreTempNonValida = true;
-                            throw new ErroreTemperatura(temp);
-                            
-                        }
-                       
+                     
+                        text_tempdesiderata.Text = "";
+                        throw new ErroreTemperatura(temp);   
                     }
+                       
                 }
+            }
                     // in questo blocco definisco ciò che il codice deve fare 
                     
 
 
 
-                }
+            
                 catch (ErroreTemperatura e)
                 {
                 //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
@@ -278,7 +278,7 @@ namespace ProgettoRespa.net
                     //per far eseguire al codice qualcosa indipendentemente dall'esito del try
                 }
 
-            //}
+            }
         }
         private void timerTemp_Tick(object sender, EventArgs e)
         {
