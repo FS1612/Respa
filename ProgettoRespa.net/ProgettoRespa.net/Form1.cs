@@ -343,6 +343,38 @@ namespace ProgettoRespa.net
                 fcd_Robot.BackColor = Color.Green;
                 textFcdRobot.Text = "True";
             }
+            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
+            {
+                braccio2.Width = 80;
+            }
+
+            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
+            {
+                braccio3.Height = 80;
+
+            }
+            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
+            {
+                braccio1.Top = 35;
+                braccio1.Height = 80;
+
+            }
+            if (textBraccio2.Text.Equals(""))
+            {
+                braccio2.Width = 30;
+            }
+            if (textBraccio3.Text.Equals(""))
+            {
+                braccio3.Height = 30;
+            }
+
+            
+            if (textBraccio1.Text.Equals(""))
+            {
+                
+                braccio1.Height = 30;
+            }
+
             //else
             //{
             //    fcd_Robot.BackColor = Color.Red;
@@ -377,7 +409,7 @@ namespace ProgettoRespa.net
             braccio1.Left = posRobot+26;
             braccio2.Left = posRobot+26;
             braccio3.Left = posRobot + 26;
-            braccio2.Width = posRobot + 30;
+           // braccio2.Width = posRobot + 30;
         }
 
         }
