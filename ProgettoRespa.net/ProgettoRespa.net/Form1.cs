@@ -35,12 +35,14 @@ namespace ProgettoRespa.net
         int deltaRobot;
         int posAttualeRobot;
         int posRobot;
-
+        bool ErroreTempNonValida = false;
+        int tempmax = 30;
+        ErroreTemperatura errTemp;
         public object CranePicture { get; private set; }
 
         public Form1()
         {
-
+            errTemp = new ErroreTemperatura();
             InitializeComponent();
             tempAttuale = tempIniziale;
             textTemperatura.Text = tempAttuale.ToString();
@@ -218,32 +220,64 @@ namespace ProgettoRespa.net
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
             String temp = text_tempdesiderata.Text;
+            errTemp.SetTempIniziale(tempIniziale);
+            errTemp.SetTempmax(tempmax);
+            //if (temp != string.Empty)
 
-            if (temp != string.Empty)
-
-            {
+            //{
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
                 {
-                    // in questo blocco definisco ciò che il codice deve fare 
-                    tempAttuale = int.Parse(textTemperatura.Text);
+                if (temp == string.Empty)
+                {
+                    if (!ErroreTempNonValida)
+                    {
+                        ErroreTempNonValida = true;
+                        throw new ErroreTemperatura("");
+                    }
+                    
+                }
+                if (temp != string.Empty) {
+                    if(temp=="0")
+                    {
+                        text_tempdesiderata.Text = "";
+                        throw new ErroreTemperatura(0);
+                    }  
+                    else if (temp.Contains("-"))
+                    {
+                        text_tempdesiderata.Text = "";
+                        throw new ErroreTemperatura(-1);
+                    }
                     temp1 = int.Parse(temp);
-                    timerTemp.Enabled = true;
+                    if (temp1 < tempmax && temp1 > tempIniziale) { timerTemp.Enabled = true; }
+                    else
+                    {
+                        if (!ErroreTempNonValida) {
+                            ErroreTempNonValida = true;
+                            throw new ErroreTemperatura(temp);
+                            
+                        }
+                       
+                    }
+                }
+                    // in questo blocco definisco ciò che il codice deve fare 
+                    
 
 
 
                 }
-                catch (FormatException)
+                catch (ErroreTemperatura e)
                 {
-                    //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
-
+                //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
+                MessageBox.Show(e.getMsg());
                 }
                 finally
                 {
+                ErroreTempNonValida = true;
                     //per far eseguire al codice qualcosa indipendentemente dall'esito del try
                 }
 
-            }
+            //}
         }
         private void timerTemp_Tick(object sender, EventArgs e)
         {
