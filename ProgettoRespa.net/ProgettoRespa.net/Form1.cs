@@ -335,14 +335,10 @@ namespace ProgettoRespa.net
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
 
                 }
-            if (textSxRobot.Text.Equals("True"))
+            
+            if (posRobot > 966)
             {
-                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-
-            }
-            if (posAttualeRobot > spostRobot)
-            {
-                posAttualeRobot = spostRobot;
+                posRobot = 966;
                 textDxRobot.Text = "";
                 fcd_Robot.BackColor = Color.Green;
                 textFcdRobot.Text = "True";
@@ -352,26 +348,37 @@ namespace ProgettoRespa.net
             //    fcd_Robot.BackColor = Color.Red;
             //    textFcdRobot.Text = "False";
             //}
-
-            if (posRobot < posinizialeRobot)
+            if (posRobot < 526)
             {
-                posRobot = posinizialeRobot;
+                posRobot = 526;
                 textSxRobot.Text = "";
                 fcs_Robot.BackColor = Color.Green;
                 textFcsRobot.Text = "True";
 
 
-                }
-                //else
-                //{
-                //    fcs_Robot.BackColor = Color.Red;
-                //    textFcsRobot.Text = "False";
-
-
-
-                //}
-                robot.Left = posinizialeRobot + posAttualeRobot;
             }
+
+            if (textSxRobot.Text.Equals("True"))
+            {
+                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+                
+            }
+            
+            //else
+            //{
+            //    fcs_Robot.BackColor = Color.Red;
+            //    textFcsRobot.Text = "False";
+
+
+
+            //}
+
+            robot.Left = posRobot;
+            braccio1.Left = posRobot+26;
+            braccio2.Left = posRobot+26;
+            braccio3.Left = posRobot + 26;
+            braccio2.Width = posRobot + 30;
+        }
 
         }
     }
