@@ -28,10 +28,11 @@ namespace ProgettoRespa.net
         int tempIniziale = 19;//temperatura iniziale della stanza
         int temp1;
         Boolean Robot = false;
-        //int posinizialeRobot = 782;
+       // int posinizialeRobot = 782;
         int posinizialeRobot = 521;
         int durataspostRobot = 5000;
-        int spostRobot = 740;
+        //int spostRobot = 740;
+        int spostRobot = 445;
         int deltaRobot;
         int posAttualeRobot;
         int posRobot;
@@ -326,45 +327,49 @@ namespace ProgettoRespa.net
 
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
+            posRobot = posAttualeRobot + posinizialeRobot;
+            deltaRobot = TimerRobot.Interval;
             if (textDxRobot.Text.Equals("True"))
                 {
 
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
 
                 }
-                if (textSxRobot.Text.Equals("True"))
-                {
-                    posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+            if (textSxRobot.Text.Equals("True"))
+            {
+                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+
+            }
+            if (posAttualeRobot > spostRobot)
+            {
+                posAttualeRobot = spostRobot;
+                textDxRobot.Text = "";
+                fcd_Robot.BackColor = Color.Green;
+                textFcdRobot.Text = "True";
+            }
+            //else
+            //{
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //}
+
+            if (posRobot < posinizialeRobot)
+            {
+                posRobot = posinizialeRobot;
+                textSxRobot.Text = "";
+                fcs_Robot.BackColor = Color.Green;
+                textFcsRobot.Text = "True";
+
 
                 }
-                if (posAttualeRobot >= spostRobot)
-                {
-                    posAttuale = spostRobot;
-                    fcd_Robot.BackColor = Color.Green;
-                    textFcdRobot.Text = "True";
-                }
-                    else
-            {
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-            }
-            
-                if(posAttualeRobot <= 0)
-                {
-                    posAttualeRobot = 0;
-                    fcs_Robot.BackColor= Color.Green;
-                    textFcsRobot.Text = "True";
-
-
-            }
-                 else
-            {
-                fcs_Robot.BackColor = Color.Red;
-                textFcsRobot.Text = "False";
+                //else
+                //{
+                //    fcs_Robot.BackColor = Color.Red;
+                //    textFcsRobot.Text = "False";
 
 
 
-            }
+                //}
                 robot.Left = posinizialeRobot + posAttualeRobot;
             }
 

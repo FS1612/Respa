@@ -62,6 +62,14 @@ namespace ProgettoRespa.net
             this.fcdPorta = new System.Windows.Forms.Label();
             this.fcsPorta = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBassoRobot = new System.Windows.Forms.TextBox();
+            this.textAltoRobot = new System.Windows.Forms.TextBox();
+            this.textSxRobot = new System.Windows.Forms.TextBox();
+            this.textDxRobot = new System.Windows.Forms.TextBox();
+            this.bassoRobot = new System.Windows.Forms.Label();
+            this.altoRobot = new System.Windows.Forms.Label();
+            this.sx_Robot = new System.Windows.Forms.Label();
+            this.dx_Robot = new System.Windows.Forms.Label();
             this.text_ALLARME = new System.Windows.Forms.TextBox();
             this.text_indumentodesiderato = new System.Windows.Forms.TextBox();
             this.text_tempdesiderata = new System.Windows.Forms.TextBox();
@@ -75,6 +83,10 @@ namespace ProgettoRespa.net
             this.masterTimer = new System.Windows.Forms.Timer(this.components);
             this.startTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.alto_Robot = new System.Windows.Forms.PictureBox();
+            this.basso_Robot = new System.Windows.Forms.PictureBox();
+            this.fcd_Robot = new System.Windows.Forms.PictureBox();
+            this.fcs_Robot = new System.Windows.Forms.PictureBox();
             this.scarpenere = new System.Windows.Forms.PictureBox();
             this.scarpebianche = new System.Windows.Forms.PictureBox();
             this.jeans = new System.Windows.Forms.PictureBox();
@@ -104,22 +116,14 @@ namespace ProgettoRespa.net
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
-            this.fcs_Robot = new System.Windows.Forms.PictureBox();
-            this.fcd_Robot = new System.Windows.Forms.PictureBox();
-            this.basso_Robot = new System.Windows.Forms.PictureBox();
-            this.alto_Robot = new System.Windows.Forms.PictureBox();
-            this.dx_Robot = new System.Windows.Forms.Label();
-            this.sx_Robot = new System.Windows.Forms.Label();
-            this.altoRobot = new System.Windows.Forms.Label();
-            this.bassoRobot = new System.Windows.Forms.Label();
-            this.textDxRobot = new System.Windows.Forms.TextBox();
-            this.textSxRobot = new System.Windows.Forms.TextBox();
-            this.textAltoRobot = new System.Windows.Forms.TextBox();
-            this.textBassoRobot = new System.Windows.Forms.TextBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeans)).BeginInit();
@@ -145,10 +149,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).BeginInit();
             this.SuspendLayout();
             // 
             // bOTTONI_PANEL
@@ -514,6 +514,82 @@ namespace ProgettoRespa.net
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
             // 
+            // textBassoRobot
+            // 
+            this.textBassoRobot.Location = new System.Drawing.Point(566, 225);
+            this.textBassoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBassoRobot.Name = "textBassoRobot";
+            this.textBassoRobot.Size = new System.Drawing.Size(148, 26);
+            this.textBassoRobot.TabIndex = 32;
+            // 
+            // textAltoRobot
+            // 
+            this.textAltoRobot.Location = new System.Drawing.Point(566, 151);
+            this.textAltoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textAltoRobot.Name = "textAltoRobot";
+            this.textAltoRobot.Size = new System.Drawing.Size(148, 26);
+            this.textAltoRobot.TabIndex = 31;
+            // 
+            // textSxRobot
+            // 
+            this.textSxRobot.Location = new System.Drawing.Point(566, 95);
+            this.textSxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textSxRobot.Name = "textSxRobot";
+            this.textSxRobot.Size = new System.Drawing.Size(148, 26);
+            this.textSxRobot.TabIndex = 30;
+            // 
+            // textDxRobot
+            // 
+            this.textDxRobot.Location = new System.Drawing.Point(566, 28);
+            this.textDxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textDxRobot.Name = "textDxRobot";
+            this.textDxRobot.Size = new System.Drawing.Size(148, 26);
+            this.textDxRobot.TabIndex = 29;
+            // 
+            // bassoRobot
+            // 
+            this.bassoRobot.AutoSize = true;
+            this.bassoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.bassoRobot.Location = new System.Drawing.Point(386, 225);
+            this.bassoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.bassoRobot.Name = "bassoRobot";
+            this.bassoRobot.Size = new System.Drawing.Size(125, 20);
+            this.bassoRobot.TabIndex = 28;
+            this.bassoRobot.Text = "BASSO ROBOT";
+            // 
+            // altoRobot
+            // 
+            this.altoRobot.AutoSize = true;
+            this.altoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.altoRobot.Location = new System.Drawing.Point(386, 154);
+            this.altoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.altoRobot.Name = "altoRobot";
+            this.altoRobot.Size = new System.Drawing.Size(110, 20);
+            this.altoRobot.TabIndex = 27;
+            this.altoRobot.Text = "ALTO ROBOT";
+            // 
+            // sx_Robot
+            // 
+            this.sx_Robot.AutoSize = true;
+            this.sx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.sx_Robot.Location = new System.Drawing.Point(386, 95);
+            this.sx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.sx_Robot.Name = "sx_Robot";
+            this.sx_Robot.Size = new System.Drawing.Size(91, 20);
+            this.sx_Robot.TabIndex = 26;
+            this.sx_Robot.Text = "SX ROBOT";
+            // 
+            // dx_Robot
+            // 
+            this.dx_Robot.AutoSize = true;
+            this.dx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.dx_Robot.Location = new System.Drawing.Point(386, 34);
+            this.dx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dx_Robot.Name = "dx_Robot";
+            this.dx_Robot.Size = new System.Drawing.Size(92, 20);
+            this.dx_Robot.TabIndex = 25;
+            this.dx_Robot.Text = "DX ROBOT";
+            // 
             // text_ALLARME
             // 
             this.text_ALLARME.Location = new System.Drawing.Point(202, 298);
@@ -654,6 +730,42 @@ namespace ProgettoRespa.net
             this.panel1.Size = new System.Drawing.Size(1912, 535);
             this.panel1.TabIndex = 8;
             // 
+            // alto_Robot
+            // 
+            this.alto_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.alto_Robot.Location = new System.Drawing.Point(782, 182);
+            this.alto_Robot.Name = "alto_Robot";
+            this.alto_Robot.Size = new System.Drawing.Size(19, 20);
+            this.alto_Robot.TabIndex = 36;
+            this.alto_Robot.TabStop = false;
+            // 
+            // basso_Robot
+            // 
+            this.basso_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.basso_Robot.Location = new System.Drawing.Point(845, 182);
+            this.basso_Robot.Name = "basso_Robot";
+            this.basso_Robot.Size = new System.Drawing.Size(19, 20);
+            this.basso_Robot.TabIndex = 35;
+            this.basso_Robot.TabStop = false;
+            // 
+            // fcd_Robot
+            // 
+            this.fcd_Robot.BackColor = System.Drawing.Color.Green;
+            this.fcd_Robot.Location = new System.Drawing.Point(845, 245);
+            this.fcd_Robot.Name = "fcd_Robot";
+            this.fcd_Robot.Size = new System.Drawing.Size(19, 20);
+            this.fcd_Robot.TabIndex = 34;
+            this.fcd_Robot.TabStop = false;
+            // 
+            // fcs_Robot
+            // 
+            this.fcs_Robot.BackColor = System.Drawing.Color.Green;
+            this.fcs_Robot.Location = new System.Drawing.Point(782, 245);
+            this.fcs_Robot.Name = "fcs_Robot";
+            this.fcs_Robot.Size = new System.Drawing.Size(19, 20);
+            this.fcs_Robot.TabIndex = 33;
+            this.fcs_Robot.TabStop = false;
+            // 
             // scarpenere
             // 
             this.scarpenere.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -692,7 +804,7 @@ namespace ProgettoRespa.net
             // 
             // braccio2
             // 
-            this.braccio2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.braccio2.BackColor = System.Drawing.Color.Black;
             this.braccio2.Location = new System.Drawing.Point(782, 218);
             this.braccio2.Name = "braccio2";
             this.braccio2.Size = new System.Drawing.Size(120, 17);
@@ -701,16 +813,16 @@ namespace ProgettoRespa.net
             // 
             // braccio1
             // 
-            this.braccio1.BackColor = System.Drawing.Color.SaddleBrown;
-            this.braccio1.Location = new System.Drawing.Point(811, 182);
+            this.braccio1.BackColor = System.Drawing.Color.Black;
+            this.braccio1.Location = new System.Drawing.Point(811, 145);
             this.braccio1.Name = "braccio1";
-            this.braccio1.Size = new System.Drawing.Size(20, 53);
+            this.braccio1.Size = new System.Drawing.Size(20, 90);
             this.braccio1.TabIndex = 26;
             this.braccio1.TabStop = false;
             // 
             // robot
             // 
-            this.robot.BackColor = System.Drawing.Color.Magenta;
+            this.robot.BackColor = System.Drawing.Color.Coral;
             this.robot.Location = new System.Drawing.Point(782, 182);
             this.robot.Name = "robot";
             this.robot.Size = new System.Drawing.Size(82, 83);
@@ -757,7 +869,7 @@ namespace ProgettoRespa.net
             // 
             // pictureBox21
             // 
-            this.pictureBox21.BackColor = System.Drawing.Color.DeepPink;
+            this.pictureBox21.BackColor = System.Drawing.Color.Teal;
             this.pictureBox21.Location = new System.Drawing.Point(128, 145);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(33, 120);
@@ -900,118 +1012,6 @@ namespace ProgettoRespa.net
             // 
             this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
             // 
-            // fcs_Robot
-            // 
-            this.fcs_Robot.BackColor = System.Drawing.Color.Green;
-            this.fcs_Robot.Location = new System.Drawing.Point(782, 245);
-            this.fcs_Robot.Name = "fcs_Robot";
-            this.fcs_Robot.Size = new System.Drawing.Size(19, 20);
-            this.fcs_Robot.TabIndex = 33;
-            this.fcs_Robot.TabStop = false;
-            // 
-            // fcd_Robot
-            // 
-            this.fcd_Robot.BackColor = System.Drawing.Color.Green;
-            this.fcd_Robot.Location = new System.Drawing.Point(845, 245);
-            this.fcd_Robot.Name = "fcd_Robot";
-            this.fcd_Robot.Size = new System.Drawing.Size(19, 20);
-            this.fcd_Robot.TabIndex = 34;
-            this.fcd_Robot.TabStop = false;
-            // 
-            // basso_Robot
-            // 
-            this.basso_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.basso_Robot.Location = new System.Drawing.Point(845, 182);
-            this.basso_Robot.Name = "basso_Robot";
-            this.basso_Robot.Size = new System.Drawing.Size(19, 20);
-            this.basso_Robot.TabIndex = 35;
-            this.basso_Robot.TabStop = false;
-            // 
-            // alto_Robot
-            // 
-            this.alto_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.alto_Robot.Location = new System.Drawing.Point(782, 182);
-            this.alto_Robot.Name = "alto_Robot";
-            this.alto_Robot.Size = new System.Drawing.Size(19, 20);
-            this.alto_Robot.TabIndex = 36;
-            this.alto_Robot.TabStop = false;
-            // 
-            // dx_Robot
-            // 
-            this.dx_Robot.AutoSize = true;
-            this.dx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.dx_Robot.Location = new System.Drawing.Point(386, 34);
-            this.dx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dx_Robot.Name = "dx_Robot";
-            this.dx_Robot.Size = new System.Drawing.Size(92, 20);
-            this.dx_Robot.TabIndex = 25;
-            this.dx_Robot.Text = "DX ROBOT";
-            // 
-            // sx_Robot
-            // 
-            this.sx_Robot.AutoSize = true;
-            this.sx_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.sx_Robot.Location = new System.Drawing.Point(386, 95);
-            this.sx_Robot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sx_Robot.Name = "sx_Robot";
-            this.sx_Robot.Size = new System.Drawing.Size(91, 20);
-            this.sx_Robot.TabIndex = 26;
-            this.sx_Robot.Text = "SX ROBOT";
-            // 
-            // altoRobot
-            // 
-            this.altoRobot.AutoSize = true;
-            this.altoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.altoRobot.Location = new System.Drawing.Point(386, 154);
-            this.altoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.altoRobot.Name = "altoRobot";
-            this.altoRobot.Size = new System.Drawing.Size(110, 20);
-            this.altoRobot.TabIndex = 27;
-            this.altoRobot.Text = "ALTO ROBOT";
-            // 
-            // bassoRobot
-            // 
-            this.bassoRobot.AutoSize = true;
-            this.bassoRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.bassoRobot.Location = new System.Drawing.Point(386, 225);
-            this.bassoRobot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.bassoRobot.Name = "bassoRobot";
-            this.bassoRobot.Size = new System.Drawing.Size(125, 20);
-            this.bassoRobot.TabIndex = 28;
-            this.bassoRobot.Text = "BASSO ROBOT";
-            // 
-            // textDxRobot
-            // 
-            this.textDxRobot.Location = new System.Drawing.Point(566, 28);
-            this.textDxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textDxRobot.Name = "textDxRobot";
-            this.textDxRobot.Size = new System.Drawing.Size(148, 26);
-            this.textDxRobot.TabIndex = 29;
-            // 
-            // textSxRobot
-            // 
-            this.textSxRobot.Location = new System.Drawing.Point(566, 95);
-            this.textSxRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textSxRobot.Name = "textSxRobot";
-            this.textSxRobot.Size = new System.Drawing.Size(148, 26);
-            this.textSxRobot.TabIndex = 30;
-            // 
-            // textAltoRobot
-            // 
-            this.textAltoRobot.Location = new System.Drawing.Point(566, 151);
-            this.textAltoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textAltoRobot.Name = "textAltoRobot";
-            this.textAltoRobot.Size = new System.Drawing.Size(148, 26);
-            this.textAltoRobot.TabIndex = 31;
-            // 
-            // textBassoRobot
-            // 
-            this.textBassoRobot.Location = new System.Drawing.Point(566, 225);
-            this.textBassoRobot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBassoRobot.Name = "textBassoRobot";
-            this.textBassoRobot.Size = new System.Drawing.Size(148, 26);
-            this.textBassoRobot.TabIndex = 32;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1031,6 +1031,10 @@ namespace ProgettoRespa.net
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpenere)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpebianche)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeans)).EndInit();
@@ -1056,10 +1060,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fcs_Robot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fcd_Robot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.basso_Robot)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alto_Robot)).EndInit();
             this.ResumeLayout(false);
 
         }
