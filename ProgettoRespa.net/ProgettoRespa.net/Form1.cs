@@ -225,7 +225,7 @@ namespace ProgettoRespa.net
             //errTemp.SetTempIniziale(tempIniziale);
             //errTemp.SetTempmax(tempmax);
             if (presente)
-
+                
             {
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
@@ -295,97 +295,106 @@ namespace ProgettoRespa.net
 
             textTemperatura.Text = tempAttuale.ToString();
         }
-
-       
-
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
             posRobot = posAttualeRobot + posinizialeRobot;
             deltaRobot = TimerRobot.Interval;
-            if (textDxRobot.Text.Equals("True"))
+            if(Text_RobotAutomatico.Text.Equals("")|| Text_RobotAutomatico.Text.Equals("False")) {
+                textBraccio1.Enabled = true;
+                textBraccio2.Enabled = true;
+                textBraccio3.Enabled = true;
+                textDxRobot.Enabled = true;
+                textSxRobot.Enabled = true;
+                if (textDxRobot.Text.Equals("True"))
                 {
-
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
+                }
+
+                if (posRobot > 966)
+                {
+                    posRobot = 966;
+                    textDxRobot.Text = "";
+                    fcd_Robot.BackColor = Color.Green;
+                    textFcdRobot.Text = "True";
+                }
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
+                {
+                    braccio2.Width = 80;
+                }
+
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
+                {
+                    braccio3.Height = 80;
 
                 }
-            
-            if (posRobot > 966)
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
+                {
+                    braccio1.Top = 35;
+                    braccio1.Height = 80;
+
+                }
+                if (textBraccio2.Text.Equals(""))
+                {
+                    braccio2.Width = 30;
+                }
+                if (textBraccio3.Text.Equals(""))
+                {
+                    braccio3.Height = 30;
+                }
+                if (textBraccio1.Text.Equals(""))
+                {
+                    braccio1.Location = new Point(547, 88);
+                    braccio1.Height = 35;
+                }
+                if (posRobot < 526)
+                {
+                    posRobot = 526;
+                    textSxRobot.Text = "";
+                    fcs_Robot.BackColor = Color.Green;
+                    textFcsRobot.Text = "True";
+
+
+                }
+
+                if (textSxRobot.Text.Equals("True"))
+                {
+                    posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+
+                }
+                robot.Left = posRobot;
+                braccio1.Left = posRobot + 26;
+                braccio2.Left = posRobot + 26;
+                braccio3.Left = posRobot + 26;
+            }//*fine controlli analogici Robot
+            else
             {
-                posRobot = 966;
-                textDxRobot.Text = "";
-                fcd_Robot.BackColor = Color.Green;
-                textFcdRobot.Text = "True";
-            }
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
-            {
-                braccio2.Width = 80;
-            }
+                textBraccio1.Enabled = false;
+                textBraccio2.Enabled = false;
+                textBraccio3.Enabled = false;
+                textDxRobot.Enabled = false;
+                textSxRobot.Enabled = false;
+                try
+                {
+                    string[] parti;
+                    String colore;
+                    String indumento;
+                    parti=text_indumentodesiderato.Text.Split(' ');                 
+                    colore = parti[1];
+                    indumento = parti[0];
+                    throw new ErroriIndumenti(indumento, colore);
+                }
+                catch
+                {
 
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
-            {
-                braccio3.Height = 80;
-
-            }
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
-            {
-                braccio1.Top = 35;
-                braccio1.Height = 80;
-
-            }
-            if (textBraccio2.Text.Equals(""))
-            {
-                braccio2.Width = 30;
-            }
-            if (textBraccio3.Text.Equals(""))
-            {
-                braccio3.Height = 30;
+                }
             }
 
-            
-            if (textBraccio1.Text.Equals(""))
-            {
-                braccio1.Location =new Point (547, 88);
-                braccio1.Height = 35;
-            }
-
-            //else
-            //{
-            //    fcd_Robot.BackColor = Color.Red;
-            //    textFcdRobot.Text = "False";
-            //}
-            if (posRobot < 526)
-            {
-                posRobot = 526;
-                textSxRobot.Text = "";
-                fcs_Robot.BackColor = Color.Green;
-                textFcsRobot.Text = "True";
-
-
-            }
-
-            if (textSxRobot.Text.Equals("True"))
-            {
-                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-                
-            }
-            
-            //else
-            //{
-            //    fcs_Robot.BackColor = Color.Red;
-            //    textFcsRobot.Text = "False";
-
-
-
-            //}
-
-            robot.Left = posRobot;
-            braccio1.Left = posRobot+26;
-            braccio2.Left = posRobot+26;
-            braccio3.Left = posRobot + 26;
-           // braccio2.Width = posRobot + 30;
+            //robot.Left = posRobot;
+            //braccio1.Left = posRobot+26;
+            //braccio2.Left = posRobot+26;
+            //braccio3.Left = posRobot + 26;
+           
         }
-        
-        
 
         
     }

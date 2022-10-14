@@ -62,6 +62,7 @@ namespace ProgettoRespa.net
             this.fcdPorta = new System.Windows.Forms.Label();
             this.fcsPorta = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Robot_automatico = new System.Windows.Forms.Label();
             this.textBraccio3 = new System.Windows.Forms.TextBox();
             this.braccio3Robot = new System.Windows.Forms.Label();
             this.textBraccio2 = new System.Windows.Forms.TextBox();
@@ -119,6 +120,7 @@ namespace ProgettoRespa.net
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
+            this.Text_RobotAutomatico = new System.Windows.Forms.TextBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -314,7 +316,6 @@ namespace ProgettoRespa.net
             this.sens_robot.Size = new System.Drawing.Size(36, 13);
             this.sens_robot.TabIndex = 34;
             this.sens_robot.Text = "Robot";
-           
             // 
             // TextSensorePortaInterno
             // 
@@ -332,7 +333,6 @@ namespace ProgettoRespa.net
             this.SensorePortaInterno.Size = new System.Drawing.Size(110, 13);
             this.SensorePortaInterno.TabIndex = 32;
             this.SensorePortaInterno.Text = "Sensore Porta Interno";
-            
             // 
             // TextSensProssimita_porta
             // 
@@ -459,6 +459,8 @@ namespace ProgettoRespa.net
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Text_RobotAutomatico);
+            this.groupBox1.Controls.Add(this.Robot_automatico);
             this.groupBox1.Controls.Add(this.textBraccio3);
             this.groupBox1.Controls.Add(this.braccio3Robot);
             this.groupBox1.Controls.Add(this.textBraccio2);
@@ -481,10 +483,19 @@ namespace ProgettoRespa.net
             this.groupBox1.Controls.Add(this.LUCE_ACCESA);
             this.groupBox1.Location = new System.Drawing.Point(723, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(551, 226);
+            this.groupBox1.Size = new System.Drawing.Size(551, 271);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
+            // 
+            // Robot_automatico
+            // 
+            this.Robot_automatico.AutoSize = true;
+            this.Robot_automatico.Location = new System.Drawing.Point(15, 227);
+            this.Robot_automatico.Name = "Robot_automatico";
+            this.Robot_automatico.Size = new System.Drawing.Size(60, 26);
+            this.Robot_automatico.TabIndex = 35;
+            this.Robot_automatico.Text = "Robot\r\nAutomatico\r\n";
             // 
             // textBraccio3
             // 
@@ -822,7 +833,6 @@ namespace ProgettoRespa.net
             this.robot.Size = new System.Drawing.Size(55, 54);
             this.robot.TabIndex = 25;
             this.robot.TabStop = false;
-            
             // 
             // magliettanera
             // 
@@ -853,7 +863,6 @@ namespace ProgettoRespa.net
             this.magliettabianca.Size = new System.Drawing.Size(67, 32);
             this.magliettabianca.TabIndex = 22;
             this.magliettabianca.TabStop = false;
-            
             // 
             // Prossimitainterna_sensore
             // 
@@ -1024,6 +1033,13 @@ namespace ProgettoRespa.net
             // 
             this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
             // 
+            // Text_RobotAutomatico
+            // 
+            this.Text_RobotAutomatico.Location = new System.Drawing.Point(135, 232);
+            this.Text_RobotAutomatico.Name = "Text_RobotAutomatico";
+            this.Text_RobotAutomatico.Size = new System.Drawing.Size(100, 20);
+            this.Text_RobotAutomatico.TabIndex = 36;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1167,6 +1183,8 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.Label braccio3Robot;
         private System.Windows.Forms.TextBox textBraccio3;
         public System.Windows.Forms.TextBox text_tempdesiderata;
+        private System.Windows.Forms.Label Robot_automatico;
+        private System.Windows.Forms.TextBox Text_RobotAutomatico;
     }
 }
 
