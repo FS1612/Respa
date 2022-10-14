@@ -314,7 +314,7 @@ namespace ProgettoRespa.net
             this.sens_robot.Size = new System.Drawing.Size(36, 13);
             this.sens_robot.TabIndex = 34;
             this.sens_robot.Text = "Robot";
-            this.sens_robot.Click += new System.EventHandler(this.sens_robot_Click);
+           
             // 
             // TextSensorePortaInterno
             // 
@@ -332,7 +332,7 @@ namespace ProgettoRespa.net
             this.SensorePortaInterno.Size = new System.Drawing.Size(110, 13);
             this.SensorePortaInterno.TabIndex = 32;
             this.SensorePortaInterno.Text = "Sensore Porta Interno";
-            this.SensorePortaInterno.Click += new System.EventHandler(this.SensorePortaInterno_Click);
+            
             // 
             // TextSensProssimita_porta
             // 
@@ -822,7 +822,7 @@ namespace ProgettoRespa.net
             this.robot.Size = new System.Drawing.Size(55, 54);
             this.robot.TabIndex = 25;
             this.robot.TabStop = false;
-            this.robot.Click += new System.EventHandler(this.robot_Click);
+            
             // 
             // magliettanera
             // 
@@ -853,7 +853,7 @@ namespace ProgettoRespa.net
             this.magliettabianca.Size = new System.Drawing.Size(67, 32);
             this.magliettabianca.TabIndex = 22;
             this.magliettabianca.TabStop = false;
-            this.magliettabianca.Click += new System.EventHandler(this.pictureBox2_Click);
+            
             // 
             // Prossimitainterna_sensore
             // 

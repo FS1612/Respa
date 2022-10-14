@@ -19,7 +19,6 @@ namespace ProgettoRespa.net
                 if (tempDesiderata.Equals(""))
                 {
                     messaggio = "la temperatura desiderata non puo essere un valore indefinito, per avviare il programma imposta un valore maggiore di 19";
-
                 }
                 if (tempDesiderata.Contains("-"))
                 {
@@ -28,7 +27,6 @@ namespace ProgettoRespa.net
             }
             else
             {
-
                 if (tempDesiderataNumero > tempMax)
                 {
                     string t = tempMax.ToString();
@@ -45,8 +43,6 @@ namespace ProgettoRespa.net
                 }
             }
         }
-
-
         public string getMsg()
         {
             return messaggio;

@@ -296,25 +296,7 @@ namespace ProgettoRespa.net
             textTemperatura.Text = tempAttuale.ToString();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void robot_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SensorePortaInterno_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sens_robot_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
@@ -362,8 +344,8 @@ namespace ProgettoRespa.net
             
             if (textBraccio1.Text.Equals(""))
             {
-                
-                braccio1.Height = 30;
+                braccio1.Location =new Point (547, 88);
+                braccio1.Height = 35;
             }
 
             //else
