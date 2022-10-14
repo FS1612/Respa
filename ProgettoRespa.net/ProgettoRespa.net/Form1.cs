@@ -304,10 +304,10 @@ namespace ProgettoRespa.net
             deltaRobot = TimerRobot.Interval;
             if (textDxRobot.Text.Equals("True"))
                 {
-
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
-
-                }
+                    fcs_Robot.BackColor = Color.Red;
+                    textFcsRobot.Text = "False";
+            }
             
             if (posRobot > 966)
             {
@@ -315,6 +315,8 @@ namespace ProgettoRespa.net
                 textDxRobot.Text = "";
                 fcd_Robot.BackColor = Color.Green;
                 textFcdRobot.Text = "True";
+                //fcs_Robot.BackColor = Color.Red;
+                //textFcsRobot.Text = "False";
             }
             if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
             {
