@@ -38,7 +38,7 @@ namespace ProgettoRespa.net
         int posRobot;
         bool ErroreTempNonValida = false;
         int tempmax = 30;
-        ErroreTemperatura errTemp;
+       
         public object CranePicture { get; private set; }
 
         public Form1()
@@ -302,7 +302,13 @@ namespace ProgettoRespa.net
         {
             posRobot = posAttualeRobot + posinizialeRobot;
             deltaRobot = TimerRobot.Interval;
-            if (textDxRobot.Text.Equals("True"))
+            if(Text_RobotAutomatico.Text.Equals("")|| Text_RobotAutomatico.Text.Equals("false")) {
+                textBraccio1.Enabled = true;
+                textBraccio2.Enabled = true;
+                textBraccio3.Enabled = true;
+                textDxRobot.Enabled = true;
+                textSxRobot.Enabled = true;
+                if (textDxRobot.Text.Equals("True"))
                 {
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
                     fcs_Robot.BackColor = Color.Red;
@@ -315,8 +321,6 @@ namespace ProgettoRespa.net
                 textDxRobot.Text = "";
                 fcd_Robot.BackColor = Color.Green;
                 textFcdRobot.Text = "True";
-                //fcs_Robot.BackColor = Color.Red;
-                //textFcsRobot.Text = "False";
             }
             if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
             {
@@ -341,55 +345,60 @@ namespace ProgettoRespa.net
             if (textBraccio3.Text.Equals(""))
             {
                 braccio3.Height = 30;
-            }
-
-            
+            }           
             if (textBraccio1.Text.Equals(""))
             {
                 braccio1.Location =new Point (547, 88);
                 braccio1.Height = 35;
             }
-
-            //else
-            //{
-            //    fcd_Robot.BackColor = Color.Red;
-            //    textFcdRobot.Text = "False";
-            //}
             if (posRobot < 526)
             {
                 posRobot = 526;
                 textSxRobot.Text = "";
                 fcs_Robot.BackColor = Color.Green;
                 textFcsRobot.Text = "True";
-
-
             }
 
             if (textSxRobot.Text.Equals("True"))
             {
-                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-                
-            }
-            
-            //else
-            //{
-            //    fcs_Robot.BackColor = Color.Red;
-            //    textFcsRobot.Text = "False";
-
-
-
-            //}
-
+                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;               
+            }        
             robot.Left = posRobot;
             braccio1.Left = posRobot+26;
             braccio2.Left = posRobot+26;
-            braccio3.Left = posRobot + 26;
-           // braccio2.Width = posRobot + 30;
-        }
-        
-        
+            braccio3.Left = posRobot + 26;          
+        }//fine controlli manuali Robot
+            else
+            {
+                textBraccio1.Enabled = false;
+                textBraccio2.Enabled = false;
+                textBraccio3.Enabled = false;
+                textDxRobot.Enabled = false;
+                textSxRobot.Enabled = false;
+                String[] parti;
+                String indumento;
+                string Colore;
+                
+                try
+                {
+                    parti = text_indumentodesiderato.Text.Split(' ');
+                    Colore = parti[1];
+                    indumento = parti[0];
+                    if (!Colore.Equals(null) && !indumento.Equals(null))
+                    {
+                        throw new 
+                    }
+                }
+                
 
-        
+                
+                {
+                   
+                }
+                
+
+            }
+        }
     }
     }
 

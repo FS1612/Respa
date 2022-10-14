@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProgettoRespa.net
 {
-    class ErroriIndumenti
+    class ErroriIndumenti:Exception
     {
+        public ErroriIndumenti() { };
+        public ErroriInduomenti(String indumento, Strimg Colore) { };
     }
 }
