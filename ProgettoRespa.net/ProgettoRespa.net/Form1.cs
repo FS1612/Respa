@@ -28,7 +28,7 @@ namespace ProgettoRespa.net
         int tempIniziale = 19;//temperatura iniziale della stanza
         int temp1;
         Boolean Robot = false;
-       // int posinizialeRobot = 782;
+        // int posinizialeRobot = 782;
         int posinizialeRobot = 521;
         int durataspostRobot = 5000;
         //int spostRobot = 740;
@@ -38,12 +38,12 @@ namespace ProgettoRespa.net
         int posRobot;
         bool ErroreTempNonValida = false;
         int tempmax = 30;
-       
+
         public object CranePicture { get; private set; }
 
         public Form1()
         {
-            
+
             InitializeComponent();
             tempAttuale = tempIniziale;
             textTemperatura.Text = tempAttuale.ToString();
@@ -230,27 +230,27 @@ namespace ProgettoRespa.net
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
                 {
-                    
-                    
-                    if (temp == string.Empty|| temp.Contains("-"))
+
+
+                    if (temp == string.Empty || temp.Contains("-"))
                     {
                         text_tempdesiderata.Text = "";
                         throw new ErroreTemperatura(temp3, tempIniziale, tempmax, 0);
                     }
                     else
                     {
-                        
+
                         temp1 = int.Parse(temp);
                         if (temp1 > tempIniziale && temp1 < tempmax)
                         {
                             timerTemp.Enabled = true;
                         }
                         else { text_tempdesiderata.Text = "";
-                        throw new ErroreTemperatura(temp3, tempIniziale, tempmax, temp1);
+                            throw new ErroreTemperatura(temp3, tempIniziale, tempmax, temp1);
                         }
-                        
+
                     }
-                }           
+                }
                 catch (ErroreTemperatura e)
                 {
                     if (!temp3.Equals("")) { MessageBox.Show(e.getMsg()); }
@@ -265,7 +265,7 @@ namespace ProgettoRespa.net
                 }
                 finally
                 {
-                ErroreTempNonValida = true;
+                    ErroreTempNonValida = true;
                     //per far eseguire al codice qualcosa indipendentemente dall'esito del try
                 }
 
@@ -296,13 +296,13 @@ namespace ProgettoRespa.net
             textTemperatura.Text = tempAttuale.ToString();
         }
 
-       
+
 
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
             posRobot = posAttualeRobot + posinizialeRobot;
             deltaRobot = TimerRobot.Interval;
-            if(Text_RobotAutomatico.Text.Equals("")|| Text_RobotAutomatico.Text.Equals("false")) {
+            if (Text_RobotAutomatico.Text.Equals("") || Text_RobotAutomatico.Text.Equals("false")) {
                 textBraccio1.Enabled = true;
                 textBraccio2.Enabled = true;
                 textBraccio3.Enabled = true;
@@ -313,61 +313,61 @@ namespace ProgettoRespa.net
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
                     fcs_Robot.BackColor = Color.Red;
                     textFcsRobot.Text = "False";
-            }
-            
-            if (posRobot > 966)
-            {
-                posRobot = 966;
-                textDxRobot.Text = "";
-                fcd_Robot.BackColor = Color.Green;
-                textFcdRobot.Text = "True";
-            }
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
-            {
-                braccio2.Width = 80;
-            }
+                }
 
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
-            {
-                braccio3.Height = 80;
+                if (posRobot > 966)
+                {
+                    posRobot = 966;
+                    textDxRobot.Text = "";
+                    fcd_Robot.BackColor = Color.Green;
+                    textFcdRobot.Text = "True";
+                }
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
+                {
+                    braccio2.Width = 80;
+                }
 
-            }
-            if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
-            {
-                braccio1.Top = 35;
-                braccio1.Height = 80;
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
+                {
+                    braccio3.Height = 80;
 
-            }
-            if (textBraccio2.Text.Equals(""))
-            {
-                braccio2.Width = 30;
-            }
-            if (textBraccio3.Text.Equals(""))
-            {
-                braccio3.Height = 30;
-            }           
-            if (textBraccio1.Text.Equals(""))
-            {
-                braccio1.Location =new Point (547, 88);
-                braccio1.Height = 35;
-            }
-            if (posRobot < 526)
-            {
-                posRobot = 526;
-                textSxRobot.Text = "";
-                fcs_Robot.BackColor = Color.Green;
-                textFcsRobot.Text = "True";
-            }
+                }
+                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
+                {
+                    braccio1.Top = 35;
+                    braccio1.Height = 80;
 
-            if (textSxRobot.Text.Equals("True"))
-            {
-                posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;               
-            }        
-            robot.Left = posRobot;
-            braccio1.Left = posRobot+26;
-            braccio2.Left = posRobot+26;
-            braccio3.Left = posRobot + 26;          
-        }//fine controlli manuali Robot
+                }
+                if (textBraccio2.Text.Equals(""))
+                {
+                    braccio2.Width = 30;
+                }
+                if (textBraccio3.Text.Equals(""))
+                {
+                    braccio3.Height = 30;
+                }
+                if (textBraccio1.Text.Equals(""))
+                {
+                    braccio1.Location = new Point(547, 88);
+                    braccio1.Height = 35;
+                }
+                if (posRobot < 526)
+                {
+                    posRobot = 526;
+                    textSxRobot.Text = "";
+                    fcs_Robot.BackColor = Color.Green;
+                    textFcsRobot.Text = "True";
+                }
+
+                if (textSxRobot.Text.Equals("True"))
+                {
+                    posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
+                }
+                robot.Left = posRobot;
+                braccio1.Left = posRobot + 26;
+                braccio2.Left = posRobot + 26;
+                braccio3.Left = posRobot + 26;
+            }//fine controlli manuali Robot
             else
             {
                 textBraccio1.Enabled = false;
@@ -378,29 +378,25 @@ namespace ProgettoRespa.net
                 String[] parti;
                 String indumento;
                 string Colore;
-                
+
                 try
                 {
                     parti = text_indumentodesiderato.Text.Split(' ');
                     Colore = parti[1];
                     indumento = parti[0];
-                    if (!Colore.Equals(null) && !indumento.Equals(null))
-                    {
-                        throw new 
-                    }
-                }
-                
+                    if (!Colore.Equals(null) && !indumento.Equals(null)) { }
+                    
 
-                
+
+                }
+                catch
                 {
-                   
-                }
-                
 
-            }
+                }
+               }
         }
     }
-    }
+}
 
     
 
