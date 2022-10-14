@@ -43,7 +43,7 @@ namespace ProgettoRespa.net
 
         public Form1()
         {
-            errTemp = new ErroreTemperatura();
+            
             InitializeComponent();
             tempAttuale = tempIniziale;
             textTemperatura.Text = tempAttuale.ToString();
@@ -221,56 +221,47 @@ namespace ProgettoRespa.net
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
             String temp = text_tempdesiderata.Text;
-            errTemp.SetTempIniziale(tempIniziale);
-            errTemp.SetTempmax(tempmax);
+            string temp3 = temp;
+            //errTemp.SetTempIniziale(tempIniziale);
+            //errTemp.SetTempmax(tempmax);
             if (presente)
 
             {
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
                 {
-                if (temp == string.Empty)
-                {
-                    if (!ErroreTempNonValida)
-                    {
-                        ErroreTempNonValida = true;
-                        throw new ErroreTemperatura("");
-                    }
                     
-                }
-                if (temp != string.Empty) {
-                    if(temp=="0")
+                    
+                    if (temp == string.Empty|| temp.Contains("-"))
                     {
                         text_tempdesiderata.Text = "";
-                        throw new ErroreTemperatura(0);
-                    }  
-                    else if (temp.Contains("-"))
-                    {
-                        text_tempdesiderata.Text = "";
-                        throw new ErroreTemperatura(-1);
+                        throw new ErroreTemperatura(temp3, tempIniziale, tempmax, 0);
                     }
-                    temp1 = int.Parse(temp);
-                    if (temp1 <= tempmax && temp1 >= tempIniziale) {
-                        timerTemp.Enabled = true; }
                     else
                     {
-                     
-                        text_tempdesiderata.Text = "";
-                        throw new ErroreTemperatura(temp);   
+                        
+                        temp1 = int.Parse(temp);
+                        if (temp1 > tempIniziale && temp1 < tempmax)
+                        {
+                            timerTemp.Enabled = true;
+                        }
+                        else { text_tempdesiderata.Text = "";
+                        throw new ErroreTemperatura(temp3, tempIniziale, tempmax, temp1);
+                        }
+                        
                     }
-                       
-                }
-            }
-                    // in questo blocco definisco ciò che il codice deve fare 
-                    
-
-
-
-            
+                }           
                 catch (ErroreTemperatura e)
                 {
-                //qualora volessi eseguire una porzione di codice dopo che viene sollevata l'eccezione   
-                MessageBox.Show(e.getMsg());
+                    if (!temp3.Equals("")) { MessageBox.Show(e.getMsg()); }
+                    else
+                    {
+                        if (!ErroreTempNonValida)
+                        {
+                            ErroreTempNonValida = true;
+                            MessageBox.Show(e.getMsg());
+                        }
+                    }
                 }
                 finally
                 {
@@ -411,8 +402,11 @@ namespace ProgettoRespa.net
             braccio3.Left = posRobot + 26;
            // braccio2.Width = posRobot + 30;
         }
+        
+        
 
-        }
+        
+    }
     }
 
     
