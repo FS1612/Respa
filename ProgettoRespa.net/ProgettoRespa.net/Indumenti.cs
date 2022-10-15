@@ -21,7 +21,7 @@ namespace ProgettoRespa.net
     }
     enum Jeans
     {
-        Jeans_ ,
+        Jeans_  ,
     }
     enum Pantaloni
     {

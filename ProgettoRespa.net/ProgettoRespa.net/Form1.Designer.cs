@@ -610,7 +610,7 @@ namespace ProgettoRespa.net
             // 
             this.text_tempdesiderata.Location = new System.Drawing.Point(137, 98);
             this.text_tempdesiderata.Name = "text_tempdesiderata";
-            this.text_tempdesiderata.Size = new System.Drawing.Size(100, 20);
+            this.text_tempdesiderata.Size = new System.Drawing.Size(32, 20);
             this.text_tempdesiderata.TabIndex = 22;
             // 
             // text_lucespenta

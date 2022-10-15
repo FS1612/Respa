@@ -6,39 +6,138 @@ using System.Threading.Tasks;
 
 namespace ProgettoRespa.net
 {
-    class ErroriVestiti:Exception
+    class ErroriVestiti : Exception
     {
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
         string messaggio;
         string indumento;
         string colore;
-        public ErroriVestiti(Dictionary<string, List<string>> d, string indumento, string colore)
+        //public ErroriVestiti(Dictionary<string, List<string>> d, string indumento, string colore, string indumento1, string colore1, bool verifica)
+        //{
+        //    this.indumento = indumento;
+        //    this.colore = colore;
+        //    List<string> appoggio = new List<string>();
+        //    List<string> appoggio1 = new List<string>();
+
+        //    if (!d.ContainsKey(indumento))
+        //    {
+        //        messaggio = "attenzione, stai cercando un indumento inesistente";
+        //    }
+        //    else
+        //    {
+        //        d.TryGetValue(indumento, out appoggio);
+        //        if (!appoggio.Contains(colore))
+        //        {
+        //            messaggio = " attenzioone, per questo tipo di indumento non esiste il colore richiesto";
+        //        }
+        //        else
+        //        {
+        //            messaggio = "True";
+        //        }
+
+        //    }
+        //}
+        public ErroriVestiti(Dictionary<string, List<string>> d, string indumento1, string colore1, string indumento2, string colore2, bool verifica)
         {
-            this.indumento = indumento;
-            this.colore = colore;
+            this.indumento = indumento1;
+            this.colore = colore1;
             List<string> appoggio = new List<string>();
-            if (!d.ContainsKey(indumento))
+            List<string> appoggio2 = new List<string>();
+
+            if(!indumento1.Equals(" ")&& indumento2.Equals(" "))
             {
-                messaggio = "attenzione, stai cercando un indumento inesistente";
-            }
-            else  
-                    {
-                d.TryGetValue(indumento, out appoggio);
-                if (!appoggio.Contains(colore))
+                if (!d.ContainsKey(indumento1))
                 {
-                    messaggio = " attenziione, per questo tipo di indumento non esiste il colore richiesto";
+                    messaggio = "attenzione, stai cercando degli indumenti inesistenti";
                 }
                 else
                 {
-                    messaggio = "True";
-                }
-            
+                    d.TryGetValue(indumento1, out appoggio);
+                    if (!appoggio.Contains(colore1))
+                    {
+                        messaggio = " attenzione, per questo tipo di indumento non esiste il colore richiesto";
                     }
+                    else
+                    {
+                        messaggio = "True";
+                    }
+                }
+            }
+            else if(indumento1.Equals(" ") && !indumento2.Equals(" "))
+            {
+                if (!d.ContainsKey(indumento2))
+                {
+                    messaggio = "attenzione, stai cercando degli indumenti inesistenti";
+                }
+                else
+                {
+                    d.TryGetValue(indumento2, out appoggio2);
+                    if (!appoggio2.Contains(colore2))
+                    {
+                        messaggio = " attenzioone, per questo tipo di indumento non esiste il colore richiesto";
+                    }
+                    else
+                    {
+                        messaggio = "True";
+                    }
+                }
+            }
+            else if(!indumento1.Equals(" ") && !indumento2.Equals(" "))
+            {
+                if (!d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
+                {
+                    messaggio = " nessuno dei due elementi esiste, inserisci elementi esistenti";
+                }
+                 if(d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
+                {
+                    d.TryGetValue(indumento2, out appoggio2);
+                    if (!appoggio2.Contains(colore2)){
+                        messaggio = "il primo indumento non esiste, mentre il secondo esiste ma non nel colore richiesto";
+                    }
+                    else
+                    {
+                        messaggio = "True";
+                    }
+                }
+
+                 if (d.ContainsKey(indumento1) && !d.ContainsKey(indumento2))
+                {
+                    d.TryGetValue(indumento1, out appoggio);
+                    if (!appoggio.Contains(colore1))
+                    {
+                        messaggio = "il secondo indumento non esiste, mentre il primo esiste ma non nel colore richiesto";
+                    }
+                    else
+                    {
+                        messaggio = "True";
+                    }
+                }
+                if (d.ContainsKey(indumento1) && d.ContainsKey(indumento2))
+                {
+                    d.TryGetValue(indumento1, out appoggio);
+                    d.TryGetValue(indumento2, out appoggio2);
+                    if (!appoggio2.Contains(colore2) && (appoggio.Contains(colore1))){
+                        messaggio = " Il primo indumento esiste e può essere cercato, il secondo esiste ma non nel colore richiesto";
+                    }
+                   else if (appoggio2.Contains(colore2) && (!appoggio.Contains(colore1))){
+                        messaggio = " Il secondo indumento esiste e può essere cercato, il primo esiste ma non nel colore richiesto";
+                    }
+                    else if(!appoggio2.Contains(colore2) && (!appoggio.Contains(colore1)))
+                    {
+                        messaggio = "Nessuno dei due indumenti esiste nel colore richiesto";
+                    }
+                    else
+                    {
+                        messaggio = "True";
+                    }
+                }
+            }
+            if(indumento1.Equals(" ") && indumento2.Equals(" "))
+            
+            {
+                messaggio = "inserisci vestiti validi per la ricerca";
+            }
         }
-        //private void setIndumentiColori(Dictionary<string, string> d)
-        //{
-        //    IndumentiColori = d;
-        //}
         public string getMessaggio()
         {
             return messaggio;

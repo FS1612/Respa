@@ -19,7 +19,10 @@ namespace ProgettoRespa.net
         Type magliette = typeof(Magliette);
         public string vestito1;
         public bool sceltaeffettuataVestito1;
-        
+        public string vestito2;
+        public bool sceltaeffettuataVestito2;
+        string indumento1;
+        string colore1;
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
         
         public SceltaVestiti()
@@ -126,30 +129,136 @@ namespace ProgettoRespa.net
 
         private void bottoneCerca_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+
+            //    string[] divisione = BarraRicercaVestiti1.Text.Split(' ');
+            //    char let = divisione[0].First();
+            //    char letToUp = Char.ToUpper(let);
+            //     indumento1 = divisione[0].Replace(let, letToUp);
+
+            //    if (divisione.Length == 2)
+            //    {
+            //        if (!divisione[1].Equals(""))
+            //        {
+            //            colore1 = divisione[1].ToLower();
+
+            //            throw new ErroriVestiti(IndumentiColori, indumento1, colore1," "," ",false);
+            //        }
+
+            //    }
+
+            //    throw new ErroriVestiti(IndumentiColori, indumento1," ", " ", " ", false);
+            //}
             try
             {
-                string[] divisione = BarraRicercaVestiti.Text.Split(' ');
-                char let = divisione[0].First();
-                char letToUp = Char.ToUpper(let);
-                string indumento = divisione[0].Replace(let, letToUp);
-                
-                
-                string colore;
+                string indumento1;
+                 string colore1;
+                 string indumento2;
+                 string colore2;
+                // if (!BarraRicercaVestiti1.Text.Equals("")&& BarraRicercaVestiti2.Text.Equals("") )
+                // {
+                //     MessageBox.Show("caso1");
+                string[] divisione = BarraRicercaVestiti1.Text.Split(' ');
+                if (!divisione[0].Equals(string.Empty))
+                {
+                    if(!divisione[0].Equals(" ")) {
+                        char let = divisione[0].First();
+                        char letToUp = Char.ToUpper(let);
+                        indumento1 = divisione[0].Replace(let, letToUp);
+                    }
+                    else
+                    {
+                        indumento1 = " ";
+                    }
+                }
+                else
+                {
+                    indumento1 = " ";
+                }
                 if (divisione.Length == 2)
                 {
-                    if (!divisione[1].Equals(""))
-                    {
-                        colore = divisione[1].ToLower();
-                       
-                        throw new ErroriVestiti(IndumentiColori, indumento, colore);
+                    colore1 = divisione[1].ToLower();
+                }
+                else
+                {
+                    colore1 = "";
+                }
+                //     if(divisione.Length == 2)
+                //     {
+                //         colore1 = divisione[1].ToLower();
+                //         throw new ErroriVestiti(IndumentiColori, indumento1, colore1, " ", " ", false);
+                //     }
+                //     throw new ErroriVestiti(IndumentiColori, indumento1, " ", " ", " ", false);
+                // }
+                // if(BarraRicercaVestiti1.Text.Equals("") && !BarraRicercaVestiti2.Text.Equals(""))
+                // {
+                    string[] divisione1 = BarraRicercaVestiti2.Text.Split(' ');
+                if (!divisione1[0].Equals(string.Empty)) {
+                    if(!divisione1[0].Equals(" ")) {
+                        char let1 = divisione1[0].First();
+                        char letToUp1 = Char.ToUpper(let1);
+                        indumento2 = divisione1[0].Replace(let1, letToUp1);
+                        textBox1.Text = indumento2;
                     }
+                    else { indumento2 = " "; }
+                }
+                else
+                {
+                    indumento2 = " ";          
+                }
+                if (divisione1.Length == 2)
+                {
+                    colore2 = divisione1[1].ToLower();
                     
                 }
-                throw new ErroriVestiti(IndumentiColori, indumento, "");
-
-
+                else
+                {
+                    colore2 = "";
+                }
+                    
+                //     if (divisione1.Length == 2)
+                //     {
+                //         colore2 = divisione1[1].ToLower();
+                //         throw new ErroriVestiti(IndumentiColori, " " , " ",indumento2, colore2, false);
+                //     }
+                //     throw new ErroriVestiti(IndumentiColori, " ", " ", indumento2, " ", false);
+                // }
+                // if (BarraRicercaVestiti1.Text.Equals("") && BarraRicercaVestiti2.Text.Equals(""))
+                // {
+                //     string[] divisione = BarraRicercaVestiti1.Text.Split(' ');
+                //     char let = divisione[0].First();
+                //     char letToUp = Char.ToUpper(let);
+                //     indumento1 = divisione[0].Replace(let, letToUp);
+                //     string[] divisione1 = BarraRicercaVestiti2.Text.Split(' ');
+                //     char let1 = divisione1[0].First();
+                //     char letToUp1 = Char.ToUpper(let1);
+                //     indumento2 = divisione1[0].Replace(let1, letToUp1);
+                //     if(divisione.Length == 2&& divisione1.Length == 1)
+                //     {
+                //         colore1 = divisione[1].ToLower();
+                //         throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, " ", false);
+                //     }
+                //     if (divisione1.Length == 2 && divisione.Length == 1)
+                //     {
+                //         colore2 = divisione1[1].ToLower();
+                //         throw new ErroriVestiti(IndumentiColori, indumento1, " ", indumento2, colore2, false);
+                //     }
+                //     else
+                //     {
+                //         colore1 = divisione[1].ToLower();
+                //         colore2 = divisione1[1].ToLower();
+                //         throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2, false);
+                //     }
+                // }
+                //colore1 = divisione[1].ToLower();
+                //colore2 = divisione1[1].ToLower();
+                throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2, false);
             }
-            catch(ErroriVestiti ev)
+
+
+
+            catch (ErroriVestiti ev)
             {
                 if (!ev.getMessaggio().Equals("True")){
                     MessageBox.Show(ev.getMessaggio());
@@ -157,18 +266,47 @@ namespace ProgettoRespa.net
                 else
                 {               
                     sceltaeffettuataVestito1 = true;
-                    scelta1.Text = BarraRicercaVestiti.Text; 
-                    
+                    scelta1.Text = BarraRicercaVestiti1.Text;
+                    TextIndumento2.Text = BarraRicercaVestiti2.Text;
                 }
             }
         }    
+        private void cercaVestito2()
+        {
+            if (!BarraRicercaVestiti2.Text.Equals(""))
+            {
+                string[] divisione1 = BarraRicercaVestiti2.Text.Split(' ');
+                char let1 = divisione1[0].First();
+                char letToUp1 = Char.ToUpper(let1);
+                string indumento2 = divisione1[0].Replace(let1, letToUp1);
+                string colore2;
+                if (divisione1.Length == 2)
+                {
+                    if (!divisione1[1].Equals(""))
+                    {
+                        colore2 = divisione1[1].ToLower();
+                        TextIndumento2.Text = indumento2;
+                        throw new ErroriVestiti(IndumentiColori, indumento2, colore1, indumento2, colore2, true);
+                        
+                    }
+
+                }
+                throw new ErroriVestiti(IndumentiColori, indumento2, colore1, indumento2, " ", true);
+            }
+            else
+            {
+                TextIndumento2.Text = "nessuno";
+                vestito2 = "nessuno";
+            }
+            
+        }
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
             vestito1 = scelta1.Text;
             this.Close();
             
         }
+
         
-       
     }
 }

@@ -30,8 +30,16 @@ namespace ProgettoRespa.net
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BarraRicercaVestiti2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TextIndumento2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Scelta1_label = new System.Windows.Forms.Label();
+            this.SalvaEdEsciButton = new System.Windows.Forms.Button();
+            this.scelta1 = new System.Windows.Forms.TextBox();
             this.bottoneCerca = new System.Windows.Forms.Button();
-            this.BarraRicercaVestiti = new System.Windows.Forms.TextBox();
+            this.BarraRicercaVestiti1 = new System.Windows.Forms.TextBox();
             this.RicercaVestitiLabel = new System.Windows.Forms.Label();
             this.List_Magliette = new System.Windows.Forms.ListBox();
             this.List_Pantaloni = new System.Windows.Forms.ListBox();
@@ -39,20 +47,24 @@ namespace ProgettoRespa.net
             this.List_Scarpe = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.eventLog1 = new System.Diagnostics.EventLog();
-            this.SalvaEdEsciButton = new System.Windows.Forms.Button();
-            this.scelta1 = new System.Windows.Forms.TextBox();
-            this.Scelta_label = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Scelta_label);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.BarraRicercaVestiti2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TextIndumento2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Scelta1_label);
             this.panel1.Controls.Add(this.SalvaEdEsciButton);
             this.panel1.Controls.Add(this.scelta1);
             this.panel1.Controls.Add(this.bottoneCerca);
-            this.panel1.Controls.Add(this.BarraRicercaVestiti);
+            this.panel1.Controls.Add(this.BarraRicercaVestiti1);
             this.panel1.Controls.Add(this.RicercaVestitiLabel);
             this.panel1.Controls.Add(this.List_Magliette);
             this.panel1.Controls.Add(this.List_Pantaloni);
@@ -60,75 +72,62 @@ namespace ProgettoRespa.net
             this.panel1.Controls.Add(this.List_Scarpe);
             this.panel1.Location = new System.Drawing.Point(29, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(746, 286);
+            this.panel1.Size = new System.Drawing.Size(746, 334);
             this.panel1.TabIndex = 0;
             // 
-            // bottoneCerca
+            // BarraRicercaVestiti2
             // 
-            this.bottoneCerca.Location = new System.Drawing.Point(590, 25);
-            this.bottoneCerca.Name = "bottoneCerca";
-            this.bottoneCerca.Size = new System.Drawing.Size(75, 23);
-            this.bottoneCerca.TabIndex = 6;
-            this.bottoneCerca.Text = "Cerca";
-            this.bottoneCerca.UseVisualStyleBackColor = true;
-            this.bottoneCerca.Click += new System.EventHandler(this.bottoneCerca_Click);
+            this.BarraRicercaVestiti2.Location = new System.Drawing.Point(378, 51);
+            this.BarraRicercaVestiti2.Name = "BarraRicercaVestiti2";
+            this.BarraRicercaVestiti2.Size = new System.Drawing.Size(120, 20);
+            this.BarraRicercaVestiti2.TabIndex = 14;
             // 
-            // BarraRicercaVestiti
+            // label3
             // 
-            this.BarraRicercaVestiti.Location = new System.Drawing.Point(378, 28);
-            this.BarraRicercaVestiti.Name = "BarraRicercaVestiti";
-            this.BarraRicercaVestiti.Size = new System.Drawing.Size(120, 20);
-            this.BarraRicercaVestiti.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(283, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Vestito 2";
             // 
-            // RicercaVestitiLabel
+            // label2
             // 
-            this.RicercaVestitiLabel.AutoSize = true;
-            this.RicercaVestitiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RicercaVestitiLabel.Location = new System.Drawing.Point(197, 25);
-            this.RicercaVestitiLabel.Name = "RicercaVestitiLabel";
-            this.RicercaVestitiLabel.Size = new System.Drawing.Size(110, 24);
-            this.RicercaVestitiLabel.TabIndex = 4;
-            this.RicercaVestitiLabel.Text = "Cerca vestiti";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(283, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Vestito 1";
             // 
-            // List_Magliette
+            // TextIndumento2
             // 
-            this.List_Magliette.FormattingEnabled = true;
-            this.List_Magliette.Location = new System.Drawing.Point(16, 69);
-            this.List_Magliette.Name = "List_Magliette";
-            this.List_Magliette.Size = new System.Drawing.Size(120, 95);
-            this.List_Magliette.TabIndex = 3;
-            this.List_Magliette.SelectedIndexChanged += new System.EventHandler(this.List_magliette_SelectedIndexChanged);
+            this.TextIndumento2.Location = new System.Drawing.Point(378, 282);
+            this.TextIndumento2.Name = "TextIndumento2";
+            this.TextIndumento2.Size = new System.Drawing.Size(100, 20);
+            this.TextIndumento2.TabIndex = 11;
             // 
-            // List_Pantaloni
+            // label1
             // 
-            this.List_Pantaloni.FormattingEnabled = true;
-            this.List_Pantaloni.Location = new System.Drawing.Point(187, 69);
-            this.List_Pantaloni.Name = "List_Pantaloni";
-            this.List_Pantaloni.Size = new System.Drawing.Size(120, 95);
-            this.List_Pantaloni.TabIndex = 2;
-            this.List_Pantaloni.SelectedIndexChanged += new System.EventHandler(this.List_pantaloni_SelectedIndexChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(283, 280);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Vestito 2";
             // 
-            // List_Jeans
+            // Scelta1_label
             // 
-            this.List_Jeans.FormattingEnabled = true;
-            this.List_Jeans.Location = new System.Drawing.Point(378, 69);
-            this.List_Jeans.Name = "List_Jeans";
-            this.List_Jeans.Size = new System.Drawing.Size(120, 95);
-            this.List_Jeans.TabIndex = 1;
-            this.List_Jeans.SelectedIndexChanged += new System.EventHandler(this.List_Jeans_SelectedIndexChanged);
-            // 
-            // List_Scarpe
-            // 
-            this.List_Scarpe.FormattingEnabled = true;
-            this.List_Scarpe.Location = new System.Drawing.Point(590, 69);
-            this.List_Scarpe.Name = "List_Scarpe";
-            this.List_Scarpe.Size = new System.Drawing.Size(120, 95);
-            this.List_Scarpe.TabIndex = 0;
-            this.List_Scarpe.SelectedIndexChanged += new System.EventHandler(this.Scarpe_SelectedIndexChanged);
-            // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
+            this.Scelta1_label.AutoSize = true;
+            this.Scelta1_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Scelta1_label.Location = new System.Drawing.Point(283, 239);
+            this.Scelta1_label.Name = "Scelta1_label";
+            this.Scelta1_label.Size = new System.Drawing.Size(75, 20);
+            this.Scelta1_label.TabIndex = 9;
+            this.Scelta1_label.Text = "Vestito 1";
             // 
             // SalvaEdEsciButton
             // 
@@ -143,26 +142,90 @@ namespace ProgettoRespa.net
             // 
             // scelta1
             // 
-            this.scelta1.Location = new System.Drawing.Point(378, 200);
+            this.scelta1.Location = new System.Drawing.Point(378, 239);
             this.scelta1.Name = "scelta1";
             this.scelta1.Size = new System.Drawing.Size(100, 20);
             this.scelta1.TabIndex = 8;
             // 
-            // Scelta_label
+            // bottoneCerca
             // 
-            this.Scelta_label.AutoSize = true;
-            this.Scelta_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Scelta_label.Location = new System.Drawing.Point(298, 198);
-            this.Scelta_label.Name = "Scelta_label";
-            this.Scelta_label.Size = new System.Drawing.Size(56, 20);
-            this.Scelta_label.TabIndex = 9;
-            this.Scelta_label.Text = "Scelta";
+            this.bottoneCerca.Location = new System.Drawing.Point(590, 25);
+            this.bottoneCerca.Name = "bottoneCerca";
+            this.bottoneCerca.Size = new System.Drawing.Size(75, 23);
+            this.bottoneCerca.TabIndex = 6;
+            this.bottoneCerca.Text = "Cerca";
+            this.bottoneCerca.UseVisualStyleBackColor = true;
+            this.bottoneCerca.Click += new System.EventHandler(this.bottoneCerca_Click);
+            // 
+            // BarraRicercaVestiti1
+            // 
+            this.BarraRicercaVestiti1.Location = new System.Drawing.Point(378, 15);
+            this.BarraRicercaVestiti1.Name = "BarraRicercaVestiti1";
+            this.BarraRicercaVestiti1.Size = new System.Drawing.Size(120, 20);
+            this.BarraRicercaVestiti1.TabIndex = 5;
+            // 
+            // RicercaVestitiLabel
+            // 
+            this.RicercaVestitiLabel.AutoSize = true;
+            this.RicercaVestitiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RicercaVestitiLabel.Location = new System.Drawing.Point(119, 24);
+            this.RicercaVestitiLabel.Name = "RicercaVestitiLabel";
+            this.RicercaVestitiLabel.Size = new System.Drawing.Size(110, 24);
+            this.RicercaVestitiLabel.TabIndex = 4;
+            this.RicercaVestitiLabel.Text = "Cerca vestiti";
+            // 
+            // List_Magliette
+            // 
+            this.List_Magliette.FormattingEnabled = true;
+            this.List_Magliette.Location = new System.Drawing.Point(15, 110);
+            this.List_Magliette.Name = "List_Magliette";
+            this.List_Magliette.Size = new System.Drawing.Size(120, 95);
+            this.List_Magliette.TabIndex = 3;
+            this.List_Magliette.SelectedIndexChanged += new System.EventHandler(this.List_magliette_SelectedIndexChanged);
+            // 
+            // List_Pantaloni
+            // 
+            this.List_Pantaloni.FormattingEnabled = true;
+            this.List_Pantaloni.Location = new System.Drawing.Point(181, 110);
+            this.List_Pantaloni.Name = "List_Pantaloni";
+            this.List_Pantaloni.Size = new System.Drawing.Size(120, 95);
+            this.List_Pantaloni.TabIndex = 2;
+            this.List_Pantaloni.SelectedIndexChanged += new System.EventHandler(this.List_pantaloni_SelectedIndexChanged);
+            // 
+            // List_Jeans
+            // 
+            this.List_Jeans.FormattingEnabled = true;
+            this.List_Jeans.Location = new System.Drawing.Point(368, 110);
+            this.List_Jeans.Name = "List_Jeans";
+            this.List_Jeans.Size = new System.Drawing.Size(120, 95);
+            this.List_Jeans.TabIndex = 1;
+            this.List_Jeans.SelectedIndexChanged += new System.EventHandler(this.List_Jeans_SelectedIndexChanged);
+            // 
+            // List_Scarpe
+            // 
+            this.List_Scarpe.FormattingEnabled = true;
+            this.List_Scarpe.Location = new System.Drawing.Point(578, 110);
+            this.List_Scarpe.Name = "List_Scarpe";
+            this.List_Scarpe.Size = new System.Drawing.Size(120, 95);
+            this.List_Scarpe.TabIndex = 0;
+            this.List_Scarpe.SelectedIndexChanged += new System.EventHandler(this.Scarpe_SelectedIndexChanged);
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(32, 238);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 15;
             // 
             // SceltaVestiti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 353);
+            this.ClientSize = new System.Drawing.Size(807, 440);
             this.Controls.Add(this.panel1);
             this.Name = "SceltaVestiti";
             this.Text = "SceltaVestiti";
@@ -183,10 +246,16 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.ListBox List_Magliette;
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Button bottoneCerca;
-        private System.Windows.Forms.TextBox BarraRicercaVestiti;
+        private System.Windows.Forms.TextBox BarraRicercaVestiti1;
         private System.Windows.Forms.Label RicercaVestitiLabel;
         private System.Windows.Forms.Button SalvaEdEsciButton;
         private System.Windows.Forms.TextBox scelta1;
-        private System.Windows.Forms.Label Scelta_label;
+        private System.Windows.Forms.Label Scelta1_label;
+        private System.Windows.Forms.TextBox TextIndumento2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox BarraRicercaVestiti2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
