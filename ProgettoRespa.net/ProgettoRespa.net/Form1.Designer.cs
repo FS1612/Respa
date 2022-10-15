@@ -62,6 +62,8 @@ namespace ProgettoRespa.net
             this.fcdPorta = new System.Windows.Forms.Label();
             this.fcsPorta = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RicercaVestiti1 = new System.Windows.Forms.Button();
+            this.Text_RobotAutomatico = new System.Windows.Forms.TextBox();
             this.Robot_automatico = new System.Windows.Forms.Label();
             this.textBraccio3 = new System.Windows.Forms.TextBox();
             this.braccio3Robot = new System.Windows.Forms.Label();
@@ -74,7 +76,6 @@ namespace ProgettoRespa.net
             this.sx_Robot = new System.Windows.Forms.Label();
             this.dx_Robot = new System.Windows.Forms.Label();
             this.text_ALLARME = new System.Windows.Forms.TextBox();
-            this.text_indumentodesiderato = new System.Windows.Forms.TextBox();
             this.text_tempdesiderata = new System.Windows.Forms.TextBox();
             this.text_lucespenta = new System.Windows.Forms.TextBox();
             this.text_luceaccesa = new System.Windows.Forms.TextBox();
@@ -120,7 +121,6 @@ namespace ProgettoRespa.net
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
-            this.Text_RobotAutomatico = new System.Windows.Forms.TextBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -459,6 +459,7 @@ namespace ProgettoRespa.net
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RicercaVestiti1);
             this.groupBox1.Controls.Add(this.Text_RobotAutomatico);
             this.groupBox1.Controls.Add(this.Robot_automatico);
             this.groupBox1.Controls.Add(this.textBraccio3);
@@ -472,7 +473,6 @@ namespace ProgettoRespa.net
             this.groupBox1.Controls.Add(this.sx_Robot);
             this.groupBox1.Controls.Add(this.dx_Robot);
             this.groupBox1.Controls.Add(this.text_ALLARME);
-            this.groupBox1.Controls.Add(this.text_indumentodesiderato);
             this.groupBox1.Controls.Add(this.text_tempdesiderata);
             this.groupBox1.Controls.Add(this.text_lucespenta);
             this.groupBox1.Controls.Add(this.text_luceaccesa);
@@ -487,6 +487,23 @@ namespace ProgettoRespa.net
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ATTUATORI";
+            // 
+            // RicercaVestiti1
+            // 
+            this.RicercaVestiti1.Location = new System.Drawing.Point(137, 132);
+            this.RicercaVestiti1.Name = "RicercaVestiti1";
+            this.RicercaVestiti1.Size = new System.Drawing.Size(100, 46);
+            this.RicercaVestiti1.TabIndex = 37;
+            this.RicercaVestiti1.Text = "scegli \r\nun indumento\r\n";
+            this.RicercaVestiti1.UseVisualStyleBackColor = true;
+            this.RicercaVestiti1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Text_RobotAutomatico
+            // 
+            this.Text_RobotAutomatico.Location = new System.Drawing.Point(135, 232);
+            this.Text_RobotAutomatico.Name = "Text_RobotAutomatico";
+            this.Text_RobotAutomatico.Size = new System.Drawing.Size(100, 20);
+            this.Text_RobotAutomatico.TabIndex = 36;
             // 
             // Robot_automatico
             // 
@@ -588,13 +605,6 @@ namespace ProgettoRespa.net
             this.text_ALLARME.Name = "text_ALLARME";
             this.text_ALLARME.Size = new System.Drawing.Size(100, 20);
             this.text_ALLARME.TabIndex = 24;
-            // 
-            // text_indumentodesiderato
-            // 
-            this.text_indumentodesiderato.Location = new System.Drawing.Point(135, 146);
-            this.text_indumentodesiderato.Name = "text_indumentodesiderato";
-            this.text_indumentodesiderato.Size = new System.Drawing.Size(100, 20);
-            this.text_indumentodesiderato.TabIndex = 23;
             // 
             // text_tempdesiderata
             // 
@@ -797,7 +807,7 @@ namespace ProgettoRespa.net
             // pantalonenero
             // 
             this.pantalonenero.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pantalonenero.Location = new System.Drawing.Point(1069, 81);
+            this.pantalonenero.Location = new System.Drawing.Point(1069, 83);
             this.pantalonenero.Margin = new System.Windows.Forms.Padding(2);
             this.pantalonenero.Name = "pantalonenero";
             this.pantalonenero.Size = new System.Drawing.Size(36, 60);
@@ -837,7 +847,7 @@ namespace ProgettoRespa.net
             // magliettanera
             // 
             this.magliettanera.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.magliettanera.Location = new System.Drawing.Point(859, 32);
+            this.magliettanera.Location = new System.Drawing.Point(742, 32);
             this.magliettanera.Margin = new System.Windows.Forms.Padding(2);
             this.magliettanera.Name = "magliettanera";
             this.magliettanera.Size = new System.Drawing.Size(67, 32);
@@ -857,7 +867,7 @@ namespace ProgettoRespa.net
             // magliettabianca
             // 
             this.magliettabianca.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.magliettabianca.Location = new System.Drawing.Point(751, 32);
+            this.magliettabianca.Location = new System.Drawing.Point(859, 32);
             this.magliettabianca.Margin = new System.Windows.Forms.Padding(2);
             this.magliettabianca.Name = "magliettabianca";
             this.magliettabianca.Size = new System.Drawing.Size(67, 32);
@@ -1033,13 +1043,6 @@ namespace ProgettoRespa.net
             // 
             this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
             // 
-            // Text_RobotAutomatico
-            // 
-            this.Text_RobotAutomatico.Location = new System.Drawing.Point(135, 232);
-            this.Text_RobotAutomatico.Name = "Text_RobotAutomatico";
-            this.Text_RobotAutomatico.Size = new System.Drawing.Size(100, 20);
-            this.Text_RobotAutomatico.TabIndex = 36;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1113,7 +1116,6 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.Label fcsPorta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox text_ALLARME;
-        private System.Windows.Forms.TextBox text_indumentodesiderato;
         private System.Windows.Forms.TextBox text_lucespenta;
         private System.Windows.Forms.TextBox text_luceaccesa;
         private System.Windows.Forms.Label ALLARME;
@@ -1185,6 +1187,7 @@ namespace ProgettoRespa.net
         public System.Windows.Forms.TextBox text_tempdesiderata;
         private System.Windows.Forms.Label Robot_automatico;
         private System.Windows.Forms.TextBox Text_RobotAutomatico;
+        private System.Windows.Forms.Button RicercaVestiti1;
     }
 }
 

@@ -38,7 +38,9 @@ namespace ProgettoRespa.net
         int posRobot;
         bool ErroreTempNonValida = false;
         int tempmax = 30;
-
+        SceltaVestiti sceltaVestiti= new SceltaVestiti();
+        private bool sceltaVestito1Effettuata = false;
+        private string vestito1;
         public object CranePicture { get; private set; }
 
         public Form1()
@@ -51,7 +53,7 @@ namespace ProgettoRespa.net
             Porta_timer = false;
             Tempo_porta = false;
             Chiusura_aggiornata = false;
-
+            
         }
         private void AggiornamentoPresenza()
         {
@@ -68,6 +70,30 @@ namespace ProgettoRespa.net
                 textPersonaggio.Text = "Presente";
                 textPersonaggio.BackColor = Color.Green;
             }
+
+        }
+        private void aggiornamentoVestiti()
+        {
+            using (SceltaVestiti sv = new SceltaVestiti())
+            {
+                if (sv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    this.sceltaVestito1Effettuata = sv.sceltaeffettuataVestito1;
+                    
+                    if (!sceltaVestito1Effettuata)
+                    {
+                        RicercaVestiti1.Text = " scegli un un indumento";
+                    }
+                    else
+                    {
+                        this.vestito1 = sv.vestito1;
+                       
+                        this.RicercaVestiti1.Text = this.vestito1;
+                    }
+                }
+            }
+           
+
 
         }
         private void button_START_Click(object sender, EventArgs e)
@@ -230,8 +256,6 @@ namespace ProgettoRespa.net
                 // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
                 try
                 {
-
-
                     if (temp == string.Empty || temp.Contains("-"))
                     {
                         text_tempdesiderata.Text = "";
@@ -295,14 +319,10 @@ namespace ProgettoRespa.net
 
             textTemperatura.Text = tempAttuale.ToString();
         }
-
-
-
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
             posRobot = posAttualeRobot + posinizialeRobot;
-            deltaRobot = TimerRobot.Interval;
-            if (Text_RobotAutomatico.Text.Equals("") || Text_RobotAutomatico.Text.Equals("false")) {
+            deltaRobot = TimerRobot.Interval;            
                 textBraccio1.Enabled = true;
                 textBraccio2.Enabled = true;
                 textBraccio3.Enabled = true;
@@ -367,35 +387,14 @@ namespace ProgettoRespa.net
                 braccio1.Left = posRobot + 26;
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
-            }//fine controlli manuali Robot
-            else
-            {
-                textBraccio1.Enabled = false;
-                textBraccio2.Enabled = false;
-                textBraccio3.Enabled = false;
-                textDxRobot.Enabled = false;
-                textSxRobot.Enabled = false;
-                String[] parti;
-                String indumento;
-                string Colore;
-
-                try
-                {
-                    parti = text_indumentodesiderato.Text.Split(' ');
-                    Colore = parti[1];
-                    indumento = parti[0];
-                    if (!Colore.Equals(null) && !indumento.Equals(null)) { }
-                    
-
-
-                }
-                catch
-                {
-
-                }
                }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            aggiornamentoVestiti();         
         }
+            
     }
+    
 }
 
     
