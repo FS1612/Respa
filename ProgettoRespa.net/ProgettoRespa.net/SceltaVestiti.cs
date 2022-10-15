@@ -101,22 +101,26 @@ namespace ProgettoRespa.net
 
         private void List_pantaloni_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scelta1.Text = List_Pantaloni.Items[List_Pantaloni.SelectedIndex].ToString();
+            try { scelta1.Text = List_Pantaloni.Items[List_Pantaloni.SelectedIndex].ToString(); }
+            catch{}   
         }
 
-        private void List_magliette_SelectedIndexChanged(object sender, EventArgs e)
+        private void List_magliette_SelectedIndexChanged(object sender, EventArgs e)  
         {
-            scelta1.Text = List_Magliette.Items[List_Magliette.SelectedIndex].ToString();
+            try { scelta1.Text = List_Magliette.Items[List_Magliette.SelectedIndex].ToString(); }
+            catch { }
         }
 
         private void List_Jeans_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scelta1.Text = List_Jeans.Items[List_Jeans.SelectedIndex].ToString();
+            try { scelta1.Text = List_Jeans.Items[List_Jeans.SelectedIndex].ToString(); }
+            catch { }
         }
 
         private void Scarpe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scelta1.Text = List_Scarpe.Items[List_Scarpe.SelectedIndex].ToString();
+            try { scelta1.Text = List_Scarpe.Items[List_Scarpe.SelectedIndex].ToString(); }
+            catch { }
         }
 
 
@@ -148,16 +152,16 @@ namespace ProgettoRespa.net
             catch(ErroriVestiti ev)
             {
                 if (!ev.getMessaggio().Equals("True")){
-                    
+                    MessageBox.Show(ev.getMessaggio());
                 }
                 else
                 {               
                     sceltaeffettuataVestito1 = true;
-                    scelta1.Text = BarraRicercaVestiti.Text;    
+                    scelta1.Text = BarraRicercaVestiti.Text; 
+                    
                 }
             }
-        }
-
+        }    
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
             vestito1 = scelta1.Text;

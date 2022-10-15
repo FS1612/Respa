@@ -10,8 +10,12 @@ namespace ProgettoRespa.net
     {
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
         string messaggio;
+        string indumento;
+        string colore;
         public ErroriVestiti(Dictionary<string, List<string>> d, string indumento, string colore)
         {
+            this.indumento = indumento;
+            this.colore = colore;
             List<string> appoggio = new List<string>();
             if (!d.ContainsKey(indumento))
             {
@@ -38,6 +42,14 @@ namespace ProgettoRespa.net
         public string getMessaggio()
         {
             return messaggio;
+        }
+        public string GetIndumento()
+        {
+            return indumento;
+        }
+        public string getColore()
+        {
+            return colore;
         }
     }
 }

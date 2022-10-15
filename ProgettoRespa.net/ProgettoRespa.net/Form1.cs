@@ -109,12 +109,14 @@ namespace ProgettoRespa.net
         {//funzione che gestisce la presenza del player tramite tasto
             if (presente)
             {
-                presente = false;
+                //presente = false;
+                chiusura++;
                 AggiornamentoPresenza();
             }
             else
             {
-                presente = true;
+                chiusura++;
+                //presente = true;
                 AggiornamentoPresenza();
             }
 
@@ -192,13 +194,14 @@ namespace ProgettoRespa.net
                 //se mi trovo a x=250 allora la porta è completamente chiusa e fcs è true
                 {
                     Chiusura_aggiornata = false;
-                    //la variabile booleana di appoccio chiusura porta viene settata a true appena la porta si apre e riportata a false appena la porta si richiude cosi che il contatore delle chiusure sia aggiornato una sola volta per ciclo
-                    if (chiusura == 1)
+                    //la variabile booleana di appoccio chiusura porta viene settata a true appena la porta si apre e riportata a false appena la porta si richiude cosi che il contatore delle chiusure sia aggiornato una sola volta per ciclo                   
+                    if(chiusura%2==0)
                     {
                         presente = true;
                         AggiornamentoPresenza();
                     }
-                    if (chiusura > 1)
+                    
+                    else
                     {
                         presente = false;
                         AggiornamentoPresenza();
