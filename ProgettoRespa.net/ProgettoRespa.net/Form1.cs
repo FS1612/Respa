@@ -32,7 +32,7 @@ namespace ProgettoRespa.net
         int posinizialeRobot = 521;
         int durataspostRobot = 5000;
         //int spostRobot = 740;
-        int spostRobot = 445;
+        int spostRobot = 387;
         int deltaRobot;
         int posAttualeRobot;
         int posRobot;
@@ -326,11 +326,11 @@ namespace ProgettoRespa.net
         {
             posRobot = posAttualeRobot + posinizialeRobot;
             deltaRobot = TimerRobot.Interval;            
-                textBraccio1.Enabled = true;
-                textBraccio2.Enabled = true;
-                textBraccio3.Enabled = true;
-                textDxRobot.Enabled = true;
-                textSxRobot.Enabled = true;
+                //textBraccio1.Enabled = true;
+                //textBraccio2.Enabled = true;
+                //textBraccio3.Enabled = true;
+                //textDxRobot.Enabled = true;
+                //textSxRobot.Enabled = true;
                 if (textDxRobot.Text.Equals("True"))
                 {
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
@@ -338,12 +338,13 @@ namespace ProgettoRespa.net
                     textFcsRobot.Text = "False";
                 }
 
-                if (posRobot > 966)
+                if (posRobot > 720)
                 {
-                    posRobot = 966;
+                    posRobot = 720;
                     textDxRobot.Text = "";
                     fcd_Robot.BackColor = Color.Green;
                     textFcdRobot.Text = "True";
+
                 }
                 if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
                 {
@@ -380,6 +381,9 @@ namespace ProgettoRespa.net
                     textSxRobot.Text = "";
                     fcs_Robot.BackColor = Color.Green;
                     textFcsRobot.Text = "True";
+                    fcd_Robot.BackColor = Color.Red;
+                    textFcdRobot.Text = "False";
+
                 }
 
                 if (textSxRobot.Text.Equals("True"))
@@ -395,7 +399,21 @@ namespace ProgettoRespa.net
         {
             aggiornamentoVestiti();         
         }
-            
+
+        private void TextSensProssimita_porta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jeans_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pantalonenero_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
