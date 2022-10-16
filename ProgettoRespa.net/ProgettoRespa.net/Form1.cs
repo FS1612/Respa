@@ -36,6 +36,10 @@ namespace ProgettoRespa.net
         int deltaRobot;
         int posAttualeRobot;
         int posRobot;
+        int yposRobot;
+        int spostverticaleRobot = 60;
+        int yposinizialeRobot = 103;
+        int yposAttuale;
         bool ErroreTempNonValida = false;
         int tempmax = 30;
         SceltaVestiti sceltaVestiti= new SceltaVestiti();
@@ -403,7 +407,32 @@ namespace ProgettoRespa.net
                 braccio1.Left = posRobot + 26;
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
-               }
+
+            //MOVIMENTO VERTICALE// 
+            yposRobot = yposinizialeRobot + yposAttuale;
+            
+            if (Text_AltoRobot.Text.Equals("True"))
+            {
+                yposAttuale = yposAttuale + (int)(deltaRobot * spostverticaleRobot) / durataspostRobot;
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+                robot.Location = new Point(720,60);
+                braccio1.Location = new Point(800, 83);
+                //robot.Top = yposAttuale;
+            }
+            if (yposRobot > 60)
+            {
+                yposRobot = 60;
+                //Text_AltoRobot.Text = "";
+                alto_Robot.BackColor = Color.Green;
+                textAlto.Text = "True";
+                //robot.Top = yposAttuale;
+
+            }
+
+
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             aggiornamentoVestiti();         
