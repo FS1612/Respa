@@ -41,6 +41,10 @@ namespace ProgettoRespa.net
                     //form1.text_tempdesiderata.Text = "";
                     messaggio = "Brrrr, che freddo conviene alzare la temperatura";
                 }
+                if(tempDesiderataNumero > tempMinima&& tempDesiderataNumero < tempMax)
+                {
+                    messaggio = "True";
+                }
             }
         }
         public string getMsg()

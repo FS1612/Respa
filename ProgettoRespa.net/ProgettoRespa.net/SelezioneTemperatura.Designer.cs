@@ -80,6 +80,7 @@ namespace ProgettoRespa.net
             this.Text_temperatura.Name = "Text_temperatura";
             this.Text_temperatura.Size = new System.Drawing.Size(100, 20);
             this.Text_temperatura.TabIndex = 4;
+            this.Text_temperatura.TextChanged += new System.EventHandler(this.Text_temperatura_TextChanged);
             // 
             // SelezioneTemperatura
             // 

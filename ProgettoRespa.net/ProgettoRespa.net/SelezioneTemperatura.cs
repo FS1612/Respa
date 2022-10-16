@@ -18,14 +18,19 @@ namespace ProgettoRespa.net
        public bool TimerAbilitato = false;
         private bool ErroreTempNonValida = false;
         private string temp ;
+        
+        int tempnumero;
         public SelezioneTemperatura(int tempmin,int tempmax)
         {
+            this.tempmax = tempmax;
+            this.tempmin = tempmin;
             InitializeComponent();
             InserisciTemperature();
-            VerificaTemperatura();
+           
         }
         private void InserisciTemperature()
         {
+            
             for(int i=-10; i < 40; i++)
             {
                 listTemperature.Items.Add(i);
@@ -41,74 +46,47 @@ namespace ProgettoRespa.net
 
         private void button2_Click(object sender, EventArgs e)
         {
-            valore = listTemperature.Items[listTemperature.SelectedIndex].ToString();
+            valore = temp;
             this.Close();
         }
-        private void VerificaTemperatura()
+        
+
+        private void Text_temperatura_TextChanged(object sender, EventArgs e)
         {
-            //int temp1;
-            //string temp3 =temp ;
-
-
-
-            //    try
-            //        {
-            //        if(!listTemperature.Items[listTemperature.SelectedIndex].ToString().Equals(string.Empty))
-            //        temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
-
-            //        if (temp == string.Empty || temp.Contains("-"))
-            //            {
-            //                Text_temperatura.Text = "";
-            //            TimerAbilitato = false;
-            //            throw new ErroreTemperatura(temp, tempmin, tempmax, 0);
-            //            }
-            //            else
-            //            {
-
-            //                temp1 = int.Parse(temp);
-            //                if (temp1 > tempmin && temp1 < tempmax)
-            //                {
-            //                TimerAbilitato = true; 
-
-            //                }
-            //                else
-            //                {
-            //                Text_temperatura.Text = "";
-            //                TimerAbilitato = false;
-            //                throw new ErroreTemperatura(temp, tempmin, tempmax, temp1);
-            //                }
-
-            //            }
-            //        }
-            //        catch (ErroreTemperatura e)
-            //        {
-            //            if (!temp.Equals("")) { MessageBox.Show(e.getMsg()); }
-            //            else
-            //            {
-            //                if (!ErroreTempNonValida)
-            //                {
-            //                    ErroreTempNonValida = true;
-            //                    MessageBox.Show(e.getMsg());
-            //                }
-            //            }
-            //        }
-            //        finally
-            //        {
-            //            ErroreTempNonValida = true;
-            //            //per far eseguire al codice qualcosa indipendentemente dall'esito del try
-            //        }
+            
             try
             {
-                if (listTemperature.SelectedIndex == -1)
+                if (Text_temperatura.Text.Equals("") || Text_temperatura.Text.Contains('-'))
                 {
+                    if (Text_temperatura.Text.Contains('-'))
+                    {
+                        temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
+                        tempnumero = 0;
+                    }
+                    else
+                    {
+                        temp = "";
+                        tempnumero = 0;
+                    }
 
                 }
+                else
+                {
+                    temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
+                    tempnumero = int.Parse(temp);
+                }
+                throw new ErroreTemperatura(temp, tempmin, tempmax, tempnumero);
             }
-            catch
-            {
 
-            }
+            catch (ErroreTemperatura et)
+            {
+                if (!et.getMsg().Equals("True"))
+                {
+                    MessageBox.Show(et.getMsg());
+                }
+                
             }
         }
+    }
     }
 
