@@ -403,10 +403,30 @@ namespace ProgettoRespa.net
                 {
                     posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
                 }
+            
+            if(textSxRobot.Text.Equals("True")|| textDxRobot.Text.Equals("True"))
+            {
                 robot.Left = posRobot;
                 braccio1.Left = posRobot + 26;
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
+            }
+            else
+            {
+                if(Text_AltoRobot.Text.Equals("True"))
+                {
+                    braccio1.Location = new Point(742, 50);
+                    braccio2.Location = new Point(755, 78);
+                    braccio3.Location = new Point(742, 78);
+                }
+                else
+                {
+                    braccio1.Left = posRobot + 26;
+                    braccio2.Left = posRobot + 26;
+                    braccio3.Left = posRobot + 26;
+                }
+            }
+                
 
             //MOVIMENTO VERTICALE// 
             yposRobot = yposinizialeRobot + yposAttuale;
@@ -417,9 +437,9 @@ namespace ProgettoRespa.net
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
                 robot.Location = new Point(720,60);
-                braccio1.Location= new Point(742,50);
-                braccio2.Location = new Point(755,85);
-                braccio3.Location = new Point(742,104);
+                //braccio1.Location= new Point(742,50);
+                //braccio2.Location = new Point(755,85);
+                //braccio3.Location = new Point(742,104);
                 //robot.Top = yposAttuale;
             }
             if (yposRobot > 60)
