@@ -417,7 +417,9 @@ namespace ProgettoRespa.net
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
                 robot.Location = new Point(720,60);
-                braccio1.Location = new Point(800, 83);
+                braccio1.Location= new Point(742,50);
+                braccio2.Location = new Point(755,85);
+                braccio3.Location = new Point(742,104);
                 //robot.Top = yposAttuale;
             }
             if (yposRobot > 60)
