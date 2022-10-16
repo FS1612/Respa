@@ -344,6 +344,7 @@ namespace ProgettoRespa.net
                 //textBraccio3.Enabled = true;
                 //textDxRobot.Enabled = true;
                 //textSxRobot.Enabled = true;
+                if(textDxRobot.Text.Equals("True")|| textDxRobot.Text.Equals("True")) {
                 if (textDxRobot.Text.Equals("True"))
                 {
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
@@ -403,27 +404,21 @@ namespace ProgettoRespa.net
                 {
                     posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
                 }
-            
-            if(textSxRobot.Text.Equals("True")|| textDxRobot.Text.Equals("True"))
-            {
                 robot.Left = posRobot;
                 braccio1.Left = posRobot + 26;
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
             }
-            else
+            else if(Text_AltoRobot.Text.Equals("True")|| textBasso.Text.Equals("True"))
             {
-                if(Text_AltoRobot.Text.Equals("True"))
-                {
+                if (Text_AltoRobot.Text.Equals("True")) {
                     braccio1.Location = new Point(742, 50);
                     braccio2.Location = new Point(755, 78);
                     braccio3.Location = new Point(742, 78);
                 }
-                else
+                else if(textBasso.Text.Equals("True"))
                 {
-                    braccio1.Left = posRobot + 26;
-                    braccio2.Left = posRobot + 26;
-                    braccio3.Left = posRobot + 26;
+
                 }
             }
                 

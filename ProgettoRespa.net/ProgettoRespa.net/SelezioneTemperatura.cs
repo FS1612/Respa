@@ -45,71 +45,66 @@ namespace ProgettoRespa.net
             this.Close();
         }
         private void VerificaTemperatura()
-        { 
-            int temp1;
-            string temp3 =temp ;
-
-            //try
-            //{
-            //    temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
-            //    temp1 = int.Parse(temp);
-            //}
-            //catch
-            //{
-
-            //}
+        {
+            //int temp1;
+            //string temp3 =temp ;
 
 
 
-            // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
-            
+            //    try
+            //        {
+            //        if(!listTemperature.Items[listTemperature.SelectedIndex].ToString().Equals(string.Empty))
+            //        temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
+
+            //        if (temp == string.Empty || temp.Contains("-"))
+            //            {
+            //                Text_temperatura.Text = "";
+            //            TimerAbilitato = false;
+            //            throw new ErroreTemperatura(temp, tempmin, tempmax, 0);
+            //            }
+            //            else
+            //            {
+
+            //                temp1 = int.Parse(temp);
+            //                if (temp1 > tempmin && temp1 < tempmax)
+            //                {
+            //                TimerAbilitato = true; 
+
+            //                }
+            //                else
+            //                {
+            //                Text_temperatura.Text = "";
+            //                TimerAbilitato = false;
+            //                throw new ErroreTemperatura(temp, tempmin, tempmax, temp1);
+            //                }
+
+            //            }
+            //        }
+            //        catch (ErroreTemperatura e)
+            //        {
+            //            if (!temp.Equals("")) { MessageBox.Show(e.getMsg()); }
+            //            else
+            //            {
+            //                if (!ErroreTempNonValida)
+            //                {
+            //                    ErroreTempNonValida = true;
+            //                    MessageBox.Show(e.getMsg());
+            //                }
+            //            }
+            //        }
+            //        finally
+            //        {
+            //            ErroreTempNonValida = true;
+            //            //per far eseguire al codice qualcosa indipendentemente dall'esito del try
+            //        }
             try
-                {
-                if(!listTemperature.Items[listTemperature.SelectedIndex].ToString().Equals(string.Empty))
-                temp = listTemperature.Items[listTemperature.SelectedIndex].ToString();
+            {
 
-                if (temp == string.Empty || temp.Contains("-"))
-                    {
-                        Text_temperatura.Text = "";
-                    TimerAbilitato = false;
-                    throw new ErroreTemperatura(temp, tempmin, tempmax, 0);
-                    }
-                    else
-                    {
+            }
+            catch
+            {
 
-                        temp1 = int.Parse(temp);
-                        if (temp1 > tempmin && temp1 < tempmax)
-                        {
-                        TimerAbilitato = true; 
-                        
-                        }
-                        else
-                        {
-                        Text_temperatura.Text = "";
-                        TimerAbilitato = false;
-                        throw new ErroreTemperatura(temp, tempmin, tempmax, temp1);
-                        }
-
-                    }
-                }
-                catch (ErroreTemperatura e)
-                {
-                    if (!temp.Equals("")) { MessageBox.Show(e.getMsg()); }
-                    else
-                    {
-                        if (!ErroreTempNonValida)
-                        {
-                            ErroreTempNonValida = true;
-                            MessageBox.Show(e.getMsg());
-                        }
-                    }
-                }
-                finally
-                {
-                    ErroreTempNonValida = true;
-                    //per far eseguire al codice qualcosa indipendentemente dall'esito del try
-                }
-
+            }
             }
         }
     }
