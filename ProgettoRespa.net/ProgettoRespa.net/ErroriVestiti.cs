@@ -10,8 +10,10 @@ namespace ProgettoRespa.net
     {
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
         string messaggio;
-        string indumento;
-        string colore;
+        //string indumento;
+        //string colore;
+        int cod ;
+        bool entrambi =false;
         //public ErroriVestiti(Dictionary<string, List<string>> d, string indumento, string colore, string indumento1, string colore1, bool verifica)
         //{
         //    this.indumento = indumento;
@@ -39,8 +41,7 @@ namespace ProgettoRespa.net
         //}
         public ErroriVestiti(Dictionary<string, List<string>> d, string indumento1, string colore1, string indumento2, string colore2, bool verifica)
         {
-            this.indumento = indumento1;
-            this.colore = colore1;
+            
             List<string> appoggio = new List<string>();
             List<string> appoggio2 = new List<string>();
 
@@ -49,17 +50,20 @@ namespace ProgettoRespa.net
                 if (!d.ContainsKey(indumento1))
                 {
                     messaggio = "attenzione, stai cercando degli indumenti inesistenti";
+                    this.setCode(0);
                 }
                 else
                 {
                     d.TryGetValue(indumento1, out appoggio);
                     if (!appoggio.Contains(colore1))
                     {
-                        messaggio = " attenzione, per questo tipo di indumento non esiste il colore richiesto";
+                        messaggio = " attenzione, per l'indumento 1 non esiste il colore richiesto";
+                        this.setCode(0);
                     }
                     else
                     {
                         messaggio = "True";
+                        this.setCode(1);
                     }
                 }
             }
@@ -68,48 +72,57 @@ namespace ProgettoRespa.net
                 if (!d.ContainsKey(indumento2))
                 {
                     messaggio = "attenzione, stai cercando degli indumenti inesistenti";
+                    this.setCode(0);
+
                 }
                 else
                 {
                     d.TryGetValue(indumento2, out appoggio2);
                     if (!appoggio2.Contains(colore2))
                     {
-                        messaggio = " attenzioone, per questo tipo di indumento non esiste il colore richiesto";
+                        messaggio = " attenzioone, per l'indumento 2 non esiste il colore richiesto";
+                        this.setCode(0);
                     }
                     else
                     {
                         messaggio = "True";
+                        this.setCode(2);
                     }
                 }
             }
             else if(!indumento1.Equals(" ") && !indumento2.Equals(" "))
             {
+                entrambi = true;
                 if (!d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
                 {
                     messaggio = " nessuno dei due elementi esiste, inserisci elementi esistenti";
+                    this.setCode(0);
                 }
                  if(d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
                 {
                     d.TryGetValue(indumento2, out appoggio2);
                     if (!appoggio2.Contains(colore2)){
                         messaggio = "il primo indumento non esiste, mentre il secondo esiste ma non nel colore richiesto";
+                        this.setCode(0);
                     }
                     else
                     {
                         messaggio = "True";
+                        this.setCode(2);
                     }
                 }
-
                  if (d.ContainsKey(indumento1) && !d.ContainsKey(indumento2))
                 {
                     d.TryGetValue(indumento1, out appoggio);
                     if (!appoggio.Contains(colore1))
                     {
                         messaggio = "il secondo indumento non esiste, mentre il primo esiste ma non nel colore richiesto";
+                        this.setCode(0);
                     }
                     else
                     {
                         messaggio = "True";
+                        this.setCode(1);
                     }
                 }
                 if (d.ContainsKey(indumento1) && d.ContainsKey(indumento2))
@@ -118,17 +131,34 @@ namespace ProgettoRespa.net
                     d.TryGetValue(indumento2, out appoggio2);
                     if (!appoggio2.Contains(colore2) && (appoggio.Contains(colore1))){
                         messaggio = " Il primo indumento esiste e può essere cercato, il secondo esiste ma non nel colore richiesto";
+                        
+                        this.setCode(1);
                     }
                    else if (appoggio2.Contains(colore2) && (!appoggio.Contains(colore1))){
                         messaggio = " Il secondo indumento esiste e può essere cercato, il primo esiste ma non nel colore richiesto";
+                        
+                        this.setCode(2);
                     }
                     else if(!appoggio2.Contains(colore2) && (!appoggio.Contains(colore1)))
                     {
                         messaggio = "Nessuno dei due indumenti esiste nel colore richiesto";
+                        
+                        this.setCode(0);
                     }
                     else
                     {
-                        messaggio = "True";
+                        if (indumento1.Equals(indumento2) && colore1.Equals(colore2))
+                        {
+                            messaggio = "attenzione, stai cercando due vestiti identici";
+                            
+                            this.setCode(1);
+                        }
+                        else
+                        {
+                            messaggio = "True";
+                            this.setCode(3);
+                        }
+                        
                     }
                 }
             }
@@ -142,13 +172,12 @@ namespace ProgettoRespa.net
         {
             return messaggio;
         }
-        public string GetIndumento()
-        {
-            return indumento;
+        public int getCod(){
+            return cod;
         }
-        public string getColore()
+        private void setCode(int n)
         {
-            return colore;
+            this.cod = n;
         }
     }
 }
