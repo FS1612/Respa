@@ -189,7 +189,7 @@ namespace ProgettoRespa.net
 
             catch (ErroriVestiti ev)
             {
-                MessageBox.Show(ev.getCod().ToString());
+                
                 if (!ev.getMessaggio().Equals("True"))
                 {
 

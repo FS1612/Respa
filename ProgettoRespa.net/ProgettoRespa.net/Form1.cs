@@ -233,7 +233,7 @@ namespace ProgettoRespa.net
 
                 porta.Left = pos;
 
-                AggiornamentoTemperatura();
+               
             }
         }
         private void PortaTimer_Tick(object sender, EventArgs e)
@@ -297,7 +297,7 @@ namespace ProgettoRespa.net
             //}
 
             //}
-            using (SelezioneTemperatura st = new SelezioneTemperatura())
+            using (SelezioneTemperatura st = new SelezioneTemperatura(tempIniziale,tempmax))
             {
                 if (st.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {

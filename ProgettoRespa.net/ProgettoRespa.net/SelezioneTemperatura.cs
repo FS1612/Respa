@@ -12,9 +12,10 @@ namespace ProgettoRespa.net
 {
     public partial class SelezioneTemperatura : Form
     {
-        
+        int tempmin;
+        int tempmax;
         public string valore;
-        public SelezioneTemperatura()
+        public SelezioneTemperatura(int tempmin,int tempmax)
         {
             InitializeComponent();
             InserisciTemperature();
