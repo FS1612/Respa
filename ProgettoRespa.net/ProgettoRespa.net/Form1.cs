@@ -409,7 +409,7 @@ namespace ProgettoRespa.net
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
             }
-            else if(Text_AltoRobot.Text.Equals("True")|| textBasso.Text.Equals("True"))
+            else if(Text_AltoRobot.Text.Equals("True")|| textBassoRobot.Text.Equals("True"))
             {
                 if (Text_AltoRobot.Text.Equals("True")) {
                     robot.Location = new Point(720, 60);
@@ -418,40 +418,16 @@ namespace ProgettoRespa.net
                     braccio2.Location = new Point(755, 78);
                     braccio3.Location = new Point(742, 78);
                 }
-                else if(textBasso.Text.Equals("True"))
+                else if(textBassoRobot.Text.Equals("True"))
                 {
-
+                    robot.Location = new Point(720,178);
+                    braccio1.Location= new Point(742,152);
+                    braccio2.Location = new Point(755,192);
+                    braccio3.Location = new Point(742,207);
                 }
             }
-
-
-            //MOVIMENTO VERTICALE// 
-            //yposRobot = yposinizialeRobot + yposAttuale;
-
-            //if (Text_AltoRobot.Text.Equals("True"))
-            //{
-            //    yposAttuale = yposAttuale + (int)(deltaRobot * spostverticaleRobot) / durataspostRobot;
-            //    basso_Robot.BackColor = Color.Red;
-            //    textBasso.Text = "False";
-                //robot.Location = new Point(720, 60);
-                //braccio1.Location= new Point(742,50);
-                //braccio2.Location = new Point(755,85);
-                //braccio3.Location = new Point(742,104);
-                //robot.Top = yposAttuale;
-            //}
-            //if (yposRobot > 60)
-            //{
-            //    yposRobot = 60;
-            //    //Text_AltoRobot.Text = "";
-            //    alto_Robot.BackColor = Color.Green;
-            //    textAlto.Text = "True";
-            //    //robot.Top = yposAttuale;
-
-            //}
-
-
-
-}
+    
+             }
         private void button1_Click(object sender, EventArgs e)
         {
             aggiornamentoVestiti();         
