@@ -99,7 +99,10 @@ namespace ProgettoRespa.net
             //        }
             try
             {
+                if (listTemperature.SelectedIndex == -1)
+                {
 
+                }
             }
             catch
             {
