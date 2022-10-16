@@ -87,7 +87,7 @@ namespace ProgettoRespa.net
                     else
                     {
                         this.vestito1 = sv.vestito1;
-                       
+                        this.text2indumento .Text= sv.vestito2;
                         this.RicercaVestiti1.Text = this.vestito1;
                     }
                 }
@@ -249,53 +249,62 @@ namespace ProgettoRespa.net
         private void AggiornamentoTemperatura()
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
-            String temp = text_tempdesiderata.Text;
-            string temp3 = temp;
+            //String temp = text_tempdesiderata.Text;
+            //string temp3 = temp;
             //errTemp.SetTempIniziale(tempIniziale);
             //errTemp.SetTempmax(tempmax);
-            if (presente)
+            //if (presente)
 
+            //{
+            //    // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
+            //    try
+            //    {
+            //        if (temp == string.Empty || temp.Contains("-"))
+            //        {
+            //            text_tempdesiderata.Text = "";
+            //            throw new ErroreTemperatura(temp3, tempIniziale, tempmax, 0);
+            //        }
+            //        else
+            //        {
+
+            //            temp1 = int.Parse(temp);
+            //            if (temp1 > tempIniziale && temp1 < tempmax)
+            //            {
+            //                timerTemp.Enabled = true;
+            //            }
+            //            else { text_tempdesiderata.Text = "";
+            //                throw new ErroreTemperatura(temp3, tempIniziale, tempmax, temp1);
+            //            }
+
+            //        }
+            //    }
+            //    catch (ErroreTemperatura e)
+            //    {
+            //        if (!temp3.Equals("")) { MessageBox.Show(e.getMsg()); }
+            //        else
+            //        {
+            //            if (!ErroreTempNonValida)
+            //            {
+            //                ErroreTempNonValida = true;
+            //                MessageBox.Show(e.getMsg());
+            //            }
+            //        }
+            //}
+            //finally
+            //{
+            //    ErroreTempNonValida = true;
+            //    //per far eseguire al codice qualcosa indipendentemente dall'esito del try
+            //}
+
+            //}
+            using (SelezioneTemperatura st = new SelezioneTemperatura())
             {
-                // per poter paragonare le temperature entrambe devono essere intere, perciò deco convertire la temperatura inserita dall'utente nell'interfaccia da tipo String a tipo intero. Per la conversione uso il metodo int.Parse() che però può sollevare un'eccezione di tipo FormatException e, sollevata l'eccezione, per non far terminare il programma, la "gestisco" tramite il costrutto Try-catch
-                try
+                if (st.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    if (temp == string.Empty || temp.Contains("-"))
-                    {
-                        text_tempdesiderata.Text = "";
-                        throw new ErroreTemperatura(temp3, tempIniziale, tempmax, 0);
-                    }
-                    else
-                    {
-
-                        temp1 = int.Parse(temp);
-                        if (temp1 > tempIniziale && temp1 < tempmax)
-                        {
-                            timerTemp.Enabled = true;
-                        }
-                        else { text_tempdesiderata.Text = "";
-                            throw new ErroreTemperatura(temp3, tempIniziale, tempmax, temp1);
-                        }
-
-                    }
+                    this.Tasto_sceltaTemp.Text = st.valore;
+                    
+                    
                 }
-                catch (ErroreTemperatura e)
-                {
-                    if (!temp3.Equals("")) { MessageBox.Show(e.getMsg()); }
-                    else
-                    {
-                        if (!ErroreTempNonValida)
-                        {
-                            ErroreTempNonValida = true;
-                            MessageBox.Show(e.getMsg());
-                        }
-                    }
-                }
-                finally
-                {
-                    ErroreTempNonValida = true;
-                    //per far eseguire al codice qualcosa indipendentemente dall'esito del try
-                }
-
             }
         }
         private void timerTemp_Tick(object sender, EventArgs e)
@@ -411,6 +420,21 @@ namespace ProgettoRespa.net
         }
 
         private void pantalonenero_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tasto_sceltaTemp_Click(object sender, EventArgs e)
+        {
+            AggiornamentoTemperatura();
+        }
+
+        private void Robot_automatico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void text_ALLARME_TextChanged(object sender, EventArgs e)
         {
 
         }

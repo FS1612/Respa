@@ -12,6 +12,7 @@ namespace ProgettoRespa.net
 {
     public partial class SelezioneTemperatura : Form
     {
+        
         public string valore;
         public SelezioneTemperatura()
         {

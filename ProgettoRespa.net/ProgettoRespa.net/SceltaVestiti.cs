@@ -238,7 +238,7 @@ namespace ProgettoRespa.net
         
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
-           
+            vestito2 = TextIndumento2.Text;
             vestito1 = scelta1.Text;
             this.Close();
             
