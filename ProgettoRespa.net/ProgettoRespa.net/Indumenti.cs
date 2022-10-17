@@ -17,15 +17,25 @@ namespace ProgettoRespa.net
     {
         Maglietta_bianca,
         Maglietta_nera,
-        Maglietta_rossa
+        Maglietta_gialla
     }
     enum Jeans
     {
-        Jeans_  ,
+        Jeans_scuro,
+        Jeans_chiaro
     }
     enum Pantaloni
     {
         Pantalone_nero
+    }
+    enum Giacca
+    {
+        Giacca_di_pelle,
+        Giacca_di_jeans
+    }
+    enum Felpa
+    {
+        Felpa_verde
     }
     }
 

@@ -30,6 +30,8 @@ namespace ProgettoRespa.net
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.List_giacche = new System.Windows.Forms.ListBox();
+            this.List_felpe = new System.Windows.Forms.ListBox();
             this.BarraRicercaVestiti2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,14 +49,14 @@ namespace ProgettoRespa.net
             this.List_Scarpe = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.eventLog1 = new System.Diagnostics.EventLog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.List_giacche);
+            this.panel1.Controls.Add(this.List_felpe);
             this.panel1.Controls.Add(this.BarraRicercaVestiti2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -72,8 +74,26 @@ namespace ProgettoRespa.net
             this.panel1.Controls.Add(this.List_Scarpe);
             this.panel1.Location = new System.Drawing.Point(29, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(746, 334);
+            this.panel1.Size = new System.Drawing.Size(1123, 334);
             this.panel1.TabIndex = 0;
+            // 
+            // List_giacche
+            // 
+            this.List_giacche.FormattingEnabled = true;
+            this.List_giacche.Location = new System.Drawing.Point(971, 110);
+            this.List_giacche.Name = "List_giacche";
+            this.List_giacche.Size = new System.Drawing.Size(120, 95);
+            this.List_giacche.TabIndex = 16;
+            this.List_giacche.SelectedIndexChanged += new System.EventHandler(this.List_giacche_SelectedIndexChanged);
+            // 
+            // List_felpe
+            // 
+            this.List_felpe.FormattingEnabled = true;
+            this.List_felpe.Location = new System.Drawing.Point(775, 110);
+            this.List_felpe.Name = "List_felpe";
+            this.List_felpe.Size = new System.Drawing.Size(120, 95);
+            this.List_felpe.TabIndex = 15;
+            this.List_felpe.SelectedIndexChanged += new System.EventHandler(this.List_felpe_SelectedIndexChanged);
             // 
             // BarraRicercaVestiti2
             // 
@@ -142,10 +162,12 @@ namespace ProgettoRespa.net
             // 
             // scelta1
             // 
+            this.scelta1.AllowDrop = true;
             this.scelta1.Location = new System.Drawing.Point(378, 239);
             this.scelta1.Name = "scelta1";
             this.scelta1.Size = new System.Drawing.Size(100, 20);
             this.scelta1.TabIndex = 8;
+            this.scelta1.TextChanged += new System.EventHandler(this.scelta1_TextChanged);
             // 
             // bottoneCerca
             // 
@@ -214,18 +236,11 @@ namespace ProgettoRespa.net
             // 
             this.eventLog1.SynchronizingObject = this;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(32, 238);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 15;
-            // 
             // SceltaVestiti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 440);
+            this.ClientSize = new System.Drawing.Size(1203, 378);
             this.Controls.Add(this.panel1);
             this.Name = "SceltaVestiti";
             this.Text = "SceltaVestiti";
@@ -256,6 +271,7 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox BarraRicercaVestiti2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListBox List_felpe;
+        private System.Windows.Forms.ListBox List_giacche;
     }
 }

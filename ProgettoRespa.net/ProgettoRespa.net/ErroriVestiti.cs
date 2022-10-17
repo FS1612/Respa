@@ -10,36 +10,11 @@ namespace ProgettoRespa.net
     {
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
         string messaggio;
-        //string indumento;
-        //string colore;
+       
         int cod ;
-        bool entrambi =false;
-        //public ErroriVestiti(Dictionary<string, List<string>> d, string indumento, string colore, string indumento1, string colore1, bool verifica)
-        //{
-        //    this.indumento = indumento;
-        //    this.colore = colore;
-        //    List<string> appoggio = new List<string>();
-        //    List<string> appoggio1 = new List<string>();
+       
 
-        //    if (!d.ContainsKey(indumento))
-        //    {
-        //        messaggio = "attenzione, stai cercando un indumento inesistente";
-        //    }
-        //    else
-        //    {
-        //        d.TryGetValue(indumento, out appoggio);
-        //        if (!appoggio.Contains(colore))
-        //        {
-        //            messaggio = " attenzioone, per questo tipo di indumento non esiste il colore richiesto";
-        //        }
-        //        else
-        //        {
-        //            messaggio = "True";
-        //        }
-
-        //    }
-        //}
-        public ErroriVestiti(Dictionary<string, List<string>> d, string indumento1, string colore1, string indumento2, string colore2, bool verifica)
+        public ErroriVestiti(Dictionary<string, List<string>> d, string indumento1, string colore1, string indumento2, string colore2)
         {
             
             List<string> appoggio = new List<string>();
@@ -92,7 +67,7 @@ namespace ProgettoRespa.net
             }
             else if(!indumento1.Equals(" ") && !indumento2.Equals(" "))
             {
-                entrambi = true;
+                
                 if (!d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
                 {
                     messaggio = " nessuno dei due elementi esiste, inserisci elementi esistenti";
