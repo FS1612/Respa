@@ -91,6 +91,7 @@ namespace ProgettoRespa.net
             this.masterTimer = new System.Windows.Forms.Timer(this.components);
             this.startTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.fc1 = new System.Windows.Forms.PictureBox();
             this.scarperosse = new System.Windows.Forms.PictureBox();
             this.giaccadijeans = new System.Windows.Forms.PictureBox();
             this.felpaverde = new System.Windows.Forms.PictureBox();
@@ -130,11 +131,13 @@ namespace ProgettoRespa.net
             this.resetTimer = new System.Windows.Forms.Timer(this.components);
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.fc2 = new System.Windows.Forms.PictureBox();
+            this.fc3 = new System.Windows.Forms.PictureBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarperosse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giaccadijeans)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.felpaverde)).BeginInit();
@@ -170,7 +173,8 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fc2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fc3)).BeginInit();
             this.SuspendLayout();
             // 
             // bOTTONI_PANEL
@@ -807,7 +811,9 @@ namespace ProgettoRespa.net
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.fc3);
+            this.panel1.Controls.Add(this.fc2);
+            this.panel1.Controls.Add(this.fc1);
             this.panel1.Controls.Add(this.scarperosse);
             this.panel1.Controls.Add(this.giaccadijeans);
             this.panel1.Controls.Add(this.felpaverde);
@@ -847,6 +853,15 @@ namespace ProgettoRespa.net
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1912, 535);
             this.panel1.TabIndex = 8;
+            // 
+            // fc1
+            // 
+            this.fc1.BackColor = System.Drawing.Color.Green;
+            this.fc1.Location = new System.Drawing.Point(1370, 222);
+            this.fc1.Name = "fc1";
+            this.fc1.Size = new System.Drawing.Size(20, 20);
+            this.fc1.TabIndex = 43;
+            this.fc1.TabStop = false;
             // 
             // scarperosse
             // 
@@ -997,7 +1012,7 @@ namespace ProgettoRespa.net
             // robot
             // 
             this.robot.BackColor = System.Drawing.Color.Coral;
-            this.robot.Location = new System.Drawing.Point(782, 158);
+            this.robot.Location = new System.Drawing.Point(782, 159);
             this.robot.Name = "robot";
             this.robot.Size = new System.Drawing.Size(82, 83);
             this.robot.TabIndex = 25;
@@ -1184,14 +1199,23 @@ namespace ProgettoRespa.net
             // 
             this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
             // 
-            // pictureBox2
+            // fc2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Green;
-            this.pictureBox2.Location = new System.Drawing.Point(1367, 209);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.TabIndex = 43;
-            this.pictureBox2.TabStop = false;
+            this.fc2.BackColor = System.Drawing.Color.Green;
+            this.fc2.Location = new System.Drawing.Point(1520, 222);
+            this.fc2.Name = "fc2";
+            this.fc2.Size = new System.Drawing.Size(20, 20);
+            this.fc2.TabIndex = 44;
+            this.fc2.TabStop = false;
+            // 
+            // fc3
+            // 
+            this.fc3.BackColor = System.Drawing.Color.Green;
+            this.fc3.Location = new System.Drawing.Point(1652, 222);
+            this.fc3.Name = "fc3";
+            this.fc3.Size = new System.Drawing.Size(20, 20);
+            this.fc3.TabIndex = 45;
+            this.fc3.TabStop = false;
             // 
             // Form1
             // 
@@ -1212,6 +1236,7 @@ namespace ProgettoRespa.net
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarperosse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giaccadijeans)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.felpaverde)).EndInit();
@@ -1247,7 +1272,8 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fc2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fc3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1354,7 +1380,9 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox text2indumento;
         private System.Windows.Forms.Label BassoRobot;
         private System.Windows.Forms.TextBox textBassoRobot;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox fc1;
+        private System.Windows.Forms.PictureBox fc3;
+        private System.Windows.Forms.PictureBox fc2;
     }
 }
 

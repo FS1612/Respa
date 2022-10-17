@@ -338,13 +338,14 @@ namespace ProgettoRespa.net
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
             posRobot = posAttualeRobot + posinizialeRobot;
-            deltaRobot = TimerRobot.Interval;            
-                //textBraccio1.Enabled = true;
-                //textBraccio2.Enabled = true;
-                //textBraccio3.Enabled = true;
-                //textDxRobot.Enabled = true;
-                //textSxRobot.Enabled = true;
-                if(textDxRobot.Text.Equals("True")|| textDxRobot.Text.Equals("True")) {
+            deltaRobot = TimerRobot.Interval;
+            //textBraccio1.Enabled = true;
+            //textBraccio2.Enabled = true;
+            //textBraccio3.Enabled = true;
+            //textDxRobot.Enabled = true;
+            //textSxRobot.Enabled = true;
+            if (textDxRobot.Text.Equals("True") || textSxRobot.Text.Equals("True"))
+            {
                 if (textDxRobot.Text.Equals("True"))
                 {
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
@@ -409,25 +410,26 @@ namespace ProgettoRespa.net
                 braccio2.Left = posRobot + 26;
                 braccio3.Left = posRobot + 26;
             }
-            else if(Text_AltoRobot.Text.Equals("True")|| textBassoRobot.Text.Equals("True"))
+            else if (Text_AltoRobot.Text.Equals("True") || textBassoRobot.Text.Equals("True"))
             {
-                if (Text_AltoRobot.Text.Equals("True")) {
+                if (Text_AltoRobot.Text.Equals("True"))
+                {
                     robot.Location = new Point(720, 60);
 
                     braccio1.Location = new Point(742, 50);
                     braccio2.Location = new Point(755, 78);
                     braccio3.Location = new Point(742, 78);
                 }
-                else if(textBassoRobot.Text.Equals("True"))
+                else if (textBassoRobot.Text.Equals("True"))
                 {
-                    robot.Location = new Point(720,178);
-                    braccio1.Location= new Point(742,152);
-                    braccio2.Location = new Point(755,192);
-                    braccio3.Location = new Point(742,207);
+                    robot.Location = new Point(720, 178);
+                    braccio1.Location = new Point(742, 152);
+                    braccio2.Location = new Point(755, 192);
+                    braccio3.Location = new Point(742, 207);
                 }
             }
-    
-             }
+            
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             aggiornamentoVestiti();         
