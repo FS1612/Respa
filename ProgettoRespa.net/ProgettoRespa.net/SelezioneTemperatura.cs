@@ -19,7 +19,7 @@ namespace ProgettoRespa.net
         private bool ErroreTempNonValida = false;
         private string temp ;
         
-        int tempnumero;
+        public int tempnumero;
         public SelezioneTemperatura(int tempmin,int tempmax)
         {
             this.tempmax = tempmax;
@@ -83,6 +83,10 @@ namespace ProgettoRespa.net
                 if (!et.getMsg().Equals("True"))
                 {
                     MessageBox.Show(et.getMsg());
+                }
+                else
+                {
+                    TimerAbilitato = true;
                 }
                 
             }
