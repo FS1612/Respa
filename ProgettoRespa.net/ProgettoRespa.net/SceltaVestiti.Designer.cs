@@ -124,6 +124,7 @@ namespace ProgettoRespa.net
             // 
             // TextIndumento2
             // 
+            this.TextIndumento2.AllowDrop = true;
             this.TextIndumento2.Location = new System.Drawing.Point(378, 282);
             this.TextIndumento2.Name = "TextIndumento2";
             this.TextIndumento2.Size = new System.Drawing.Size(100, 20);
