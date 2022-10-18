@@ -232,54 +232,43 @@ namespace ProgettoRespa.net
 
             catch (ErroriVestiti ev)
             {
-
-                if (!ev.getMessaggio().Equals("True"))
+                switch (ev.getCod())
                 {
-
-                    switch (ev.getCod())
-                    {
-                        case 0:
-                            MessageBox.Show(ev.getMessaggio());
-                            break;
-                        case 1:
-                            aggiornamentoscelte(indumento1, colore1);
-                            scelta1.Text = BarraRicercaVestiti1.Text;
-                            MessageBox.Show(ev.getMessaggio());
-                            break;
-                        case 2:
-                            aggiornamentoscelte(indumento2, colore2);
-                            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                            MessageBox.Show(ev.getMessaggio());
-                            break;
-
-                    }
-                }
-                else
-                {
-                    switch (ev.getCod())
-                    {
-                        case 1:
-                            sceltaeffettuataVestito1 = true;
-                            scelta1.Text = BarraRicercaVestiti1.Text;
-                            aggiornamentoscelte(indumento1, colore1);
-                            break;
-                        case 2:
-                            aggiornamentoscelte(indumento2, colore2);
-                            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                            sceltaeffettuataVestito2 = true;
-
-                            break;
-                        case 3:
-                            aggiornamentoscelte(indumento1, colore1);
-                            aggiornamentoscelte(indumento2, colore2);
-                            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                            sceltaeffettuataVestito2 = true;
-                            sceltaeffettuataVestito1 = true;
-                            scelta1.Text = BarraRicercaVestiti1.Text;
-                            break;
-                    }
-
-
+                    case 0 when !ev.getMessaggio().Equals("True"):
+                        MessageBox.Show(ev.getMessaggio());
+                        break;
+                    case 1 when !ev.getMessaggio().Equals("True"):
+                        aggiornamentoscelte(indumento1, colore1);
+                        scelta1.Text = BarraRicercaVestiti1.Text;
+                        MessageBox.Show(ev.getMessaggio());
+                        break;
+                    case 2 when !ev.getMessaggio().Equals("True"):
+                        aggiornamentoscelte(indumento2, colore2);
+                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                        MessageBox.Show(ev.getMessaggio());
+                        break;
+                    case 1 when ev.getMessaggio().Equals("True"):
+                        sceltaeffettuataVestito1 = true;
+                        scelta1.Text = BarraRicercaVestiti1.Text;
+                        TextIndumento2.Text = " ";
+                        aggiornamentoscelte(indumento1, colore1);
+                        
+                        break;
+                    case 2 when ev.getMessaggio().Equals("True"):
+                        aggiornamentoscelte(indumento2, colore2);
+                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                        scelta1.Text = " ";
+                        sceltaeffettuataVestito2 = true;
+                        
+                        break;
+                    case 3 when ev.getMessaggio().Equals("True"):
+                        aggiornamentoscelte(indumento1, colore1);
+                        aggiornamentoscelte(indumento2, colore2);
+                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                        sceltaeffettuataVestito2 = true;
+                        sceltaeffettuataVestito1 = true;
+                        scelta1.Text = BarraRicercaVestiti1.Text;
+                        break;
                 }
             }
         }
