@@ -27,37 +27,50 @@ namespace ProgettoRespa.net
         double tempAttuale;
         int tempIniziale = 19;//temperatura iniziale della stanza
         int temp1;
-        Boolean Robot = false;
-        // int posinizialeRobot = 782;
         int posinizialeRobot = 521;
         int durataspostRobot = 5000;
-        //int spostRobot = 740;
         int spostRobot = 387;
         int deltaRobot;
         int posAttualeRobot;
         int posRobot;
-        int yposRobot;
-        int spostverticaleRobot = 60;
-        int yposinizialeRobot = 103;
-        int yposAttuale;
-        bool ErroreTempNonValida = false;
         int tempmax = 30;
-        SceltaVestiti sceltaVestiti= new SceltaVestiti();
+        SceltaVestiti sceltaVestiti = new SceltaVestiti();
         private bool sceltaVestito1Effettuata = false;
         private string vestito1;
         public object CranePicture { get; private set; }
+        //variabili booleane robot 
+        bool FineCorsaAltoRobot = false;
+        bool FineCorsaBassoRobot = false;
+        bool FineCorsaSinistroRobot = false;
+        bool FineCorsaDestroRobot = false;
+        bool FineCorsaCentraleSinistroRobot = true;
+        bool FineCorsaCentraleDestroRobot = false;
 
+
+
+        bool salita_effettuata = false;
+        string comandoRobot;
+        string comandoBraccio;
+        int numerobraccio;
+        int posybraccio1;
+        int posxbraccio1;
+        int posybraccio1iniziale;
+        int posxbraccio1iniziale;
+        int posyRobot;
+        int posYinizialeRobot = 106;
         public Form1()
         {
-
+            posybraccio1iniziale = 84;
+            posxbraccio1iniziale = 547;
             InitializeComponent();
             tempAttuale = tempIniziale;
             textTemperatura.Text = tempAttuale.ToString();
             AggiornamentoPresenza();
+
             Porta_timer = false;
             Tempo_porta = false;
             Chiusura_aggiornata = false;
-            
+
         }
         private void AggiornamentoPresenza()
         {
@@ -76,6 +89,52 @@ namespace ProgettoRespa.net
             }
 
         }
+        private void codificaComandi()
+        {
+            if (textDxRobot.Text.Equals("True") && textSxRobot.Text.Equals(""))
+            {
+
+                comandoRobot = "dx";
+
+            }
+            else if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("True"))
+            {
+                comandoRobot = "sx";
+            }
+            else if (textBassoRobot.Text.Equals("True") && Text_AltoRobot.Text.Equals(""))
+            {
+                comandoRobot = "giu";
+            }
+            else if (textBassoRobot.Text.Equals("") && Text_AltoRobot.Text.Equals("True"))
+            {
+                comandoRobot = "su";
+            }
+
+            else
+            {
+                comandoRobot = "";
+            }
+
+        }
+        private void codificaComandiRobot()
+        {
+            if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals(""))
+            {
+                comandoBraccio = "allunga";
+                numerobraccio = 1;
+            }
+
+            else if (textBraccio3.Text.Equals("True") && textBraccio1.Text.Equals(""))
+            {
+                comandoBraccio = "allunga";
+                numerobraccio = 3;
+            }
+            else
+            {
+                comandoBraccio = "";
+                numerobraccio = -1;
+            }
+        }
         private void aggiornamentoVestiti()
         {
             using (SceltaVestiti sv = new SceltaVestiti())
@@ -83,7 +142,7 @@ namespace ProgettoRespa.net
                 if (sv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     this.sceltaVestito1Effettuata = sv.sceltaeffettuataVestito1;
-                    
+
                     if (!sceltaVestito1Effettuata)
                     {
                         RicercaVestiti1.Text = " scegli un un indumento";
@@ -91,12 +150,12 @@ namespace ProgettoRespa.net
                     else
                     {
                         this.vestito1 = sv.vestito1;
-                        this.text2indumento .Text= sv.vestito2;
+                        this.text2indumento.Text = sv.vestito2;
                         this.RicercaVestiti1.Text = this.vestito1;
                     }
                 }
             }
-           
+
 
 
         }
@@ -199,12 +258,12 @@ namespace ProgettoRespa.net
                 {
                     Chiusura_aggiornata = false;
                     //la variabile booleana di appoccio chiusura porta viene settata a true appena la porta si apre e riportata a false appena la porta si richiude cosi che il contatore delle chiusure sia aggiornato una sola volta per ciclo                   
-                    if(chiusura%2!=0)
+                    if (chiusura % 2 != 0)
                     {
                         presente = true;
                         AggiornamentoPresenza();
                     }
-                    
+
                     else
                     {
                         presente = false;
@@ -237,8 +296,9 @@ namespace ProgettoRespa.net
 
                 porta.Left = pos;
 
-               
+
             }
+
         }
         private void PortaTimer_Tick(object sender, EventArgs e)
         {//timer che pone a true la variabile tempo_porta permettendo la ciusura della porta appena trascorso il tempo
@@ -253,7 +313,7 @@ namespace ProgettoRespa.net
         private void AggiornamentoTemperatura()
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
-            using (SelezioneTemperatura st = new SelezioneTemperatura(tempIniziale,tempmax))
+            using (SelezioneTemperatura st = new SelezioneTemperatura(tempIniziale, tempmax))
             {
                 if (st.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -289,141 +349,123 @@ namespace ProgettoRespa.net
         }
         private void TimerRobot_Tick(object sender, EventArgs e)
         {
-            posRobot = posAttualeRobot + posinizialeRobot;
+            codificaComandi();
+            codificaComandiRobot();
+            GestioneSpostamento();
+            GestioneBracci();
+            verificaPosizioni();
+        }
+        private void GestioneSpostamento()
+        {
             deltaRobot = TimerRobot.Interval;
-            //textBraccio1.Enabled = true;
-            //textBraccio2.Enabled = true;
-            //textBraccio3.Enabled = true;
-            //textDxRobot.Enabled = true;
-            //textSxRobot.Enabled = true;
-            if (textDxRobot.Text.Equals("True") || textSxRobot.Text.Equals("True"))
+            posyRobot = robot.Location.Y;
+            switch (comandoRobot)
             {
-                if (textDxRobot.Text.Equals("True"))
-                {
+                case "dx":
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
-                    fcs_Robot.BackColor = Color.Red;
-                    textFcsRobot.Text = "False";
-                }
+                    braccio1.Location = new Point(robot.Location.X + 30, braccio1.Location.Y);
+                    braccio3.Location = new Point(robot.Location.X + 30, braccio3.Location.Y);
 
-                if (posRobot > 720)
-                {
-                    posRobot = 720;
-                    textDxRobot.Text = "";
-                    fcd_Robot.BackColor = Color.Green;
-                    textFcdRobot.Text = "True";
-
-                }
-                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio2.Text.Equals("True"))
-                {
-                    braccio2.Width = 80;
-                }
-
-                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio3.Text.Equals("True"))
-                {
-                    braccio3.Height = 80;
-
-                }
-                if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("") && textBraccio1.Text.Equals("True"))
-                {
-                    braccio1.Top = 35;
-                    braccio1.Height = 80;
-
-                }
-                if (textBraccio2.Text.Equals(""))
-                {
-                    braccio2.Width = 30;
-                }
-                if (textBraccio3.Text.Equals(""))
-                {
-                    braccio3.Height = 30;
-                }
-                if (textBraccio1.Text.Equals(""))
-                {
-                    braccio1.Location = new Point(547, 88);
-                    braccio1.Height = 35;
-                }
-                if (posRobot < 526)
-                {
-                    posRobot = 526;
-                    textSxRobot.Text = "";
-                    fcs_Robot.BackColor = Color.Green;
-                    textFcsRobot.Text = "True";
-                    fcd_Robot.BackColor = Color.Red;
-                    textFcdRobot.Text = "False";
-
-                }
-
-                if (textSxRobot.Text.Equals("True"))
-                {
+                    break;
+                case "sx":
                     posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-                }
-                robot.Left = posRobot;
-                braccio1.Left = posRobot + 26;
-                braccio2.Left = posRobot + 26;
-                braccio3.Left = posRobot + 26;
-            }
-            else if (Text_AltoRobot.Text.Equals("True") || textBassoRobot.Text.Equals("True"))
-            {
-                if (Text_AltoRobot.Text.Equals("True"))
-                {
-                    robot.Location = new Point(720, 60);
+                    braccio1.Location = new Point(robot.Location.X + 15, braccio1.Location.Y);
+                    braccio3.Location = new Point(robot.Location.X + 15, braccio3.Location.Y);
 
-                    braccio1.Location = new Point(742, 50);
-                    braccio2.Location = new Point(755, 78);
-                    braccio3.Location = new Point(742, 78);
-                }
-                else if (textBassoRobot.Text.Equals("True"))
-                {
-                    robot.Location = new Point(720, 178);
-                    braccio1.Location = new Point(742, 152);
-                    braccio2.Location = new Point(755, 192);
-                    braccio3.Location = new Point(742, 207);
-                }
+                    break;
+                case "su":
+                    timerSalita.Enabled = true;
+                    if (salita_effettuata)
+                    {
+                        robot.Location = new Point(robot.Location.X, robot.Location.Y - 5);
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 15);
+                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 30);
+                        salita_effettuata = false;
+                    }
+
+                    break;
+                case "giu":
+                    timerSalita.Enabled = true;
+                    if (salita_effettuata)
+                    {
+                        robot.Location = new Point(robot.Location.X, robot.Location.Y + 5);
+                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y - 15);
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y + 30);
+                        salita_effettuata = false;
+                    }
+
+                    break;
+                case "" when posyRobot - posYinizialeRobot != 0:
+
+                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 15);
+                    braccio3.Location = new Point(robot.Location.X + 26, robot.Location.Y + 30);
+
+                    break;
+                default:
+                    posAttualeRobot = 0 + posAttualeRobot;
+                    //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y - 15);
+                    break;
             }
-            
+            posxbraccio1 = braccio1.Location.X;
+            posybraccio1 = braccio1.Location.Y;
+            posRobot = posAttualeRobot + posinizialeRobot;
+            robot.Left = posRobot;
+        }
+        private void GestioneBracci()
+        {
+            switch (numerobraccio)
+            {
+                case 1 when comandoBraccio.Equals("allunga"):
+                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 40);
+
+                    braccio1.Height = 50;
+                    break;
+                case -1 when posRobot == posinizialeRobot && comandoRobot.Equals("") && posyRobot == posYinizialeRobot:
+                    braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
+                    braccio1.Height = 36;
+                    braccio3.Height = 36;
+                    break;
+                case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot || posRobot == posinizialeRobot:
+                    //MessageBox.Show("lol");
+                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 20);
+                    //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y- 80);
+                    braccio1.Height = 36;
+                    braccio3.Height = 36;
+                    break;
+                case 3 when comandoBraccio.Equals("allunga"):
+                    braccio3.Height = 80;
+                    break;
+                default:
+
+                    break;
+            }
+        }
+        private void verificaPosizioni()
+        {
+            switch (posRobot)
+            {
+                case 521:
+                    textFcsRobot.Text = "inizio corsa";
+                    fcs_Robot.BackColor = Color.Green;
+                    break;
+                    //case 720:
+
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            aggiornamentoVestiti();         
+            aggiornamentoVestiti();
         }
-
-        private void TextSensProssimita_porta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void jeans_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pantalonenero_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Tasto_sceltaTemp_Click(object sender, EventArgs e)
         {
             AggiornamentoTemperatura();
         }
+        
 
-        private void Robot_automatico_Click(object sender, EventArgs e)
+        private void timerSalita_Tick_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void text_ALLARME_TextChanged(object sender, EventArgs e)
-        {
-
+            salita_effettuata = true;
         }
     }
-    
+
 }
-
-    
-
-
-
-
-
-
