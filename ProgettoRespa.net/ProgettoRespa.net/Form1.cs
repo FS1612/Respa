@@ -41,12 +41,11 @@ namespace ProgettoRespa.net
         //variabili booleane robot 
         bool FineCorsaAltoRobot = false;
         bool FineCorsaBassoRobot = false;
-        bool FineCorsaSinistroRobot = false;
-        bool FineCorsaDestroRobot = false;
         bool FineCorsaCentraleSinistroRobot = true;
         bool FineCorsaCentraleDestroRobot = false;
-
-
+        bool FineCorsaDestro1 = false;
+        bool FineCorsaDestro2 = false;
+        bool FineCorsaDestro3 = false;
 
         bool salita_effettuata = false;
         string comandoRobot;
@@ -409,6 +408,89 @@ namespace ProgettoRespa.net
             posxbraccio1 = braccio1.Location.X;
             posybraccio1 = braccio1.Location.Y;
             posRobot = posAttualeRobot + posinizialeRobot;
+           
+            if(posRobot>720)
+            {
+                //posRobot = 720;
+                fcs_Robot.BackColor = Color.Red;
+                textFcsRobot.Text = "False";
+                fcd_Robot.BackColor = Color.Green;
+                textFcdRobot.Text = "True";
+                fc1.BackColor = Color.Red;
+                textFc1.Text = "False";
+                fc2.BackColor = Color.Red;
+                textFc2.Text = "False";
+                fc3.BackColor = Color.Red;
+                textFC3.Text = "False";
+                alto_Robot.BackColor = Color.Red;
+                textAlto.Text = "False";
+                //FineCorsaAltoRobot = true;
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+
+
+            }
+
+            if (posyRobot < 56)
+            {
+                alto_Robot.BackColor = Color.Green;
+                textAlto.Text = "True";
+                //FineCorsaAltoRobot = true;
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+            }
+            if (posyRobot > 174)
+            {
+                alto_Robot.BackColor = Color.Red;
+                textAlto.Text = "False";
+                basso_Robot.BackColor = Color.Green;
+                textBasso.Text = "True";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+            }
+            if (posRobot > 838 && comandoRobot.Equals("dx"))
+            { 
+                alto_Robot.BackColor = Color.Green;
+                textAlto.Text = "True";
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+                fc1.BackColor = Color.Green;
+                textFc1.Text ="True";
+            }
+            if (posRobot > 941 && comandoRobot.Equals("dx"))
+            {
+                alto_Robot.BackColor = Color.Green;
+                textAlto.Text = "True";
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+                fc1.BackColor = Color.Red;
+                textFc1.Text = "False";
+                fc2.BackColor = Color.Green;
+                textFc2.Text = "True";
+            }
+            if (posRobot > 1031 && comandoRobot.Equals("dx"))
+            {
+                alto_Robot.BackColor = Color.Green;
+                textAlto.Text = "True";
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+                fc1.BackColor = Color.Red;
+                textFc1.Text = "False";
+                fc2.BackColor = Color.Red;
+                textFc2.Text = "False";
+                fc3.BackColor = Color.Green;
+                textFC3.Text = "True";
+            }
+
+
             robot.Left = posRobot;
         }
         private void GestioneBracci()
