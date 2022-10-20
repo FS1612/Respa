@@ -39,13 +39,13 @@ namespace ProgettoRespa.net
         private string vestito1;
         public object CranePicture { get; private set; }
         //variabili booleane robot 
-        bool FineCorsaAltoRobot = false;
-        bool FineCorsaBassoRobot = false;
-        bool FineCorsaCentraleSinistroRobot = true;
-        bool FineCorsaCentraleDestroRobot = false;
-        bool FineCorsaDestro1 = false;
-        bool FineCorsaDestro2 = false;
-        bool FineCorsaDestro3 = false;
+        //bool FineCorsaAltoRobot = false;
+        //bool FineCorsaBassoRobot = false;
+        //bool FineCorsaCentraleSinistroRobot = true;
+        //bool FineCorsaCentraleDestroRobot = false;
+        //bool FineCorsaDestro1 = false;
+        //bool FineCorsaDestro2 = false;
+        //bool FineCorsaDestro3 = false;
 
         bool salita_effettuata = false;
         string comandoRobot;
@@ -420,8 +420,6 @@ namespace ProgettoRespa.net
                 textFc1.Text = "False";
                 fc2.BackColor = Color.Red;
                 textFc2.Text = "False";
-                fc3.BackColor = Color.Red;
-                textFC3.Text = "False";
                 alto_Robot.BackColor = Color.Red;
                 textAlto.Text = "False";
                 //FineCorsaAltoRobot = true;
@@ -474,21 +472,7 @@ namespace ProgettoRespa.net
                 fc2.BackColor = Color.Green;
                 textFc2.Text = "True";
             }
-            if (posRobot > 1031 && comandoRobot.Equals("dx"))
-            {
-                alto_Robot.BackColor = Color.Green;
-                textAlto.Text = "True";
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                fc1.BackColor = Color.Red;
-                textFc1.Text = "False";
-                fc2.BackColor = Color.Red;
-                textFc2.Text = "False";
-                fc3.BackColor = Color.Green;
-                textFC3.Text = "True";
-            }
+            
 
 
             robot.Left = posRobot;
@@ -498,24 +482,24 @@ namespace ProgettoRespa.net
             switch (numerobraccio)
             {
                 case 1 when comandoBraccio.Equals("allunga"):
-                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 40);
+                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
 
-                    braccio1.Height = 50;
+                    braccio1.Height = 40;
                     break;
                 case -1 when posRobot == posinizialeRobot && comandoRobot.Equals("") && posyRobot == posYinizialeRobot:
                     braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
-                    braccio1.Height = 36;
-                    braccio3.Height = 36;
+                    braccio1.Height = 30;
+                    braccio3.Height = 30;
                     break;
                 case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot || posRobot == posinizialeRobot:
                     //MessageBox.Show("lol");
                     braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 20);
                     //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y- 80);
-                    braccio1.Height = 36;
-                    braccio3.Height = 36;
+                    braccio1.Height = 30;
+                    braccio3.Height = 30;
                     break;
                 case 3 when comandoBraccio.Equals("allunga"):
-                    braccio3.Height = 80;
+                    braccio3.Height = 40;
                     break;
                 default:
 
