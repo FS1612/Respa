@@ -409,6 +409,10 @@ namespace ProgettoRespa.net
             posxbraccio1 = braccio1.Location.X;
             posybraccio1 = braccio1.Location.Y;
             posRobot = posAttualeRobot + posinizialeRobot;
+
+
+
+
             robot.Left = posRobot;
         }
         private void GestioneBracci()

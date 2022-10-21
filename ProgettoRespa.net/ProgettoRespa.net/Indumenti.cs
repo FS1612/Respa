@@ -14,14 +14,12 @@ namespace ProgettoRespa.net
         Scarpe_bianche
          }
         enum Magliette
-    {
+        {
         Maglietta_bianca,
-        Maglietta_nera,
-        Maglietta_gialla
-    }
+        Maglietta_nera     
+        }
     enum Jeans
     {
-        Jeans_scuro,
         Jeans_chiaro
     }
     enum Pantaloni
@@ -30,8 +28,7 @@ namespace ProgettoRespa.net
     }
     enum Giacca
     {
-        Giacca_di_pelle,
-        Giacca_di_jeans
+        Giacca_di_pelle   
     }
     enum Felpa
     {

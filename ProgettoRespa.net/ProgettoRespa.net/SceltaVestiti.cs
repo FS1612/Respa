@@ -12,21 +12,22 @@ namespace ProgettoRespa.net
 {
     public partial class SceltaVestiti : Form
     {
-
+        //creo nuovi tipi associati ai vestiti  per inserirli nelle varie i typi sono definiti tramite delle stringhe costanti (enum)
         Type scarpe = typeof(Scarpe);
         Type jeans = typeof(Jeans);
         Type pantaloni = typeof(Pantaloni);
         Type magliette = typeof(Magliette);
         Type felpe = typeof(Felpa);
         Type giacche = typeof(Giacca);
-        public string vestito1;
-        public bool sceltaeffettuataVestito1;
-        public string vestito2;
-        public bool sceltaeffettuataVestito2;
+        public string vestito1;// variabile pubblica che salva vastito e colore del primo indumento in modo tale da passarlo al form1 
+        public bool sceltaeffettuataVestito1;// variabile pubblica che indica se il vestito 1 è stato scelto con successo
+        public string vestito2;// variabile pubblica che salva vastito e colore del secondo indumento in modo tale da passarlo al form1 
+        public bool sceltaeffettuataVestito2;// variabile pubblica che indica se il vestito 2 è stato scelto con successo
         string indumento1;
         string colore1;
         string indumento2;
         string colore2;
+        // collezione che collega il nome dell'indumento con la lista dei possibili colori
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
 
         public SceltaVestiti()
@@ -54,6 +55,7 @@ namespace ProgettoRespa.net
             string[] appoggio;
             string indumento;
             string colore;
+            //ciclo che estrae i nomi dagli enum e li iserisce nel dizionario dei vestiti
             foreach (string s in Enum.GetNames(e))
 
             {
@@ -78,16 +80,17 @@ namespace ProgettoRespa.net
         }
 
         private void AggiornaDizionario(string key, string value)
-        {
+        {// aggiorno il dizionario dei vestiti
             List<string> a = new List<string>();
+            //i dizionari non ammettono chiavi ripetute perciò devo controllare che lachiave non sia già presente prima di aggiungerla nuovamente
             if (!IndumentiColori.ContainsKey(key))
             {
-
+                //se la chiave non esiste, creo una lista inserendo il colore della 
                 a.Add(value);
                 IndumentiColori.Add(key, a);
             }
             else
-            {
+            {//se la chiave è presente estraggo la lista con i relativi elementi e aggiungo in coda l'ultimo
                 IndumentiColori.TryGetValue(key, out a);
                 a.Add(value);
                 IndumentiColori.Remove(key);
@@ -104,20 +107,21 @@ namespace ProgettoRespa.net
             //*aggiungo jeans
 
             InserisciOggetti(jeans, List_Jeans);
-            ////*aggiungo Pantaloni
+            //*aggiungo Pantaloni
             InserisciOggetti(pantaloni, List_Pantaloni);
-            ////* aggiungoMagliette
+            //* aggiungoMagliette
             InserisciOggetti(magliette, List_Magliette);
-
+            //* aggiungoGiacche
             InserisciOggetti(giacche, List_giacche);
-
+            //* aggiungoFelpe
             InserisciOggetti(felpe, List_felpe);
 
         }
         private void InserisciOggetti(Type e, ListBox l)
-        {
+        {//inserico gli oggetti nella lista di appartenenza
             foreach (string s in Enum.GetNames(e))
             {
+                // con replace rimuvo il carattere separatore, inserendo al suo posto uno spazio
                 string r = s.Replace('_', ' ');
                 l.Items.Add(r);
             }
@@ -155,8 +159,9 @@ namespace ProgettoRespa.net
                 
                 string[] divisione;
                 string[] divisione1;
+                //controllo la stringa del vestito scelto per vedere se è una giacca. Se è una giacca prima di separare in indumento e colore, devo rimuovere il 'di' e '_' altrimenti la separazione in indumento e colore non ha effetto
                 if (BarraRicercaVestiti1.Text.ToLower().StartsWith("giacca"))
-                {
+                {// per rimuovere i caratteri necessari ho bisogno del carattere di inizio(che trovovo con il metodo .indexOf()) e definisco quanti caratteri devo rimuovere con l'intero (3) e con split separo le parole
                     divisione = BarraRicercaVestiti1.Text.Remove(BarraRicercaVestiti1.Text.IndexOf('d'), 3).Split(' ');
                 }
                 else
@@ -165,11 +170,12 @@ namespace ProgettoRespa.net
                 }
 
                 if (!divisione[0].Equals(string.Empty))
-                {
+                {// se non ho alcun elemento salvato in divisione[0] significa che l'utente non ha inserito un vestito da cercare, quindi per definire il nome dell'indumento, salvato in divisione[0], devo avere che divisione[0] non sia vuoto(string.null poichè divisione è un array di string)
                     if (!divisione[0].Equals(" "))
-                    {
+                    {// per rendere il codice non case-Sensitive (lato utente) e far si che la ricerca vada sempre a buon fine estraggo dalla stringa contenente l'indumento il primo carattere (con .first()) questa la metto in maiuscolo con char.ToUpper() e il resto dell'indumento 
                         char let = divisione[0].First();
                         char letToUp = Char.ToUpper(let);
+                        indumento1.ToLower();
                         indumento1 = divisione[0].Replace(let, letToUp);
                     }
                     else
@@ -208,6 +214,7 @@ namespace ProgettoRespa.net
                     {
                         char let1 = divisione1[0].First();
                         char letToUp1 = Char.ToUpper(let1);
+                        indumento2.ToLower();
                         indumento2 = divisione1[0].Replace(let1, letToUp1);
 
                     }
