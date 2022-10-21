@@ -46,7 +46,7 @@ namespace ProgettoRespa.net
         //bool FineCorsaDestro1 = false;
         //bool FineCorsaDestro2 = false;
         //bool FineCorsaDestro3 = false;
-
+        bool reset_effettuato = false;
         bool salita_effettuata = false;
         string comandoRobot;
         string comandoBraccio;
@@ -197,7 +197,7 @@ namespace ProgettoRespa.net
         {//riporta il programma allo stato iniziale 
             textReset.Text = "True";
             textReset.BackColor = Color.Green;
-            resetTimer.Enabled = true;
+            //resetTimer.Enabled = true;
             // si può resettare il timer?
 
             //Start = false;
@@ -207,9 +207,11 @@ namespace ProgettoRespa.net
             Chiusura_aggiornata = false;
             presente = false;
             AggiornamentoPresenza();
-            robot.Location = new Point(posinizialeRobot, posYinizialeRobot);
-            braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
-            braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
+            reset_effettuato = true;
+            
+                //robot.Location = new Point(521, posYinizialeRobot);
+            //braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
+            //braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
 
 
 
@@ -323,6 +325,7 @@ namespace ProgettoRespa.net
         {
             textReset.Text = "False";
             textReset.BackColor = Color.Red;
+            reset_effettuato = false;
         }
         private void AggiornamentoTemperatura()
         {
@@ -365,9 +368,15 @@ namespace ProgettoRespa.net
         {
             codificaComandi();
             codificaComandiRobot();
-            GestioneSpostamento();
-            GestioneBracci();
-            verificaPosizioni();
+            if (!reset_effettuato) {
+                GestioneSpostamento();
+                GestioneBracci();
+                verificaPosizioni();
+            }
+            else
+            {
+                resettaPosizioni();
+            }
         }
         private void GestioneSpostamento()
         {
@@ -534,6 +543,15 @@ namespace ProgettoRespa.net
                     //case 720:
 
             }
+        }
+        private void resettaPosizioni()
+        {
+            posAttualeRobot = 0;
+            GestioneSpostamento();
+            GestioneBracci();
+            
+            resetTimer.Enabled = true;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
