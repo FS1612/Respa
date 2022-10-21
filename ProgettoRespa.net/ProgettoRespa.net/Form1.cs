@@ -207,6 +207,12 @@ namespace ProgettoRespa.net
             Chiusura_aggiornata = false;
             presente = false;
             AggiornamentoPresenza();
+            robot.Location = new Point(posinizialeRobot, posYinizialeRobot);
+            braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
+            braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
+
+
+
 
         }
         private void masterTimer_Tick(object sender, EventArgs e)
@@ -296,6 +302,15 @@ namespace ProgettoRespa.net
                 porta.Left = pos;
 
 
+            }
+            //ALLARME
+            if (text_ALLARME.Text.Equals("True"))
+            {
+                Allarme_picture.Visible = true;
+            }
+            else
+            {
+                Allarme_picture.Visible = false;
             }
 
         }
