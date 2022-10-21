@@ -59,8 +59,8 @@ namespace ProgettoRespa.net
         int posYinizialeRobot = 106;
         public Form1()
         {
-            posybraccio1iniziale = 84;
-            posxbraccio1iniziale = 547;
+            posybraccio1iniziale = 94;
+            posxbraccio1iniziale = 540;
             InitializeComponent();
             tempAttuale = tempIniziale;
             textTemperatura.Text = tempAttuale.ToString();
@@ -362,14 +362,14 @@ namespace ProgettoRespa.net
             {
                 case "dx":
                     posAttualeRobot = posAttualeRobot + (int)(deltaRobot * spostRobot) / durataspostRobot;
-                    braccio1.Location = new Point(robot.Location.X + 30, braccio1.Location.Y);
-                    braccio3.Location = new Point(robot.Location.X + 30, braccio3.Location.Y);
+                    braccio1.Location = new Point(robot.Location.X + 37, braccio1.Location.Y);
+                    braccio3.Location = new Point(robot.Location.X + 37, braccio3.Location.Y);
 
                     break;
                 case "sx":
                     posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-                    braccio1.Location = new Point(robot.Location.X + 15, braccio1.Location.Y);
-                    braccio3.Location = new Point(robot.Location.X + 15, braccio3.Location.Y);
+                    braccio1.Location = new Point(robot.Location.X +25, braccio1.Location.Y);
+                    braccio3.Location = new Point(robot.Location.X + 25, braccio3.Location.Y);
 
                     break;
                 case "su":
@@ -377,8 +377,8 @@ namespace ProgettoRespa.net
                     if (salita_effettuata)
                     {
                         robot.Location = new Point(robot.Location.X, robot.Location.Y - 5);
-                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 15);
-                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 30);
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y-10 );
+                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 56);
                         salita_effettuata = false;
                     }
 
@@ -388,16 +388,16 @@ namespace ProgettoRespa.net
                     if (salita_effettuata)
                     {
                         robot.Location = new Point(robot.Location.X, robot.Location.Y + 5);
-                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y - 15);
-                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y + 30);
+                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y +60);
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y -2);
                         salita_effettuata = false;
                     }
 
                     break;
-                case "" when posyRobot - posYinizialeRobot != 0:
+                case "" when posyRobot - posYinizialeRobot != 0&&!comandoBraccio.Equals("allunga"):
 
-                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 15);
-                    braccio3.Location = new Point(robot.Location.X + 26, robot.Location.Y + 30);
+                    braccio1.Location = new Point(robot.Location.X+30 , robot.Location.Y - 5);
+                    braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
 
                     break;
                 default:
@@ -481,24 +481,26 @@ namespace ProgettoRespa.net
         {
             switch (numerobraccio)
             {
-                case 1 when comandoBraccio.Equals("allunga"):
+                case 1 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
 
                     braccio1.Height = 40;
                     break;
                 case -1 when posRobot == posinizialeRobot && comandoRobot.Equals("") && posyRobot == posYinizialeRobot:
                     braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
-                    braccio1.Height = 30;
-                    braccio3.Height = 30;
+                    braccio1.Height = 15;
+                    braccio3.Height = 14;
                     break;
-                case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot || posRobot == posinizialeRobot:
+                case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot :
                     //MessageBox.Show("lol");
-                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 30);
-                    //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y- 80);
-                    braccio1.Height = 30;
-                    braccio3.Height = 30;
+                    //braccio1.Location = new Point(robot.Location.X + 31, robot.Location.Y - 7);
+                    //braccio3.Location = new Point(robot.Location.X + 31, robot.Location.Y + 58);
+                    braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y );
+                    braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
+                    braccio1.Height = 15;
+                    braccio3.Height = 14;
                     break;
-                case 3 when comandoBraccio.Equals("allunga"):
+                case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio3.Height = 40;
                     break;
                 default:
@@ -532,6 +534,8 @@ namespace ProgettoRespa.net
         {
             salita_effettuata = true;
         }
+
+        
     }
 
 }
