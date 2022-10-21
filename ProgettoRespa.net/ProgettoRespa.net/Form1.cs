@@ -47,6 +47,16 @@ namespace ProgettoRespa.net
         //bool FineCorsaDestro1 = false;
         //bool FineCorsaDestro2 = false;
         //bool FineCorsaDestro3 = false;
+        //bool MagliettaBianca = false;
+        //bool MagliettaNera = false;
+        //bool GiaccaPelle = false;
+        //bool FelpaVerde = false;
+        //bool JeansChiaro = false;
+        //bool PantaloneNero = false;
+        //bool ScarpeNere = false;
+        //bool ScarpeBianche = false;
+        bool Braccio1Carico = false;
+        bool Braccio3Carico = false;
         bool reset_effettuato = false;
         bool salita_effettuata = false;
         string comandoRobot;
@@ -379,7 +389,7 @@ namespace ProgettoRespa.net
             {
                 resettaPosizioni();
             }
-         
+            presaVestiti();
                  
         }
         private void GestioneSpostamento()
@@ -558,6 +568,81 @@ namespace ProgettoRespa.net
             resetTimer.Enabled = true;
 
         }
+        private void presaVestiti()
+        {
+            if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds))
+            {
+                Braccio1Carico = true;
+                //textBox1.Text = "True";
+                spostaVestito(maglietta_nera);
+            }
+            else if (braccio1.Bounds.IntersectsWith(maglietta_bianca.Bounds))
+            {
+                Braccio1Carico = true;
+                spostaVestito(maglietta_bianca);
+            }
+            else if (braccio1.Bounds.IntersectsWith(giacchetto_di_pelle.Bounds))
+            {
+                Braccio1Carico = true;
+                spostaVestito(giacchetto_di_pelle);
+
+            }
+            else if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds))
+            {
+                Braccio1Carico = true;
+                spostaVestito(felpa_verde);
+            }
+            if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds))
+            {
+                Braccio3Carico = true;
+                textBox1.Text = "True";
+                spostaVestito(jeans_chiaro);
+            }
+            //else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds))
+            //{
+            //    Braccio3Carico = true;
+            //    spostaVestito(pantalone_nero);
+            //}
+            //else if (braccio3.Bounds.IntersectsWith(scarpe_bianche.Bounds))
+            //{
+            //    Braccio3Carico = true;
+            //    spostaVestito(scarpe_bianche);
+
+            //}
+            //else if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds))
+            //{
+            //    Braccio3Carico = true;
+            //    spostaVestito(scarpe_nere);
+            //}
+        }
+
+        private void spostaVestito(PictureBox vestito)
+        {
+            if (Braccio1Carico)
+            {
+                ///*textBox1.Text = "True"*/;
+                vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+            }
+            else if (!Braccio1Carico)
+            {
+                //textBox1.Text = "False";
+                vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
+            }
+           else if (Braccio3Carico)
+            {
+                textBox1.Text = "True";
+                vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y + 20);
+            }
+            //else
+            //{
+            //    textBox1.Text = "False";
+            //    //vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
+            //}
+
+
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             aggiornamentoVestiti();
