@@ -141,5 +141,29 @@
   <ItemGroup>
     <None Include="Resources\tubo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maglietta nera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maglietta bianca.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jeans chiaro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pantalone nero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giacca di pelle nera.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scarpe nere.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scarpebianche1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\felpaverde1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

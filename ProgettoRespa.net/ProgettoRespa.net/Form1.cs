@@ -573,7 +573,10 @@ namespace ProgettoRespa.net
             salita_effettuata = true;
         }
 
-        
+        private void jeans_chiaro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

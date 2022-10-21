@@ -83,9 +83,89 @@ namespace ProgettoRespa.net.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap felpaverde1 {
+            get {
+                object obj = ResourceManager.GetObject("felpaverde1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap giacca_di_pelle_nera {
+            get {
+                object obj = ResourceManager.GetObject("giacca di pelle nera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jeans_chiaro {
+            get {
+                object obj = ResourceManager.GetObject("jeans chiaro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maglietta_bianca {
+            get {
+                object obj = ResourceManager.GetObject("maglietta bianca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap maglietta_nera {
+            get {
+                object obj = ResourceManager.GetObject("maglietta nera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pantalone_nero {
+            get {
+                object obj = ResourceManager.GetObject("pantalone nero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap robot {
             get {
                 object obj = ResourceManager.GetObject("robot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scarpe_nere {
+            get {
+                object obj = ResourceManager.GetObject("scarpe nere", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scarpebianche1 {
+            get {
+                object obj = ResourceManager.GetObject("scarpebianche1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
