@@ -169,6 +169,7 @@ namespace ProgettoRespa.net
             this.scelta1.Size = new System.Drawing.Size(100, 20);
             this.scelta1.TabIndex = 8;
             this.scelta1.TextChanged += new System.EventHandler(this.scelta1_TextChanged);
+            this.scelta1.DragEnter += new System.Windows.Forms.DragEventHandler(this.scelta1_DragEnter);
             // 
             // bottoneCerca
             // 

@@ -34,9 +34,10 @@ namespace ProgettoRespa.net
         int posAttualeRobot;
         int posRobot;
         int tempmax = 30;
-        SceltaVestiti sceltaVestiti = new SceltaVestiti();
+  
         private bool sceltaVestito1Effettuata = false;
         private string vestito1;
+
         public object CranePicture { get; private set; }
         //variabili booleane robot 
         //bool FineCorsaAltoRobot = false;
@@ -57,6 +58,7 @@ namespace ProgettoRespa.net
         int posxbraccio1iniziale;
         int posyRobot;
         int posYinizialeRobot = 106;
+
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -136,7 +138,7 @@ namespace ProgettoRespa.net
         }
         private void aggiornamentoVestiti()
         {
-            using (SceltaVestiti sv = new SceltaVestiti())
+            using (SceltaVestiti sv = new SceltaVestiti(this.RicercaVestiti1.Text.ToString(), this.text2indumento.Text.ToString()))
             {
                 if (sv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -377,6 +379,8 @@ namespace ProgettoRespa.net
             {
                 resettaPosizioni();
             }
+         
+                 
         }
         private void GestioneSpostamento()
         {
@@ -531,6 +535,7 @@ namespace ProgettoRespa.net
 
                     break;
             }
+            
         }
         private void verificaPosizioni()
         {

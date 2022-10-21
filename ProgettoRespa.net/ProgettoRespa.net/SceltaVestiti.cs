@@ -29,15 +29,43 @@ namespace ProgettoRespa.net
         string colore2;
         // collezione che collega il nome dell'indumento con la lista dei possibili colori
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
-
-        public SceltaVestiti()
+        //Form1 f1=new Form1();
+        string v1iniziale;
+        string v2iniziale;
+        string appoggio;
+        public SceltaVestiti(String v1, string v2)
         {
-
+             v1iniziale=v1;
+             v2iniziale=v2;
+            //f1 = f;
+           
             InitializeComponent();
+            Inizializza();
             sceltaeffettuataVestito1 = true;
             CondivisioneElementi();
             GestioneVestiti();
 
+        }
+        private void Inizializza()
+        {
+
+            if(v1iniziale.Replace(" ", "").Replace("scegli", "").TrimStart().TrimEnd().Equals("unindumento"))
+            {
+                scelta1.Text =  "";
+            }
+            else
+            {
+                scelta1.Text = v1iniziale;
+            }
+            if (v2iniziale.Equals(string.Empty))
+            {
+                scelta1.Text = "";
+            }
+            else
+            {
+                TextIndumento2.Text = v2iniziale;
+            }
+           
         }
         private void CondivisioneElementi()
         {
@@ -175,7 +203,7 @@ namespace ProgettoRespa.net
                     {// per rendere il codice non case-Sensitive (lato utente) e far si che la ricerca vada sempre a buon fine estraggo dalla stringa contenente l'indumento il primo carattere (con .first()) questa la metto in maiuscolo con char.ToUpper() e il resto dell'indumento 
                         char let = divisione[0].First();
                         char letToUp = Char.ToUpper(let);
-                        indumento1.ToLower();
+                        //indumento1.ToLower();
                         indumento1 = divisione[0].Replace(let, letToUp);
                     }
                     else
@@ -214,7 +242,7 @@ namespace ProgettoRespa.net
                     {
                         char let1 = divisione1[0].First();
                         char letToUp1 = Char.ToUpper(let1);
-                        indumento2.ToLower();
+                        divisione1[0].ToLower();
                         indumento2 = divisione1[0].Replace(let1, letToUp1);
 
                     }
@@ -331,7 +359,12 @@ namespace ProgettoRespa.net
         }
         private void scelta1_TextChanged(object sender, EventArgs e)
         {
-            
+          
+
+        }
+
+        private void scelta1_DragEnter(object sender, DragEventArgs e)
+        {
 
         }
     }
