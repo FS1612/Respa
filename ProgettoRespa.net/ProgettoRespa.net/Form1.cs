@@ -493,7 +493,7 @@ namespace ProgettoRespa.net
                     break;
                 case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot || posRobot == posinizialeRobot:
                     //MessageBox.Show("lol");
-                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 20);
+                    braccio1.Location = new Point(robot.Location.X + 26, robot.Location.Y - 30);
                     //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y- 80);
                     braccio1.Height = 30;
                     braccio3.Height = 30;

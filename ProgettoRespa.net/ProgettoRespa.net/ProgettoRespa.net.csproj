@@ -129,5 +129,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\robot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\braccio.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\braccio1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tubo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
