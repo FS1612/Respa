@@ -37,7 +37,8 @@ namespace ProgettoRespa.net
   
         private bool sceltaVestito1Effettuata = false;
         private string vestito1;
-
+        PictureBox pic1;
+        PictureBox pic2;
         public object CranePicture { get; private set; }
         //variabili booleane robot 
         //bool FineCorsaAltoRobot = false;
@@ -68,7 +69,7 @@ namespace ProgettoRespa.net
         int posxbraccio1iniziale;
         int posyRobot;
         int posYinizialeRobot = 106;
-
+        bool spostam = false;
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -364,7 +365,7 @@ namespace ProgettoRespa.net
             {
                 tempAttuale = tempAttuale - 0.5;
             }
-            //la temperatura deve rimanere compresa fra la temperatura minima e la temperatura max
+           
             if (tempAttuale > temp1)
             {
                 tempAttuale = temp1;
@@ -380,17 +381,18 @@ namespace ProgettoRespa.net
         {
             codificaComandi();
             codificaComandiRobot();
+            presaVestitiB1();
+            presaVestitiB2();
             if (!reset_effettuato) {
                 GestioneSpostamento();
                 GestioneBracci();
-                verificaPosizioni();
             }
             else
             {
                 resettaPosizioni();
             }
-            presaVestiti();
-                 
+
+            
         }
         private void GestioneSpostamento()
         {
@@ -406,7 +408,7 @@ namespace ProgettoRespa.net
                     break;
                 case "sx":
                     posAttualeRobot = posAttualeRobot - (int)(deltaRobot * spostRobot) / durataspostRobot;
-                    braccio1.Location = new Point(robot.Location.X +25, braccio1.Location.Y);
+                    braccio1.Location = new Point(robot.Location.X + 25, braccio1.Location.Y);
                     braccio3.Location = new Point(robot.Location.X + 25, braccio3.Location.Y);
 
                     break;
@@ -415,7 +417,7 @@ namespace ProgettoRespa.net
                     if (salita_effettuata)
                     {
                         robot.Location = new Point(robot.Location.X, robot.Location.Y - 5);
-                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y-10 );
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 10);
                         braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 56);
                         salita_effettuata = false;
                     }
@@ -426,30 +428,30 @@ namespace ProgettoRespa.net
                     if (salita_effettuata)
                     {
                         robot.Location = new Point(robot.Location.X, robot.Location.Y + 5);
-                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y +60);
-                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y -2);
+                        braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 60);
+                        braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 2);
                         salita_effettuata = false;
                     }
 
                     break;
-                case "" when posyRobot - posYinizialeRobot != 0&&!comandoBraccio.Equals("allunga"):
+                case "" when posyRobot - posYinizialeRobot != 0 && !comandoBraccio.Equals("allunga"):
 
-                    braccio1.Location = new Point(robot.Location.X+30 , robot.Location.Y - 5);
+                    braccio1.Location = new Point(robot.Location.X + 30, robot.Location.Y - 5);
                     braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
 
                     break;
                 default:
                     posAttualeRobot = 0 + posAttualeRobot;
-                    //braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y - 15);
+                   
                     break;
             }
             posxbraccio1 = braccio1.Location.X;
             posybraccio1 = braccio1.Location.Y;
             posRobot = posAttualeRobot + posinizialeRobot;
-           
-            if(posRobot>720)
+
+            if (posRobot > 720)
             {
-                //posRobot = 720;
+                
                 fcs_Robot.BackColor = Color.Red;
                 textFcsRobot.Text = "False";
                 fcd_Robot.BackColor = Color.Green;
@@ -460,7 +462,7 @@ namespace ProgettoRespa.net
                 textFc2.Text = "False";
                 alto_Robot.BackColor = Color.Red;
                 textAlto.Text = "False";
-                //FineCorsaAltoRobot = true;
+               
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
 
@@ -471,7 +473,7 @@ namespace ProgettoRespa.net
             {
                 alto_Robot.BackColor = Color.Green;
                 textAlto.Text = "True";
-                //FineCorsaAltoRobot = true;
+               
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
                 fcd_Robot.BackColor = Color.Red;
@@ -487,7 +489,7 @@ namespace ProgettoRespa.net
                 textFcdRobot.Text = "False";
             }
             if (posRobot > 838 && comandoRobot.Equals("dx"))
-            { 
+            {
                 alto_Robot.BackColor = Color.Green;
                 textAlto.Text = "True";
                 basso_Robot.BackColor = Color.Red;
@@ -495,7 +497,7 @@ namespace ProgettoRespa.net
                 fcd_Robot.BackColor = Color.Red;
                 textFcdRobot.Text = "False";
                 fc1.BackColor = Color.Green;
-                textFc1.Text ="True";
+                textFc1.Text = "True";
             }
             if (posRobot > 941 && comandoRobot.Equals("dx"))
             {
@@ -510,10 +512,11 @@ namespace ProgettoRespa.net
                 fc2.BackColor = Color.Green;
                 textFc2.Text = "True";
             }
-            
+
 
 
             robot.Left = posRobot;
+           
         }
         private void GestioneBracci()
         {
@@ -530,9 +533,6 @@ namespace ProgettoRespa.net
                     braccio3.Height = 14;
                     break;
                 case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot :
-                    //MessageBox.Show("lol");
-                    //braccio1.Location = new Point(robot.Location.X + 31, robot.Location.Y - 7);
-                    //braccio3.Location = new Point(robot.Location.X + 31, robot.Location.Y + 58);
                     braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y );
                     braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
                     braccio1.Height = 15;
@@ -547,18 +547,7 @@ namespace ProgettoRespa.net
             }
             
         }
-        private void verificaPosizioni()
-        {
-            switch (posRobot)
-            {
-                case 521:
-                    textFcsRobot.Text = "inizio corsa";
-                    fcs_Robot.BackColor = Color.Green;
-                    break;
-                    //case 720:
-
-            }
-        }
+        
         private void resettaPosizioni()
         {
             posAttualeRobot = 0;
@@ -568,80 +557,100 @@ namespace ProgettoRespa.net
             resetTimer.Enabled = true;
 
         }
-        private void presaVestiti()
+        private void presaVestitiB1()
         {
             if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds))
             {
                 Braccio1Carico = true;
-                //textBox1.Text = "True";
-                spostaVestito(maglietta_nera);
+                pic1 = maglietta_nera;
+                
             }
             else if (braccio1.Bounds.IntersectsWith(maglietta_bianca.Bounds))
             {
-                Braccio1Carico = true;
-                spostaVestito(maglietta_bianca);
+                Braccio1Carico = true;               
+                pic1 = maglietta_bianca;
             }
             else if (braccio1.Bounds.IntersectsWith(giacchetto_di_pelle.Bounds))
             {
                 Braccio1Carico = true;
-                spostaVestito(giacchetto_di_pelle);
-
+                pic1 = giacchetto_di_pelle;
             }
-            else if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds))
+             if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds))
             {
                 Braccio1Carico = true;
-                spostaVestito(felpa_verde);
+                pic1 = felpa_verde;
             }
+            spostaVestitob1(pic1);
+        }
+        private void presaVestitiB2()
+        {
             if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds))
             {
                 Braccio3Carico = true;
-                textBox1.Text = "True";
-                spostaVestito(jeans_chiaro);
+
+                pic2 = jeans_chiaro;
             }
-            //else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds))
-            //{
-            //    Braccio3Carico = true;
-            //    spostaVestito(pantalone_nero);
-            //}
-            //else if (braccio3.Bounds.IntersectsWith(scarpe_bianche.Bounds))
-            //{
-            //    Braccio3Carico = true;
-            //    spostaVestito(scarpe_bianche);
+            else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds))
+            {
+                Braccio3Carico = true;
+                pic2 = pantalone_nero;
+            }
+            else if (braccio3.Bounds.IntersectsWith(scarpe_bianche.Bounds))
+            {
+                Braccio3Carico = true;
+                pic2 = scarpe_bianche;
 
-            //}
-            //else if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds))
-            //{
-            //    Braccio3Carico = true;
-            //    spostaVestito(scarpe_nere);
-            //}
+            }
+            if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds))
+            {
+                Braccio3Carico = true;
+                pic2 = scarpe_nere;
+            }
+            spostaVestitob2(pic2);
         }
-
-        private void spostaVestito(PictureBox vestito)
+      
+        private void spostaVestitob1(PictureBox vestito)
         {
-            if (Braccio1Carico)
-            {
-                ///*textBox1.Text = "True"*/;
-                vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+            if(vestito != null) {
+                if (Braccio1Carico)
+                {
+                    vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+                }
+                else
+                {
+                    vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
+                }
             }
-            else if (!Braccio1Carico)
+            else
             {
-                //textBox1.Text = "False";
-                vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
+
             }
-           else if (Braccio3Carico)
-            {
-                textBox1.Text = "True";
-                vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y + 20);
-            }
-            //else
-            //{
-            //    textBox1.Text = "False";
-            //    //vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
-            //}
+            
+
 
 
 
         }
+        private void spostaVestitob2(PictureBox vestito1)
+        {
+            if (vestito1 != null)
+            {
+                if (Braccio3Carico)
+                {
+                    textBox1.Text = "True";
+                    vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
+                }
+                else
+                {
+                    textBox1.Text = "False";
+                    vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
+                }
+            }
+            else
+            {
+
+            }
+            }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -661,6 +670,11 @@ namespace ProgettoRespa.net
         private void jeans_chiaro_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void jeans_chiaro_LocationChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
