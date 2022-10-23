@@ -48,16 +48,18 @@ namespace ProgettoRespa.net
         //bool FineCorsaDestro1 = false;
         //bool FineCorsaDestro2 = false;
         //bool FineCorsaDestro3 = false;
-        //bool MagliettaBianca = false;
-        //bool MagliettaNera = false;
-        //bool GiaccaPelle = false;
-        //bool FelpaVerde = false;
-        //bool JeansChiaro = false;
-        //bool PantaloneNero = false;
-        //bool ScarpeNere = false;
-        //bool ScarpeBianche = false;
+        bool MagliettaBianca = false;
+        bool MagliettaNera = false;
+        bool GiaccaPelle = false;
+        bool FelpaVerde = false;
+        bool JeansChiaro = false;
+        bool PantaloneNero = false;
+        bool ScarpeNere = false;
+        bool ScarpeBianche = false;
         bool Braccio1Carico = false;
         bool Braccio3Carico = false;
+        int scarico1 = 1;
+        int scarico2 = 1;
         bool reset_effettuato = false;
         bool salita_effettuata = false;
         string comandoRobot;
@@ -150,7 +152,7 @@ namespace ProgettoRespa.net
         private void aggiornamentoVestiti()
         {
             using (SceltaVestiti sv = new SceltaVestiti(this.RicercaVestiti1.Text.ToString(), this.text2indumento.Text.ToString()))
-            {
+            { 
                 if (sv.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     this.sceltaVestito1Effettuata = sv.sceltaeffettuataVestito1;
@@ -168,7 +170,80 @@ namespace ProgettoRespa.net
                 }
             }
 
+            aggiornamentoVestitiBooleani(vestito1);
+            aggiornamentoVestitiBooleani(text2indumento.Text);
 
+        }
+        private void aggiornamentoVestitiBooleani(string vestito)
+        {
+            if (vestito!=null)
+            {
+                if (vestito.Equals("Maglietta bianca"))
+                {
+                    MagliettaBianca = true;
+                }
+                if (vestito.Equals("Maglietta nera"))
+                {
+                    MagliettaNera = true;
+                }
+                if (vestito.Equals("Jeans chiaro"))
+                {
+                    JeansChiaro = true;
+                }
+                if (vestito.Equals("Pantalone nero"))
+                {
+                    PantaloneNero = true;
+                }
+                if (vestito.Equals("Felpa verde"))
+                {
+                    FelpaVerde = true;
+                }
+                if (vestito.Equals("Giacca di pelle"))
+                {
+                    GiaccaPelle = true;
+                }
+                if (vestito.Equals("Scarpe nere"))
+                {
+                    ScarpeNere = true;
+                }
+                if (vestito.Equals("Scarpe bianche"))
+                {
+                    ScarpeBianche = true;
+                }
+
+            }
+            //if (vestito.Equals("Maglietta bianca"))
+            //{
+            //    MagliettaBianca = true;
+            //}
+            //if (vestito.Equals("Maglietta nera"))
+            //{
+            //    MagliettaNera = true;
+            //}
+            //if (vestito.Equals("Jeans chiaro"))
+            //{
+            //    JeansChiaro = true;
+            //}
+            //if (vestito.Equals("Pantalone nero"))
+            //{
+            //    PantaloneNero = true;
+            //}
+            //if (vestito.Equals("Felpa verde"))
+            //{
+            //    FelpaVerde = true;
+            //}
+            //if (vestito.Equals("Giacca di pelle"))
+            //{
+            //    GiaccaPelle = true;
+            //}
+            //if (vestito.Equals("Scarpe nere"))
+            //{
+            //    ScarpeNere = true;
+            //}
+            //if (vestito.Equals("Scarpe bianche"))
+            //{
+            //    ScarpeBianche= true;
+            //}
 
         }
         private void button_START_Click(object sender, EventArgs e)
@@ -512,10 +587,49 @@ namespace ProgettoRespa.net
                 fc2.BackColor = Color.Green;
                 textFc2.Text = "True";
             }
+            if (posRobot==posinizialeRobot)
+            {
 
+                fcs_Robot.BackColor = Color.Green;
+                textFcsRobot.Text = "True";
+                fcd_Robot.BackColor = Color.Red;
+                textFcdRobot.Text = "False";
+                fc1.BackColor = Color.Red;
+                textFc1.Text = "False";
+                fc2.BackColor = Color.Red;
+                textFc2.Text = "False";
+                alto_Robot.BackColor = Color.Red;
+                textAlto.Text = "False";    
+                basso_Robot.BackColor = Color.Red;
+                textBasso.Text = "False";
+
+
+            }
 
 
             robot.Left = posRobot;
+            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
+            {
+                if (Braccio1Carico)
+                {
+                    scarico1++;
+                    Braccio1Carico = false;
+                    MagliettaBianca = false;
+                    MagliettaNera = false;
+                    GiaccaPelle = false;
+                    FelpaVerde = false;
+                    pic1.Location = new Point(cesta_panni.Location.X+40*scarico1, cesta_panni.Location.Y);
+                }else if (Braccio3Carico)
+                {
+                    scarico2++;
+                    Braccio3Carico = false;
+                    JeansChiaro = false;
+                    PantaloneNero = false;
+                    ScarpeNere = false;
+                    ScarpeBianche = false;
+                    pic2.Location= new Point(cesta_panni.Location.X+40*scarico2, cesta_panni.Location.Y+40);
+                }
+            }
            
         }
         private void GestioneBracci()
@@ -559,23 +673,23 @@ namespace ProgettoRespa.net
         }
         private void presaVestitiB1()
         {
-            if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds))
+            if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds) && MagliettaNera)
             {
                 Braccio1Carico = true;
                 pic1 = maglietta_nera;
                 
             }
-            else if (braccio1.Bounds.IntersectsWith(maglietta_bianca.Bounds))
+            else if (braccio1.Bounds.IntersectsWith(maglietta_bianca.Bounds) && MagliettaBianca)
             {
                 Braccio1Carico = true;               
                 pic1 = maglietta_bianca;
             }
-            else if (braccio1.Bounds.IntersectsWith(giacchetto_di_pelle.Bounds))
+            else if (braccio1.Bounds.IntersectsWith(giacchetto_di_pelle.Bounds) && GiaccaPelle)
             {
                 Braccio1Carico = true;
                 pic1 = giacchetto_di_pelle;
             }
-             if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds))
+             if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds) && FelpaVerde)
             {
                 Braccio1Carico = true;
                 pic1 = felpa_verde;
@@ -584,24 +698,24 @@ namespace ProgettoRespa.net
         }
         private void presaVestitiB2()
         {
-            if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds))
+            if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds) && JeansChiaro)
             {
                 Braccio3Carico = true;
 
                 pic2 = jeans_chiaro;
             }
-            else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds))
+            else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds) && PantaloneNero)
             {
                 Braccio3Carico = true;
                 pic2 = pantalone_nero;
             }
-            else if (braccio3.Bounds.IntersectsWith(scarpe_bianche.Bounds))
+            else if (braccio3.Bounds.IntersectsWith(scarpe_bianche.Bounds) && ScarpeBianche)
             {
                 Braccio3Carico = true;
                 pic2 = scarpe_bianche;
 
             }
-            if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds))
+            if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds) && ScarpeNere)
             {
                 Braccio3Carico = true;
                 pic2 = scarpe_nere;
@@ -637,12 +751,11 @@ namespace ProgettoRespa.net
             {
                 if (Braccio3Carico)
                 {
-                    textBox1.Text = "True";
                     vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
                 }
                 else
                 {
-                    textBox1.Text = "False";
+                   
                     vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
                 }
             }

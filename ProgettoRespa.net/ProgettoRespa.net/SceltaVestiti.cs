@@ -310,8 +310,33 @@ namespace ProgettoRespa.net
 
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
-            vestito2 = TextIndumento2.Text;
-            vestito1 = scelta1.Text;
+            string Abito2;
+            string Abito1;
+            switch (indumento2)
+            {
+                case "Giacca":
+                    Abito2 = indumento2 + " di " + colore2;
+                    
+                    break;
+                default:
+                    Abito2 = indumento2 + " " + colore2;
+                    break;
+            }
+            switch (indumento1)
+            {
+                case "Giacca":
+                    Abito1 = indumento1 + " di " + colore1;
+
+                    break;
+                default:
+                    Abito1 = indumento1 + " " + colore1;
+                    break;
+            }
+
+            //vestito2 = TextIndumento2.Text;
+            //vestito1 = scelta1.Text;
+            vestito2 = Abito2;
+            vestito1 = Abito1;
             this.Close();
 
         }
