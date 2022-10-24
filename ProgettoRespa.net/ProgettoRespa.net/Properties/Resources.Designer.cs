@@ -63,6 +63,16 @@ namespace ProgettoRespa.net.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap allarme {
+            get {
+                object obj = ResourceManager.GetObject("allarme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap braccio {
             get {
                 object obj = ResourceManager.GetObject("braccio", resourceCulture);

@@ -90,9 +90,11 @@ namespace ProgettoRespa.net
             this.masterTimer = new System.Windows.Forms.Timer(this.components);
             this.startTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cesta_panni = new System.Windows.Forms.PictureBox();
             this.maglietta_bianca = new System.Windows.Forms.PictureBox();
             this.jeans_chiaro = new System.Windows.Forms.PictureBox();
             this.pantalone_nero = new System.Windows.Forms.PictureBox();
+            this.Sensore_Prossimitàesterna = new System.Windows.Forms.PictureBox();
             this.giacchetto_di_pelle = new System.Windows.Forms.PictureBox();
             this.felpa_verde = new System.Windows.Forms.PictureBox();
             this.scarpe_bianche = new System.Windows.Forms.PictureBox();
@@ -118,7 +120,6 @@ namespace ProgettoRespa.net
             this.scaffale2 = new System.Windows.Forms.PictureBox();
             this.Prossimitainterna_sensore = new System.Windows.Forms.PictureBox();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.Sensore_Prossimitàesterna = new System.Windows.Forms.PictureBox();
             this.fcdSensore = new System.Windows.Forms.PictureBox();
             this.fcs_sensore = new System.Windows.Forms.PictureBox();
             this.porta = new System.Windows.Forms.PictureBox();
@@ -136,14 +137,15 @@ namespace ProgettoRespa.net
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
             this.timerSalita = new System.Windows.Forms.Timer(this.components);
-            this.cesta_panni = new System.Windows.Forms.PictureBox();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cesta_panni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maglietta_bianca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeans_chiaro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pantalone_nero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giacchetto_di_pelle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.felpa_verde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpe_bianche)).BeginInit();
@@ -169,7 +171,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.scaffale2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcdSensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcs_sensore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porta)).BeginInit();
@@ -182,7 +183,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cesta_panni)).BeginInit();
             this.SuspendLayout();
             // 
             // bOTTONI_PANEL
@@ -843,6 +843,15 @@ namespace ProgettoRespa.net
             this.panel1.Size = new System.Drawing.Size(1912, 535);
             this.panel1.TabIndex = 8;
             // 
+            // cesta_panni
+            // 
+            this.cesta_panni.BackColor = System.Drawing.Color.Tomato;
+            this.cesta_panni.Location = new System.Drawing.Point(633, 29);
+            this.cesta_panni.Name = "cesta_panni";
+            this.cesta_panni.Size = new System.Drawing.Size(143, 122);
+            this.cesta_panni.TabIndex = 54;
+            this.cesta_panni.TabStop = false;
+            // 
             // maglietta_bianca
             // 
             this.maglietta_bianca.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.maglietta_bianca;
@@ -874,6 +883,15 @@ namespace ProgettoRespa.net
             this.pantalone_nero.Size = new System.Drawing.Size(52, 32);
             this.pantalone_nero.TabIndex = 51;
             this.pantalone_nero.TabStop = false;
+            // 
+            // Sensore_Prossimitàesterna
+            // 
+            this.Sensore_Prossimitàesterna.BackColor = System.Drawing.Color.DarkViolet;
+            this.Sensore_Prossimitàesterna.Location = new System.Drawing.Point(184, 492);
+            this.Sensore_Prossimitàesterna.Name = "Sensore_Prossimitàesterna";
+            this.Sensore_Prossimitàesterna.Size = new System.Drawing.Size(22, 22);
+            this.Sensore_Prossimitàesterna.TabIndex = 19;
+            this.Sensore_Prossimitàesterna.TabStop = false;
             // 
             // giacchetto_di_pelle
             // 
@@ -928,9 +946,11 @@ namespace ProgettoRespa.net
             // Allarme_picture
             // 
             this.Allarme_picture.BackColor = System.Drawing.Color.Red;
-            this.Allarme_picture.Location = new System.Drawing.Point(244, 25);
+            this.Allarme_picture.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.allarme;
+            this.Allarme_picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Allarme_picture.Location = new System.Drawing.Point(331, 29);
             this.Allarme_picture.Name = "Allarme_picture";
-            this.Allarme_picture.Size = new System.Drawing.Size(34, 32);
+            this.Allarme_picture.Size = new System.Drawing.Size(80, 66);
             this.Allarme_picture.TabIndex = 45;
             this.Allarme_picture.TabStop = false;
             // 
@@ -1056,7 +1076,7 @@ namespace ProgettoRespa.net
             // 
             this.braccio1.BackColor = System.Drawing.Color.Black;
             this.braccio1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.braccio1.Location = new System.Drawing.Point(820, 145);
+            this.braccio1.Location = new System.Drawing.Point(820, 142);
             this.braccio1.Name = "braccio1";
             this.braccio1.Size = new System.Drawing.Size(15, 23);
             this.braccio1.TabIndex = 26;
@@ -1067,7 +1087,7 @@ namespace ProgettoRespa.net
             this.robot.BackColor = System.Drawing.Color.Coral;
             this.robot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("robot.BackgroundImage")));
             this.robot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.robot.Location = new System.Drawing.Point(782, 146);
+            this.robot.Location = new System.Drawing.Point(782, 142);
             this.robot.Name = "robot";
             this.robot.Size = new System.Drawing.Size(100, 100);
             this.robot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1110,15 +1130,6 @@ namespace ProgettoRespa.net
             this.pictureBox21.Size = new System.Drawing.Size(33, 120);
             this.pictureBox21.TabIndex = 20;
             this.pictureBox21.TabStop = false;
-            // 
-            // Sensore_Prossimitàesterna
-            // 
-            this.Sensore_Prossimitàesterna.BackColor = System.Drawing.Color.DarkViolet;
-            this.Sensore_Prossimitàesterna.Location = new System.Drawing.Point(184, 492);
-            this.Sensore_Prossimitàesterna.Name = "Sensore_Prossimitàesterna";
-            this.Sensore_Prossimitàesterna.Size = new System.Drawing.Size(22, 22);
-            this.Sensore_Prossimitàesterna.TabIndex = 19;
-            this.Sensore_Prossimitàesterna.TabStop = false;
             // 
             // fcdSensore
             // 
@@ -1235,7 +1246,6 @@ namespace ProgettoRespa.net
             // 
             // resetTimer
             // 
-            this.resetTimer.Interval = 500;
             this.resetTimer.Tick += new System.EventHandler(this.resetTimer_Tick);
             // 
             // timerTemp
@@ -1243,22 +1253,9 @@ namespace ProgettoRespa.net
             this.timerTemp.Interval = 500;
             this.timerTemp.Tick += new System.EventHandler(this.timerTemp_Tick);
             // 
-            // TimerRobot
-            // 
-            this.TimerRobot.Tick += new System.EventHandler(this.TimerRobot_Tick);
-            // 
             // timerSalita
             // 
             this.timerSalita.Tick += new System.EventHandler(this.timerSalita_Tick_1);
-            // 
-            // cesta_panni
-            // 
-            this.cesta_panni.BackColor = System.Drawing.Color.Tomato;
-            this.cesta_panni.Location = new System.Drawing.Point(712, 29);
-            this.cesta_panni.Name = "cesta_panni";
-            this.cesta_panni.Size = new System.Drawing.Size(64, 151);
-            this.cesta_panni.TabIndex = 54;
-            this.cesta_panni.TabStop = false;
             // 
             // Form1
             // 
@@ -1279,9 +1276,11 @@ namespace ProgettoRespa.net
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cesta_panni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maglietta_bianca)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jeans_chiaro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pantalone_nero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giacchetto_di_pelle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.felpa_verde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scarpe_bianche)).EndInit();
@@ -1307,7 +1306,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.scaffale2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Prossimitainterna_sensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Sensore_Prossimitàesterna)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcdSensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fcs_sensore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.porta)).EndInit();
@@ -1320,7 +1318,6 @@ namespace ProgettoRespa.net
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cesta_panni)).EndInit();
             this.ResumeLayout(false);
 
         }

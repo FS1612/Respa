@@ -70,8 +70,9 @@ namespace ProgettoRespa.net
         int posybraccio1iniziale;
         int posxbraccio1iniziale;
         int posyRobot;
-        int posYinizialeRobot = 106;
+        int posYinizialeRobot; //106
         bool spostam = false;
+        private Graphics gfx;
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -84,6 +85,8 @@ namespace ProgettoRespa.net
             Porta_timer = false;
             Tempo_porta = false;
             Chiusura_aggiornata = false;
+            posYinizialeRobot = robot.Location.Y;
+            gfx = this.CreateGraphics();
 
         }
         private void AggiornamentoPresenza()
@@ -285,7 +288,7 @@ namespace ProgettoRespa.net
         {//riporta il programma allo stato iniziale 
             textReset.Text = "True";
             textReset.BackColor = Color.Green;
-            //resetTimer.Enabled = true;
+            resetTimer.Enabled = true;
             // si può resettare il timer?
 
             //Start = false;
@@ -296,8 +299,9 @@ namespace ProgettoRespa.net
             presente = false;
             AggiornamentoPresenza();
             reset_effettuato = true;
+            //resetTimer.Enabled = true;
             
-                //robot.Location = new Point(521, posYinizialeRobot);
+            //robot.Location = new Point(521, posYinizialeRobot);
             //braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
             //braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
 
@@ -310,7 +314,7 @@ namespace ProgettoRespa.net
 
             pos = posAttuale + posiniziale;
             delta = masterTimer.Interval;
-            if (Start)
+            if (Start && !text_ALLARME.Text.Equals("True"))
             {
                 Sensore_Prossimitàesterna.BackColor = Color.Red;
                 Prossimitainterna_sensore.BackColor = Color.Red;
@@ -390,7 +394,12 @@ namespace ProgettoRespa.net
 
 
                 porta.Left = pos;
-
+                codificaComandi();
+                codificaComandiRobot();
+                presaVestitiB1();
+                presaVestitiB2();
+                GestioneSpostamento();
+                GestioneBracci();
 
             }
             //ALLARME
@@ -402,7 +411,15 @@ namespace ProgettoRespa.net
             {
                 Allarme_picture.Visible = false;
             }
-
+            //if (!reset_effettuato)
+            //{
+            //    GestioneSpostamento();
+            //    GestioneBracci();
+            //}
+            if(reset_effettuato)
+            {
+                resettaPosizioni();
+            }
         }
         private void PortaTimer_Tick(object sender, EventArgs e)
         {//timer che pone a true la variabile tempo_porta permettendo la ciusura della porta appena trascorso il tempo
@@ -411,6 +428,7 @@ namespace ProgettoRespa.net
         }
         private void resetTimer_Tick(object sender, EventArgs e)
         {
+            text_ALLARME.Text = "False";
             textReset.Text = "False";
             textReset.BackColor = Color.Red;
             reset_effettuato = false;
@@ -452,26 +470,27 @@ namespace ProgettoRespa.net
 
             textTemperatura.Text = tempAttuale.ToString();
         }
-        private void TimerRobot_Tick(object sender, EventArgs e)
-        {
-            codificaComandi();
-            codificaComandiRobot();
-            presaVestitiB1();
-            presaVestitiB2();
-            if (!reset_effettuato) {
-                GestioneSpostamento();
-                GestioneBracci();
-            }
-            else
-            {
-                resettaPosizioni();
-            }
+        //private void TimerRobot_Tick(object sender, EventArgs e)
+        //{
+        //    codificaComandi();
+        //    codificaComandiRobot();
+        //    presaVestitiB1();
+        //    presaVestitiB2();
+        //    if (!reset_effettuato) {
+        //        GestioneSpostamento();
+        //        GestioneBracci();
+        //    }
+        //    else
+        //    {
+        //        resettaPosizioni();
+        //    }
 
             
-        }
+        //}
         private void GestioneSpostamento()
         {
-            deltaRobot = TimerRobot.Interval;
+            //deltaRobot = TimerRobot.Interval;
+            deltaRobot = masterTimer.Interval;
             posyRobot = robot.Location.Y;
             switch (comandoRobot)
             {
@@ -608,17 +627,19 @@ namespace ProgettoRespa.net
 
 
             robot.Left = posRobot;
-            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
+            //if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico) && robot.Location.Y==posYinizialeRobot && robot.Location.X==posinizialeRobot)
+            if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
             {
                 if (Braccio1Carico)
-                {
+                { 
                     scarico1++;
                     Braccio1Carico = false;
                     MagliettaBianca = false;
                     MagliettaNera = false;
                     GiaccaPelle = false;
                     FelpaVerde = false;
-                    pic1.Location = new Point(cesta_panni.Location.X+40*scarico1, cesta_panni.Location.Y);
+                    // pic1.Location = new Point(cesta_panni.Location.X+40*scarico1, cesta_panni.Location.Y);
+                    gfx.DrawImage(pic1.BackgroundImage,cesta_panni.Location.X,cesta_panni.Location.Y,56,32);
                 }else if (Braccio3Carico)
                 {
                     scarico2++;

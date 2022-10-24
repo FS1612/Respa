@@ -121,8 +121,11 @@
   <data name="maglietta nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maglietta nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jeans chiaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jeans chiaro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="scarpebianche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scarpebianche1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maglietta bianca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maglietta bianca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="braccio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\braccio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,9 +139,6 @@
   <data name="tubo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tubo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="scarpebianche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\scarpebianche1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pantalone nero" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pantalone nero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,10 +148,13 @@
   <data name="giacca di pelle nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\giacca di pelle nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maglietta bianca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maglietta bianca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="jeans chiaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jeans chiaro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="felpaverde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\felpaverde1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="allarme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\allarme.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
