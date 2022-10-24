@@ -118,43 +118,70 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="maglietta nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maglietta nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="jeans chiaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jeans chiaro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="scarpebianche1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\scarpebianche1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maglietta bianca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maglietta bianca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="braccio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\braccio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="braccio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\braccio1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="robot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\robot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="scarpe nere" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\scarpe nere.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="braccio1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\braccio1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="My project-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\My project-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marmo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marmo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="condizion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\condizion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maglietta bianca" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maglietta bianca.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="png-clipart-air-conditioning-daikin-powerclima-meter-british-thermal-unit-split-the-wall-heater-air-conditioning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-clipart-air-conditioning-daikin-powerclima-meter-british-thermal-unit-split-the-wall-heater-air-conditioning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="condizion1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\condizion1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tubo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tubo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pantalone nero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pantalone nero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="adesivi-vecchia-tavola-di-legno.jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\adesivi-vecchia-tavola-di-legno.jpg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="robot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\robot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="braccio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\braccio.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="giacca di pelle nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\giacca di pelle nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="jeans chiaro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jeans chiaro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="My project-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\My project-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="felpaverde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\felpaverde1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pantalone nero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantalone nero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="giacca di pelle nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\giacca di pelle nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="allarme" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\allarme.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="condizion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\condizion.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maglietta nera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maglietta nera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="condizionatorepng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\condizionatorepng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

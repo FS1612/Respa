@@ -63,6 +63,16 @@ namespace ProgettoRespa.net.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adesivi_vecchia_tavola_di_legno_jpg {
+            get {
+                object obj = ResourceManager.GetObject("adesivi-vecchia-tavola-di-legno.jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap allarme {
             get {
                 object obj = ResourceManager.GetObject("allarme", resourceCulture);
@@ -86,6 +96,46 @@ namespace ProgettoRespa.net.Properties {
         internal static System.Drawing.Bitmap braccio1 {
             get {
                 object obj = ResourceManager.GetObject("braccio1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap condizion {
+            get {
+                object obj = ResourceManager.GetObject("condizion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap condizion1 {
+            get {
+                object obj = ResourceManager.GetObject("condizion1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap condizion2 {
+            get {
+                object obj = ResourceManager.GetObject("condizion2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap condizionatorepng {
+            get {
+                object obj = ResourceManager.GetObject("condizionatorepng", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +193,50 @@ namespace ProgettoRespa.net.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap marmo {
+            get {
+                object obj = ResourceManager.GetObject("marmo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap My_project_1 {
+            get {
+                object obj = ResourceManager.GetObject("My project-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap My_project_11 {
+            get {
+                object obj = ResourceManager.GetObject("My project-11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pantalone_nero {
             get {
                 object obj = ResourceManager.GetObject("pantalone nero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_air_conditioning_daikin_powerclima_meter_british_thermal_unit_split_the_wall_heater_air_conditioning {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-air-conditioning-daikin-powerclima-meter-british-thermal-unit-split-t" +
+                        "he-wall-heater-air-conditioning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -168,5 +168,32 @@
   <ItemGroup>
     <None Include="Resources\allarme.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adesivi-vecchia-tavola-di-legno.jpg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marmo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\condizion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\condizion1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-air-conditioning-daikin-powerclima-meter-british-thermal-unit-split-the-wall-heater-air-conditioning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\condizion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\My project-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\My project-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\condizionatorepng.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
