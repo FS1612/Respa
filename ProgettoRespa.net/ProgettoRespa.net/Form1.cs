@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TwinCAT.Ads;
+//using TwinCAT.Ads;
 
 namespace ProgettoRespa.net
 {
@@ -75,10 +75,10 @@ namespace ProgettoRespa.net
         bool spostam = false;
         private Graphics gfx;
         //inizializzazione ads
-        private TcAdsClient tcClient;
+        //private TcAdsClient tcClient;
         private int[] hConnect;
-        private AdsStream dataStream;
-        private AdsBinaryReader binRead;
+        //private AdsStream dataStream;
+        //private AdsBinaryReader binRead;
         private int[] hvar_name;
         private string[] dataPLC ={"MAIN.FCS","MAIN.FCC",
         "MAIN.FCA","MAIN.FCB","MAIN.FC1","MAIN.FC2"
@@ -125,21 +125,21 @@ namespace ProgettoRespa.net
         }
         private void codificaComandi()
         {
-            if (textDxRobot.Text.Equals("True") && textSxRobot.Text.Equals(""))
+            if (textDxRobot.Text.Equals("True") && !textSxRobot.Text.Equals("True"))
             {
 
                 comandoRobot = "dx";
 
             }
-            else if (textDxRobot.Text.Equals("") && textSxRobot.Text.Equals("True"))
+            else if (!textDxRobot.Text.Equals("True") && textSxRobot.Text.Equals("True"))
             {
                 comandoRobot = "sx";
             }
-            else if (textBassoRobot.Text.Equals("True") && Text_AltoRobot.Text.Equals(""))
+            else if (textBassoRobot.Text.Equals("True") && !Text_AltoRobot.Text.Equals("True"))
             {
                 comandoRobot = "giu";
             }
-            else if (textBassoRobot.Text.Equals("") && Text_AltoRobot.Text.Equals("True"))
+            else if (!textBassoRobot.Text.Equals("True") && Text_AltoRobot.Text.Equals("True"))
             {
                 comandoRobot = "su";
             }
@@ -152,13 +152,13 @@ namespace ProgettoRespa.net
         }
         private void codificaComandiRobot()
         {
-            if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals(""))
+            if (textBraccio1.Text.Equals("True") && !textBraccio3.Text.Equals("True"))
             {
                 comandoBraccio = "allunga";
                 numerobraccio = 1;
             }
 
-            else if (textBraccio3.Text.Equals("True") && textBraccio1.Text.Equals(""))
+            else if (textBraccio3.Text.Equals("True") && !textBraccio1.Text.Equals("True"))
             {
                 comandoBraccio = "allunga";
                 numerobraccio = 3;
@@ -232,38 +232,7 @@ namespace ProgettoRespa.net
                 }
 
             }
-            //if (vestito.Equals("Maglietta bianca"))
-            //{
-            //    MagliettaBianca = true;
-            //}
-            //if (vestito.Equals("Maglietta nera"))
-            //{
-            //    MagliettaNera = true;
-            //}
-            //if (vestito.Equals("Jeans chiaro"))
-            //{
-            //    JeansChiaro = true;
-            //}
-            //if (vestito.Equals("Pantalone nero"))
-            //{
-            //    PantaloneNero = true;
-            //}
-            //if (vestito.Equals("Felpa verde"))
-            //{
-            //    FelpaVerde = true;
-            //}
-            //if (vestito.Equals("Giacca di pelle"))
-            //{
-            //    GiaccaPelle = true;
-            //}
-            //if (vestito.Equals("Scarpe nere"))
-            //{
-            //    ScarpeNere = true;
-            //}
-            //if (vestito.Equals("Scarpe bianche"))
-            //{
-            //    ScarpeBianche= true;
-            //}
+            
 
         }
         private void button_START_Click(object sender, EventArgs e)
@@ -316,11 +285,9 @@ namespace ProgettoRespa.net
             presente = false;
             AggiornamentoPresenza();
             reset_effettuato = true;
-            //resetTimer.Enabled = true;
             
-            //robot.Location = new Point(521, posYinizialeRobot);
-            //braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
-            //braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
+            
+           
 
 
 
@@ -428,11 +395,7 @@ namespace ProgettoRespa.net
             {
                 Allarme_picture.Visible = false;
             }
-            //if (!reset_effettuato)
-            //{
-            //    GestioneSpostamento();
-            //    GestioneBracci();
-            //}
+           
             if(reset_effettuato)
             {
                 resettaPosizioni();
@@ -631,6 +594,9 @@ namespace ProgettoRespa.net
             //if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico) && robot.Location.Y==posYinizialeRobot && robot.Location.X==posinizialeRobot)
             if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
             {
+                Size s = new Size(pantalone_nero.Size.Width, pantalone_nero.Size.Height);
+                Rectangle r = new Rectangle(new Point(this.cesta_panni.Location.X, this.cesta_panni.Location.Y+90),s);
+               
                 if (Braccio1Carico)
                 { 
                     scarico1++;
@@ -639,9 +605,11 @@ namespace ProgettoRespa.net
                     MagliettaNera = false;
                     GiaccaPelle = false;
                     FelpaVerde = false;
-                    // pic1.Location = new Point(cesta_panni.Location.X+40*scarico1, cesta_panni.Location.Y);
-                    gfx.DrawImage(pic1.BackgroundImage,cesta_panni.Location.X,cesta_panni.Location.Y,56,32);
-                }else if (Braccio3Carico)
+                     pic1.Location = new Point(cesta_panni.Location.X+10*scarico1, cesta_panni.Location.Y);                  
+                    pic1.BringToFront();
+                    
+                }
+                else if (Braccio3Carico)
                 {
                     scarico2++;
                     Braccio3Carico = false;
@@ -649,10 +617,22 @@ namespace ProgettoRespa.net
                     PantaloneNero = false;
                     ScarpeNere = false;
                     ScarpeBianche = false;
-                    pic2.Location= new Point(cesta_panni.Location.X+40*scarico2, cesta_panni.Location.Y+40);
+                    pic2.Location= new Point(cesta_panni.Location.X+10*scarico2, cesta_panni.Location.Y+40);
+                    pic2.BringToFront();
                 }
             }
            
+        }
+        private void cesta_panni_DragOver(object sender, DragEventArgs e)
+        {
+           
+        }
+        private void cesta_panni_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            if (pic1!=null)
+            g.DrawImage(pic1.BackgroundImage, 10, 10);
+
         }
         private void GestioneBracci()
         {
@@ -677,6 +657,7 @@ namespace ProgettoRespa.net
                 case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio3.Height = 40;
                     break;
+                
                 default:
 
                     break;
@@ -750,7 +731,8 @@ namespace ProgettoRespa.net
             if(vestito != null) {
                 if (Braccio1Carico)
                 {
-                    vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+                    //vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+                    vestito.Location = new Point(braccio1.Location.X-5 , braccio1.Location.Y - 5);
                 }
                 else
                 {
@@ -773,7 +755,8 @@ namespace ProgettoRespa.net
             {
                 if (Braccio3Carico)
                 {
-                    vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
+                    //vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
+                    vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height+100 );
                 }
                 else
                 {
@@ -814,100 +797,104 @@ namespace ProgettoRespa.net
 
         private void cONNECT_Click(object sender, EventArgs e)
         {
-            tcClient = new TcAdsClient();
-            tcClient.Connect("127.0.0.1.1.1",851);
-            dataStream = new AdsStream(NUM_ELEM_BOOL + NUM_ELEM_TIME * 4);
-            binRead = new AdsBinaryReader(dataStream);
-            hConnect[0] = tcClient.AddDeviceNotification(dataPLC[0], dataStream, 0, 1, AdsTransMode.OnChange, 100, 0,textFcsRobot);
-            hConnect[1] = tcClient.AddDeviceNotification(dataPLC[1], dataStream, 1, 1, AdsTransMode.OnChange, 100, 0, textFcdRobot);
-            hConnect[2] = tcClient.AddDeviceNotification(dataPLC[2], dataStream, 2, 1, AdsTransMode.OnChange, 100, 0, textAlto);
-            hConnect[3] = tcClient.AddDeviceNotification(dataPLC[3], dataStream, 3, 1, AdsTransMode.OnChange, 100, 0, textBasso);
-            hConnect[4] = tcClient.AddDeviceNotification(dataPLC[4], dataStream, 4, 1, AdsTransMode.OnChange, 100, 0, textFc1);
-            hConnect[5] = tcClient.AddDeviceNotification(dataPLC[5], dataStream, 5, 1, AdsTransMode.OnChange, 100, 0, textFc2);
-            hConnect[6] = tcClient.AddDeviceNotification(dataPLC[6], dataStream, 6, 1, AdsTransMode.OnChange, 100, 0, textStart);
-            hConnect[7] = tcClient.AddDeviceNotification(dataPLC[7], dataStream, 7, 1, AdsTransMode.OnChange, 100, 0, textReset);
-            hConnect[8] = tcClient.AddDeviceNotification(dataPLC[8], dataStream, 8, 1, AdsTransMode.OnChange, 100, 0, textBraccio1);
-            hConnect[9] = tcClient.AddDeviceNotification(dataPLC[9], dataStream, 9, 1, AdsTransMode.OnChange, 100, 0, textBraccio3);
-            hConnect[10] = tcClient.AddDeviceNotification(dataPLC[10], dataStream, 10, 1, AdsTransMode.OnChange, 100, 0, textDxRobot);
-            hConnect[11] = tcClient.AddDeviceNotification(dataPLC[11], dataStream, 11, 1, AdsTransMode.OnChange, 100, 0, textSxRobot);
-            hConnect[12] = tcClient.AddDeviceNotification(dataPLC[12], dataStream, 12, 1, AdsTransMode.OnChange, 100, 0, Text_AltoRobot); 
-            hConnect[13] = tcClient.AddDeviceNotification(dataPLC[13], dataStream, 13, 1, AdsTransMode.OnChange, 100, 0, textBassoRobot);
-            hConnect[14] = tcClient.AddDeviceNotification(dataPLC[14], dataStream, 14, 1, AdsTransMode.OnChange, 100, 0, Braccio1Carico);
-            hConnect[15] = tcClient.AddDeviceNotification(dataPLC[15], dataStream, 15, 1, AdsTransMode.OnChange, 100, 0,Braccio3Carico );
-            hConnect[16] = tcClient.AddDeviceNotification(dataPLC[16], dataStream, 16, 1, AdsTransMode.OnChange, 100, 0, MagliettaNera);
-            hConnect[17] = tcClient.AddDeviceNotification(dataPLC[17], dataStream, 17, 1, AdsTransMode.OnChange, 100, 0, MagliettaBianca);
-            hConnect[18] = tcClient.AddDeviceNotification(dataPLC[18], dataStream, 18, 1, AdsTransMode.OnChange, 100, 0, jeans_chiaro);
-            hConnect[19] = tcClient.AddDeviceNotification(dataPLC[19], dataStream, 19, 1, AdsTransMode.OnChange, 100, 0, PantaloneNero);
-            hConnect[20] = tcClient.AddDeviceNotification(dataPLC[20], dataStream, 20, 1, AdsTransMode.OnChange, 100, 0, GiaccaPelle);
-            hConnect[21] = tcClient.AddDeviceNotification(dataPLC[21], dataStream, 21, 1, AdsTransMode.OnChange, 100, 0, FelpaVerde);
-            hConnect[22] = tcClient.AddDeviceNotification(dataPLC[22], dataStream, 22, 1, AdsTransMode.OnChange, 100, 0, ScarpeBianche);
-            hConnect[23] = tcClient.AddDeviceNotification(dataPLC[23], dataStream, 23, 1, AdsTransMode.OnChange, 100, 0, ScarpeNere);
-            hConnect[24] = tcClient.AddDeviceNotification(dataPLC[24], dataStream, 24, 1, AdsTransMode.OnChange, 100, 0, text_ALLARME);
-            hConnect[25] = tcClient.AddDeviceNotification(dataPLC[25], dataStream, 25, 4, AdsTransMode.OnChange, 100, 0, Text_Timer);
-            tcClient.AdsNotification += new AdsNotificationEventHandler(OnNotication,textconnect.Text=" OK ");
-            hvar_name = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME];
-            for(int i=0;i< NUM_ELEM_BOOL + NUM_ELEM_TIME; i++)
-            {
-                hvar_name[i] = tcClient.CreateVariableHandle(dataPLC[i]);
-            }
+            //tcClient = new TcAdsClient();
+            //tcClient.Connect("127.0.0.1.1.1",851);
+            //dataStream = new AdsStream(NUM_ELEM_BOOL + NUM_ELEM_TIME * 4);
+            //binRead = new AdsBinaryReader(dataStream);
+            //hConnect[0] = tcClient.AddDeviceNotification(dataPLC[0], dataStream, 0, 1, AdsTransMode.OnChange, 100, 0,textFcsRobot);
+            //hConnect[1] = tcClient.AddDeviceNotification(dataPLC[1], dataStream, 1, 1, AdsTransMode.OnChange, 100, 0, textFcdRobot);
+            //hConnect[2] = tcClient.AddDeviceNotification(dataPLC[2], dataStream, 2, 1, AdsTransMode.OnChange, 100, 0, textAlto);
+            //hConnect[3] = tcClient.AddDeviceNotification(dataPLC[3], dataStream, 3, 1, AdsTransMode.OnChange, 100, 0, textBasso);
+            //hConnect[4] = tcClient.AddDeviceNotification(dataPLC[4], dataStream, 4, 1, AdsTransMode.OnChange, 100, 0, textFc1);
+            //hConnect[5] = tcClient.AddDeviceNotification(dataPLC[5], dataStream, 5, 1, AdsTransMode.OnChange, 100, 0, textFc2);
+            //hConnect[6] = tcClient.AddDeviceNotification(dataPLC[6], dataStream, 6, 1, AdsTransMode.OnChange, 100, 0, textStart);
+            //hConnect[7] = tcClient.AddDeviceNotification(dataPLC[7], dataStream, 7, 1, AdsTransMode.OnChange, 100, 0, textReset);
+            //hConnect[8] = tcClient.AddDeviceNotification(dataPLC[8], dataStream, 8, 1, AdsTransMode.OnChange, 100, 0, textBraccio1);
+            //hConnect[9] = tcClient.AddDeviceNotification(dataPLC[9], dataStream, 9, 1, AdsTransMode.OnChange, 100, 0, textBraccio3);
+            //hConnect[10] = tcClient.AddDeviceNotification(dataPLC[10], dataStream, 10, 1, AdsTransMode.OnChange, 100, 0, textDxRobot);
+            //hConnect[11] = tcClient.AddDeviceNotification(dataPLC[11], dataStream, 11, 1, AdsTransMode.OnChange, 100, 0, textSxRobot);
+            //hConnect[12] = tcClient.AddDeviceNotification(dataPLC[12], dataStream, 12, 1, AdsTransMode.OnChange, 100, 0, Text_AltoRobot); 
+            //hConnect[13] = tcClient.AddDeviceNotification(dataPLC[13], dataStream, 13, 1, AdsTransMode.OnChange, 100, 0, textBassoRobot);
+            //hConnect[14] = tcClient.AddDeviceNotification(dataPLC[14], dataStream, 14, 1, AdsTransMode.OnChange, 100, 0, Braccio1Carico);
+            //hConnect[15] = tcClient.AddDeviceNotification(dataPLC[15], dataStream, 15, 1, AdsTransMode.OnChange, 100, 0,Braccio3Carico );
+            //hConnect[16] = tcClient.AddDeviceNotification(dataPLC[16], dataStream, 16, 1, AdsTransMode.OnChange, 100, 0, MagliettaNera);
+            //hConnect[17] = tcClient.AddDeviceNotification(dataPLC[17], dataStream, 17, 1, AdsTransMode.OnChange, 100, 0, MagliettaBianca);
+            //hConnect[18] = tcClient.AddDeviceNotification(dataPLC[18], dataStream, 18, 1, AdsTransMode.OnChange, 100, 0, jeans_chiaro);
+            //hConnect[19] = tcClient.AddDeviceNotification(dataPLC[19], dataStream, 19, 1, AdsTransMode.OnChange, 100, 0, PantaloneNero);
+            //hConnect[20] = tcClient.AddDeviceNotification(dataPLC[20], dataStream, 20, 1, AdsTransMode.OnChange, 100, 0, GiaccaPelle);
+            //hConnect[21] = tcClient.AddDeviceNotification(dataPLC[21], dataStream, 21, 1, AdsTransMode.OnChange, 100, 0, FelpaVerde);
+            //hConnect[22] = tcClient.AddDeviceNotification(dataPLC[22], dataStream, 22, 1, AdsTransMode.OnChange, 100, 0, ScarpeBianche);
+            //hConnect[23] = tcClient.AddDeviceNotification(dataPLC[23], dataStream, 23, 1, AdsTransMode.OnChange, 100, 0, ScarpeNere);
+            //hConnect[24] = tcClient.AddDeviceNotification(dataPLC[24], dataStream, 24, 1, AdsTransMode.OnChange, 100, 0, text_ALLARME);
+            //hConnect[25] = tcClient.AddDeviceNotification(dataPLC[25], dataStream, 25, 4, AdsTransMode.OnChange, 100, 0, Text_Timer);
+            //tcClient.AdsNotification += new AdsNotificationEventHandler(OnNotication,textconnect.Text=" OK ");
+            //hvar_name = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME];
+            //for(int i=0;i< NUM_ELEM_BOOL + NUM_ELEM_TIME; i++)
+            //{
+            //    hvar_name[i] = tcClient.CreateVariableHandle(dataPLC[i]);
+            //}
         }
 
-        private void OnNotication(object sender, AdsNotificationEventArgs e)
-        {
-            string strValue ="";
-            if (e.NotificationHandle == hConnect[0])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[1])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[2])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[3])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[4])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[5])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[6])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[7])
-                strValue = binRead.ReadBoolean().ToString(); 
-            if (e.NotificationHandle == hConnect[8])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[9])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[10])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[11])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[12])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[13])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[14])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[15])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[16])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[17])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[18])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[19])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[20])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[21])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[22])
-                    strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[23])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[24])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[25])
-                strValue = binRead.ReadInt32().ToString();
-        }
+        
+
+
+
+        //    private void OnNotication(object sender, AdsNotificationEventArgs e)
+        //    {
+        //        string strValue ="";
+        //        if (e.NotificationHandle == hConnect[0])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[1])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[2])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[3])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[4])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[5])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[6])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[7])
+        //            strValue = binRead.ReadBoolean().ToString(); 
+        //        if (e.NotificationHandle == hConnect[8])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[9])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[10])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[11])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[12])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[13])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[14])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[15])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[16])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[17])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[18])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[19])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[20])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[21])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[22])
+        //                strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[23])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[24])
+        //            strValue = binRead.ReadBoolean().ToString();
+        //        if (e.NotificationHandle == hConnect[25])
+        //            strValue = binRead.ReadInt32().ToString();
+        //    }
     }
 
 }
