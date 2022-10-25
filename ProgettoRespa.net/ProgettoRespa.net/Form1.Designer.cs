@@ -141,6 +141,7 @@ namespace ProgettoRespa.net
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
             this.timerSalita = new System.Windows.Forms.Timer(this.components);
+            this.buttonPausa = new System.Windows.Forms.Button();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -191,6 +192,7 @@ namespace ProgettoRespa.net
             // 
             // bOTTONI_PANEL
             // 
+            this.bOTTONI_PANEL.Controls.Add(this.buttonPausa);
             this.bOTTONI_PANEL.Controls.Add(this.textconnect);
             this.bOTTONI_PANEL.Controls.Add(this.cONNECT);
             this.bOTTONI_PANEL.Controls.Add(this.button_presenza);
@@ -203,14 +205,14 @@ namespace ProgettoRespa.net
             // 
             // textconnect
             // 
-            this.textconnect.Location = new System.Drawing.Point(1063, 5);
+            this.textconnect.Location = new System.Drawing.Point(865, 6);
             this.textconnect.Name = "textconnect";
             this.textconnect.Size = new System.Drawing.Size(100, 20);
             this.textconnect.TabIndex = 30;
             // 
             // cONNECT
             // 
-            this.cONNECT.Location = new System.Drawing.Point(888, 6);
+            this.cONNECT.Location = new System.Drawing.Point(680, 6);
             this.cONNECT.Name = "cONNECT";
             this.cONNECT.Size = new System.Drawing.Size(160, 19);
             this.cONNECT.TabIndex = 3;
@@ -220,7 +222,7 @@ namespace ProgettoRespa.net
             // 
             // button_presenza
             // 
-            this.button_presenza.Location = new System.Drawing.Point(583, 5);
+            this.button_presenza.Location = new System.Drawing.Point(459, 6);
             this.button_presenza.Name = "button_presenza";
             this.button_presenza.Size = new System.Drawing.Size(160, 19);
             this.button_presenza.TabIndex = 2;
@@ -230,7 +232,7 @@ namespace ProgettoRespa.net
             // 
             // button_RESET
             // 
-            this.button_RESET.Location = new System.Drawing.Point(315, 3);
+            this.button_RESET.Location = new System.Drawing.Point(199, 3);
             this.button_RESET.Name = "button_RESET";
             this.button_RESET.Size = new System.Drawing.Size(165, 22);
             this.button_RESET.TabIndex = 1;
@@ -327,6 +329,7 @@ namespace ProgettoRespa.net
             this.textFcsRobot.Name = "textFcsRobot";
             this.textFcsRobot.Size = new System.Drawing.Size(100, 20);
             this.textFcsRobot.TabIndex = 43;
+            this.textFcsRobot.TextChanged += new System.EventHandler(this.textFcsRobot_TextChanged);
             // 
             // textBasso
             // 
@@ -823,7 +826,7 @@ namespace ProgettoRespa.net
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 327);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1275, 348);
             this.panel1.TabIndex = 8;
@@ -834,7 +837,7 @@ namespace ProgettoRespa.net
             this.cesta_panni.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.marmo;
             this.cesta_panni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.cesta_panni.Location = new System.Drawing.Point(422, 19);
-            this.cesta_panni.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cesta_panni.Margin = new System.Windows.Forms.Padding(2);
             this.cesta_panni.Name = "cesta_panni";
             this.cesta_panni.Size = new System.Drawing.Size(71, 81);
             this.cesta_panni.TabIndex = 54;
@@ -847,7 +850,7 @@ namespace ProgettoRespa.net
             this.maglietta_bianca.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.maglietta_bianca;
             this.maglietta_bianca.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.maglietta_bianca.Location = new System.Drawing.Point(953, 19);
-            this.maglietta_bianca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maglietta_bianca.Margin = new System.Windows.Forms.Padding(2);
             this.maglietta_bianca.Name = "maglietta_bianca";
             this.maglietta_bianca.Size = new System.Drawing.Size(38, 21);
             this.maglietta_bianca.TabIndex = 53;
@@ -858,7 +861,7 @@ namespace ProgettoRespa.net
             this.jeans_chiaro.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.jeans_chiaro;
             this.jeans_chiaro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.jeans_chiaro.Location = new System.Drawing.Point(848, 140);
-            this.jeans_chiaro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jeans_chiaro.Margin = new System.Windows.Forms.Padding(2);
             this.jeans_chiaro.Name = "jeans_chiaro";
             this.jeans_chiaro.Size = new System.Drawing.Size(43, 21);
             this.jeans_chiaro.TabIndex = 52;
@@ -871,7 +874,7 @@ namespace ProgettoRespa.net
             this.pantalone_nero.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.pantalone_nero;
             this.pantalone_nero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pantalone_nero.Location = new System.Drawing.Point(953, 140);
-            this.pantalone_nero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pantalone_nero.Margin = new System.Windows.Forms.Padding(2);
             this.pantalone_nero.Name = "pantalone_nero";
             this.pantalone_nero.Size = new System.Drawing.Size(35, 21);
             this.pantalone_nero.TabIndex = 51;
@@ -881,7 +884,7 @@ namespace ProgettoRespa.net
             // 
             this.Sensore_Prossimitàesterna.BackColor = System.Drawing.Color.DarkViolet;
             this.Sensore_Prossimitàesterna.Location = new System.Drawing.Point(123, 320);
-            this.Sensore_Prossimitàesterna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Sensore_Prossimitàesterna.Margin = new System.Windows.Forms.Padding(2);
             this.Sensore_Prossimitàesterna.Name = "Sensore_Prossimitàesterna";
             this.Sensore_Prossimitàesterna.Size = new System.Drawing.Size(15, 14);
             this.Sensore_Prossimitàesterna.TabIndex = 19;
@@ -892,7 +895,7 @@ namespace ProgettoRespa.net
             this.giacchetto_di_pelle.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.giacca_di_pelle_nera;
             this.giacchetto_di_pelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.giacchetto_di_pelle.Location = new System.Drawing.Point(848, 171);
-            this.giacchetto_di_pelle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.giacchetto_di_pelle.Margin = new System.Windows.Forms.Padding(2);
             this.giacchetto_di_pelle.Name = "giacchetto_di_pelle";
             this.giacchetto_di_pelle.Size = new System.Drawing.Size(37, 21);
             this.giacchetto_di_pelle.TabIndex = 50;
@@ -903,7 +906,7 @@ namespace ProgettoRespa.net
             this.felpa_verde.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.felpaverde1;
             this.felpa_verde.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.felpa_verde.Location = new System.Drawing.Point(953, 171);
-            this.felpa_verde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.felpa_verde.Margin = new System.Windows.Forms.Padding(2);
             this.felpa_verde.Name = "felpa_verde";
             this.felpa_verde.Size = new System.Drawing.Size(35, 21);
             this.felpa_verde.TabIndex = 49;
@@ -914,7 +917,7 @@ namespace ProgettoRespa.net
             this.scarpe_bianche.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.scarpebianche1;
             this.scarpe_bianche.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.scarpe_bianche.Location = new System.Drawing.Point(848, 296);
-            this.scarpe_bianche.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scarpe_bianche.Margin = new System.Windows.Forms.Padding(2);
             this.scarpe_bianche.Name = "scarpe_bianche";
             this.scarpe_bianche.Size = new System.Drawing.Size(43, 21);
             this.scarpe_bianche.TabIndex = 48;
@@ -925,7 +928,7 @@ namespace ProgettoRespa.net
             this.scarpe_nere.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.scarpe_nere;
             this.scarpe_nere.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.scarpe_nere.Location = new System.Drawing.Point(953, 295);
-            this.scarpe_nere.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scarpe_nere.Margin = new System.Windows.Forms.Padding(2);
             this.scarpe_nere.Name = "scarpe_nere";
             this.scarpe_nere.Size = new System.Drawing.Size(38, 21);
             this.scarpe_nere.TabIndex = 47;
@@ -936,7 +939,7 @@ namespace ProgettoRespa.net
             this.maglietta_nera.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.maglietta_nera;
             this.maglietta_nera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.maglietta_nera.Location = new System.Drawing.Point(848, 19);
-            this.maglietta_nera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maglietta_nera.Margin = new System.Windows.Forms.Padding(2);
             this.maglietta_nera.Name = "maglietta_nera";
             this.maglietta_nera.Size = new System.Drawing.Size(37, 21);
             this.maglietta_nera.TabIndex = 46;
@@ -948,7 +951,7 @@ namespace ProgettoRespa.net
             this.Allarme_picture.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.allarme;
             this.Allarme_picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Allarme_picture.Location = new System.Drawing.Point(221, 19);
-            this.Allarme_picture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Allarme_picture.Margin = new System.Windows.Forms.Padding(2);
             this.Allarme_picture.Name = "Allarme_picture";
             this.Allarme_picture.Size = new System.Drawing.Size(53, 43);
             this.Allarme_picture.TabIndex = 45;
@@ -958,7 +961,7 @@ namespace ProgettoRespa.net
             // 
             this.fc2.BackColor = System.Drawing.Color.Green;
             this.fc2.Location = new System.Drawing.Point(1019, 144);
-            this.fc2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fc2.Margin = new System.Windows.Forms.Padding(2);
             this.fc2.Name = "fc2";
             this.fc2.Size = new System.Drawing.Size(13, 13);
             this.fc2.TabIndex = 44;
@@ -968,7 +971,7 @@ namespace ProgettoRespa.net
             // 
             this.fc1.BackColor = System.Drawing.Color.Green;
             this.fc1.Location = new System.Drawing.Point(915, 144);
-            this.fc1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fc1.Margin = new System.Windows.Forms.Padding(2);
             this.fc1.Name = "fc1";
             this.fc1.Size = new System.Drawing.Size(13, 13);
             this.fc1.TabIndex = 43;
@@ -978,7 +981,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale6.BackColor = System.Drawing.Color.Brown;
             this.scaffale6.Location = new System.Drawing.Point(941, 171);
-            this.scaffale6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale6.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale6.Name = "scaffale6";
             this.scaffale6.Size = new System.Drawing.Size(60, 21);
             this.scaffale6.TabIndex = 40;
@@ -988,7 +991,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale5.BackColor = System.Drawing.Color.Brown;
             this.scaffale5.Location = new System.Drawing.Point(838, 171);
-            this.scaffale5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale5.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale5.Name = "scaffale5";
             this.scaffale5.Size = new System.Drawing.Size(60, 21);
             this.scaffale5.TabIndex = 39;
@@ -999,7 +1002,7 @@ namespace ProgettoRespa.net
             this.braccio3.BackColor = System.Drawing.Color.Black;
             this.braccio3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.braccio3.Location = new System.Drawing.Point(547, 146);
-            this.braccio3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.braccio3.Margin = new System.Windows.Forms.Padding(2);
             this.braccio3.Name = "braccio3";
             this.braccio3.Size = new System.Drawing.Size(10, 14);
             this.braccio3.TabIndex = 37;
@@ -1009,7 +1012,7 @@ namespace ProgettoRespa.net
             // 
             this.alto_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.alto_Robot.Location = new System.Drawing.Point(779, 24);
-            this.alto_Robot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.alto_Robot.Margin = new System.Windows.Forms.Padding(2);
             this.alto_Robot.Name = "alto_Robot";
             this.alto_Robot.Size = new System.Drawing.Size(13, 13);
             this.alto_Robot.TabIndex = 36;
@@ -1019,7 +1022,7 @@ namespace ProgettoRespa.net
             // 
             this.basso_Robot.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.basso_Robot.Location = new System.Drawing.Point(779, 304);
-            this.basso_Robot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.basso_Robot.Margin = new System.Windows.Forms.Padding(2);
             this.basso_Robot.Name = "basso_Robot";
             this.basso_Robot.Size = new System.Drawing.Size(13, 13);
             this.basso_Robot.TabIndex = 35;
@@ -1029,7 +1032,7 @@ namespace ProgettoRespa.net
             // 
             this.fcd_Robot.BackColor = System.Drawing.Color.Green;
             this.fcd_Robot.Location = new System.Drawing.Point(779, 144);
-            this.fcd_Robot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fcd_Robot.Margin = new System.Windows.Forms.Padding(2);
             this.fcd_Robot.Name = "fcd_Robot";
             this.fcd_Robot.Size = new System.Drawing.Size(13, 13);
             this.fcd_Robot.TabIndex = 34;
@@ -1039,7 +1042,7 @@ namespace ProgettoRespa.net
             // 
             this.fcs_Robot.BackColor = System.Drawing.Color.Green;
             this.fcs_Robot.Location = new System.Drawing.Point(504, 144);
-            this.fcs_Robot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fcs_Robot.Margin = new System.Windows.Forms.Padding(2);
             this.fcs_Robot.Name = "fcs_Robot";
             this.fcs_Robot.Size = new System.Drawing.Size(13, 13);
             this.fcs_Robot.TabIndex = 33;
@@ -1049,7 +1052,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale8.BackColor = System.Drawing.Color.Brown;
             this.scaffale8.Location = new System.Drawing.Point(941, 296);
-            this.scaffale8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale8.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale8.Name = "scaffale8";
             this.scaffale8.Size = new System.Drawing.Size(60, 21);
             this.scaffale8.TabIndex = 32;
@@ -1059,7 +1062,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale7.BackColor = System.Drawing.Color.Brown;
             this.scaffale7.Location = new System.Drawing.Point(838, 296);
-            this.scaffale7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale7.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale7.Name = "scaffale7";
             this.scaffale7.Size = new System.Drawing.Size(60, 21);
             this.scaffale7.TabIndex = 31;
@@ -1069,7 +1072,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale3.BackColor = System.Drawing.Color.Brown;
             this.scaffale3.Location = new System.Drawing.Point(838, 139);
-            this.scaffale3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale3.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale3.Name = "scaffale3";
             this.scaffale3.Size = new System.Drawing.Size(60, 21);
             this.scaffale3.TabIndex = 30;
@@ -1079,7 +1082,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale4.BackColor = System.Drawing.Color.Brown;
             this.scaffale4.Location = new System.Drawing.Point(941, 139);
-            this.scaffale4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale4.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale4.Name = "scaffale4";
             this.scaffale4.Size = new System.Drawing.Size(60, 21);
             this.scaffale4.TabIndex = 29;
@@ -1090,7 +1093,7 @@ namespace ProgettoRespa.net
             this.braccio1.BackColor = System.Drawing.Color.Black;
             this.braccio1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.braccio1.Location = new System.Drawing.Point(547, 92);
-            this.braccio1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.braccio1.Margin = new System.Windows.Forms.Padding(2);
             this.braccio1.Name = "braccio1";
             this.braccio1.Size = new System.Drawing.Size(10, 15);
             this.braccio1.TabIndex = 26;
@@ -1102,18 +1105,19 @@ namespace ProgettoRespa.net
             this.robot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("robot.BackgroundImage")));
             this.robot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.robot.Location = new System.Drawing.Point(521, 92);
-            this.robot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.robot.Margin = new System.Windows.Forms.Padding(2);
             this.robot.Name = "robot";
             this.robot.Size = new System.Drawing.Size(67, 65);
             this.robot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.robot.TabIndex = 25;
             this.robot.TabStop = false;
+            this.robot.Click += new System.EventHandler(this.robot_Click);
             // 
             // scaffale1
             // 
             this.scaffale1.BackColor = System.Drawing.Color.Brown;
             this.scaffale1.Location = new System.Drawing.Point(838, 19);
-            this.scaffale1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale1.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale1.Name = "scaffale1";
             this.scaffale1.Size = new System.Drawing.Size(60, 21);
             this.scaffale1.TabIndex = 24;
@@ -1124,7 +1128,7 @@ namespace ProgettoRespa.net
             // 
             this.scaffale2.BackColor = System.Drawing.Color.Brown;
             this.scaffale2.Location = new System.Drawing.Point(941, 19);
-            this.scaffale2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scaffale2.Margin = new System.Windows.Forms.Padding(2);
             this.scaffale2.Name = "scaffale2";
             this.scaffale2.Size = new System.Drawing.Size(60, 21);
             this.scaffale2.TabIndex = 22;
@@ -1134,7 +1138,7 @@ namespace ProgettoRespa.net
             // 
             this.Prossimitainterna_sensore.BackColor = System.Drawing.Color.DarkViolet;
             this.Prossimitainterna_sensore.Location = new System.Drawing.Point(547, 307);
-            this.Prossimitainterna_sensore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Prossimitainterna_sensore.Margin = new System.Windows.Forms.Padding(2);
             this.Prossimitainterna_sensore.Name = "Prossimitainterna_sensore";
             this.Prossimitainterna_sensore.Size = new System.Drawing.Size(15, 14);
             this.Prossimitainterna_sensore.TabIndex = 21;
@@ -1146,7 +1150,7 @@ namespace ProgettoRespa.net
             this.pictureBox21.BackgroundImage = global::ProgettoRespa.net.Properties.Resources.condizionatorepng;
             this.pictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox21.Location = new System.Drawing.Point(56, 104);
-            this.pictureBox21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox21.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(43, 138);
             this.pictureBox21.TabIndex = 20;
@@ -1156,7 +1160,7 @@ namespace ProgettoRespa.net
             // 
             this.fcdSensore.BackColor = System.Drawing.Color.Red;
             this.fcdSensore.Location = new System.Drawing.Point(838, 317);
-            this.fcdSensore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fcdSensore.Margin = new System.Windows.Forms.Padding(2);
             this.fcdSensore.Name = "fcdSensore";
             this.fcdSensore.Size = new System.Drawing.Size(15, 14);
             this.fcdSensore.TabIndex = 16;
@@ -1166,7 +1170,7 @@ namespace ProgettoRespa.net
             // 
             this.fcs_sensore.BackColor = System.Drawing.Color.Lime;
             this.fcs_sensore.Location = new System.Drawing.Point(239, 302);
-            this.fcs_sensore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fcs_sensore.Margin = new System.Windows.Forms.Padding(2);
             this.fcs_sensore.Name = "fcs_sensore";
             this.fcs_sensore.Size = new System.Drawing.Size(15, 14);
             this.fcs_sensore.TabIndex = 15;
@@ -1176,7 +1180,7 @@ namespace ProgettoRespa.net
             // 
             this.porta.BackColor = System.Drawing.Color.Maroon;
             this.porta.Location = new System.Drawing.Point(253, 320);
-            this.porta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.porta.Margin = new System.Windows.Forms.Padding(2);
             this.porta.Name = "porta";
             this.porta.Size = new System.Drawing.Size(297, 12);
             this.porta.TabIndex = 13;
@@ -1186,7 +1190,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox11.Location = new System.Drawing.Point(45, 320);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(208, 20);
             this.pictureBox11.TabIndex = 10;
@@ -1196,7 +1200,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox9.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox9.Location = new System.Drawing.Point(547, 320);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(400, 20);
             this.pictureBox9.TabIndex = 8;
@@ -1206,7 +1210,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox8.Location = new System.Drawing.Point(929, 320);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(208, 20);
             this.pictureBox8.TabIndex = 7;
@@ -1216,7 +1220,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox7.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox7.Location = new System.Drawing.Point(929, 2);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(208, 13);
             this.pictureBox7.TabIndex = 6;
@@ -1226,7 +1230,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox6.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox6.Location = new System.Drawing.Point(547, 2);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(390, 13);
             this.pictureBox6.TabIndex = 5;
@@ -1236,7 +1240,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox5.Location = new System.Drawing.Point(368, 2);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(208, 13);
             this.pictureBox5.TabIndex = 4;
@@ -1246,7 +1250,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox4.Location = new System.Drawing.Point(45, 2);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(332, 13);
             this.pictureBox4.TabIndex = 3;
@@ -1256,7 +1260,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox3.Location = new System.Drawing.Point(1125, 2);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(12, 321);
             this.pictureBox3.TabIndex = 2;
@@ -1266,7 +1270,7 @@ namespace ProgettoRespa.net
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pictureBox1.Location = new System.Drawing.Point(45, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(13, 321);
             this.pictureBox1.TabIndex = 0;
@@ -1289,6 +1293,16 @@ namespace ProgettoRespa.net
             // timerSalita
             // 
             this.timerSalita.Tick += new System.EventHandler(this.timerSalita_Tick_1);
+            // 
+            // buttonPausa
+            // 
+            this.buttonPausa.Location = new System.Drawing.Point(1006, 5);
+            this.buttonPausa.Name = "buttonPausa";
+            this.buttonPausa.Size = new System.Drawing.Size(160, 19);
+            this.buttonPausa.TabIndex = 31;
+            this.buttonPausa.Text = "Pausa";
+            this.buttonPausa.UseVisualStyleBackColor = true;
+            this.buttonPausa.Click += new System.EventHandler(this.buttonPausa_Click);
             // 
             // Form1
             // 
@@ -1467,6 +1481,7 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox textconnect;
         private System.Windows.Forms.TextBox Text_Timer;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonPausa;
     }
 }
 
