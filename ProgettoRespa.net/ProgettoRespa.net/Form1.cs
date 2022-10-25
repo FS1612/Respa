@@ -591,12 +591,10 @@ namespace ProgettoRespa.net
 
 
             robot.Left = posRobot;
-            //if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico) && robot.Location.Y==posYinizialeRobot && robot.Location.X==posinizialeRobot)
-            if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
+            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico) && robot.Location.Y==posYinizialeRobot && robot.Location.X==posinizialeRobot)
+            //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
             {
-                Size s = new Size(pantalone_nero.Size.Width, pantalone_nero.Size.Height);
-                Rectangle r = new Rectangle(new Point(this.cesta_panni.Location.X, this.cesta_panni.Location.Y+90),s);
-               
+         
                 if (Braccio1Carico)
                 { 
                     scarico1++;
@@ -745,9 +743,6 @@ namespace ProgettoRespa.net
             }
             
 
-
-
-
         }
         private void spostaVestitob2(PictureBox vestito1)
         {
@@ -755,8 +750,16 @@ namespace ProgettoRespa.net
             {
                 if (Braccio3Carico)
                 {
+                    if (textAlto.Text.Equals("True")) {
+
+                     vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 100);//+100
                     //vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
-                    vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height+100 );
+                    }
+                    
+                    else if (textBasso.Text.Equals("True"))
+                    {
+                        vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 250);
+                    }
                 }
                 else
                 {
@@ -764,10 +767,7 @@ namespace ProgettoRespa.net
                     vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
                 }
             }
-            else
-            {
-
-            }
+           
             }
 
         private void button1_Click(object sender, EventArgs e)
