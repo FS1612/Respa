@@ -84,7 +84,7 @@ namespace ProgettoRespa.net
             this.List_giacche.Name = "List_giacche";
             this.List_giacche.Size = new System.Drawing.Size(120, 95);
             this.List_giacche.TabIndex = 16;
-            this.List_giacche.SelectedIndexChanged += new System.EventHandler(this.List_giacche_SelectedIndexChanged);
+            //this.List_giacche.SelectedIndexChanged += new System.EventHandler(this.List_giacche_SelectedIndexChanged);
             // 
             // List_felpe
             // 
@@ -93,7 +93,7 @@ namespace ProgettoRespa.net
             this.List_felpe.Name = "List_felpe";
             this.List_felpe.Size = new System.Drawing.Size(120, 95);
             this.List_felpe.TabIndex = 15;
-            this.List_felpe.SelectedIndexChanged += new System.EventHandler(this.List_felpe_SelectedIndexChanged);
+            //this.List_felpe.SelectedIndexChanged += new System.EventHandler(this.List_felpe_SelectedIndexChanged);
             // 
             // BarraRicercaVestiti2
             // 
@@ -205,7 +205,7 @@ namespace ProgettoRespa.net
             this.List_Magliette.Name = "List_Magliette";
             this.List_Magliette.Size = new System.Drawing.Size(120, 95);
             this.List_Magliette.TabIndex = 3;
-            this.List_Magliette.SelectedIndexChanged += new System.EventHandler(this.List_magliette_SelectedIndexChanged);
+            //this.List_Magliette.SelectedIndexChanged += new System.EventHandler(this.List_magliette_SelectedIndexChanged);
             // 
             // List_Pantaloni
             // 
@@ -214,7 +214,7 @@ namespace ProgettoRespa.net
             this.List_Pantaloni.Name = "List_Pantaloni";
             this.List_Pantaloni.Size = new System.Drawing.Size(120, 95);
             this.List_Pantaloni.TabIndex = 2;
-            this.List_Pantaloni.SelectedIndexChanged += new System.EventHandler(this.List_pantaloni_SelectedIndexChanged);
+            //this.List_Pantaloni.SelectedIndexChanged += new System.EventHandler(this.List_pantaloni_SelectedIndexChanged);
             // 
             // List_Jeans
             // 
@@ -223,7 +223,7 @@ namespace ProgettoRespa.net
             this.List_Jeans.Name = "List_Jeans";
             this.List_Jeans.Size = new System.Drawing.Size(120, 95);
             this.List_Jeans.TabIndex = 1;
-            this.List_Jeans.SelectedIndexChanged += new System.EventHandler(this.List_Jeans_SelectedIndexChanged);
+            //this.List_Jeans.SelectedIndexChanged += new System.EventHandler(this.List_Jeans_SelectedIndexChanged);
             // 
             // List_Scarpe
             // 
@@ -232,7 +232,7 @@ namespace ProgettoRespa.net
             this.List_Scarpe.Name = "List_Scarpe";
             this.List_Scarpe.Size = new System.Drawing.Size(120, 95);
             this.List_Scarpe.TabIndex = 0;
-            this.List_Scarpe.SelectedIndexChanged += new System.EventHandler(this.Scarpe_SelectedIndexChanged);
+            //this.List_Scarpe.SelectedIndexChanged += new System.EventHandler(this.Scarpe_SelectedIndexChanged);
             // 
             // eventLog1
             // 

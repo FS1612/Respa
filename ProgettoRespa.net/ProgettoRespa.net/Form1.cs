@@ -627,9 +627,7 @@ namespace ProgettoRespa.net
         }
         private void cesta_panni_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            if (pic1!=null)
-            g.DrawImage(pic1.BackgroundImage, 10, 10);
+            
 
         }
         private void GestioneBracci()

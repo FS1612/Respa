@@ -33,6 +33,8 @@ namespace ProgettoRespa.net
         string v1iniziale;
         string v2iniziale;
         string appoggio;
+        string Abito2;
+        string Abito1;
         public SceltaVestiti(String v1, string v2)
         {
              v1iniziale=v1;
@@ -155,116 +157,39 @@ namespace ProgettoRespa.net
             }
         }
 
-        private void List_pantaloni_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_Pantaloni.Items[List_Pantaloni.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void List_pantaloni_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_Pantaloni.Items[List_Pantaloni.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
 
-        private void List_magliette_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_Magliette.Items[List_Magliette.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void List_magliette_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_Magliette.Items[List_Magliette.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
 
-        private void List_Jeans_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_Jeans.Items[List_Jeans.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void List_Jeans_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_Jeans.Items[List_Jeans.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
 
-        private void Scarpe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_Scarpe.Items[List_Scarpe.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void Scarpe_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_Scarpe.Items[List_Scarpe.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
 
 
         private void bottoneCerca_Click(object sender, EventArgs e)
         {
             try
             {
-                
-                string[] divisione;
-                string[] divisione1;
-                //controllo la stringa del vestito scelto per vedere se è una giacca. Se è una giacca prima di separare in indumento e colore, devo rimuovere il 'di' e '_' altrimenti la separazione in indumento e colore non ha effetto
-                if (BarraRicercaVestiti1.Text.ToLower().StartsWith("giacca"))
-                {// per rimuovere i caratteri necessari ho bisogno del carattere di inizio(che trovovo con il metodo .indexOf()) e definisco quanti caratteri devo rimuovere con l'intero (3) e con split separo le parole
-                    divisione = BarraRicercaVestiti1.Text.Remove(BarraRicercaVestiti1.Text.IndexOf('d'), 3).Split(' ');
-                }
-                else
-                {
-                    divisione = BarraRicercaVestiti1.Text.Split(' ');
-                }
-
-                if (!divisione[0].Equals(string.Empty))
-                {// se non ho alcun elemento salvato in divisione[0] significa che l'utente non ha inserito un vestito da cercare, quindi per definire il nome dell'indumento, salvato in divisione[0], devo avere che divisione[0] non sia vuoto(string.null poichè divisione è un array di string)
-                    if (!divisione[0].Equals(" "))
-                    {// per rendere il codice non case-Sensitive (lato utente) e far si che la ricerca vada sempre a buon fine estraggo dalla stringa contenente l'indumento il primo carattere (con .first()) questa la metto in maiuscolo con char.ToUpper() e il resto dell'indumento 
-                        char let = divisione[0].First();
-                        char letToUp = Char.ToUpper(let);
-                        //indumento1.ToLower();
-                        indumento1 = divisione[0].Replace(let, letToUp);
-                    }
-                    else
-                    {
-                        indumento1 = " ";
-                    }
-                }
-                else
-                {
-                    indumento1 = " ";
-                }
-                if (divisione.Length == 2)
-                {
-
-                    colore1 = divisione[1].ToLower();
-
-
-                }
-                else
-                {
-
-                    colore1 = "";
-                }
-                if (BarraRicercaVestiti2.Text.ToLower().StartsWith("giacca"))
-                {
-                    divisione1 = BarraRicercaVestiti2.Text.Remove(BarraRicercaVestiti2.Text.IndexOf('d'), 3).Split(' ');
-                }
-                else
-                {
-                    divisione1 = BarraRicercaVestiti2.Text.Split(' ');
-                }
-
-                if (!divisione1[0].Equals(string.Empty))
-                {
-                    if (!divisione1[0].Equals(" "))
-                    {
-                        char let1 = divisione1[0].First();
-                        char letToUp1 = Char.ToUpper(let1);
-                        divisione1[0].ToLower();
-                        indumento2 = divisione1[0].Replace(let1, letToUp1);
-
-                    }
-                    else { indumento2 = " "; }
-                }
-                else
-                {
-                    indumento2 = " ";
-                }
-                if (divisione1.Length == 2)
-                {
-                    colore2 = divisione1[1].ToLower();
-                }
-                else
-                {
-                    colore2 = "";
-                }
+                SplittaIndumentiColore(BarraRicercaVestiti1.Text, 1);
+                SplittaIndumentiColore(BarraRicercaVestiti2.Text, 2);              
                 throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2);
             }
-
-
-
             catch (ErroriVestiti ev)
             {
                 switch (ev.getCod())
@@ -275,22 +200,26 @@ namespace ProgettoRespa.net
                     case 1 when !ev.getMessaggio().Equals("True"):
                         aggiornamentoscelte(indumento1, colore1);
                         scelta1.Text = BarraRicercaVestiti1.Text;
+                        Modificasalvataggi(indumento1, colore1, 1);
                         MessageBox.Show(ev.getMessaggio());
                         break;
                     case 2 when !ev.getMessaggio().Equals("True"):
                         aggiornamentoscelte(indumento2, colore2);
                         TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                        Modificasalvataggi(indumento2, colore2, 2);
                         MessageBox.Show(ev.getMessaggio());
                         break;
                     case 1 when ev.getMessaggio().Equals("True"):
                         sceltaeffettuataVestito1 = true;
                         scelta1.Text = BarraRicercaVestiti1.Text;
+                        Modificasalvataggi(indumento1, colore1, 1);
                         TextIndumento2.Text = " ";
                         aggiornamentoscelte(indumento1, colore1);
                         
                         break;
                     case 2 when ev.getMessaggio().Equals("True"):
                         aggiornamentoscelte(indumento2, colore2);
+                        Modificasalvataggi(indumento2, colore2, 2);
                         TextIndumento2.Text = BarraRicercaVestiti2.Text;
                         scelta1.Text = " ";
                         sceltaeffettuataVestito2 = true;
@@ -299,6 +228,8 @@ namespace ProgettoRespa.net
                     case 3 when ev.getMessaggio().Equals("True"):
                         aggiornamentoscelte(indumento1, colore1);
                         aggiornamentoscelte(indumento2, colore2);
+                        Modificasalvataggi(indumento1, colore1, 1);
+                        Modificasalvataggi(indumento2, colore2, 2);
                         TextIndumento2.Text = BarraRicercaVestiti2.Text;
                         sceltaeffettuataVestito2 = true;
                         sceltaeffettuataVestito1 = true;
@@ -307,51 +238,105 @@ namespace ProgettoRespa.net
                 }
             }
         }
+        private void SplittaIndumentiColore(string abito,int num)
+        {
+            string indumentoappoggio;
+            string colore;
+            string[] divisione;
+            
+            //controllo la stringa del vestito scelto per vedere se è una giacca. Se è una giacca prima di separare in indumento e colore, devo rimuovere il 'di' e '_' altrimenti la separazione in indumento e colore non ha effetto
+            if (abito.ToLower().StartsWith("giacca"))
+            {// per rimuovere i caratteri necessari ho bisogno del carattere di inizio(che trovovo con il metodo .indexOf()) e definisco quanti caratteri devo rimuovere con l'intero (3) e con split separo le parole
+                divisione = abito.Remove(abito.IndexOf('d'), 3).Split(' ');
+            }
+            else
+            {
+                divisione = abito.Split(' ');
+            }
 
+            if (!divisione[0].Equals(string.Empty))
+            {// se non ho alcun elemento salvato in divisione[0] significa che l'utente non ha inserito un vestito da cercare, quindi per definire il nome dell'indumento, salvato in divisione[0], devo avere che divisione[0] non sia vuoto(string.null poichè divisione è un array di string)
+                if (!divisione[0].Equals(" "))
+                {// per rendere il codice non case-Sensitive (lato utente) e far si che la ricerca vada sempre a buon fine estraggo dalla stringa contenente l'indumento il primo carattere (con .first()) questa la metto in maiuscolo con char.ToUpper() e il resto dell'indumento 
+                    string rimpicciolita;
+
+                    rimpicciolita = divisione[0].ToLower();
+                    char prima = rimpicciolita.First();
+                    char primaup = char.ToUpper(prima);
+                    //textBox1.Text = rimpicciolita.Replace(prima, primaup);
+                    indumentoappoggio = rimpicciolita.Replace(prima, primaup);
+                }
+                else
+                {
+                    indumentoappoggio = " ";
+                }
+            }
+            else
+            {
+                indumentoappoggio = " ";
+            }
+            if (divisione.Length == 2)
+            {
+                colore = divisione[1].ToLower();
+            }
+            else
+            {
+                colore = "";
+            }
+            if (num == 1)
+            {
+                indumento1 = indumentoappoggio;
+                colore1 = colore;              
+            }
+           else if (num == 2)
+            {
+                indumento2 = indumentoappoggio;
+                colore2 = colore;
+            }
+        }
+        private void Modificasalvataggi(string v1, string c1,int num)
+        { string appoggio;
+            switch (v1)
+            {
+                case "Giacca":
+                    appoggio = v1 + " di " + c1;
+
+                    break;
+                default:
+                   appoggio  = v1 + " " + c1;
+                    break;
+            }
+            if (num == 1)
+            {
+                Abito1 = appoggio;
+            }
+            else if (num == 2)
+            {
+                Abito2 = appoggio;
+            }
+           
+        }
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
-            string Abito2;
-            string Abito1;
-            switch (indumento2)
-            {
-                case "Giacca":
-                    Abito2 = indumento2 + " di " + colore2;
-                    
-                    break;
-                default:
-                    Abito2 = indumento2 + " " + colore2;
-                    break;
-            }
-            switch (indumento1)
-            {
-                case "Giacca":
-                    Abito1 = indumento1 + " di " + colore1;
-
-                    break;
-                default:
-                    Abito1 = indumento1 + " " + colore1;
-                    break;
-            }
-
-            //vestito2 = TextIndumento2.Text;
-            //vestito1 = scelta1.Text;
+            
+            
             vestito2 = Abito2;
             vestito1 = Abito1;
             this.Close();
 
         }
 
-        private void List_felpe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_felpe.Items[List_felpe.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void List_felpe_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_felpe.Items[List_felpe.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
 
-        private void List_giacche_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try { scelta1.Text = List_giacche.Items[List_giacche.SelectedIndex].ToString(); }
-            catch { }
-        }
+        //private void List_giacche_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try { scelta1.Text = List_giacche.Items[List_giacche.SelectedIndex].ToString(); }
+        //    catch { }
+        //}
         private void aggiornamentoscelte(string indumento, string colore)
         { string risultato;
             switch (indumento)
