@@ -30,7 +30,7 @@ namespace ProgettoRespa.net
                 }
                 else
                 {
-                    if()
+                    //if()
                 }
             }
         }
