@@ -11,13 +11,11 @@ namespace ProgettoRespa.net
         Dictionary<string, string> errori = new Dictionary<string, string>();
         string messaggio;
         string messaggio1;
-        
         int cod ;
        public ErroriVestiti (Dictionary<string, List<string>> d, Dictionary<string, string> scelte)
         {
             foreach(string s in scelte.Keys)
             {
-               
                 string appoggio;
                    string vestito = s;
                 string colore;
@@ -32,21 +30,8 @@ namespace ProgettoRespa.net
                 }
                 else
                 {
-                    List<string> colori;
-                    d.TryGetValue(s, out colori);
-                    if (!colori.Contains(colore))
-                    {
-                        appoggio = " il vestito ricercato esiste ma non nel colore desiderato";
-                        errori.Add(s, appoggio);
-                    }
-                    else
-                    {
-                        appoggio = "il vestito esiste e puo essere ricercato";
-                        
-                        errori.Add(s, appoggio);
-                    }
+                    //if()
                 }
-                
             }
         }
 
@@ -194,9 +179,5 @@ namespace ProgettoRespa.net
         {
             this.cod = n;
         }
-        public Dictionary<string, string> GetErrori()
-        {
-            return errori;
-        } 
     }
 }
