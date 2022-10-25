@@ -49,12 +49,16 @@ namespace ProgettoRespa.net
             this.List_Scarpe = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.eventLog1 = new System.Diagnostics.EventLog();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.List_giacche);
             this.panel1.Controls.Add(this.List_felpe);
             this.panel1.Controls.Add(this.BarraRicercaVestiti2);
@@ -84,7 +88,6 @@ namespace ProgettoRespa.net
             this.List_giacche.Name = "List_giacche";
             this.List_giacche.Size = new System.Drawing.Size(120, 95);
             this.List_giacche.TabIndex = 16;
-            //this.List_giacche.SelectedIndexChanged += new System.EventHandler(this.List_giacche_SelectedIndexChanged);
             // 
             // List_felpe
             // 
@@ -93,7 +96,6 @@ namespace ProgettoRespa.net
             this.List_felpe.Name = "List_felpe";
             this.List_felpe.Size = new System.Drawing.Size(120, 95);
             this.List_felpe.TabIndex = 15;
-            //this.List_felpe.SelectedIndexChanged += new System.EventHandler(this.List_felpe_SelectedIndexChanged);
             // 
             // BarraRicercaVestiti2
             // 
@@ -205,7 +207,6 @@ namespace ProgettoRespa.net
             this.List_Magliette.Name = "List_Magliette";
             this.List_Magliette.Size = new System.Drawing.Size(120, 95);
             this.List_Magliette.TabIndex = 3;
-            //this.List_Magliette.SelectedIndexChanged += new System.EventHandler(this.List_magliette_SelectedIndexChanged);
             // 
             // List_Pantaloni
             // 
@@ -214,7 +215,6 @@ namespace ProgettoRespa.net
             this.List_Pantaloni.Name = "List_Pantaloni";
             this.List_Pantaloni.Size = new System.Drawing.Size(120, 95);
             this.List_Pantaloni.TabIndex = 2;
-            //this.List_Pantaloni.SelectedIndexChanged += new System.EventHandler(this.List_pantaloni_SelectedIndexChanged);
             // 
             // List_Jeans
             // 
@@ -223,7 +223,6 @@ namespace ProgettoRespa.net
             this.List_Jeans.Name = "List_Jeans";
             this.List_Jeans.Size = new System.Drawing.Size(120, 95);
             this.List_Jeans.TabIndex = 1;
-            //this.List_Jeans.SelectedIndexChanged += new System.EventHandler(this.List_Jeans_SelectedIndexChanged);
             // 
             // List_Scarpe
             // 
@@ -232,11 +231,26 @@ namespace ProgettoRespa.net
             this.List_Scarpe.Name = "List_Scarpe";
             this.List_Scarpe.Size = new System.Drawing.Size(120, 95);
             this.List_Scarpe.TabIndex = 0;
-            //this.List_Scarpe.SelectedIndexChanged += new System.EventHandler(this.Scarpe_SelectedIndexChanged);
             // 
             // eventLog1
             // 
             this.eventLog1.SynchronizingObject = this;
+            // 
+            // textBox1
+            // 
+            this.textBox1.AllowDrop = true;
+            this.textBox1.Location = new System.Drawing.Point(151, 260);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.AllowDrop = true;
+            this.textBox2.Location = new System.Drawing.Point(833, 280);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 18;
             // 
             // SceltaVestiti
             // 
@@ -266,14 +280,16 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox BarraRicercaVestiti1;
         private System.Windows.Forms.Label RicercaVestitiLabel;
         private System.Windows.Forms.Button SalvaEdEsciButton;
-        private System.Windows.Forms.TextBox scelta1;
         private System.Windows.Forms.Label Scelta1_label;
-        private System.Windows.Forms.TextBox TextIndumento2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BarraRicercaVestiti2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox List_felpe;
         private System.Windows.Forms.ListBox List_giacche;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox scelta1;
+        public System.Windows.Forms.TextBox TextIndumento2;
     }
 }

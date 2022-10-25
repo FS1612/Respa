@@ -35,6 +35,12 @@ namespace ProgettoRespa.net
         string appoggio;
         string Abito2;
         string Abito1;
+        string[] indumenti;
+        Dictionary<string, string> scelte = new Dictionary<string, string>();
+        public SceltaVestiti()
+        {
+
+        }
         public SceltaVestiti(String v1, string v2)
         {
              v1iniziale=v1;
@@ -184,62 +190,68 @@ namespace ProgettoRespa.net
 
         private void bottoneCerca_Click(object sender, EventArgs e)
         {
+            scelte.Clear();
             try
             {
                 SplittaIndumentiColore(BarraRicercaVestiti1.Text, 1);
-                SplittaIndumentiColore(BarraRicercaVestiti2.Text, 2);              
-                throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2);
+                SplittaIndumentiColore(BarraRicercaVestiti2.Text, 2);
+
+                throw new ErroriVestiti(IndumentiColori, scelte);
+                //throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2);
             }
             catch (ErroriVestiti ev)
             {
-                switch (ev.getCod())
-                {
-                    case 0 when !ev.getMessaggio().Equals("True"):
-                        MessageBox.Show(ev.getMessaggio());
-                        break;
-                    case 1 when !ev.getMessaggio().Equals("True"):
-                        aggiornamentoscelte(indumento1, colore1);
-                        scelta1.Text = BarraRicercaVestiti1.Text;
-                        Modificasalvataggi(indumento1, colore1, 1);
-                        MessageBox.Show(ev.getMessaggio());
-                        break;
-                    case 2 when !ev.getMessaggio().Equals("True"):
-                        aggiornamentoscelte(indumento2, colore2);
-                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                        Modificasalvataggi(indumento2, colore2, 2);
-                        MessageBox.Show(ev.getMessaggio());
-                        break;
-                    case 1 when ev.getMessaggio().Equals("True"):
-                        sceltaeffettuataVestito1 = true;
-                        scelta1.Text = BarraRicercaVestiti1.Text;
-                        Modificasalvataggi(indumento1, colore1, 1);
-                        TextIndumento2.Text = " ";
-                        aggiornamentoscelte(indumento1, colore1);
-                        
-                        break;
-                    case 2 when ev.getMessaggio().Equals("True"):
-                        aggiornamentoscelte(indumento2, colore2);
-                        Modificasalvataggi(indumento2, colore2, 2);
-                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                        scelta1.Text = " ";
-                        sceltaeffettuataVestito2 = true;
-                        
-                        break;
-                    case 3 when ev.getMessaggio().Equals("True"):
-                        aggiornamentoscelte(indumento1, colore1);
-                        aggiornamentoscelte(indumento2, colore2);
-                        Modificasalvataggi(indumento1, colore1, 1);
-                        Modificasalvataggi(indumento2, colore2, 2);
-                        TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                        sceltaeffettuataVestito2 = true;
-                        sceltaeffettuataVestito1 = true;
-                        scelta1.Text = BarraRicercaVestiti1.Text;
-                        break;
-                }
+                //    switch (ev.getCod())
+                //    {
+                //        case 0 when !ev.getMessaggio().Equals("True"):
+                //            MessageBox.Show(ev.getMessaggio());
+                //            break;
+                //        case 1 when !ev.getMessaggio().Equals("True"):
+                //            aggiornamentoscelte(indumento1, colore1);
+                //            scelta1.Text = BarraRicercaVestiti1.Text;
+                //            Modificasalvataggi(indumento1, colore1, 1);
+                //            MessageBox.Show(ev.getMessaggio());
+                //            break;
+                //        case 2 when !ev.getMessaggio().Equals("True"):
+                //            aggiornamentoscelte(indumento2, colore2);
+                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                //            Modificasalvataggi(indumento2, colore2, 2);
+                //            MessageBox.Show(ev.getMessaggio());
+                //            break;
+                //        case 1 when ev.getMessaggio().Equals("True"):
+                //            sceltaeffettuataVestito1 = true;
+                //            scelta1.Text = BarraRicercaVestiti1.Text;
+                //            Modificasalvataggi(indumento1, colore1, 1);
+                //            TextIndumento2.Text = " ";
+                //            aggiornamentoscelte(indumento1, colore1);
+
+                //            break;
+                //        case 2 when ev.getMessaggio().Equals("True"):
+                //            aggiornamentoscelte(indumento2, colore2);
+                //            Modificasalvataggi(indumento2, colore2, 2);
+                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                //            scelta1.Text = " ";
+                //            sceltaeffettuataVestito2 = true;
+
+                //            break;
+                //        case 3 when ev.getMessaggio().Equals("True"):
+                //            aggiornamentoscelte(indumento1, colore1);
+                //            aggiornamentoscelte(indumento2, colore2);
+                //            Modificasalvataggi(indumento1, colore1, 1);
+                //            Modificasalvataggi(indumento2, colore2, 2);
+                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
+                //            sceltaeffettuataVestito2 = true;
+                //            sceltaeffettuataVestito1 = true;
+                //            scelta1.Text = BarraRicercaVestiti1.Text;
+                //            break;
+                //    }
+                stampaErrori(ev.GetErrori());
+                Modificasalvataggi(ev.GetErrori());
             }
         }
         private void SplittaIndumentiColore(string abito,int num)
         {
+            
             string indumentoappoggio;
             string colore;
             string[] divisione;
@@ -293,17 +305,66 @@ namespace ProgettoRespa.net
                 indumento2 = indumentoappoggio;
                 colore2 = colore;
             }
+            if (indumentoappoggio != null&& !indumentoappoggio.Equals(" ")) {
+                if (!scelte.ContainsKey(indumentoappoggio))
+                {
+                    scelte.Add(indumentoappoggio, colore);
+                }
+                
+            }
+            
         }
-        private void Modificasalvataggi(string v1, string c1,int num)
-        { string appoggio;
-            switch (v1)
+        //public void Modificasalvataggi(string v1, string c1,int num)
+        public void Modificasalvataggi(Dictionary<string, string> errori)
+        { //string appoggio;
+
+            //switch (v1)
+            //{
+            //    case "Giacca":
+            //        appoggio = v1 + " di " + c1;
+
+            //        break;
+            //    default:
+            //        appoggio = v1 + " " + c1;
+            //        break;
+            //}
+            //if (num == 1)
+            //{
+            //    Abito1 = appoggio;
+            //}
+            //else if (num == 2)
+            //{
+            //    Abito2 = appoggio;
+            //}
+            int num = 1;
+            foreach (string s in errori.Keys)
+            {
+               
+                string messaggio;
+                
+                errori.TryGetValue(s, out messaggio);
+                if (messaggio.Equals("il vestito esiste e puo essere ricercato"))
+                {
+                    
+                    string colore;
+                    scelte.TryGetValue(s, out colore);
+                    ModificasaVestiti(s, colore, num);
+                    aggiornamentoscelte(s, colore);
+                    num++;
+                }
+            }
+        }
+        private bool ModificasaVestiti(string indumento, string colore, int num)
+        {
+
+            switch (indumento)
             {
                 case "Giacca":
-                    appoggio = v1 + " di " + c1;
+                    appoggio = indumento + " di " + colore;
 
                     break;
                 default:
-                   appoggio  = v1 + " " + c1;
+                    appoggio = indumento + " " + colore;
                     break;
             }
             if (num == 1)
@@ -313,9 +374,11 @@ namespace ProgettoRespa.net
             else if (num == 2)
             {
                 Abito2 = appoggio;
+                }
+            scelta1.Text = Abito1;
+            TextIndumento2.Text = Abito2;
+            return true;
             }
-           
-        }
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
             
@@ -376,6 +439,19 @@ namespace ProgettoRespa.net
         private void scelta1_DragEnter(object sender, DragEventArgs e)
         {
 
+        }
+        private void stampaErrori(Dictionary<string, string> errori)
+        {
+            string messaggio = "";
+            foreach (string s in errori.Keys)
+            {
+                int i = 1;
+                string errore;
+                errori.TryGetValue(s, out errore);
+                messaggio = messaggio + "\n" + "indumento " + s + ": " + errore;
+
+            }
+            MessageBox.Show(messaggio);
         }
     }
 }
