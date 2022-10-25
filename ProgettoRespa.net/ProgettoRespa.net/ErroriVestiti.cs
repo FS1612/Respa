@@ -8,19 +8,40 @@ namespace ProgettoRespa.net
 {
     class ErroriVestiti : Exception
     {
-        Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
+        Dictionary<string, string> errori = new Dictionary<string, string>();
         string messaggio;
-       
+        string messaggio1;
         int cod ;
-       
+       public ErroriVestiti (Dictionary<string, List<string>> d, Dictionary<string, string> scelte)
+        {
+            foreach(string s in scelte.Keys)
+            {
+                string appoggio;
+                   string vestito = s;
+                string colore;
+                scelte.TryGetValue(s, out colore);
+                if (!d.ContainsKey(s))
+                {
+                    if (!errori.ContainsKey(s))
+                    {
+                        appoggio = " il vestito ricercato non esiste";
+                        errori.Add(s, appoggio);
+                    }
+                }
+                else
+                {
+                    if()
+                }
+            }
+        }
 
         public ErroriVestiti(Dictionary<string, List<string>> d, string indumento1, string colore1, string indumento2, string colore2)
         {
-            
+
             List<string> appoggio = new List<string>();
             List<string> appoggio2 = new List<string>();
 
-            if(!indumento1.Equals(" ")&& indumento2.Equals(" "))
+            if (!indumento1.Equals(" ") && indumento2.Equals(" "))
             {
                 if (!d.ContainsKey(indumento1))
                 {
@@ -42,7 +63,7 @@ namespace ProgettoRespa.net
                     }
                 }
             }
-            else if(indumento1.Equals(" ") && !indumento2.Equals(" "))
+            else if (indumento1.Equals(" ") && !indumento2.Equals(" "))
             {
                 if (!d.ContainsKey(indumento2))
                 {
@@ -65,18 +86,19 @@ namespace ProgettoRespa.net
                     }
                 }
             }
-            else if(!indumento1.Equals(" ") && !indumento2.Equals(" "))
+            else if (!indumento1.Equals(" ") && !indumento2.Equals(" "))
             {
-                
+
                 if (!d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
                 {
                     messaggio = " nessuno dei due elementi esiste, inserisci elementi esistenti";
                     this.setCode(0);
                 }
-                 if(d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
+                if (d.ContainsKey(indumento2) && !d.ContainsKey(indumento1))
                 {
                     d.TryGetValue(indumento2, out appoggio2);
-                    if (!appoggio2.Contains(colore2)){
+                    if (!appoggio2.Contains(colore2))
+                    {
                         messaggio = "il primo indumento non esiste, mentre il secondo esiste ma non nel colore richiesto";
                         this.setCode(0);
                     }
@@ -86,7 +108,7 @@ namespace ProgettoRespa.net
                         this.setCode(2);
                     }
                 }
-                 if (d.ContainsKey(indumento1) && !d.ContainsKey(indumento2))
+                if (d.ContainsKey(indumento1) && !d.ContainsKey(indumento2))
                 {
                     d.TryGetValue(indumento1, out appoggio);
                     if (!appoggio.Contains(colore1))
@@ -104,20 +126,22 @@ namespace ProgettoRespa.net
                 {
                     d.TryGetValue(indumento1, out appoggio);
                     d.TryGetValue(indumento2, out appoggio2);
-                    if (!appoggio2.Contains(colore2) && (appoggio.Contains(colore1))){
+                    if (!appoggio2.Contains(colore2) && (appoggio.Contains(colore1)))
+                    {
                         messaggio = " Il primo indumento esiste e può essere cercato, il secondo esiste ma non nel colore richiesto";
-                        
+
                         this.setCode(1);
                     }
-                   else if (appoggio2.Contains(colore2) && (!appoggio.Contains(colore1))){
+                    else if (appoggio2.Contains(colore2) && (!appoggio.Contains(colore1)))
+                    {
                         messaggio = " Il secondo indumento esiste e può essere cercato, il primo esiste ma non nel colore richiesto";
-                        
+
                         this.setCode(2);
                     }
-                    else if(!appoggio2.Contains(colore2) && (!appoggio.Contains(colore1)))
+                    else if (!appoggio2.Contains(colore2) && (!appoggio.Contains(colore1)))
                     {
                         messaggio = "Nessuno dei due indumenti esiste nel colore richiesto";
-                        
+
                         this.setCode(0);
                     }
                     else
@@ -125,7 +149,7 @@ namespace ProgettoRespa.net
                         if (indumento1.Equals(indumento2) && colore1.Equals(colore2))
                         {
                             messaggio = "attenzione, stai cercando due vestiti identici";
-                            
+
                             this.setCode(1);
                         }
                         else
@@ -133,15 +157,16 @@ namespace ProgettoRespa.net
                             messaggio = "True";
                             this.setCode(3);
                         }
-                        
+
                     }
                 }
             }
-            if(indumento1.Equals(" ") && indumento2.Equals(" "))
-            
+            if (indumento1.Equals(" ") && indumento2.Equals(" "))
+
             {
                 messaggio = "inserisci vestiti validi per la ricerca";
             }
+
         }
         public string getMessaggio()
         {
