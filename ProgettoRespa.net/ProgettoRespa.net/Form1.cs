@@ -254,7 +254,7 @@ namespace ProgettoRespa.net
                 }
 
             }
-            
+           
 
         }/// <summary>
         /// avvia la simulazione
@@ -950,62 +950,67 @@ namespace ProgettoRespa.net
         }
         private void OnNotification(object sender, AdsNotificationEventArgs e)
         {
-            string strValue = "";
-            if (e.NotificationHandle == hConnect[0])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[1])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[2])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[3])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[4])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[5])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[6])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[7])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[8])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[9])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[10])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[11])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[12])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[13])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[14])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[15])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[16])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[17])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[18])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[19])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[20])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[21])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[22])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[23])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[24])
-                strValue = binRead.ReadBoolean().ToString();
-            if (e.NotificationHandle == hConnect[25])
-                strValue = binRead.ReadInt32().ToString();
-//            ((TextBox)e.UserData).Invoke(new Action(() =>
-//((TextBox)e.UserData).Text = String.Format
-//(strValue)));
+            try {
+                string strValue = "";
+                if (e.NotificationHandle == hConnect[0])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[1])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[2])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[3])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[4])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[5])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[6])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[7])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[8])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[9])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[10])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[11])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[12])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[13])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[14])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[15])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[16])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[17])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[18])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[19])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[20])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[21])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[22])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[23])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[24])
+                    strValue = binRead.ReadBoolean().ToString();
+                if (e.NotificationHandle == hConnect[25])
+                    strValue = binRead.ReadInt32().ToString();
+                ((TextBox)e.UserData).Invoke(new Action(() => ((TextBox)e.UserData).Text = String.Format(strValue)));
+            }
+            catch (InvalidCastException fe)
+            {
+
+            }
+            
         }
 
         private void textFcsRobot_TextChanged(object sender, EventArgs e)
@@ -1182,7 +1187,7 @@ namespace ProgettoRespa.net
         {
             if (hvar_name != null)
             {
-
+                
                 tcClient.WriteAny(hvar_name[16], MagliettaNera);
                 tcClient.WriteAny(hvar_name[17], MagliettaBianca);
                 tcClient.WriteAny(hvar_name[18], JeansChiaro);
@@ -1194,6 +1199,28 @@ namespace ProgettoRespa.net
 
 
                 
+            }
+        }
+
+        private void text2indumento_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+
+                tcClient.WriteAny(hvar_name[16], MagliettaNera);
+                tcClient.WriteAny(hvar_name[17], MagliettaBianca);
+                tcClient.WriteAny(hvar_name[18], JeansChiaro);
+                tcClient.WriteAny(hvar_name[19], PantaloneNero);
+                tcClient.WriteAny(hvar_name[20], GiaccaPelle);
+                tcClient.WriteAny(hvar_name[21], FelpaVerde);
+                tcClient.WriteAny(hvar_name[22], ScarpeBianche);
+                tcClient.WriteAny(hvar_name[22], ScarpeNere);
+                if (MagliettaNera)
+                {
+                    MessageBox.Show(" aho1");
+                }
+
+
             }
         }
     }

@@ -637,6 +637,7 @@ namespace ProgettoRespa.net
             this.text2indumento.Name = "text2indumento";
             this.text2indumento.Size = new System.Drawing.Size(103, 20);
             this.text2indumento.TabIndex = 40;
+            this.text2indumento.TextChanged += new System.EventHandler(this.text2indumento_TextChanged);
             // 
             // label1
             // 
