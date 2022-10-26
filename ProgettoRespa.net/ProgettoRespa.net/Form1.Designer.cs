@@ -32,6 +32,7 @@ namespace ProgettoRespa.net
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bOTTONI_PANEL = new System.Windows.Forms.Panel();
+            this.buttonPausa = new System.Windows.Forms.Button();
             this.textconnect = new System.Windows.Forms.TextBox();
             this.cONNECT = new System.Windows.Forms.Button();
             this.button_presenza = new System.Windows.Forms.Button();
@@ -141,7 +142,6 @@ namespace ProgettoRespa.net
             this.timerTemp = new System.Windows.Forms.Timer(this.components);
             this.TimerRobot = new System.Windows.Forms.Timer(this.components);
             this.timerSalita = new System.Windows.Forms.Timer(this.components);
-            this.buttonPausa = new System.Windows.Forms.Button();
             this.bOTTONI_PANEL.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -202,6 +202,16 @@ namespace ProgettoRespa.net
             this.bOTTONI_PANEL.Name = "bOTTONI_PANEL";
             this.bOTTONI_PANEL.Size = new System.Drawing.Size(1262, 32);
             this.bOTTONI_PANEL.TabIndex = 5;
+            // 
+            // buttonPausa
+            // 
+            this.buttonPausa.Location = new System.Drawing.Point(1006, 5);
+            this.buttonPausa.Name = "buttonPausa";
+            this.buttonPausa.Size = new System.Drawing.Size(160, 19);
+            this.buttonPausa.TabIndex = 31;
+            this.buttonPausa.Text = "Pausa";
+            this.buttonPausa.UseVisualStyleBackColor = true;
+            this.buttonPausa.Click += new System.EventHandler(this.buttonPausa_Click);
             // 
             // textconnect
             // 
@@ -295,6 +305,7 @@ namespace ProgettoRespa.net
             this.textFc2.Name = "textFc2";
             this.textFc2.Size = new System.Drawing.Size(100, 20);
             this.textFc2.TabIndex = 48;
+            this.textFc2.TextChanged += new System.EventHandler(this.textFc2_TextChanged);
             // 
             // textFc1
             // 
@@ -302,6 +313,7 @@ namespace ProgettoRespa.net
             this.textFc1.Name = "textFc1";
             this.textFc1.Size = new System.Drawing.Size(100, 20);
             this.textFc1.TabIndex = 47;
+            this.textFc1.TextChanged += new System.EventHandler(this.textFc1_TextChanged);
             // 
             // Fc1_Robot
             // 
@@ -337,6 +349,7 @@ namespace ProgettoRespa.net
             this.textBasso.Name = "textBasso";
             this.textBasso.Size = new System.Drawing.Size(100, 20);
             this.textBasso.TabIndex = 42;
+            this.textBasso.TextChanged += new System.EventHandler(this.textBasso_TextChanged);
             // 
             // textAlto
             // 
@@ -344,6 +357,7 @@ namespace ProgettoRespa.net
             this.textAlto.Name = "textAlto";
             this.textAlto.Size = new System.Drawing.Size(100, 20);
             this.textAlto.TabIndex = 41;
+            this.textAlto.TextChanged += new System.EventHandler(this.textAlto_TextChanged);
             // 
             // textFcdRobot
             // 
@@ -351,6 +365,7 @@ namespace ProgettoRespa.net
             this.textFcdRobot.Name = "textFcdRobot";
             this.textFcdRobot.Size = new System.Drawing.Size(100, 20);
             this.textFcdRobot.TabIndex = 40;
+            this.textFcdRobot.TextChanged += new System.EventHandler(this.textFcdRobot_TextChanged);
             // 
             // sensAlto
             // 
@@ -480,6 +495,7 @@ namespace ProgettoRespa.net
             this.textReset.ReadOnly = true;
             this.textReset.Size = new System.Drawing.Size(100, 20);
             this.textReset.TabIndex = 26;
+            this.textReset.TextChanged += new System.EventHandler(this.textReset_TextChanged);
             // 
             // textStart
             // 
@@ -487,6 +503,7 @@ namespace ProgettoRespa.net
             this.textStart.Name = "textStart";
             this.textStart.Size = new System.Drawing.Size(100, 20);
             this.textStart.TabIndex = 25;
+            this.textStart.TextChanged += new System.EventHandler(this.textStart_TextChanged);
             // 
             // textTemperatura
             // 
@@ -603,6 +620,7 @@ namespace ProgettoRespa.net
             this.textBassoRobot.Name = "textBassoRobot";
             this.textBassoRobot.Size = new System.Drawing.Size(100, 20);
             this.textBassoRobot.TabIndex = 42;
+            this.textBassoRobot.TextChanged += new System.EventHandler(this.textBassoRobot_TextChanged);
             // 
             // BassoRobot
             // 
@@ -649,6 +667,7 @@ namespace ProgettoRespa.net
             this.RicercaVestiti1.TabIndex = 37;
             this.RicercaVestiti1.Text = "scegli \r\nun indumento\r\n";
             this.RicercaVestiti1.UseVisualStyleBackColor = true;
+            this.RicercaVestiti1.TextChanged += new System.EventHandler(this.RicercaVestiti1_TextChanged);
             this.RicercaVestiti1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Text_AltoRobot
@@ -657,6 +676,7 @@ namespace ProgettoRespa.net
             this.Text_AltoRobot.Name = "Text_AltoRobot";
             this.Text_AltoRobot.Size = new System.Drawing.Size(100, 20);
             this.Text_AltoRobot.TabIndex = 36;
+            this.Text_AltoRobot.TextChanged += new System.EventHandler(this.Text_AltoRobot_TextChanged);
             // 
             // AltoRobot
             // 
@@ -673,6 +693,7 @@ namespace ProgettoRespa.net
             this.textBraccio3.Name = "textBraccio3";
             this.textBraccio3.Size = new System.Drawing.Size(100, 20);
             this.textBraccio3.TabIndex = 34;
+            this.textBraccio3.TextChanged += new System.EventHandler(this.textBraccio3_TextChanged);
             // 
             // braccio3Robot
             // 
@@ -690,6 +711,7 @@ namespace ProgettoRespa.net
             this.textBraccio1.Name = "textBraccio1";
             this.textBraccio1.Size = new System.Drawing.Size(100, 20);
             this.textBraccio1.TabIndex = 31;
+            this.textBraccio1.TextChanged += new System.EventHandler(this.textBraccio1_TextChanged);
             // 
             // textSxRobot
             // 
@@ -697,6 +719,7 @@ namespace ProgettoRespa.net
             this.textSxRobot.Name = "textSxRobot";
             this.textSxRobot.Size = new System.Drawing.Size(100, 20);
             this.textSxRobot.TabIndex = 30;
+            this.textSxRobot.TextChanged += new System.EventHandler(this.textSxRobot_TextChanged);
             // 
             // textDxRobot
             // 
@@ -704,6 +727,7 @@ namespace ProgettoRespa.net
             this.textDxRobot.Name = "textDxRobot";
             this.textDxRobot.Size = new System.Drawing.Size(100, 20);
             this.textDxRobot.TabIndex = 29;
+            this.textDxRobot.TextChanged += new System.EventHandler(this.textDxRobot_TextChanged);
             // 
             // braccio1Robot
             // 
@@ -741,6 +765,7 @@ namespace ProgettoRespa.net
             this.text_ALLARME.Name = "text_ALLARME";
             this.text_ALLARME.Size = new System.Drawing.Size(103, 20);
             this.text_ALLARME.TabIndex = 24;
+            this.text_ALLARME.TextChanged += new System.EventHandler(this.text_ALLARME_TextChanged);
             // 
             // ALLARME
             // 
@@ -1293,16 +1318,6 @@ namespace ProgettoRespa.net
             // timerSalita
             // 
             this.timerSalita.Tick += new System.EventHandler(this.timerSalita_Tick_1);
-            // 
-            // buttonPausa
-            // 
-            this.buttonPausa.Location = new System.Drawing.Point(1006, 5);
-            this.buttonPausa.Name = "buttonPausa";
-            this.buttonPausa.Size = new System.Drawing.Size(160, 19);
-            this.buttonPausa.TabIndex = 31;
-            this.buttonPausa.Text = "Pausa";
-            this.buttonPausa.UseVisualStyleBackColor = true;
-            this.buttonPausa.Click += new System.EventHandler(this.buttonPausa_Click);
             // 
             // Form1
             // 
