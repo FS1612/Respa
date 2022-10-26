@@ -36,7 +36,7 @@ namespace ProgettoRespa.net
         string Abito2;
         string Abito1;
         string[] indumenti;
-        Dictionary<string, string> scelte = new Dictionary<string, string>();
+        Dictionary<string, List <string>> scelte = new Dictionary<string, List<string>>();
         public SceltaVestiti()
         {
 
@@ -196,55 +196,10 @@ namespace ProgettoRespa.net
                 SplittaIndumentiColore(BarraRicercaVestiti1.Text, 1);
                 SplittaIndumentiColore(BarraRicercaVestiti2.Text, 2);
 
-                throw new ErroriVestiti(IndumentiColori, scelte);
-                //throw new ErroriVestiti(IndumentiColori, indumento1, colore1, indumento2, colore2);
+                throw new ErroriVestiti(IndumentiColori, scelte);             
             }
             catch (ErroriVestiti ev)
-            {
-                //    switch (ev.getCod())
-                //    {
-                //        case 0 when !ev.getMessaggio().Equals("True"):
-                //            MessageBox.Show(ev.getMessaggio());
-                //            break;
-                //        case 1 when !ev.getMessaggio().Equals("True"):
-                //            aggiornamentoscelte(indumento1, colore1);
-                //            scelta1.Text = BarraRicercaVestiti1.Text;
-                //            Modificasalvataggi(indumento1, colore1, 1);
-                //            MessageBox.Show(ev.getMessaggio());
-                //            break;
-                //        case 2 when !ev.getMessaggio().Equals("True"):
-                //            aggiornamentoscelte(indumento2, colore2);
-                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                //            Modificasalvataggi(indumento2, colore2, 2);
-                //            MessageBox.Show(ev.getMessaggio());
-                //            break;
-                //        case 1 when ev.getMessaggio().Equals("True"):
-                //            sceltaeffettuataVestito1 = true;
-                //            scelta1.Text = BarraRicercaVestiti1.Text;
-                //            Modificasalvataggi(indumento1, colore1, 1);
-                //            TextIndumento2.Text = " ";
-                //            aggiornamentoscelte(indumento1, colore1);
-
-                //            break;
-                //        case 2 when ev.getMessaggio().Equals("True"):
-                //            aggiornamentoscelte(indumento2, colore2);
-                //            Modificasalvataggi(indumento2, colore2, 2);
-                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                //            scelta1.Text = " ";
-                //            sceltaeffettuataVestito2 = true;
-
-                //            break;
-                //        case 3 when ev.getMessaggio().Equals("True"):
-                //            aggiornamentoscelte(indumento1, colore1);
-                //            aggiornamentoscelte(indumento2, colore2);
-                //            Modificasalvataggi(indumento1, colore1, 1);
-                //            Modificasalvataggi(indumento2, colore2, 2);
-                //            TextIndumento2.Text = BarraRicercaVestiti2.Text;
-                //            sceltaeffettuataVestito2 = true;
-                //            sceltaeffettuataVestito1 = true;
-                //            scelta1.Text = BarraRicercaVestiti1.Text;
-                //            break;
-                //    }
+            {               
                 stampaErrori(ev.GetErrori());
                 Modificasalvataggi(ev.GetErrori());
             }
@@ -308,50 +263,58 @@ namespace ProgettoRespa.net
             if (indumentoappoggio != null&& !indumentoappoggio.Equals(" ")) {
                 if (!scelte.ContainsKey(indumentoappoggio))
                 {
-                    scelte.Add(indumentoappoggio, colore);
+                    List<string> colori = new List<string>();
+                    colori.Add(colore);
+                    scelte.Add(indumentoappoggio, colori);
+                }
+                else
+                {
+                    List<String> colori = new List<string>();
+                    scelte.TryGetValue(indumentoappoggio, out colori);
+                    if (!colori.Contains(colore))
+                    {
+                        colori.Add(colore);
+                        scelte.Remove(indumentoappoggio);
+                        scelte.Add(indumentoappoggio, colori);
+                    }
+                    else
+                    {
+                        MessageBox.Show(" non puoi ricercare due vestiti identici");
+                        BarraRicercaVestiti2.Text = "";
+                    }
                 }
                 
             }
             
         }
-        //public void Modificasalvataggi(string v1, string c1,int num)
-        public void Modificasalvataggi(Dictionary<string, string> errori)
-        { //string appoggio;
-
-            //switch (v1)
-            //{
-            //    case "Giacca":
-            //        appoggio = v1 + " di " + c1;
-
-            //        break;
-            //    default:
-            //        appoggio = v1 + " " + c1;
-            //        break;
-            //}
-            //if (num == 1)
-            //{
-            //    Abito1 = appoggio;
-            //}
-            //else if (num == 2)
-            //{
-            //    Abito2 = appoggio;
-            //}
-            int num = 1;
+        
+        
+        public void Modificasalvataggi(Dictionary<string, List<string>> errori)
+        {
+            int num=1 ;
             foreach (string s in errori.Keys)
             {
                
-                string messaggio;
-                
-                errori.TryGetValue(s, out messaggio);
-                if (messaggio.Equals("il vestito esiste e puo essere ricercato"))
+                //num = 1;
+                List<string> messaggi;
+
+                errori.TryGetValue(s, out messaggi);
+                foreach (string messaggio in messaggi)
                 {
+                    string[] divisa;
+                    divisa = messaggio.Split('_');
                     
-                    string colore;
-                    scelte.TryGetValue(s, out colore);
-                    ModificasaVestiti(s, colore, num);
-                    aggiornamentoscelte(s, colore);
-                    num++;
+                    if (divisa[1].Equals("il vestito esiste e puo essere ricercato"))
+                    {
+                        
+                        string colore = divisa[0].Replace('(', ' ').Replace(')', ' ').TrimEnd().TrimStart();
+
+                        ModificasaVestiti(s, colore, num);
+                        aggiornamentoscelte(s, colore);
+                        num++;
+                    }
                 }
+
             }
         }
         private bool ModificasaVestiti(string indumento, string colore, int num)
@@ -440,15 +403,22 @@ namespace ProgettoRespa.net
         {
 
         }
-        private void stampaErrori(Dictionary<string, string> errori)
+     
+        private void stampaErrori(Dictionary<string, List<string>> errori)
         {
             string messaggio = "";
             foreach (string s in errori.Keys)
             {
                 int i = 1;
-                string errore;
-                errori.TryGetValue(s, out errore);
-                messaggio = messaggio + "\n" + "indumento " + s + ": " + errore;
+                List<string> erroriattuali = new List<string>();
+                errori.TryGetValue(s, out erroriattuali);
+                foreach(string errore in erroriattuali)
+                {
+                    string[] divisa;
+                    divisa = errore.Split('_');
+                    messaggio = messaggio + "\n" + "indumento " + s +" "+ divisa[0] + ": " + divisa[1];
+                }
+                
 
             }
             MessageBox.Show(messaggio);
