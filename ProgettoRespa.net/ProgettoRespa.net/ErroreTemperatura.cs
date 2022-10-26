@@ -9,9 +9,16 @@ namespace ProgettoRespa.net
     public class ErroreTemperatura : FormatException
     {
         string messaggio;
-        Form1 form1 = new Form1();
+        
 
         public ErroreTemperatura() { }
+        /// <summary>
+        /// funzione che controlla la correttezza della temperatura selezionata
+        /// </summary>
+        /// <param name="tempDesiderata">valore della temperatura scelto dall'utente tramite interfaccia</param>
+        /// <param name="tempMinima">temperatura minima definita in <see cref="Form1"/></param>
+        /// <param name="tempMax">temperatura massima definita in <see cref="Form1"/></param>
+        /// <param name="tempDesiderataNumero"></param>
         public ErroreTemperatura(string tempDesiderata, int tempMinima, int tempMax, int tempDesiderataNumero)
         {
             if (tempDesiderata.Equals("") || tempDesiderata.Contains("-"))
@@ -47,6 +54,10 @@ namespace ProgettoRespa.net
                 }
             }
         }
+        /// <summary>
+        /// funzione che ritorna il messaggio di errore 
+        /// </summary>
+        /// <returns> codice errore relativo alla temperatura</returns>
         public string getMsg()
         {
             return messaggio;

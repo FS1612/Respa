@@ -49,16 +49,12 @@ namespace ProgettoRespa.net
             this.List_Scarpe = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.eventLog1 = new System.Diagnostics.EventLog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.List_giacche);
             this.panel1.Controls.Add(this.List_felpe);
             this.panel1.Controls.Add(this.BarraRicercaVestiti2);
@@ -236,22 +232,6 @@ namespace ProgettoRespa.net
             // 
             this.eventLog1.SynchronizingObject = this;
             // 
-            // textBox1
-            // 
-            this.textBox1.AllowDrop = true;
-            this.textBox1.Location = new System.Drawing.Point(151, 260);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 17;
-            // 
-            // textBox2
-            // 
-            this.textBox2.AllowDrop = true;
-            this.textBox2.Location = new System.Drawing.Point(833, 280);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 18;
-            // 
             // SceltaVestiti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,8 +267,6 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox List_felpe;
         private System.Windows.Forms.ListBox List_giacche;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.TextBox scelta1;
         public System.Windows.Forms.TextBox TextIndumento2;
     }

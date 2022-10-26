@@ -10,7 +10,9 @@ using System.Windows.Forms;
 //using TwinCAT.Ads;
 
 namespace ProgettoRespa.net
-{
+{/// <summary>
+/// form principale che controlla l'interfaccia grafica e gestisce le principali funzioni del programma facendo uso di <see cref="SceltaVestiti"/> e <see cref="SelezioneTemperatura"/>
+/// </summary>
     public partial class Form1 : Form
     {
         Boolean presente = false; // vale 1 se il giocatore è nella stanza, 0 altrimenti 
@@ -89,7 +91,7 @@ namespace ProgettoRespa.net
         "MAIN.S1","MAIN.S2","MAIN.ALLARME","MAIN.T_ALLARME"};
         private int NUM_ELEM_BOOL = 11;
         private int NUM_ELEM_TIME = 1;
-        
+        private int NUM_ELEM_STTRING=14;
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -105,10 +107,12 @@ namespace ProgettoRespa.net
             posYinizialeRobot = robot.Location.Y;
             gfx = this.CreateGraphics();
 
-        }
+        }/// <summary>
+        /// funzione che verifica la presenza o la assenza del player nella stanza e ne aggiorna lo stato
+        /// </summary>
         private void AggiornamentoPresenza()
         {
-            //funzione di supporto che verica la presenza del giocatore e aggiorna le variabili di stato 
+            
             if (!presente)
             {
 
@@ -123,7 +127,12 @@ namespace ProgettoRespa.net
             }
 
         }
-        private void codificaComandi()
+        /// <summary>
+        /// funzione che prende gli input dall'interfaccia grafica e aggiorna i comandi che il robot deve eseguire 
+        /// </summary>
+        /// <value>comandoRobot è una variabile che codifica gli spostamenti effettuabili dal robot nelle 4 direzioni 
+        /// </value> 
+        private void CodificaComandi()
         {
             if (textDxRobot.Text.Equals("True") && !textSxRobot.Text.Equals("True"))
             {
@@ -150,7 +159,12 @@ namespace ProgettoRespa.net
             }
 
         }
-        private void codificaComandiRobot()
+        /// <summary>
+        /// funzione che accetta in input i valori dell'interfaccia grafica relativi ai bracci e ne codifica gli spostamenti
+        /// </summary>
+        /// <value> comandoBraccio è una variabile che indica che operazione deve fare il braccio, 
+        ///  numerobraccio è una variabile che indica quale braccio deve eseguire l'azione salvata in comando braccio </value>
+        private void CodificaComandiBraccioRobot()
         {
             if (textBraccio1.Text.Equals("True") && !textBraccio3.Text.Equals("True"))
             {
@@ -169,7 +183,11 @@ namespace ProgettoRespa.net
                 numerobraccio = -1;
             }
         }
-        private void aggiornamentoVestiti()
+        /// <summary>
+        /// funzione che aggiorna la scelta dei vestiti usando il form di supporto <see cref="SceltaVestiti"/> e li mostra nell'interfaccia grafica
+        /// </summary>
+        
+        private void AggiornamentoVestiti()
         {
             using (SceltaVestiti sv = new SceltaVestiti(this.RicercaVestiti1.Text.ToString(), this.text2indumento.Text.ToString()))
             { 
@@ -193,7 +211,11 @@ namespace ProgettoRespa.net
             aggiornamentoVestitiBooleani(vestito1);
             aggiornamentoVestitiBooleani(text2indumento.Text);
 
-        }
+        }/// <summary>
+        /// Funzione che, dato un vestito espresso come stringa, aggiorna il valore del booleano corrispondente al vestito in modo tale che sia true quando il vestito è stato scelto e false altrimenti 
+        /// </summary>
+        /// <param name="vestito"> stringa che indica il vestito scelto dall'utente</param>
+      
         private void aggiornamentoVestitiBooleani(string vestito)
         {
             if (vestito!=null)
@@ -234,7 +256,11 @@ namespace ProgettoRespa.net
             }
             
 
-        }
+        }/// <summary>
+        /// avvia la simulazione
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_START_Click(object sender, EventArgs e)
         {
             textStart.Text = "True";
@@ -249,7 +275,11 @@ namespace ProgettoRespa.net
             startTimer.Enabled = true;
             TimerRobot.Enabled = true;
             Start = true;
-        }
+        }/// <summary>
+        /// aggiorna la presenza del player a seguito di un click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_presenza_Click(object sender, EventArgs e)
         {//funzione che gestisce la presenza del player tramite tasto
             if (presente)
@@ -275,7 +305,11 @@ namespace ProgettoRespa.net
         private void Form1_Load(object sender, EventArgs e)
         {
 
-        }
+        }/// <summary>
+        /// a seguito di un click resetta la simulazione riportandola allo stato inziale e rimuovendo eventuali allarmi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_RESET_Click(object sender, EventArgs e)
         {//riporta il programma allo stato iniziale 
             textReset.Text = "True";
@@ -298,7 +332,11 @@ namespace ProgettoRespa.net
 
 
 
-        }
+        }/// <summary>
+        /// funzione timer che permette di creare un ciclo di aggiornamento ogni volta che il timer scatta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void masterTimer_Tick(object sender, EventArgs e)
         {//ciclo di funzionamento del programma
 
@@ -384,8 +422,8 @@ namespace ProgettoRespa.net
 
 
                 porta.Left = pos;
-                codificaComandi();
-                codificaComandiRobot();
+                CodificaComandi();
+                CodificaComandiBraccioRobot();
                 presaVestitiB1();
                 presaVestitiB2();
                 GestioneSpostamento();
@@ -418,7 +456,9 @@ namespace ProgettoRespa.net
             textReset.Text = "False";
             textReset.BackColor = Color.Red;
             reset_effettuato = false;
-        }
+        }/// <summary>
+        /// aggiorna il valore della temperatura visualizzata a schermo a seguito della scelta dell'utente avvenuta nel form di supporto <see cref="SelezioneTemperatura"/>
+        /// </summary>
         private void AggiornamentoTemperatura()
         {
             //funzione che deve gestire la temperatura della stanza per mantenerla tra il range compreso tra 19 gradi e la temperatura desiderata dall'utente 
@@ -456,7 +496,11 @@ namespace ProgettoRespa.net
 
             textTemperatura.Text = tempAttuale.ToString();
         }
-        
+        /// <summary>
+        /// funzione di supporto che gestisce lo spostamento del robot nelle 4 direzioni facendo uso del risultato della funzione
+        ///  <see cref="GestioneSpostamento"/> e ristabilisce la giusta posizione dei bracci rispetto al robot e inoltre gestisce i finecorsa del robot
+        /// </summary>
+        /// 
         private void GestioneSpostamento()
         {
            
@@ -681,6 +725,9 @@ namespace ProgettoRespa.net
             
 
         }
+        /// <summary>
+        /// gestisce l'allungamento dei bracci sfruttando i risultati della funzione <see cref="CodificaComandiBraccioRobot"/>
+        /// </summary>
         private void GestioneBracci()
         {
             switch (numerobraccio)
@@ -711,7 +758,11 @@ namespace ProgettoRespa.net
             }
             
         }
-        
+        /// <summary>
+        /// imposta la posizione attuale del robot a 0 e con questo valore poi
+        /// <see cref="GestioneSpostamento"/>
+        /// <see cref="GestioneBracci"/>, portano nuovamente il robot e i bracci in posizione iniziale
+        /// </summary>
         private void resettaPosizioni()
         {
             posAttualeRobot = 0;
@@ -720,7 +771,9 @@ namespace ProgettoRespa.net
             
             resetTimer.Enabled = true;
 
-        }
+        }/// <summary>
+        /// verifica l'intersezione dei vestiti con il rispettivo braccio e impostano la variabile booleana <see cref="Braccio1Carico"/>  a true per indicare che l'oggetto è stato preso
+        /// </summary>
         private void presaVestitiB1()
         {
             if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds) && MagliettaNera)
@@ -745,7 +798,9 @@ namespace ProgettoRespa.net
                 pic1 = felpa_verde;
             }
             spostaVestitob1(pic1);
-        }
+        }/// <summary>
+         /// verifica l'intersezione dei vestiti con il rispettivo braccio e impostano la variabile booleana <see cref="Braccio3Carico"/> a true per indicare che l'oggetto è stato preso
+         /// </summary>
         private void presaVestitiB2()
         {
             if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds) && JeansChiaro)
@@ -772,7 +827,10 @@ namespace ProgettoRespa.net
             }
             spostaVestitob2(pic2);
         }
-      
+      /// <summary>
+      /// effettua lo spostamento dei vestito 1
+      /// </summary>
+      /// <param name="vestito"> variabile di tipo pictureBox che indica il vestito da spostare </param>
         private void spostaVestitob1(PictureBox vestito)
         {
             if(vestito != null) {
@@ -788,7 +846,10 @@ namespace ProgettoRespa.net
             }
             
 
-        }
+        }/// <summary>
+         /// effettua lo spostamento dei vestito 2
+         /// </summary>
+         /// <param name="vestito1"> variabile di tipo pictureBox che indica il vestito da spostare </param>
         private void spostaVestitob2(PictureBox vestito1)
         {
             if (vestito1 != null)
@@ -817,7 +878,7 @@ namespace ProgettoRespa.net
 
         private void button1_Click(object sender, EventArgs e)
         {
-            aggiornamentoVestiti();
+            AggiornamentoVestiti();
         }
         private void Tasto_sceltaTemp_Click(object sender, EventArgs e)
         {

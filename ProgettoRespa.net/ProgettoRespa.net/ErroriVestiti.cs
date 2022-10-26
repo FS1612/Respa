@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 namespace ProgettoRespa.net
 {
     class ErroriVestiti : Exception
-    {
+    {/// <summary>
+    /// riporta l'esito della ricerca di tutti i vestiti selezionati ordinati in base all'ordine di ricerca
+    /// </summary>
         Dictionary<string, List<string>> errori = new Dictionary<string, List<string>>();
-        string messaggio;
-        string messaggio1;
-        int cod ;
+       /// <summary> dato una serie di scelte effettuate dall'utente, verifica la correttzza delle scelte rispetto i criteri di ricerca
+       /// e salva il risultato della verifica nel dizionario che riporta il nome dell'indumento associato al suo colore l'esito del confronto <see cref="errori"/>
+       /// </summary>
+       /// <param name="d">dizionario che associa ad ogni indumento disponibile tutte le colorazioni in cui quest'ultimo è presente</param>
+       /// <param name="scelte">dizionario che riporta le scelte dell'utente sulle quali bisogna effettuare la verifica </param>
         public ErroriVestiti(Dictionary<string, List<string>> d, Dictionary<string, List<string>> scelte)
         {
             

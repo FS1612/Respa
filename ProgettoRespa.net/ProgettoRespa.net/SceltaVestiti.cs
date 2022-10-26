@@ -9,7 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgettoRespa.net
-{
+{/// <summary>
+/// nuovo form che permette al player di scegliere i estiti, che saranno ricercati se soddisferanno determinati caratteristiche
+ ///<see cref="ErroriVestiti "/>
+/// </summary>
+
     public partial class SceltaVestiti : Form
     {
         //creo nuovi tipi associati ai vestiti  per inserirli nelle varie i typi sono definiti tramite delle stringhe costanti (enum)
@@ -40,41 +44,52 @@ namespace ProgettoRespa.net
         public SceltaVestiti()
         {
 
-        }
+        }/// <summary>
+         /// inizializza il form con due vestiti qualora nel <see cref="Form1"/> fossero gia stati selezionati 2 vestiti
+         ///  <see cref="Inizializza"/>
+         ///  <seealso cref=" CondivisioneElementi();"/>
+         ///  <seealso cref=" GestioneVestiti;"/>
+         /// </summary>
+         /// <param name="v1"> stringa che indica il primo indumento </param>
+         /// <param name="v2"> stringa che indica il secondo elemento </param>
+         ///
         public SceltaVestiti(String v1, string v2)
         {
              v1iniziale=v1;
              v2iniziale=v2;
-            //f1 = f;
-           
             InitializeComponent();
             Inizializza();
             sceltaeffettuataVestito1 = true;
             CondivisioneElementi();
             GestioneVestiti();
 
-        }
+        }/// <summary>
+        /// verifica che non esistano indumenti gia scelti nel <see cref="Form1"/> e qualora esistessero li inserisce tra le scelte 
+        /// </summary>
         private void Inizializza()
         {
 
             if(v1iniziale.Replace(" ", "").Replace("scegli", "").TrimStart().TrimEnd().Equals("unindumento"))
             {
-                scelta1.Text =  "";
+                BarraRicercaVestiti1.Text =  "";
             }
             else
             {
-                scelta1.Text = v1iniziale;
+                BarraRicercaVestiti1.Text = v1iniziale;
             }
             if (v2iniziale.Equals(string.Empty))
             {
-                scelta1.Text = "";
+
+                BarraRicercaVestiti2.Text = "";
             }
             else
             {
-                TextIndumento2.Text = v2iniziale;
+                BarraRicercaVestiti2.Text = v2iniziale;
             }
-           
-        }
+          
+        }/// <summary>
+        /// funzione che permette la creazione delle liste degli oggetti contenuti in <see cref="Indumenti"/> e fa uso di <see cref="CreaListaIndumenti(Type)"/>
+        /// </summary>
         private void CondivisioneElementi()
         {
             CreaListaIndumenti(giacche);
@@ -85,7 +100,10 @@ namespace ProgettoRespa.net
             CreaListaIndumenti(magliette);
             
         }
-
+        /// <summary>
+        /// funzione che riceve come parametro un tipo generico 'e' e crea un dizionario contenente tutti i vestiti ciascuno associato ai suoi colori tramite la funzione <see cref="AggiornaDizionario(string, string)"/>
+        /// </summary>
+        /// <param name="e"> tipo di vestito da inserire nella lista </param>
         private void CreaListaIndumenti(Type e)
         {
             string[] appoggio;
@@ -114,7 +132,12 @@ namespace ProgettoRespa.net
 
             }
         }
-
+        /// <summary>
+        /// funzione che crea un dizionario <see cref="IndumentiColori"/> di oggetti indumento e li associa ciascuno ai colori che quel vestito
+        /// 
+        /// </summary>
+        /// <param name="key"> stringa rappresentante il tipo dell'indumento </param>
+        /// <param name="value">stringa rappresentante il colore dell'indumento key</param>
         private void AggiornaDizionario(string key, string value)
         {// aggiorno il dizionario dei vestiti
             List<string> a = new List<string>();
@@ -129,11 +152,14 @@ namespace ProgettoRespa.net
             {//se la chiave è presente estraggo la lista con i relativi elementi e aggiungo in coda l'ultimo
                 IndumentiColori.TryGetValue(key, out a);
                 a.Add(value);
+                //poiche non posso inserire <key, value> in un dizionario se questa è gia presente, prima la devo eliminare
                 IndumentiColori.Remove(key);
                 IndumentiColori.Add(key, a);
             }
         }
-
+        /// <summary>
+        /// funzione che crea liste in cui inserire gli elementi tipo <see cref="Indumenti"/> nelle liste visualizzate nell'interfaccia usando a supporto la funzione <see cref="InserisciOggetti(Type, ListBox)"/>
+        /// </summary>
         private void GestioneVestiti()
         {
 
@@ -152,7 +178,12 @@ namespace ProgettoRespa.net
             //* aggiungoFelpe
             InserisciOggetti(felpe, List_felpe);
 
-        }
+        }/// <summary>
+        /// funzione che inserisce gli oggetti tipo <see cref="Indumenti"/> nelle relative liste visibili nell'interfaccia
+        /// </summary>
+        /// <param name="e"> elemento tipo <see cref="Indumenti"/> </param>
+        /// <param name="l"> lista in cui inserire l'oggetto </param>
+        
         private void InserisciOggetti(Type e, ListBox l)
         {//inserico gli oggetti nella lista di appartenenza
             foreach (string s in Enum.GetNames(e))
@@ -187,7 +218,12 @@ namespace ProgettoRespa.net
         //    catch { }
         //}
 
-
+        /// <summary>
+        /// funzione associata ad un bottone sull'interfaccia che permette all'utente di ricercare i vestiti desiderati 
+        /// fa uso di <see cref="SplittaIndumentiColore(string, int)"/> , <see cref="ErroriVestiti"/>, <see cref="stampaErrori(Dictionary{string, List{string}})"/> e <see cref="Modificasalvataggi(Dictionary{string, List{string}}) "/>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bottoneCerca_Click(object sender, EventArgs e)
         {
             scelte.Clear();
@@ -203,7 +239,12 @@ namespace ProgettoRespa.net
                 stampaErrori(ev.GetErrori());
                 Modificasalvataggi(ev.GetErrori());
             }
-        }
+        }/// <summary>
+        /// funzione che divide una stringa in 2 parti in base ad un carattere di "separazione" creando 2 sottostringe raffiguranti nome dell'indumento e colore con la particolarita di eliminare la sensibilità alle maiuscole e minuscole durante la ricerca dei vestiti
+        /// </summary>
+        /// <param name="abito"> vestito scelto dall'utente comprensivo di colore </param>
+        /// <param name="num">numero relativo alla scelta </param>
+        
         private void SplittaIndumentiColore(string abito,int num)
         {
             
@@ -287,7 +328,10 @@ namespace ProgettoRespa.net
             }
             
         }
-        
+        /// <summary>
+        /// funzione che riporta le scelte nella barra dei vestiti trovati qualora la classe <see cref="ErroriVestiti"/> non abbia riscontrato errori durante la loro ricerca si avvale dell'ausilio di <see cref="ModificasaVestiti(string, string, int) "/> e <see cref="aggiornamentoscelte(string, string)"/>
+        /// </summary>
+        /// <param name="errori"> la lista degli errori prodotti da <see cref="ErroriVestiti.ErroriVestiti(Dictionary{string, List{string}}, Dictionary{string, List{string}}) "/> durante la ricerca degli indumenti</param>
         
         public void Modificasalvataggi(Dictionary<string, List<string>> errori)
         {
@@ -317,7 +361,14 @@ namespace ProgettoRespa.net
 
             }
         }
-        private bool ModificasaVestiti(string indumento, string colore, int num)
+        /// <summary>
+        /// funzione che scrive all'interno delle textbox relativi agli indumenti trovati l'indumento e la specifica di colore
+        /// </summary>
+        /// <param name="indumento">riporta in nome dell'indumento trovato</param>
+        /// <param name="colore">riporta il colore dell'indumento trovato</param>
+        /// <param name="num">riporta il numero della scelta </param>
+       
+        private void ModificasaVestiti(string indumento, string colore, int num)
         {
 
             switch (indumento)
@@ -340,7 +391,7 @@ namespace ProgettoRespa.net
                 }
             scelta1.Text = Abito1;
             TextIndumento2.Text = Abito2;
-            return true;
+            
             }
         private void SalvaEdEsciButton_Click(object sender, EventArgs e)
         {
@@ -363,6 +414,11 @@ namespace ProgettoRespa.net
         //    try { scelta1.Text = List_giacche.Items[List_giacche.SelectedIndex].ToString(); }
         //    catch { }
         //}
+        /// <summary>
+        /// funzione che aggiorna la visualizzazione degli indumenti nelle liste, evidenziando quelle trovate
+        /// </summary>
+        /// <param name="indumento">nome dell'induimento ricercato</param>
+        /// <param name="colore"> colore dell'indumento ricercato</param>
         private void aggiornamentoscelte(string indumento, string colore)
         { string risultato;
             switch (indumento)
@@ -403,7 +459,10 @@ namespace ProgettoRespa.net
         {
 
         }
-     
+     /// <summary>
+     /// funzione che stampa a schermo la lista degli errori generata da <see cref="ErroriVestiti.ErroriVestiti(Dictionary{string, List{string}}, Dictionary{string, List{string}}) "/>durante la ricerca <see cref="ErroriVestiti.GetErrori"/>
+     /// </summary>
+     /// <param name="errori">errori di ricerca</param>
         private void stampaErrori(Dictionary<string, List<string>> errori)
         {
             string messaggio = "";
