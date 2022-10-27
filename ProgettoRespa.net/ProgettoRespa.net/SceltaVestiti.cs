@@ -58,7 +58,7 @@ namespace ProgettoRespa.net
              v1iniziale=v1;
              v2iniziale=v2;
             InitializeComponent();
-            Inizializza();
+            //Inizializza();
             sceltaeffettuataVestito1 = true;
             CondivisioneElementi();
             GestioneVestiti();
@@ -481,6 +481,11 @@ namespace ProgettoRespa.net
 
             }
             MessageBox.Show(messaggio);
+        }
+
+        private void BarraRicercaVestiti1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

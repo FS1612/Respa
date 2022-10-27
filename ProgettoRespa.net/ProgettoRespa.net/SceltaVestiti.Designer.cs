@@ -185,6 +185,7 @@ namespace ProgettoRespa.net
             this.BarraRicercaVestiti1.Name = "BarraRicercaVestiti1";
             this.BarraRicercaVestiti1.Size = new System.Drawing.Size(120, 20);
             this.BarraRicercaVestiti1.TabIndex = 5;
+            this.BarraRicercaVestiti1.TextChanged += new System.EventHandler(this.BarraRicercaVestiti1_TextChanged);
             // 
             // RicercaVestitiLabel
             // 

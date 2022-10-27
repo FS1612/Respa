@@ -75,7 +75,7 @@ namespace ProgettoRespa.net
         int posyRobot;
         int posYinizialeRobot; //106
         bool spostam = false;
-        private Graphics gfx;
+       
         //inizializzazione ads
         private TcAdsClient tcClient;
         private int[] hConnect;
@@ -89,9 +89,9 @@ namespace ProgettoRespa.net
         "MAIN.SU","MAIN.GIU","MAIN.CARICATO1","MAIN.CARICATO2",
         "MAIN.M1","MAIN.M2","MAIN.P1","MAIN.P2","MAIN.G1","MAIN.G2",
         "MAIN.S1","MAIN.S2","MAIN.ALLARME","MAIN.T_ALLARME"};
-        private int NUM_ELEM_BOOL = 11;
+        private int NUM_ELEM_BOOL = 25;
         private int NUM_ELEM_TIME = 1;
-        private int NUM_ELEM_STRING=14;
+        //private int NUM_ELEM_STRING=14;
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -105,7 +105,17 @@ namespace ProgettoRespa.net
             Tempo_porta = false;
             Chiusura_aggiornata = false;
             posYinizialeRobot = robot.Location.Y;
-            gfx = this.CreateGraphics();
+            this.textMagliettaBianca.Text = "False";
+            this.textMagliettaNera.Text = "False";
+            this.textJeansChiaro.Text = "False";
+            this.textPantaloneNero.Text = "False";
+            this.textGiaccaPelle.Text = "False";
+            this.textFelpaVerde.Text = "False";
+            this.textScarpeBianche.Text = "False";
+            this.textScarpeNere.Text = "False";
+            this.textCaricato1.Text = "False";
+            this.textCaricato2.Text = "False";
+           
 
         }/// <summary>
         /// funzione che verifica la presenza o la assenza del player nella stanza e ne aggiorna lo stato
@@ -129,6 +139,7 @@ namespace ProgettoRespa.net
         }
         /// <summary>
         /// funzione che prende gli input dall'interfaccia grafica e aggiorna i comandi che il robot deve eseguire 
+        /// ed eseguira <see cref="GestioneSpostamento"/>
         /// </summary>
         /// <value>comandoRobot è una variabile che codifica gli spostamenti effettuabili dal robot nelle 4 direzioni 
         /// </value> 
@@ -161,6 +172,7 @@ namespace ProgettoRespa.net
         }
         /// <summary>
         /// funzione che accetta in input i valori dell'interfaccia grafica relativi ai bracci e ne codifica gli spostamenti
+        /// che poi eseguirà <see cref="GestioneBracci"/>
         /// </summary>
         /// <value> comandoBraccio è una variabile che indica che operazione deve fare il braccio, 
         ///  numerobraccio è una variabile che indica quale braccio deve eseguire l'azione salvata in comando braccio </value>
@@ -176,6 +188,15 @@ namespace ProgettoRespa.net
             {
                 comandoBraccio = "allunga";
                 numerobraccio = 3;
+            }
+            else if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals("True")){
+                comandoBraccio = "allunga";
+                numerobraccio = 4;
+            }
+            else if (!textBraccio1.Text.Equals("True") && !textBraccio3.Text.Equals("True"))
+            {
+                comandoBraccio = "accorcia";
+                numerobraccio = 4;
             }
             else
             {
@@ -223,34 +244,45 @@ namespace ProgettoRespa.net
                 if (vestito.Equals("Maglietta bianca"))
                 {
                     MagliettaBianca = true;
+                    textMagliettaBianca.Text = "True";
                 }
-                if (vestito.Equals("Maglietta nera"))
+              
+               else if (vestito.Equals("Maglietta nera"))
                 {
                     MagliettaNera = true;
+                    textMagliettaNera.Text = "True";
                 }
-                if (vestito.Equals("Jeans chiaro"))
+                
+               else if (vestito.Equals("Jeans chiaro"))
                 {
                     JeansChiaro = true;
+                    textJeansChiaro.Text = "True";
                 }
-                if (vestito.Equals("Pantalone nero"))
+               else if (vestito.Equals("Pantalone nero"))
                 {
                     PantaloneNero = true;
+                    textPantaloneNero.Text = "True";
                 }
-                if (vestito.Equals("Felpa verde"))
+                else if (vestito.Equals("Felpa verde"))
                 {
                     FelpaVerde = true;
+                    textFelpaVerde.Text = "True";
                 }
-                if (vestito.Equals("Giacca di pelle"))
+              else  if (vestito.Equals("Giacca di pelle"))
                 {
                     GiaccaPelle = true;
+                    textGiaccaPelle.Text = "True";
                 }
-                if (vestito.Equals("Scarpe nere"))
+              else   if (vestito.Equals("Scarpe nere"))
                 {
                     ScarpeNere = true;
+                    textScarpeNere.Text = "True";
+
                 }
-                if (vestito.Equals("Scarpe bianche"))
+               else  if (vestito.Equals("Scarpe bianche"))
                 {
                     ScarpeBianche = true;
+                    textScarpeBianche.Text = "True";
                 }
 
             }
@@ -298,8 +330,8 @@ namespace ProgettoRespa.net
         }
         private void startTimer_Tick(object sender, EventArgs e)
         {//serve per riportare a false la variabile start appena il programma è avviato
-            textStart.Text = "False";
-            textStart.BackColor = Color.Red;
+            //textStart.Text = "False";
+            //textStart.BackColor = Color.Red;
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -694,27 +726,42 @@ namespace ProgettoRespa.net
                 { 
                     scarico1++;
                     Braccio1Carico = false;
+                    textCaricato1.Text = "False";
                     MagliettaBianca = false;
                     MagliettaNera = false;
                     GiaccaPelle = false;
                     FelpaVerde = false;
+                    
                      pic1.Location = new Point(cesta_panni.Location.X+10*scarico1, cesta_panni.Location.Y);                  
                     pic1.BringToFront();
-                    
+                    ResettaAbiti();
                 }
                 else if (Braccio3Carico)
                 {
                     scarico2++;
                     Braccio3Carico = false;
+                    textCaricato2.Text = "False";
                     JeansChiaro = false;
                     PantaloneNero = false;
                     ScarpeNere = false;
                     ScarpeBianche = false;
                     pic2.Location= new Point(cesta_panni.Location.X+10*scarico2, cesta_panni.Location.Y+40);
                     pic2.BringToFront();
+                    ResettaAbiti();
                 }
             }
            
+        }
+       private void ResettaAbiti()
+        {
+            textScarpeNere.Text = "False";
+            textScarpeBianche.Text = "False";
+            textMagliettaBianca.Text = "False";
+            textMagliettaNera.Text = "False";
+            textJeansChiaro.Text = "False";
+            textPantaloneNero.Text = "False";
+            textFelpaVerde.Text = "False";
+            textGiaccaPelle.Text = "False";
         }
         private void cesta_panni_DragOver(object sender, DragEventArgs e)
         {
@@ -735,7 +782,7 @@ namespace ProgettoRespa.net
                 case 1 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
 
-                    braccio1.Height = 40;
+                    braccio1.Height = 50;
                     break;
                 case -1 when posRobot == posinizialeRobot && comandoRobot.Equals("") && posyRobot == posYinizialeRobot:
                     braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
@@ -751,7 +798,24 @@ namespace ProgettoRespa.net
                 case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio3.Height = 40;
                     break;
-                
+                    case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals(""):
+                    braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
+                    braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
+                    braccio1.Height = 15;
+                    braccio3.Height = 14;
+                    break;
+                //case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals(""):
+                //    braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
+                //    braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
+                //    braccio1.Height = 15;
+                //    braccio3.Height = 14;
+                //    break;
+                case 4 when comandoBraccio.Equals("allunga") && comandoRobot.Equals("")&& posRobot!=posinizialeRobot:
+                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
+                    braccio1.Height = 50;
+                    braccio3.Height = 40;
+                    break;
+
                 default:
 
                     break;
@@ -778,25 +842,30 @@ namespace ProgettoRespa.net
         {
             if (braccio1.Bounds.IntersectsWith(maglietta_nera.Bounds) && MagliettaNera)
             {
+                textCaricato1.Text = "True";
                 Braccio1Carico = true;
                 pic1 = maglietta_nera;
                 
             }
             else if (braccio1.Bounds.IntersectsWith(maglietta_bianca.Bounds) && MagliettaBianca)
             {
+                textCaricato1.Text = "True";
                 Braccio1Carico = true;               
                 pic1 = maglietta_bianca;
             }
             else if (braccio1.Bounds.IntersectsWith(giacchetto_di_pelle.Bounds) && GiaccaPelle)
             {
+                textCaricato1.Text = "True";
                 Braccio1Carico = true;
                 pic1 = giacchetto_di_pelle;
             }
              if (braccio1.Bounds.IntersectsWith(felpa_verde.Bounds) && FelpaVerde)
             {
+                textCaricato1.Text = "True";
                 Braccio1Carico = true;
                 pic1 = felpa_verde;
             }
+           
             spostaVestitob1(pic1);
         }/// <summary>
          /// verifica l'intersezione dei vestiti con il rispettivo braccio e impostano la variabile booleana <see cref="Braccio3Carico"/> a true per indicare che l'oggetto è stato preso
@@ -806,11 +875,12 @@ namespace ProgettoRespa.net
             if (braccio3.Bounds.IntersectsWith(jeans_chiaro.Bounds) && JeansChiaro)
             {
                 Braccio3Carico = true;
-
+                textCaricato2.Text = "True";
                 pic2 = jeans_chiaro;
             }
             else if (braccio3.Bounds.IntersectsWith(pantalone_nero.Bounds) && PantaloneNero)
             {
+                textCaricato2.Text = "True";
                 Braccio3Carico = true;
                 pic2 = pantalone_nero;
             }
@@ -818,14 +888,16 @@ namespace ProgettoRespa.net
             {
                 Braccio3Carico = true;
                 pic2 = scarpe_bianche;
-
+                textCaricato2.Text = "True";
             }
             if (braccio3.Bounds.IntersectsWith(scarpe_nere.Bounds) && ScarpeNere)
             {
+                textCaricato2.Text = "True";
                 Braccio3Carico = true;
                 pic2 = scarpe_nere;
             }
             spostaVestitob2(pic2);
+            
         }
       /// <summary>
       /// effettua lo spostamento dei vestito 1
@@ -905,9 +977,9 @@ namespace ProgettoRespa.net
         {
             tcClient = new TcAdsClient();
             tcClient.Connect("127.0.0.1.1.1", 851);
-            dataStream = new AdsStream(NUM_ELEM_BOOL + NUM_ELEM_TIME * 4+NUM_ELEM_STRING*81);
+            dataStream = new AdsStream(NUM_ELEM_BOOL + NUM_ELEM_TIME * 4);
             binRead = new AdsBinaryReader(dataStream);
-            hConnect = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME + NUM_ELEM_STRING];
+            hConnect = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME ];
 
             hConnect[0] = tcClient.AddDeviceNotification(dataPLC[0], dataStream, 0, 1, AdsTransMode.OnChange, 100, 0, textFcsRobot);
             hConnect[1] = tcClient.AddDeviceNotification(dataPLC[1], dataStream, 1, 1, AdsTransMode.OnChange, 100, 0, textFcdRobot);
@@ -923,22 +995,23 @@ namespace ProgettoRespa.net
             hConnect[11] = tcClient.AddDeviceNotification(dataPLC[11], dataStream, 11, 1, AdsTransMode.OnChange, 100, 0, textSxRobot);
             hConnect[12] = tcClient.AddDeviceNotification(dataPLC[12], dataStream, 12, 1, AdsTransMode.OnChange, 100, 0, Text_AltoRobot);
             hConnect[13] = tcClient.AddDeviceNotification(dataPLC[13], dataStream, 13, 1, AdsTransMode.OnChange, 100, 0, textBassoRobot);
-            hConnect[14] = tcClient.AddDeviceNotification(dataPLC[14], dataStream, 14, 1, AdsTransMode.OnChange, 100, 0, Braccio1Carico);
-            hConnect[15] = tcClient.AddDeviceNotification(dataPLC[15], dataStream, 15, 1, AdsTransMode.OnChange, 100, 0, Braccio3Carico);
-            hConnect[16] = tcClient.AddDeviceNotification(dataPLC[16], dataStream, 16, 1, AdsTransMode.OnChange, 100, 0, MagliettaNera);
-            hConnect[17] = tcClient.AddDeviceNotification(dataPLC[17], dataStream, 17, 1, AdsTransMode.OnChange, 100, 0, MagliettaBianca);
-            hConnect[18] = tcClient.AddDeviceNotification(dataPLC[18], dataStream, 18, 1, AdsTransMode.OnChange, 100, 0, JeansChiaro);
-            hConnect[19] = tcClient.AddDeviceNotification(dataPLC[19], dataStream, 19, 1, AdsTransMode.OnChange, 100, 0, PantaloneNero);
-            hConnect[20] = tcClient.AddDeviceNotification(dataPLC[20], dataStream, 20, 1, AdsTransMode.OnChange, 100, 0, GiaccaPelle);
-            hConnect[21] = tcClient.AddDeviceNotification(dataPLC[21], dataStream, 21, 1, AdsTransMode.OnChange, 100, 0, FelpaVerde);
-            hConnect[22] = tcClient.AddDeviceNotification(dataPLC[22], dataStream, 22, 1, AdsTransMode.OnChange, 100, 0, ScarpeBianche);
-            hConnect[23] = tcClient.AddDeviceNotification(dataPLC[23], dataStream, 23, 1, AdsTransMode.OnChange, 100, 0, ScarpeNere);
+            
+            hConnect[14] = tcClient.AddDeviceNotification(dataPLC[14], dataStream, 14, 1, AdsTransMode.OnChange, 100, 0, textCaricato1);
+            hConnect[15] = tcClient.AddDeviceNotification(dataPLC[15], dataStream, 15, 1, AdsTransMode.OnChange, 100, 0, textCaricato2);
+            hConnect[16] = tcClient.AddDeviceNotification(dataPLC[16], dataStream, 16, 1, AdsTransMode.OnChange, 100, 0, textMagliettaNera);
+            hConnect[17] = tcClient.AddDeviceNotification(dataPLC[17], dataStream, 17, 1, AdsTransMode.OnChange, 100, 0, textMagliettaBianca);
+            hConnect[18] = tcClient.AddDeviceNotification(dataPLC[18], dataStream, 18, 1, AdsTransMode.OnChange, 100, 0, textJeansChiaro);
+            hConnect[19] = tcClient.AddDeviceNotification(dataPLC[19], dataStream, 19, 1, AdsTransMode.OnChange, 100, 0, textPantaloneNero);
+            hConnect[20] = tcClient.AddDeviceNotification(dataPLC[20], dataStream, 20, 1, AdsTransMode.OnChange, 100, 0, textGiaccaPelle);
+            hConnect[21] = tcClient.AddDeviceNotification(dataPLC[21], dataStream, 21, 1, AdsTransMode.OnChange, 100, 0, textFelpaVerde);
+            hConnect[22] = tcClient.AddDeviceNotification(dataPLC[22], dataStream, 22, 1, AdsTransMode.OnChange, 100, 0, textScarpeBianche);
+            hConnect[23] = tcClient.AddDeviceNotification(dataPLC[23], dataStream, 23, 1, AdsTransMode.OnChange, 100, 0, textScarpeNere);
             hConnect[24] = tcClient.AddDeviceNotification(dataPLC[24], dataStream, 24, 1, AdsTransMode.OnChange, 100, 0, text_ALLARME);
             hConnect[25] = tcClient.AddDeviceNotification(dataPLC[25], dataStream, 25, 4, AdsTransMode.OnChange, 100, 0, Text_Timer);
             tcClient.AdsNotification += new AdsNotificationEventHandler(OnNotification);
             textconnect.Text = " OK ";
-            hvar_name = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME + NUM_ELEM_STRING];
-            for (int i = 0; i < NUM_ELEM_BOOL + NUM_ELEM_TIME + NUM_ELEM_STRING; i++)
+            hvar_name = new int[NUM_ELEM_BOOL + NUM_ELEM_TIME ];
+            for (int i = 0; i < NUM_ELEM_BOOL + NUM_ELEM_TIME ; i++)
             {
                 hvar_name[i] = tcClient.CreateVariableHandle(dataPLC[i]);
             }
@@ -950,7 +1023,7 @@ namespace ProgettoRespa.net
         }
         private void OnNotification(object sender, AdsNotificationEventArgs e)
         {
-            try {
+            
                 string strValue = "";
                 if (e.NotificationHandle == hConnect[0])
                     strValue = binRead.ReadBoolean().ToString();
@@ -980,36 +1053,32 @@ namespace ProgettoRespa.net
                     strValue = binRead.ReadBoolean().ToString();
                 if (e.NotificationHandle == hConnect[13])
                     strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[14])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[15])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[16])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[17])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[18])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[19])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[20])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[21])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[22])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[23])
-                    strValue = binRead.ReadBoolean().ToString();
-                if (e.NotificationHandle == hConnect[24])
+            if (e.NotificationHandle == hConnect[14])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[15])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[16])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[17])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[18])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[19])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[20])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[21])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[22])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[23])
+                strValue = binRead.ReadBoolean().ToString();
+            if (e.NotificationHandle == hConnect[24])
                     strValue = binRead.ReadBoolean().ToString();
                 if (e.NotificationHandle == hConnect[25])
                     strValue = binRead.ReadInt32().ToString();
                 ((TextBox)e.UserData).Invoke(new Action(() => ((TextBox)e.UserData).Text = String.Format(strValue)));
-            }
-            catch (InvalidCastException fe)
-            {
-
-            }
+            
             
         }
 
@@ -1184,43 +1253,120 @@ namespace ProgettoRespa.net
         }
 
         private void RicercaVestiti1_TextChanged(object sender, EventArgs e)
-        {
-            if (hvar_name != null)
-            {
-                
-                tcClient.WriteAny(hvar_name[16], MagliettaNera);
-                tcClient.WriteAny(hvar_name[17], MagliettaBianca);
-                tcClient.WriteAny(hvar_name[18], JeansChiaro);
-                tcClient.WriteAny(hvar_name[19], PantaloneNero);
-                tcClient.WriteAny(hvar_name[20], GiaccaPelle);
-                tcClient.WriteAny(hvar_name[21], FelpaVerde);
-                tcClient.WriteAny(hvar_name[22], ScarpeBianche);
-                tcClient.WriteAny(hvar_name[22], ScarpeNere);
-
-
-                
-            }
+        {          
         }
 
         private void text2indumento_TextChanged(object sender, EventArgs e)
+        {      
+        }
+
+        private void textMagliettaNera_TextChanged(object sender, EventArgs e)
         {
             if (hvar_name != null)
             {
+                if (textMagliettaNera.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[16], true);
+                if (textMagliettaNera.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[16], false);
+            }
+        }
 
-                tcClient.WriteAny(hvar_name[16], MagliettaNera);
-                tcClient.WriteAny(hvar_name[17], MagliettaBianca);
-                tcClient.WriteAny(hvar_name[18], JeansChiaro);
-                tcClient.WriteAny(hvar_name[19], PantaloneNero);
-                tcClient.WriteAny(hvar_name[20], GiaccaPelle);
-                tcClient.WriteAny(hvar_name[21], FelpaVerde);
-                tcClient.WriteAny(hvar_name[22], ScarpeBianche);
-                tcClient.WriteAny(hvar_name[22], ScarpeNere);
-                if (MagliettaNera)
-                {
-                    MessageBox.Show(" aho1");
-                }
+        private void textMagliettaBianca_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textMagliettaBianca.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[17], true);
+                if (textMagliettaBianca.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[17], false);
+            }
+        }
 
+        private void textJeansChiaro_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textJeansChiaro.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[18], true);
+                if (textJeansChiaro.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[18], false);
+            }
+        }
 
+        private void textPantaloneNero_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textPantaloneNero.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[19], true);
+                if (textPantaloneNero.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[19], false);
+            }
+        }
+
+        private void textFelpaVerde_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textFelpaVerde.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[21], true);
+                if (textFelpaVerde.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[21], false);
+            }
+        }
+
+        private void textGiaccaPelle_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textGiaccaPelle.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[20], true);
+                if (textGiaccaPelle.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[20], false);
+            }
+        }
+
+        private void textScarpeBianche_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textScarpeBianche.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[22], true);
+                if (textScarpeBianche.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[22], false);
+            }
+        }
+
+        private void textScarpeNere_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textScarpeNere.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[23], true);
+                if (textScarpeNere.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[23], false);
+            }
+        }
+
+        private void textCaricato2_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textCaricato2.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[15], true);
+                if (textCaricato2.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[15], false);
+            }
+        }
+
+        private void textCaricato1_TextChanged(object sender, EventArgs e)
+        {
+            if (hvar_name != null)
+            {
+                if (textCaricato1.Text.Equals("True"))
+                    tcClient.WriteAny(hvar_name[14], true);
+                if (textCaricato1.Text.Equals("False"))
+                    tcClient.WriteAny(hvar_name[14], false);
             }
         }
     }

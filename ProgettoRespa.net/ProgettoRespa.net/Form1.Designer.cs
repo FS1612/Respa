@@ -39,23 +39,41 @@ namespace ProgettoRespa.net
             this.button_RESET = new System.Windows.Forms.Button();
             this.button_START = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textCaricato1 = new System.Windows.Forms.TextBox();
+            this.textCaricato2 = new System.Windows.Forms.TextBox();
+            this.textScarpeNere = new System.Windows.Forms.TextBox();
+            this.textScarpeBianche = new System.Windows.Forms.TextBox();
+            this.textGiaccaPelle = new System.Windows.Forms.TextBox();
+            this.textFelpaVerde = new System.Windows.Forms.TextBox();
+            this.textPantaloneNero = new System.Windows.Forms.TextBox();
             this.textFc2 = new System.Windows.Forms.TextBox();
             this.textFc1 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.Fc1_Robot = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.Fc2_Robot = new System.Windows.Forms.Label();
             this.textFcsRobot = new System.Windows.Forms.TextBox();
+            this.textJeansChiaro = new System.Windows.Forms.TextBox();
             this.textBasso = new System.Windows.Forms.TextBox();
+            this.textMagliettaBianca = new System.Windows.Forms.TextBox();
             this.textAlto = new System.Windows.Forms.TextBox();
             this.textFcdRobot = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.sensAlto = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.sensBasso = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.fcdRobot = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.fcsRobot = new System.Windows.Forms.Label();
-            this.textRobot = new System.Windows.Forms.TextBox();
-            this.sens_robot = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.TextSensorePortaInterno = new System.Windows.Forms.TextBox();
-            this.SensorePortaInterno = new System.Windows.Forms.Label();
             this.TextSensProssimita_porta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.SensorePortaInterno = new System.Windows.Forms.Label();
+            this.textMagliettaNera = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.sens_prossimita = new System.Windows.Forms.Label();
             this.textPersonaggio = new System.Windows.Forms.TextBox();
             this.personaggio = new System.Windows.Forms.Label();
@@ -262,23 +280,41 @@ namespace ProgettoRespa.net
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textCaricato1);
+            this.groupBox2.Controls.Add(this.textCaricato2);
+            this.groupBox2.Controls.Add(this.textScarpeNere);
+            this.groupBox2.Controls.Add(this.textScarpeBianche);
+            this.groupBox2.Controls.Add(this.textGiaccaPelle);
+            this.groupBox2.Controls.Add(this.textFelpaVerde);
+            this.groupBox2.Controls.Add(this.textPantaloneNero);
             this.groupBox2.Controls.Add(this.textFc2);
             this.groupBox2.Controls.Add(this.textFc1);
+            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.Fc1_Robot);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.Fc2_Robot);
             this.groupBox2.Controls.Add(this.textFcsRobot);
+            this.groupBox2.Controls.Add(this.textJeansChiaro);
             this.groupBox2.Controls.Add(this.textBasso);
+            this.groupBox2.Controls.Add(this.textMagliettaBianca);
             this.groupBox2.Controls.Add(this.textAlto);
             this.groupBox2.Controls.Add(this.textFcdRobot);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.sensAlto);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.sensBasso);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.fcdRobot);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.fcsRobot);
-            this.groupBox2.Controls.Add(this.textRobot);
-            this.groupBox2.Controls.Add(this.sens_robot);
+            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.TextSensorePortaInterno);
-            this.groupBox2.Controls.Add(this.SensorePortaInterno);
             this.groupBox2.Controls.Add(this.TextSensProssimita_porta);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.SensorePortaInterno);
+            this.groupBox2.Controls.Add(this.textMagliettaNera);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.sens_prossimita);
             this.groupBox2.Controls.Add(this.textPersonaggio);
             this.groupBox2.Controls.Add(this.personaggio);
@@ -299,37 +335,113 @@ namespace ProgettoRespa.net
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SENSORI";
             // 
+            // textCaricato1
+            // 
+            this.textCaricato1.Location = new System.Drawing.Point(283, 235);
+            this.textCaricato1.Name = "textCaricato1";
+            this.textCaricato1.Size = new System.Drawing.Size(53, 20);
+            this.textCaricato1.TabIndex = 56;
+            this.textCaricato1.TextChanged += new System.EventHandler(this.textCaricato1_TextChanged);
+            // 
+            // textCaricato2
+            // 
+            this.textCaricato2.Location = new System.Drawing.Point(486, 239);
+            this.textCaricato2.Name = "textCaricato2";
+            this.textCaricato2.Size = new System.Drawing.Size(47, 20);
+            this.textCaricato2.TabIndex = 55;
+            this.textCaricato2.TextChanged += new System.EventHandler(this.textCaricato2_TextChanged);
+            // 
+            // textScarpeNere
+            // 
+            this.textScarpeNere.Location = new System.Drawing.Point(486, 206);
+            this.textScarpeNere.Name = "textScarpeNere";
+            this.textScarpeNere.Size = new System.Drawing.Size(47, 20);
+            this.textScarpeNere.TabIndex = 54;
+            this.textScarpeNere.TextChanged += new System.EventHandler(this.textScarpeNere_TextChanged);
+            // 
+            // textScarpeBianche
+            // 
+            this.textScarpeBianche.Location = new System.Drawing.Point(486, 174);
+            this.textScarpeBianche.Name = "textScarpeBianche";
+            this.textScarpeBianche.Size = new System.Drawing.Size(47, 20);
+            this.textScarpeBianche.TabIndex = 53;
+            this.textScarpeBianche.TextChanged += new System.EventHandler(this.textScarpeBianche_TextChanged);
+            // 
+            // textGiaccaPelle
+            // 
+            this.textGiaccaPelle.Location = new System.Drawing.Point(486, 146);
+            this.textGiaccaPelle.Name = "textGiaccaPelle";
+            this.textGiaccaPelle.Size = new System.Drawing.Size(47, 20);
+            this.textGiaccaPelle.TabIndex = 52;
+            this.textGiaccaPelle.TextChanged += new System.EventHandler(this.textGiaccaPelle_TextChanged);
+            // 
+            // textFelpaVerde
+            // 
+            this.textFelpaVerde.Location = new System.Drawing.Point(486, 118);
+            this.textFelpaVerde.Name = "textFelpaVerde";
+            this.textFelpaVerde.Size = new System.Drawing.Size(47, 20);
+            this.textFelpaVerde.TabIndex = 51;
+            this.textFelpaVerde.TextChanged += new System.EventHandler(this.textFelpaVerde_TextChanged);
+            // 
+            // textPantaloneNero
+            // 
+            this.textPantaloneNero.Location = new System.Drawing.Point(486, 95);
+            this.textPantaloneNero.Name = "textPantaloneNero";
+            this.textPantaloneNero.Size = new System.Drawing.Size(47, 20);
+            this.textPantaloneNero.TabIndex = 50;
+            this.textPantaloneNero.TextChanged += new System.EventHandler(this.textPantaloneNero_TextChanged);
+            // 
             // textFc2
             // 
-            this.textFc2.Location = new System.Drawing.Point(363, 177);
+            this.textFc2.Location = new System.Drawing.Point(283, 146);
             this.textFc2.Name = "textFc2";
-            this.textFc2.Size = new System.Drawing.Size(100, 20);
+            this.textFc2.Size = new System.Drawing.Size(53, 20);
             this.textFc2.TabIndex = 48;
             this.textFc2.TextChanged += new System.EventHandler(this.textFc2_TextChanged);
             // 
             // textFc1
             // 
-            this.textFc1.Location = new System.Drawing.Point(363, 143);
+            this.textFc1.Location = new System.Drawing.Point(283, 114);
             this.textFc1.Name = "textFc1";
-            this.textFc1.Size = new System.Drawing.Size(100, 20);
+            this.textFc1.Size = new System.Drawing.Size(53, 20);
             this.textFc1.TabIndex = 47;
             this.textFc1.TextChanged += new System.EventHandler(this.textFc1_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label12.Location = new System.Drawing.Point(355, 142);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 46;
+            this.label12.Text = "Giacca pelle";
             // 
             // Fc1_Robot
             // 
             this.Fc1_Robot.AutoSize = true;
             this.Fc1_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Fc1_Robot.Location = new System.Drawing.Point(240, 149);
+            this.Fc1_Robot.Location = new System.Drawing.Point(176, 121);
             this.Fc1_Robot.Name = "Fc1_Robot";
             this.Fc1_Robot.Size = new System.Drawing.Size(67, 13);
             this.Fc1_Robot.TabIndex = 46;
             this.Fc1_Robot.Text = "FC1 ROBOT";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label11.Location = new System.Drawing.Point(355, 174);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 45;
+            this.label11.Text = "Scarpe bianche";
+            // 
             // Fc2_Robot
             // 
             this.Fc2_Robot.AutoSize = true;
             this.Fc2_Robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Fc2_Robot.Location = new System.Drawing.Point(238, 177);
+            this.Fc2_Robot.Location = new System.Drawing.Point(176, 153);
             this.Fc2_Robot.Name = "Fc2_Robot";
             this.Fc2_Robot.Size = new System.Drawing.Size(67, 13);
             this.Fc2_Robot.TabIndex = 45;
@@ -337,122 +449,210 @@ namespace ProgettoRespa.net
             // 
             // textFcsRobot
             // 
-            this.textFcsRobot.Location = new System.Drawing.Point(363, 210);
+            this.textFcsRobot.Location = new System.Drawing.Point(283, 178);
             this.textFcsRobot.Name = "textFcsRobot";
-            this.textFcsRobot.Size = new System.Drawing.Size(100, 20);
+            this.textFcsRobot.Size = new System.Drawing.Size(53, 20);
             this.textFcsRobot.TabIndex = 43;
             this.textFcsRobot.TextChanged += new System.EventHandler(this.textFcsRobot_TextChanged);
             // 
+            // textJeansChiaro
+            // 
+            this.textJeansChiaro.Location = new System.Drawing.Point(486, 69);
+            this.textJeansChiaro.Name = "textJeansChiaro";
+            this.textJeansChiaro.Size = new System.Drawing.Size(47, 20);
+            this.textJeansChiaro.TabIndex = 35;
+            this.textJeansChiaro.TextChanged += new System.EventHandler(this.textJeansChiaro_TextChanged);
+            // 
             // textBasso
             // 
-            this.textBasso.Location = new System.Drawing.Point(363, 117);
+            this.textBasso.Location = new System.Drawing.Point(283, 88);
             this.textBasso.Name = "textBasso";
-            this.textBasso.Size = new System.Drawing.Size(100, 20);
+            this.textBasso.Size = new System.Drawing.Size(53, 20);
             this.textBasso.TabIndex = 42;
             this.textBasso.TextChanged += new System.EventHandler(this.textBasso_TextChanged);
             // 
+            // textMagliettaBianca
+            // 
+            this.textMagliettaBianca.Location = new System.Drawing.Point(486, 41);
+            this.textMagliettaBianca.Name = "textMagliettaBianca";
+            this.textMagliettaBianca.Size = new System.Drawing.Size(47, 20);
+            this.textMagliettaBianca.TabIndex = 33;
+            this.textMagliettaBianca.TextChanged += new System.EventHandler(this.textMagliettaBianca_TextChanged);
+            // 
             // textAlto
             // 
-            this.textAlto.Location = new System.Drawing.Point(363, 88);
+            this.textAlto.Location = new System.Drawing.Point(283, 62);
             this.textAlto.Name = "textAlto";
-            this.textAlto.Size = new System.Drawing.Size(100, 20);
+            this.textAlto.Size = new System.Drawing.Size(53, 20);
             this.textAlto.TabIndex = 41;
             this.textAlto.TextChanged += new System.EventHandler(this.textAlto_TextChanged);
             // 
             // textFcdRobot
             // 
-            this.textFcdRobot.Location = new System.Drawing.Point(363, 239);
+            this.textFcdRobot.Location = new System.Drawing.Point(283, 210);
             this.textFcdRobot.Name = "textFcdRobot";
-            this.textFcdRobot.Size = new System.Drawing.Size(100, 20);
+            this.textFcdRobot.Size = new System.Drawing.Size(53, 20);
             this.textFcdRobot.TabIndex = 40;
             this.textFcdRobot.TextChanged += new System.EventHandler(this.textFcdRobot_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label10.Location = new System.Drawing.Point(352, 95);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "Pantalone nero";
             // 
             // sensAlto
             // 
             this.sensAlto.AutoSize = true;
             this.sensAlto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sensAlto.Location = new System.Drawing.Point(238, 92);
+            this.sensAlto.Location = new System.Drawing.Point(171, 68);
             this.sensAlto.Name = "sensAlto";
             this.sensAlto.Size = new System.Drawing.Size(68, 13);
             this.sensAlto.TabIndex = 39;
             this.sensAlto.Text = "FCA ROBOT";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label3.Location = new System.Drawing.Point(176, 242);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Caricato1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label9.Location = new System.Drawing.Point(355, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "felpa verde";
+            // 
             // sensBasso
             // 
             this.sensBasso.AutoSize = true;
             this.sensBasso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sensBasso.Location = new System.Drawing.Point(238, 119);
+            this.sensBasso.Location = new System.Drawing.Point(176, 95);
             this.sensBasso.Name = "sensBasso";
             this.sensBasso.Size = new System.Drawing.Size(68, 13);
             this.sensBasso.TabIndex = 38;
             this.sensBasso.Text = "FCB ROBOT";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label8.Location = new System.Drawing.Point(355, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 13);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "caricato2";
+            // 
             // fcdRobot
             // 
             this.fcdRobot.AutoSize = true;
             this.fcdRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcdRobot.Location = new System.Drawing.Point(240, 243);
+            this.fcdRobot.Location = new System.Drawing.Point(176, 221);
             this.fcdRobot.Name = "fcdRobot";
             this.fcdRobot.Size = new System.Drawing.Size(69, 13);
             this.fcdRobot.TabIndex = 37;
             this.fcdRobot.Text = "FCD ROBOT";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label7.Location = new System.Drawing.Point(355, 209);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Scarpe nere";
+            // 
             // fcsRobot
             // 
             this.fcsRobot.AutoSize = true;
             this.fcsRobot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.fcsRobot.Location = new System.Drawing.Point(240, 210);
+            this.fcsRobot.Location = new System.Drawing.Point(176, 188);
             this.fcsRobot.Name = "fcsRobot";
             this.fcsRobot.Size = new System.Drawing.Size(68, 13);
             this.fcsRobot.TabIndex = 36;
             this.fcsRobot.Text = "FCS ROBOT";
             // 
-            // textRobot
+            // label6
             // 
-            this.textRobot.Location = new System.Drawing.Point(363, 61);
-            this.textRobot.Name = "textRobot";
-            this.textRobot.Size = new System.Drawing.Size(100, 20);
-            this.textRobot.TabIndex = 35;
-            // 
-            // sens_robot
-            // 
-            this.sens_robot.AutoSize = true;
-            this.sens_robot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sens_robot.Location = new System.Drawing.Point(263, 65);
-            this.sens_robot.Name = "sens_robot";
-            this.sens_robot.Size = new System.Drawing.Size(36, 13);
-            this.sens_robot.TabIndex = 34;
-            this.sens_robot.Text = "Robot";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label6.Location = new System.Drawing.Point(355, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Jeans chiaro";
             // 
             // TextSensorePortaInterno
             // 
-            this.TextSensorePortaInterno.Location = new System.Drawing.Point(363, 38);
+            this.TextSensorePortaInterno.Location = new System.Drawing.Point(283, 36);
             this.TextSensorePortaInterno.Name = "TextSensorePortaInterno";
-            this.TextSensorePortaInterno.Size = new System.Drawing.Size(100, 20);
+            this.TextSensorePortaInterno.Size = new System.Drawing.Size(53, 20);
             this.TextSensorePortaInterno.TabIndex = 33;
+            // 
+            // TextSensProssimita_porta
+            // 
+            this.TextSensProssimita_porta.Location = new System.Drawing.Point(283, 10);
+            this.TextSensProssimita_porta.Name = "TextSensProssimita_porta";
+            this.TextSensProssimita_porta.Size = new System.Drawing.Size(53, 20);
+            this.TextSensProssimita_porta.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label5.Location = new System.Drawing.Point(355, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Maglietta Bianca";
             // 
             // SensorePortaInterno
             // 
             this.SensorePortaInterno.AutoSize = true;
             this.SensorePortaInterno.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.SensorePortaInterno.Location = new System.Drawing.Point(237, 38);
+            this.SensorePortaInterno.Location = new System.Drawing.Point(170, 37);
             this.SensorePortaInterno.Name = "SensorePortaInterno";
             this.SensorePortaInterno.Size = new System.Drawing.Size(110, 13);
             this.SensorePortaInterno.TabIndex = 32;
             this.SensorePortaInterno.Text = "Sensore Porta Interno";
             // 
-            // TextSensProssimita_porta
+            // textMagliettaNera
             // 
-            this.TextSensProssimita_porta.Location = new System.Drawing.Point(363, 12);
-            this.TextSensProssimita_porta.Name = "TextSensProssimita_porta";
-            this.TextSensProssimita_porta.Size = new System.Drawing.Size(100, 20);
-            this.TextSensProssimita_porta.TabIndex = 31;
+            this.textMagliettaNera.Location = new System.Drawing.Point(486, 11);
+            this.textMagliettaNera.Name = "textMagliettaNera";
+            this.textMagliettaNera.Size = new System.Drawing.Size(47, 20);
+            this.textMagliettaNera.TabIndex = 31;
+            this.textMagliettaNera.Text = "                               ";
+            this.textMagliettaNera.TextChanged += new System.EventHandler(this.textMagliettaNera_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label13.Location = new System.Drawing.Point(355, 14);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(76, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Maglietta Nera";
             // 
             // sens_prossimita
             // 
             this.sens_prossimita.AutoSize = true;
             this.sens_prossimita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.sens_prossimita.Location = new System.Drawing.Point(249, 16);
+            this.sens_prossimita.Location = new System.Drawing.Point(170, 15);
             this.sens_prossimita.Name = "sens_prossimita";
             this.sens_prossimita.Size = new System.Drawing.Size(74, 13);
             this.sens_prossimita.TabIndex = 30;
@@ -464,7 +664,7 @@ namespace ProgettoRespa.net
             this.textPersonaggio.Location = new System.Drawing.Point(96, 173);
             this.textPersonaggio.Name = "textPersonaggio";
             this.textPersonaggio.ReadOnly = true;
-            this.textPersonaggio.Size = new System.Drawing.Size(100, 20);
+            this.textPersonaggio.Size = new System.Drawing.Size(54, 20);
             this.textPersonaggio.TabIndex = 29;
             // 
             // personaggio
@@ -493,7 +693,7 @@ namespace ProgettoRespa.net
             this.textReset.Location = new System.Drawing.Point(96, 139);
             this.textReset.Name = "textReset";
             this.textReset.ReadOnly = true;
-            this.textReset.Size = new System.Drawing.Size(100, 20);
+            this.textReset.Size = new System.Drawing.Size(54, 20);
             this.textReset.TabIndex = 26;
             this.textReset.TextChanged += new System.EventHandler(this.textReset_TextChanged);
             // 
@@ -501,7 +701,7 @@ namespace ProgettoRespa.net
             // 
             this.textStart.Location = new System.Drawing.Point(96, 109);
             this.textStart.Name = "textStart";
-            this.textStart.Size = new System.Drawing.Size(100, 20);
+            this.textStart.Size = new System.Drawing.Size(54, 20);
             this.textStart.TabIndex = 25;
             this.textStart.TextChanged += new System.EventHandler(this.textStart_TextChanged);
             // 
@@ -509,21 +709,21 @@ namespace ProgettoRespa.net
             // 
             this.textTemperatura.Location = new System.Drawing.Point(96, 79);
             this.textTemperatura.Name = "textTemperatura";
-            this.textTemperatura.Size = new System.Drawing.Size(100, 20);
+            this.textTemperatura.Size = new System.Drawing.Size(54, 20);
             this.textTemperatura.TabIndex = 24;
             // 
             // textFcdPorta
             // 
             this.textFcdPorta.Location = new System.Drawing.Point(96, 48);
             this.textFcdPorta.Name = "textFcdPorta";
-            this.textFcdPorta.Size = new System.Drawing.Size(100, 20);
+            this.textFcdPorta.Size = new System.Drawing.Size(54, 20);
             this.textFcdPorta.TabIndex = 21;
             // 
             // textFcsPorta
             // 
             this.textFcsPorta.Location = new System.Drawing.Point(96, 18);
             this.textFcsPorta.Name = "textFcsPorta";
-            this.textFcsPorta.Size = new System.Drawing.Size(100, 20);
+            this.textFcsPorta.Size = new System.Drawing.Size(54, 20);
             this.textFcsPorta.TabIndex = 20;
             // 
             // temperatura
@@ -804,7 +1004,7 @@ namespace ProgettoRespa.net
             // 
             // startTimer
             // 
-            this.startTimer.Interval = 500;
+            this.startTimer.Interval = 1000;
             this.startTimer.Tick += new System.EventHandler(this.startTimer_Tick);
             // 
             // panel1
@@ -1426,7 +1626,6 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.PictureBox fcs_sensore;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.PictureBox Sensore_Prossimitàesterna;
-        private System.Windows.Forms.TextBox TextSensProssimita_porta;
         private System.Windows.Forms.Label sens_prossimita;
         private System.Windows.Forms.Timer PortaTimer;
         private System.Windows.Forms.PictureBox Prossimitainterna_sensore;
@@ -1446,8 +1645,6 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.Label sensBasso;
         private System.Windows.Forms.Label fcdRobot;
         private System.Windows.Forms.Label fcsRobot;
-        private System.Windows.Forms.TextBox textRobot;
-        private System.Windows.Forms.Label sens_robot;
         private System.Windows.Forms.TextBox textFcsRobot;
         private System.Windows.Forms.TextBox textBasso;
         private System.Windows.Forms.TextBox textAlto;
@@ -1498,6 +1695,27 @@ namespace ProgettoRespa.net
         private System.Windows.Forms.TextBox Text_Timer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonPausa;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textJeansChiaro;
+        private System.Windows.Forms.TextBox textMagliettaBianca;
+        private System.Windows.Forms.TextBox TextSensProssimita_porta;
+        private System.Windows.Forms.TextBox textMagliettaNera;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textFelpaVerde;
+        private System.Windows.Forms.TextBox textPantaloneNero;
+        private System.Windows.Forms.TextBox textGiaccaPelle;
+        private System.Windows.Forms.TextBox textScarpeNere;
+        private System.Windows.Forms.TextBox textScarpeBianche;
+        private System.Windows.Forms.TextBox textCaricato1;
+        private System.Windows.Forms.TextBox textCaricato2;
     }
 }
 
