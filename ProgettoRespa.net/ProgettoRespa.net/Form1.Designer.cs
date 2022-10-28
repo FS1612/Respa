@@ -1330,7 +1330,7 @@ namespace ProgettoRespa.net
             this.robot.BackColor = System.Drawing.Color.Coral;
             this.robot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("robot.BackgroundImage")));
             this.robot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.robot.Location = new System.Drawing.Point(521, 92);
+            this.robot.Location = new System.Drawing.Point(521, 96);
             this.robot.Margin = new System.Windows.Forms.Padding(2);
             this.robot.Name = "robot";
             this.robot.Size = new System.Drawing.Size(67, 65);

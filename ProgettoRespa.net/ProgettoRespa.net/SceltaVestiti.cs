@@ -58,7 +58,7 @@ namespace ProgettoRespa.net
              v1iniziale=v1;
              v2iniziale=v2;
             InitializeComponent();
-            //Inizializza();
+            Inizializza();
             sceltaeffettuataVestito1 = true;
             CondivisioneElementi();
             GestioneVestiti();

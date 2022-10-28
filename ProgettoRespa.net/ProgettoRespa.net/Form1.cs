@@ -289,7 +289,7 @@ namespace ProgettoRespa.net
            
 
         }/// <summary>
-        /// avvia la simulazione
+        /// avvia la simulazione. funzioni richiamate <see cref="masterTimer_Tick(object, EventArgs) "/> e <see cref="startTimer_Tick(object, EventArgs)"/>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -330,8 +330,8 @@ namespace ProgettoRespa.net
         }
         private void startTimer_Tick(object sender, EventArgs e)
         {//serve per riportare a false la variabile start appena il programma è avviato
-            //textStart.Text = "False";
-            //textStart.BackColor = Color.Red;
+            textStart.Text = "False";
+            textStart.BackColor = Color.Red;
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -589,7 +589,8 @@ namespace ProgettoRespa.net
             posybraccio1 = braccio1.Location.Y;
             posRobot = posAttualeRobot + posinizialeRobot;
 
-            if (posRobot > 700)
+            if (posRobot > 700/*&&posyRobot==posYinizialeRobot*/)
+            
             {
                 
                 fcs_Robot.BackColor = Color.Red;
@@ -619,7 +620,7 @@ namespace ProgettoRespa.net
 
             }
 
-            if (posyRobot < 60)
+            if (posyRobot < 60 && posRobot>700 && posRobot<710)
             {
                 alto_Robot.BackColor = Color.Green;
                 textAlto.Text = "True";
@@ -632,8 +633,13 @@ namespace ProgettoRespa.net
                 fcd_Robot.BackColor = Color.Red;
                 textFcdRobot.Text = "False";
                 textFcdRobot.BackColor = Color.Red;
+            }else if(posyRobot < 60 && posRobot > 710 )
+            {
+                alto_Robot.BackColor = Color.Red;
+                textAlto.Text = "False";
+                textAlto.BackColor = Color.Red ;
             }
-            if (posyRobot > 160)
+             if (posyRobot > 160 && posRobot > 700 && posRobot < 710)
             {
                 alto_Robot.BackColor = Color.Red;
                 textAlto.Text = "False";
@@ -647,10 +653,10 @@ namespace ProgettoRespa.net
                 textFcdRobot.Text = "False";
                 textFcdRobot.BackColor = Color.Red;
             }
-            if (posRobot > 825/* && comandoRobot.Equals("dx")*/)
+             if (posRobot > 825&&comandoRobot.Equals("dx") )
             {
-                alto_Robot.BackColor = Color.Green;
-                textAlto.Text = "True";
+                //alto_Robot.BackColor = Color.Green;
+                //textAlto.Text = "True";
                 textAlto.BackColor = Color.Green;
 
                 basso_Robot.BackColor = Color.Red;
@@ -665,11 +671,11 @@ namespace ProgettoRespa.net
                 textFc1.Text = "True";
                 textFc1.BackColor = Color.Green;
             }
-            if (posRobot > 930 /*&& comandoRobot.Equals("dx")*/)
+             if (posRobot > 930 && comandoRobot.Equals("dx"))
             {
-                alto_Robot.BackColor = Color.Green;
-                textAlto.Text = "True";
-                textAlto.BackColor = Color.Green;
+                //alto_Robot.BackColor = Color.Green;
+                //textAlto.Text = "True";
+                //textAlto.BackColor = Color.Green;
                
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
@@ -686,8 +692,13 @@ namespace ProgettoRespa.net
                 fc2.BackColor = Color.Green;
                 textFc2.Text = "True";
                 textFc2.BackColor = Color.Green;
+            }else if (posRobot < 930)
+            {
+                fc2.BackColor = Color.Red;
+                textFc2.Text = "False";
+                textFc2.BackColor = Color.Red;
             }
-            if (posRobot==posinizialeRobot)
+             if (posRobot==posinizialeRobot)
             {
                 fcs_Robot.BackColor = Color.Green;
                 textFcsRobot.Text = "True";
@@ -712,13 +723,17 @@ namespace ProgettoRespa.net
                 basso_Robot.BackColor = Color.Red;
                 textBasso.Text = "False";
                 textBasso.BackColor = Color.Red;
-
-
             }
-
+             if(posRobot > posinizialeRobot)
+            {
+                fcs_Robot.BackColor = Color.Red;
+                textFcsRobot.Text = "False";
+                textFcsRobot.BackColor = Color.Red ;
+            }
+            
 
             robot.Left = posRobot;
-            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico) && robot.Location.Y==posYinizialeRobot && robot.Location.X==posinizialeRobot)
+            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
             //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
             {
          
@@ -798,7 +813,7 @@ namespace ProgettoRespa.net
                 case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio3.Height = 40;
                     break;
-                    case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals(""):
+                    case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals("sx"):
                     braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
                     braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
                     braccio1.Height = 15;
@@ -906,12 +921,17 @@ namespace ProgettoRespa.net
         private void spostaVestitob1(PictureBox vestito)
         {
             if(vestito != null) {
-                if (Braccio1Carico)
+                if (Braccio1Carico&&!vestito.Bounds.IntersectsWith(robot.Bounds))
                 {
                     //vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
                     vestito.Location = new Point(braccio1.Location.X-5 , braccio1.Location.Y - 5);
                 }
-                else
+                else if (Braccio1Carico && vestito.Bounds.IntersectsWith(robot.Bounds) && vestito.Bounds.IntersectsWith(braccio1.Bounds))
+                {
+                    vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
+                }
+
+                else 
                 {
                     vestito.Location = new Point(vestito.Location.X, vestito.Location.Y);
                 }
@@ -926,12 +946,12 @@ namespace ProgettoRespa.net
         {
             if (vestito1 != null)
             {
-                if (Braccio3Carico)
+                if (Braccio3Carico&&!vestito1.Bounds.IntersectsWith(robot.Bounds))
                 {
                     if (textAlto.Text.Equals("True")) {
 
                      vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 100);//+100
-                    //vestito1.Location = new Point(robot.Location.X + 20, robot.Location.Y + 60);
+                   
                     }
                     
                     else if (textBasso.Text.Equals("True"))
@@ -939,11 +959,15 @@ namespace ProgettoRespa.net
                         vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 250);
                     }
                 }
-                else
+                else if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds)&& vestito1.Bounds.IntersectsWith(braccio3.Bounds))
                 {
-                   
-                    vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
+                    vestito1.Location = new Point(robot.Location.X , robot.Location.Y + 60);
                 }
+                //else
+                //{
+                   
+                //    vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
+                //}
             }
            
             }
