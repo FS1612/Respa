@@ -151,15 +151,16 @@ namespace ProgettoRespa.net
                 comandoRobot = "dx";
 
             }
-            else if (!textDxRobot.Text.Equals("True") && textSxRobot.Text.Equals("True"))
+            else if (!textDxRobot.Text.Equals("True") && textSxRobot.Text.Equals("True") && posRobot >= 525)
             {
                 comandoRobot = "sx";
             }
-            else if (textBassoRobot.Text.Equals("True") && !Text_AltoRobot.Text.Equals("True"))
+            //posso andare in basso fintanto che il fine corsa del robot basso non è true(pos 220)
+            else if (textBassoRobot.Text.Equals("True") && !Text_AltoRobot.Text.Equals("True") && posyRobot <= 215)
             {
                 comandoRobot = "giu";
-            }
-            else if (!textBassoRobot.Text.Equals("True") && Text_AltoRobot.Text.Equals("True"))
+            } //posso andare in alto fintanto che il fine corsa del robot alto non è true(pos 60)
+            else if (!textBassoRobot.Text.Equals("True") && Text_AltoRobot.Text.Equals("True") && posyRobot > 60)
             {
                 comandoRobot = "su";
             }
@@ -552,7 +553,7 @@ namespace ProgettoRespa.net
                     braccio3.Location = new Point(robot.Location.X + 25, braccio3.Location.Y);
 
                     break;
-                case "su":
+                case "su" when spostamAlto::
                     timerSalita.Enabled = true;
                     if (salita_effettuata)
                     {
@@ -563,7 +564,7 @@ namespace ProgettoRespa.net
                     }
 
                     break;
-                case "giu":
+                case "giu" when spostamBasso:
                     timerSalita.Enabled = true;
                     if (salita_effettuata)
                     {
@@ -576,8 +577,10 @@ namespace ProgettoRespa.net
                     break;
                 case "" when posyRobot - posYinizialeRobot != 0 && !comandoBraccio.Equals("allunga"):
 
-                    braccio1.Location = new Point(robot.Location.X + 30, robot.Location.Y - 5);
-                    braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
+                    braccio3.Location = new Point(braccio3.Location.X, robot.Location.Y + 60);
+                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 2);
+                    //braccio1.Location = new Point(robot.Location.X + 30, robot.Location.Y - 5);
+                    //braccio3.Location = new Point(robot.Location.X + 30, robot.Location.Y + 60);
 
                     break;
                 default:
@@ -587,158 +590,252 @@ namespace ProgettoRespa.net
             }
             posxbraccio1 = braccio1.Location.X;
             posybraccio1 = braccio1.Location.Y;
-            posRobot = posAttualeRobot + posinizialeRobot;
+            // posRobot = posAttualeRobot + posinizialeRobot;
 
-            if (posRobot > 700/*&&posyRobot==posYinizialeRobot*/)
-            
-            {
-                
-                fcs_Robot.BackColor = Color.Red;
-                textFcsRobot.Text = "False";
-                textFcsRobot.BackColor = Color.Red;
-               
-                fcd_Robot.BackColor = Color.Green;
-                textFcdRobot.Text = "True";
-                textFcdRobot.BackColor = Color.Green;
-               
-                fc1.BackColor = Color.Red;
-                textFc1.Text = "False";
-                textFc1.BackColor = Color.Red;
-               
-                fc2.BackColor = Color.Red;
-                textFc2.Text = "False";
-                textFc2.BackColor = Color.Red;
-                
-                alto_Robot.BackColor = Color.Red;
-                textAlto.Text = "False";
-                textAlto.BackColor = Color.Red;
-                
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                textBasso.BackColor = Color.Red;
+            //if (posRobot > 700/*&&posyRobot==posYinizialeRobot*/)
+
+            //{
+
+            //    fcs_Robot.BackColor = Color.Red;
+            //    textFcsRobot.Text = "False";
+            //    textFcsRobot.BackColor = Color.Red;
+
+            //    fcd_Robot.BackColor = Color.Green;
+            //    textFcdRobot.Text = "True";
+            //    textFcdRobot.BackColor = Color.Green;
+
+            //    fc1.BackColor = Color.Red;
+            //    textFc1.Text = "False";
+            //    textFc1.BackColor = Color.Red;
+
+            //    fc2.BackColor = Color.Red;
+            //    textFc2.Text = "False";
+            //    textFc2.BackColor = Color.Red;
+
+            //    alto_Robot.BackColor = Color.Red;
+            //    textAlto.Text = "False";
+            //    textAlto.BackColor = Color.Red;
+
+            //    basso_Robot.BackColor = Color.Red;
+            //    textBasso.Text = "False";
+            //    textBasso.BackColor = Color.Red;
 
 
-            }
+            //}
 
-            if (posyRobot < 60 && posRobot>700 && posRobot<710)
-            {
-                alto_Robot.BackColor = Color.Green;
-                textAlto.Text = "True";
-                textAlto.BackColor = Color.Green;
-                
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                textBasso.BackColor = Color.Red;
-               
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                textFcdRobot.BackColor = Color.Red;
-            }else if(posyRobot < 60 && posRobot > 710 )
-            {
-                alto_Robot.BackColor = Color.Red;
-                textAlto.Text = "False";
-                textAlto.BackColor = Color.Red ;
-            }
-             if (posyRobot > 160 && posRobot > 700 && posRobot < 710)
-            {
-                alto_Robot.BackColor = Color.Red;
-                textAlto.Text = "False";
-                textAlto.BackColor = Color.Red;
-               
-                basso_Robot.BackColor = Color.Green;
-                textBasso.Text = "True";
-                textBasso.BackColor = Color.Green;
-                
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                textFcdRobot.BackColor = Color.Red;
-            }
-             if (posRobot > 825&&comandoRobot.Equals("dx") )
-            {
-                //alto_Robot.BackColor = Color.Green;
-                //textAlto.Text = "True";
-                textAlto.BackColor = Color.Green;
+            //if (posyRobot < 60 && posRobot>700 && posRobot<710)
+            //{
+            //    alto_Robot.BackColor = Color.Green;
+            //    textAlto.Text = "True";
+            //    textAlto.BackColor = Color.Green;
 
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                textBasso.BackColor = Color.Red;
+            //    basso_Robot.BackColor = Color.Red;
+            //    textBasso.Text = "False";
+            //    textBasso.BackColor = Color.Red;
 
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                textFcdRobot.BackColor = Color.Red;
-               
-                fc1.BackColor = Color.Green;
-                textFc1.Text = "True";
-                textFc1.BackColor = Color.Green;
-            }
-             if (posRobot > 930 && comandoRobot.Equals("dx"))
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //    textFcdRobot.BackColor = Color.Red;
+            //}else if(posyRobot < 60 && posRobot > 710 )
+            //{
+            //    alto_Robot.BackColor = Color.Red;
+            //    textAlto.Text = "False";
+            //    textAlto.BackColor = Color.Red ;
+            //}
+            // if (posyRobot > 160 && posRobot > 700 && posRobot < 710)
+            //{
+            //    alto_Robot.BackColor = Color.Red;
+            //    textAlto.Text = "False";
+            //    textAlto.BackColor = Color.Red;
+
+            //    basso_Robot.BackColor = Color.Green;
+            //    textBasso.Text = "True";
+            //    textBasso.BackColor = Color.Green;
+
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //    textFcdRobot.BackColor = Color.Red;
+            //}
+            // if (posRobot > 825&&comandoRobot.Equals("dx") )
+            //{
+            //    //alto_Robot.BackColor = Color.Green;
+            //    //textAlto.Text = "True";
+            //    textAlto.BackColor = Color.Green;
+
+            //    basso_Robot.BackColor = Color.Red;
+            //    textBasso.Text = "False";
+            //    textBasso.BackColor = Color.Red;
+
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //    textFcdRobot.BackColor = Color.Red;
+
+            //    fc1.BackColor = Color.Green;
+            //    textFc1.Text = "True";
+            //    textFc1.BackColor = Color.Green;
+            //}
+            // if (posRobot > 930 && comandoRobot.Equals("dx"))
+            //{
+            //    //alto_Robot.BackColor = Color.Green;
+            //    //textAlto.Text = "True";
+            //    //textAlto.BackColor = Color.Green;
+
+            //    basso_Robot.BackColor = Color.Red;
+            //    textBasso.Text = "False";
+            //    textBasso.BackColor = Color.Red;
+
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //    textFcdRobot.BackColor = Color.Red;
+
+            //    fc1.BackColor = Color.Red;
+            //    textFc1.Text = "False";
+            //    textFc1.BackColor = Color.Red;
+
+            //    fc2.BackColor = Color.Green;
+            //    textFc2.Text = "True";
+            //    textFc2.BackColor = Color.Green;
+            //}else if (posRobot < 930)
+            //{
+            //    fc2.BackColor = Color.Red;
+            //    textFc2.Text = "False";
+            //    textFc2.BackColor = Color.Red;
+            //}
+            // if (posRobot==posinizialeRobot)
+            //{
+            //    fcs_Robot.BackColor = Color.Green;
+            //    textFcsRobot.Text = "True";
+            //    textFcsRobot.BackColor = Color.Green;
+
+            //    fcd_Robot.BackColor = Color.Red;
+            //    textFcdRobot.Text = "False";
+            //    textFcdRobot.BackColor = Color.Red;
+
+            //    fc1.BackColor = Color.Red;
+            //    textFc1.Text = "False";
+            //    textFc1.BackColor = Color.Red;
+
+            //    fc2.BackColor = Color.Red;
+            //    textFc2.Text = "False";
+            //    textFc2.BackColor = Color.Red;
+
+            //    alto_Robot.BackColor = Color.Red;
+            //    textAlto.Text = "False";
+            //    textAlto.BackColor = Color.Red;
+
+            //    basso_Robot.BackColor = Color.Red;
+            //    textBasso.Text = "False";
+            //    textBasso.BackColor = Color.Red;
+            //}
+            // if(posRobot > posinizialeRobot)
+            //{
+            //    fcs_Robot.BackColor = Color.Red;
+            //    textFcsRobot.Text = "False";
+            //    textFcsRobot.BackColor = Color.Red ;
+            //}
+
+            if (posRobot < 525)
             {
-                //alto_Robot.BackColor = Color.Green;
-                //textAlto.Text = "True";
-                //textAlto.BackColor = Color.Green;
-               
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                textBasso.BackColor = Color.Red;
-               
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                textFcdRobot.BackColor = Color.Red;
-                
-                fc1.BackColor = Color.Red;
-                textFc1.Text = "False";
-                textFc1.BackColor = Color.Red;
-                
-                fc2.BackColor = Color.Green;
-                textFc2.Text = "True";
-                textFc2.BackColor = Color.Green;
-            }else if (posRobot < 930)
-            {
-                fc2.BackColor = Color.Red;
-                textFc2.Text = "False";
-                textFc2.BackColor = Color.Red;
-            }
-             if (posRobot==posinizialeRobot)
-            {
+                //posAttualeRobot = 0;
+                //robot.Location = new Point(posinizialeRobot, posYinizialeRobot);
                 fcs_Robot.BackColor = Color.Green;
                 textFcsRobot.Text = "True";
                 textFcsRobot.BackColor = Color.Green;
-               
-                fcd_Robot.BackColor = Color.Red;
-                textFcdRobot.Text = "False";
-                textFcdRobot.BackColor = Color.Red;
-                
-                fc1.BackColor = Color.Red;
-                textFc1.Text = "False";
-                textFc1.BackColor = Color.Red;
-                
-                fc2.BackColor = Color.Red;
-                textFc2.Text = "False";
-                textFc2.BackColor = Color.Red;
-               
-                alto_Robot.BackColor = Color.Red;
-                textAlto.Text = "False";
-                textAlto.BackColor = Color.Red;
-               
-                basso_Robot.BackColor = Color.Red;
-                textBasso.Text = "False";
-                textBasso.BackColor = Color.Red;
+
+
+
             }
-             if(posRobot > posinizialeRobot)
+            else
             {
                 fcs_Robot.BackColor = Color.Red;
                 textFcsRobot.Text = "False";
-                textFcsRobot.BackColor = Color.Red ;
-            }
-            
+                textFcsRobot.BackColor = Color.Red;
+                if (posRobot > 702 && posyRobot > 95 && posyRobot < 110)
+                {
 
+                    /*posAttualeRobot = 180*/
+                    ;//700-posinizialerobot(521)
+                    //robot.Location = new Point(robot.Location.X, posYinizialeRobot);
+                    fcd_Robot.BackColor = Color.Green;
+                    textFcdRobot.Text = "True";
+                    textFcdRobot.BackColor = Color.Green;
+                }
+                else
+                {
+                    fcd_Robot.BackColor = Color.Red;
+                    textFcdRobot.Text = "False";
+                    textFcdRobot.BackColor = Color.Red;
+                }
+
+
+                if (posRobot > 825 && posRobot < 835)
+                {
+                    //posAttualeRobot = 305;
+
+                    fc1.BackColor = Color.Green;
+                    textFc1.Text = "True";
+                    textFc1.BackColor = Color.Green;
+                }
+                else
+                {
+                    fc1.BackColor = Color.Red;
+                    textFc1.Text = "False";
+                    textFc1.BackColor = Color.Red;
+                }
+
+
+                if (posRobot > 920 && posRobot < 930)
+                {
+                    //posAttualeRobot = 410;
+
+                    fc2.BackColor = Color.Green;
+                    textFc2.Text = "True";
+                    textFc2.BackColor = Color.Green;
+                }
+                else
+                {
+                    fc2.BackColor = Color.Red;
+                    textFc2.Text = "False";
+                    textFc2.BackColor = Color.Red;
+                }
+                if (posyRobot < 60 && posRobot > 700 && posRobot <= 740)
+                {
+                    //MessageBox.Show("bella");
+                    alto_Robot.BackColor = Color.Green;
+                    textAlto.Text = "True";
+                    textAlto.BackColor = Color.Green;
+                }
+                else
+                {
+                    alto_Robot.BackColor = Color.Red;
+                    textAlto.Text = "False";
+                    textAlto.BackColor = Color.Red;
+                }
+                if (posyRobot > 220 && posRobot > 700 && posRobot <= 740)
+                {
+                    //MessageBox.Show("bella");
+                    basso_Robot.BackColor = Color.Green;
+                    textBasso.Text = "True";
+                    textBasso.BackColor = Color.Green;
+                }
+                else
+                {
+                    basso_Robot.BackColor = Color.Red;
+                    textBasso.Text = "False";
+                    textBasso.BackColor = Color.Red;
+                }
+
+            }
+            textBox1.Text = robot.Location.Y.ToString();
+            textBox2.Text = robot.Location.X.ToString();
+            posRobot = posAttualeRobot + posinizialeRobot;
             robot.Left = posRobot;
-            if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
-            //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
+            if (textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
+
             {
-         
+
                 if (Braccio1Carico)
-                { 
+                {
                     scarico1++;
                     Braccio1Carico = false;
                     textCaricato1.Text = "False";
@@ -746,8 +843,8 @@ namespace ProgettoRespa.net
                     MagliettaNera = false;
                     GiaccaPelle = false;
                     FelpaVerde = false;
-                    
-                     pic1.Location = new Point(cesta_panni.Location.X+10*scarico1, cesta_panni.Location.Y);                  
+
+                    pic1.Location = new Point(cesta_panni.Location.X + 10 * scarico1, cesta_panni.Location.Y);
                     pic1.BringToFront();
                     ResettaAbiti();
                 }
@@ -760,13 +857,48 @@ namespace ProgettoRespa.net
                     PantaloneNero = false;
                     ScarpeNere = false;
                     ScarpeBianche = false;
-                    pic2.Location= new Point(cesta_panni.Location.X+10*scarico2, cesta_panni.Location.Y+40);
+                    pic2.Location = new Point(cesta_panni.Location.X + 10 * scarico2, cesta_panni.Location.Y + 40);
                     pic2.BringToFront();
                     ResettaAbiti();
                 }
             }
+
+
+        //    robot.Left = posRobot;
+        //    if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
+        //    //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
+        //    {
+         
+        //        if (Braccio1Carico)
+        //        { 
+        //            scarico1++;
+        //            Braccio1Carico = false;
+        //            textCaricato1.Text = "False";
+        //            MagliettaBianca = false;
+        //            MagliettaNera = false;
+        //            GiaccaPelle = false;
+        //            FelpaVerde = false;
+                    
+        //             pic1.Location = new Point(cesta_panni.Location.X+10*scarico1, cesta_panni.Location.Y);                  
+        //            pic1.BringToFront();
+        //            ResettaAbiti();
+        //        }
+        //        else if (Braccio3Carico)
+        //        {
+        //            scarico2++;
+        //            Braccio3Carico = false;
+        //            textCaricato2.Text = "False";
+        //            JeansChiaro = false;
+        //            PantaloneNero = false;
+        //            ScarpeNere = false;
+        //            ScarpeBianche = false;
+        //            pic2.Location= new Point(cesta_panni.Location.X+10*scarico2, cesta_panni.Location.Y+40);
+        //            pic2.BringToFront();
+        //            ResettaAbiti();
+        //        }
+        //    }
            
-        }
+        //}
        private void ResettaAbiti()
         {
             textScarpeNere.Text = "False";
