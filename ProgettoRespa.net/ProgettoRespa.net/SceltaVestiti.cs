@@ -240,26 +240,27 @@ namespace ProgettoRespa.net
                 Modificasalvataggi(ev.GetErrori());
             }
         }/// <summary>
-        /// funzione che divide una stringa in 2 parti in base ad un carattere di "separazione" creando 2 sottostringe raffiguranti nome dell'indumento e colore con la particolarita di eliminare la sensibilità alle maiuscole e minuscole durante la ricerca dei vestiti
-        /// </summary>
-        /// <param name="abito"> vestito scelto dall'utente comprensivo di colore </param>
-        /// <param name="num">numero relativo alla scelta </param>
-        
-        private void SplittaIndumentiColore(string abito,int num)
+         /// funzione che divide una stringa in 2 parti in base ad un carattere di "separazione" creando 2 sottostringe raffiguranti nome dell'indumento e colore con la particolarita di eliminare la sensibilità alle maiuscole e minuscole durante la ricerca dei vestiti
+         /// </summary>
+         /// <param name="abito"> vestito scelto dall'utente comprensivo di colore </param>
+         /// <param name="num">numero relativo alla scelta </param>
+
+        private void SplittaIndumentiColore(string abito, int num)
         {
-            
+
             string indumentoappoggio;
             string colore;
             string[] divisione;
-            
+            string appoggiocolore;
             //controllo la stringa del vestito scelto per vedere se è una giacca. Se è una giacca prima di separare in indumento e colore, devo rimuovere il 'di' e '_' altrimenti la separazione in indumento e colore non ha effetto
             if (abito.ToLower().StartsWith("giacca"))
             {// per rimuovere i caratteri necessari ho bisogno del carattere di inizio(che trovovo con il metodo .indexOf()) e definisco quanti caratteri devo rimuovere con l'intero (3) e con split separo le parole
-                divisione = abito.Remove(abito.IndexOf('d'), 3).Split(' ');
+                divisione = abito.TrimStart().Remove(abito.IndexOf('d'), 3).Split(' ');
             }
             else
             {
-                divisione = abito.Split(' ');
+                divisione = abito.TrimStart().Split(' ');
+
             }
 
             if (!divisione[0].Equals(string.Empty))
@@ -268,24 +269,39 @@ namespace ProgettoRespa.net
                 {// per rendere il codice non case-Sensitive (lato utente) e far si che la ricerca vada sempre a buon fine estraggo dalla stringa contenente l'indumento il primo carattere (con .first()) questa la metto in maiuscolo con char.ToUpper() e il resto dell'indumento 
                     string rimpicciolita;
 
+
                     rimpicciolita = divisione[0].ToLower();
                     char prima = rimpicciolita.First();
                     char primaup = char.ToUpper(prima);
-                    //textBox1.Text = rimpicciolita.Replace(prima, primaup);
+
                     indumentoappoggio = rimpicciolita.Replace(prima, primaup);
+                    //* creo una nuova stringa eliminando il tipo di indumento cercato e ottenendo cosi una sottostringa contenente solo il colore desiderato privo di spazi a inizio e fine e formattato in modo da permettere sempre la ricerca del colore
+
+                    appoggiocolore = abito.Remove(abito.IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
+
+                    if (abito.Contains("di"))
+                    {
+                        appoggiocolore = abito.Remove(abito.IndexOf('d'), 3).Remove(abito.IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
+                    }
                 }
                 else
                 {
+
                     indumentoappoggio = " ";
+                    appoggiocolore = " ";
                 }
             }
             else
             {
                 indumentoappoggio = " ";
+                appoggiocolore = " ";
             }
-            if (divisione.Length == 2)
+
+            if (appoggiocolore != null && !appoggiocolore.Equals(" "))
             {
-                colore = divisione[1].ToLower();
+
+                colore = appoggiocolore;
+
             }
             else
             {
@@ -294,14 +310,15 @@ namespace ProgettoRespa.net
             if (num == 1)
             {
                 indumento1 = indumentoappoggio;
-                colore1 = colore;              
+                colore1 = colore;
             }
-           else if (num == 2)
+            else if (num == 2)
             {
                 indumento2 = indumentoappoggio;
                 colore2 = colore;
             }
-            if (indumentoappoggio != null&& !indumentoappoggio.Equals(" ")) {
+            if (indumentoappoggio != null && !indumentoappoggio.Equals(" "))
+            {
                 if (!scelte.ContainsKey(indumentoappoggio))
                 {
                     List<string> colori = new List<string>();
@@ -324,15 +341,15 @@ namespace ProgettoRespa.net
                         BarraRicercaVestiti2.Text = "";
                     }
                 }
-                
+
             }
-            
+
         }
         /// <summary>
         /// funzione che riporta le scelte nella barra dei vestiti trovati qualora la classe <see cref="ErroriVestiti"/> non abbia riscontrato errori durante la loro ricerca si avvale dell'ausilio di <see cref="ModificasaVestiti(string, string, int) "/> e <see cref="aggiornamentoscelte(string, string)"/>
         /// </summary>
         /// <param name="errori"> la lista degli errori prodotti da <see cref="ErroriVestiti.ErroriVestiti(Dictionary{string, List{string}}, Dictionary{string, List{string}}) "/> durante la ricerca degli indumenti</param>
-        
+
         public void Modificasalvataggi(Dictionary<string, List<string>> errori)
         {
             int num=1 ;
