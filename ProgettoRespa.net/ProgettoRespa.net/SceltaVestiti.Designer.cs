@@ -95,7 +95,7 @@ namespace ProgettoRespa.net
             // 
             // BarraRicercaVestiti2
             // 
-            this.BarraRicercaVestiti2.Location = new System.Drawing.Point(378, 51);
+            this.BarraRicercaVestiti2.Location = new System.Drawing.Point(378, 49);
             this.BarraRicercaVestiti2.Name = "BarraRicercaVestiti2";
             this.BarraRicercaVestiti2.Size = new System.Drawing.Size(120, 20);
             this.BarraRicercaVestiti2.TabIndex = 14;

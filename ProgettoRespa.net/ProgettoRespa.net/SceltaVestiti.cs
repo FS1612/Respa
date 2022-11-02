@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ProgettoRespa.net
 {/// <summary>
 /// nuovo form che permette al player di scegliere i estiti, che saranno ricercati se soddisferanno determinati caratteristiche
@@ -33,7 +34,7 @@ namespace ProgettoRespa.net
         string colore2;
         // collezione che collega il nome dell'indumento con la lista dei possibili colori
         Dictionary<string, List<string>> IndumentiColori = new Dictionary<string, List<string>>();
-        //Form1 f1=new Form1();
+        
         string v1iniziale;
         string v2iniziale;
         string appoggio;
@@ -63,9 +64,14 @@ namespace ProgettoRespa.net
             CondivisioneElementi();
             GestioneVestiti();
 
+
+            //*inizializzazione autocomplete testo 
+            SetUpAutocomplete();
+            
         }/// <summary>
-        /// verifica che non esistano indumenti gia scelti nel <see cref="Form1"/> e qualora esistessero li inserisce tra le scelte 
-        /// </summary>
+         /// verifica che non esistano indumenti gia scelti nel <see cref="Form1"/> e qualora esistessero li inserisce tra le scelte 
+         /// </summary>
+
         private void Inizializza()
         {
 
@@ -229,6 +235,7 @@ namespace ProgettoRespa.net
             scelte.Clear();
             try
             {
+                
                 SplittaIndumentiColore(BarraRicercaVestiti1.Text, 1);
                 SplittaIndumentiColore(BarraRicercaVestiti2.Text, 2);
 
@@ -276,12 +283,13 @@ namespace ProgettoRespa.net
 
                     indumentoappoggio = rimpicciolita.Replace(prima, primaup);
                     //* creo una nuova stringa eliminando il tipo di indumento cercato e ottenendo cosi una sottostringa contenente solo il colore desiderato privo di spazi a inizio e fine e formattato in modo da permettere sempre la ricerca del colore
-
-                    appoggiocolore = abito.Remove(abito.IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
+                    
+                    //nel caso in cui la stringa venisse autocompletata con i suggerimenti allora avrebbe la formattazione gia corretta e dunque la lettera iniziale sarebbe maiuscola mentre il resto resterebbe minuscolo. Per rensere ancora valido questo metodo occorre inserire prima della ricerca dell'indice della prima lettera un toLower() cosi da permettere al codice di trovare all'interno della stringa già normalizzata una corrispondenza .
+                    appoggiocolore = abito.Remove(abito.ToLower().IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
 
                     if (abito.Contains("di"))
                     {
-                        appoggiocolore = abito.Remove(abito.IndexOf('d'), 3).Remove(abito.IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
+                        appoggiocolore = abito.Remove(abito.ToLower().IndexOf('d'), 3).Remove(abito.ToLower().IndexOf(prima), rimpicciolita.Length).Trim().ToLower();
                     }
                 }
                 else
@@ -352,6 +360,8 @@ namespace ProgettoRespa.net
 
         public void Modificasalvataggi(Dictionary<string, List<string>> errori)
         {
+            
+            //BarraRicercaVestiti1.AutoCompleteCustomSource = AutoCompleteStringCollection;
             int num=1 ;
             foreach (string s in errori.Keys)
             {
@@ -502,7 +512,41 @@ namespace ProgettoRespa.net
 
         private void BarraRicercaVestiti1_TextChanged(object sender, EventArgs e)
         {
+          
+            
+        }
+       private void SetUpAutocomplete()
+        {
+            
+            BarraRicercaVestiti1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            BarraRicercaVestiti1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            BarraRicercaVestiti2.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            BarraRicercaVestiti2.AutoCompleteMode = AutoCompleteMode.Suggest;
+           
 
+            foreach (string indumento in IndumentiColori.Keys)
+            {
+                List<string> colori = new List<string>();
+                IndumentiColori.TryGetValue(indumento, out colori);
+                if (colori.Count() > 0)
+                {
+                    foreach (string colore in colori)
+                    {
+                        
+                        if (indumento.ToLower().Equals("giacca"))
+                        {
+                            BarraRicercaVestiti1.AutoCompleteCustomSource.Add(indumento + " di " + colore);
+                            BarraRicercaVestiti2.AutoCompleteCustomSource.Add(indumento + " di " + colore);
+                        }
+                        else
+                        {
+                            BarraRicercaVestiti1.AutoCompleteCustomSource.Add(indumento + " " + colore);
+                            BarraRicercaVestiti2.AutoCompleteCustomSource.Add(indumento + " " + colore);
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }
