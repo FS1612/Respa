@@ -1004,7 +1004,6 @@ namespace ProgettoRespa.net
             // 
             // startTimer
             // 
-            this.startTimer.Interval = 1000;
             this.startTimer.Tick += new System.EventHandler(this.startTimer_Tick);
             // 
             // panel1
@@ -1054,7 +1053,7 @@ namespace ProgettoRespa.net
             this.panel1.Location = new System.Drawing.Point(-1, 327);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1275, 348);
+            this.panel1.Size = new System.Drawing.Size(1275, 344);
             this.panel1.TabIndex = 8;
             // 
             // cesta_panni
@@ -1509,6 +1508,7 @@ namespace ProgettoRespa.net
             // 
             // resetTimer
             // 
+            this.resetTimer.Interval = 300;
             this.resetTimer.Tick += new System.EventHandler(this.resetTimer_Tick);
             // 
             // timerTemp

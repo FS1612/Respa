@@ -91,7 +91,7 @@ namespace ProgettoRespa.net
         "MAIN.S1","MAIN.S2","MAIN.ALLARME","MAIN.T_ALLARME"};
         private int NUM_ELEM_BOOL = 25;
         private int NUM_ELEM_TIME = 1;
-        //private int NUM_ELEM_STRING=14;
+     
         public Form1()
         {
             posybraccio1iniziale = 94;
@@ -190,7 +190,8 @@ namespace ProgettoRespa.net
                 comandoBraccio = "allunga";
                 numerobraccio = 3;
             }
-            else if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals("True")){
+            else if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals("True"))
+            {
                 comandoBraccio = "allunga";
                 numerobraccio = 4;
             }
@@ -472,8 +473,8 @@ namespace ProgettoRespa.net
             {
                 Allarme_picture.Visible = false;
             }
-           
-            if(reset_effettuato)
+
+            if (reset_effettuato)
             {
                 resettaPosizioni();
             }
@@ -486,7 +487,7 @@ namespace ProgettoRespa.net
         private void resetTimer_Tick(object sender, EventArgs e)
         {
             text_ALLARME.Text = "False";
-            textReset.Text = "False";
+            //textReset.Text = "False";
             textReset.BackColor = Color.Red;
             reset_effettuato = false;
         }/// <summary>
@@ -553,7 +554,7 @@ namespace ProgettoRespa.net
                     braccio3.Location = new Point(robot.Location.X + 25, braccio3.Location.Y);
 
                     break;
-                case "su" when spostamAlto::
+                case "su" :
                     timerSalita.Enabled = true;
                     if (salita_effettuata)
                     {
@@ -564,7 +565,7 @@ namespace ProgettoRespa.net
                     }
 
                     break;
-                case "giu" when spostamBasso:
+                case "giu" :
                     timerSalita.Enabled = true;
                     if (salita_effettuata)
                     {
@@ -826,8 +827,7 @@ namespace ProgettoRespa.net
                 }
 
             }
-            textBox1.Text = robot.Location.Y.ToString();
-            textBox2.Text = robot.Location.X.ToString();
+            
             posRobot = posAttualeRobot + posinizialeRobot;
             robot.Left = posRobot;
             if (textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
@@ -864,42 +864,42 @@ namespace ProgettoRespa.net
             }
 
 
-        //    robot.Left = posRobot;
-        //    if(textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
-        //    //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
-        //    {
-         
-        //        if (Braccio1Carico)
-        //        { 
-        //            scarico1++;
-        //            Braccio1Carico = false;
-        //            textCaricato1.Text = "False";
-        //            MagliettaBianca = false;
-        //            MagliettaNera = false;
-        //            GiaccaPelle = false;
-        //            FelpaVerde = false;
-                    
-        //             pic1.Location = new Point(cesta_panni.Location.X+10*scarico1, cesta_panni.Location.Y);                  
-        //            pic1.BringToFront();
-        //            ResettaAbiti();
-        //        }
-        //        else if (Braccio3Carico)
-        //        {
-        //            scarico2++;
-        //            Braccio3Carico = false;
-        //            textCaricato2.Text = "False";
-        //            JeansChiaro = false;
-        //            PantaloneNero = false;
-        //            ScarpeNere = false;
-        //            ScarpeBianche = false;
-        //            pic2.Location= new Point(cesta_panni.Location.X+10*scarico2, cesta_panni.Location.Y+40);
-        //            pic2.BringToFront();
-        //            ResettaAbiti();
-        //        }
-        //    }
-           
-        //}
-       private void ResettaAbiti()
+            robot.Left = posRobot;
+            if (textFcsRobot.Text.Equals("True") && (Braccio1Carico || Braccio3Carico))
+            //if(textFcsRobot.Text.Equals("True")&&(Braccio1Carico||Braccio3Carico))
+            {
+
+                if (Braccio1Carico)
+                {
+                    scarico1++;
+                    Braccio1Carico = false;
+                    textCaricato1.Text = "False";
+                    MagliettaBianca = false;
+                    MagliettaNera = false;
+                    GiaccaPelle = false;
+                    FelpaVerde = false;
+
+                    pic1.Location = new Point(cesta_panni.Location.X + 10 * scarico1, cesta_panni.Location.Y);
+                    pic1.BringToFront();
+                    ResettaAbiti();
+                }
+                else if (Braccio3Carico)
+                {
+                    scarico2++;
+                    Braccio3Carico = false;
+                    textCaricato2.Text = "False";
+                    JeansChiaro = false;
+                    PantaloneNero = false;
+                    ScarpeNere = false;
+                    ScarpeBianche = false;
+                    pic2.Location = new Point(cesta_panni.Location.X + 10 * scarico2, cesta_panni.Location.Y + 40);
+                    pic2.BringToFront();
+                    ResettaAbiti();
+                }
+            }
+
+        }
+        private void ResettaAbiti()
         {
             textScarpeNere.Text = "False";
             textScarpeBianche.Text = "False";
@@ -945,7 +945,7 @@ namespace ProgettoRespa.net
                 case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
                     braccio3.Height = 40;
                     break;
-                    case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals("sx"):
+                case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals("sx"):
                     braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
                     braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
                     braccio1.Height = 15;
@@ -957,7 +957,7 @@ namespace ProgettoRespa.net
                 //    braccio1.Height = 15;
                 //    braccio3.Height = 14;
                 //    break;
-                case 4 when comandoBraccio.Equals("allunga") && comandoRobot.Equals("")&& posRobot!=posinizialeRobot:
+                case 4 when comandoBraccio.Equals("allunga") && comandoRobot.Equals("") && posRobot != posinizialeRobot:
                     braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
                     braccio1.Height = 50;
                     braccio3.Height = 40;
@@ -1053,7 +1053,7 @@ namespace ProgettoRespa.net
         private void spostaVestitob1(PictureBox vestito)
         {
             if(vestito != null) {
-                if (Braccio1Carico&&!vestito.Bounds.IntersectsWith(robot.Bounds))
+                if (Braccio1Carico && !vestito.Bounds.IntersectsWith(robot.Bounds))
                 {
                     //vestito.Location = new Point(robot.Location.X + 20, robot.Location.Y - 20);
                     vestito.Location = new Point(braccio1.Location.X-5 , braccio1.Location.Y - 5);
@@ -1078,28 +1078,28 @@ namespace ProgettoRespa.net
         {
             if (vestito1 != null)
             {
-                if (Braccio3Carico&&!vestito1.Bounds.IntersectsWith(robot.Bounds))
+                if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds))
                 {
                     if (textAlto.Text.Equals("True")) {
 
                      vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 100);//+100
                    
                     }
-                    
+
                     else if (textBasso.Text.Equals("True"))
                     {
                         vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 250);
+                        }
                     }
-                }
-                else if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds)&& vestito1.Bounds.IntersectsWith(braccio3.Bounds))
+                else if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds) && vestito1.Bounds.IntersectsWith(braccio3.Bounds))
                 {
-                    vestito1.Location = new Point(robot.Location.X , robot.Location.Y + 60);
+                    vestito1.Location = new Point(robot.Location.X, robot.Location.Y + 60);
                 }
-                //else
-                //{
-                   
-                //    vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
-                //}
+                else
+                {
+
+                    vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
+                }
             }
            
             }
