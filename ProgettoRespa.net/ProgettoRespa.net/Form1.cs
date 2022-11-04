@@ -179,37 +179,52 @@ namespace ProgettoRespa.net
         ///  numerobraccio è una variabile che indica quale braccio deve eseguire l'azione salvata in comando braccio </value>
         private void CodificaComandiBraccioRobot()
         {
-            if (textBraccio1.Text.Equals("True") && !textBraccio3.Text.Equals("True"))
-            {
-                comandoBraccio = "allunga";
-                numerobraccio = 1;
-            }
 
-            else if (textBraccio3.Text.Equals("True") && !textBraccio1.Text.Equals("True"))
+
+            if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals("True"))
             {
-                comandoBraccio = "allunga";
-                numerobraccio = 3;
-            }
-            else if (textBraccio1.Text.Equals("True") && textBraccio3.Text.Equals("True"))
-            {
-                comandoBraccio = "allunga";
-                numerobraccio = 4;
-            }
-            else if (!textBraccio1.Text.Equals("True") && !textBraccio3.Text.Equals("True"))
-            {
-                comandoBraccio = "accorcia";
-                numerobraccio = 4;
+
+                if (!Braccio1Carico)
+                {
+                    comandoBraccio = "allunga";
+                    numerobraccio = 1;
+
+                }
+
+                if (!Braccio3Carico && Braccio1Carico)
+                {
+
+                    comandoBraccio = "allunga";
+                    numerobraccio = 3;
+
+                }
+
             }
             else
             {
-                comandoBraccio = "";
-                numerobraccio = -1;
+                if (textBraccio1.Text.Equals("True"))
+                {
+                    comandoBraccio = "allunga";
+                    numerobraccio = 1;
+
+                }
+
+                else if (textBraccio3.Text.Equals("True"))
+                {
+                    comandoBraccio = "allunga";
+                    numerobraccio = 3;
+                }
+                else
+                {
+                    comandoBraccio = "";
+                    numerobraccio = -1;
+                }
             }
         }
         /// <summary>
         /// funzione che aggiorna la scelta dei vestiti usando il form di supporto <see cref="SceltaVestiti"/> e li mostra nell'interfaccia grafica
         /// </summary>
-        
+
         private void AggiornamentoVestiti()
         {
             using (SceltaVestiti sv = new SceltaVestiti(this.RicercaVestiti1.Text.ToString(), this.text2indumento.Text.ToString()))
@@ -926,48 +941,32 @@ namespace ProgettoRespa.net
         {
             switch (numerobraccio)
             {
-                case 1 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
+                case 1 when comandoBraccio.Equals("allunga"):
                     braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
 
                     braccio1.Height = 50;
                     break;
-                case -1 when posRobot == posinizialeRobot && comandoRobot.Equals("") && posyRobot == posYinizialeRobot:
+                case -1 when posRobot == posinizialeRobot && posyRobot == posYinizialeRobot:
                     braccio1.Location = new Point(posxbraccio1iniziale, posybraccio1iniziale);
                     braccio1.Height = 15;
                     braccio3.Height = 14;
                     break;
-                case -1 when comandoRobot.Equals("") && posyRobot != posYinizialeRobot :
-                    braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y );
-                    braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
-                    braccio1.Height = 15;
-                    braccio3.Height = 14;
-                    break;
-                case 3 when comandoBraccio.Equals("allunga") && comandoRobot.Equals(""):
-                    braccio3.Height = 40;
-                    break;
-                case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals("sx"):
+                case -1 when posyRobot != posYinizialeRobot:
                     braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
                     braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
                     braccio1.Height = 15;
                     braccio3.Height = 14;
                     break;
-                //case 4 when comandoBraccio.Equals("accorcia") && comandoRobot.Equals(""):
-                //    braccio1.Location = new Point(braccio1.Location.X, braccio1.Location.Y);
-                //    braccio3.Location = new Point(braccio3.Location.X, braccio3.Location.Y);
-                //    braccio1.Height = 15;
-                //    braccio3.Height = 14;
-                //    break;
-                case 4 when comandoBraccio.Equals("allunga") && comandoRobot.Equals("") && posRobot != posinizialeRobot:
-                    braccio1.Location = new Point(braccio1.Location.X, robot.Location.Y - 30);
-                    braccio1.Height = 50;
+                case 3 when comandoBraccio.Equals("allunga"):
                     braccio3.Height = 40;
                     break;
+
 
                 default:
 
                     break;
             }
-            
+
         }
         /// <summary>
         /// imposta la posizione attuale del robot a 0 e con questo valore poi
@@ -1080,29 +1079,19 @@ namespace ProgettoRespa.net
             {
                 if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds))
                 {
-                    if (textAlto.Text.Equals("True")) {
 
-                     vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 100);//+100
-                   
-                    }
+                    vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Location.Y + 7);
 
-                    else if (textBasso.Text.Equals("True"))
-                    {
-                        vestito1.Location = new Point(braccio3.Location.X - 5, braccio3.Height + 250);
-                        }
-                    }
-                else if (Braccio3Carico && !vestito1.Bounds.IntersectsWith(robot.Bounds) && vestito1.Bounds.IntersectsWith(braccio3.Bounds))
-                {
-                    vestito1.Location = new Point(robot.Location.X, robot.Location.Y + 60);
                 }
+
                 else
                 {
 
                     vestito1.Location = new Point(vestito1.Location.X, vestito1.Location.Y);
                 }
             }
-           
-            }
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {

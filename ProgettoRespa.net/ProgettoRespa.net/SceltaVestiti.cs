@@ -360,12 +360,12 @@ namespace ProgettoRespa.net
 
         public void Modificasalvataggi(Dictionary<string, List<string>> errori)
         {
-            
+
             //BarraRicercaVestiti1.AutoCompleteCustomSource = AutoCompleteStringCollection;
-            int num=1 ;
+            int num = 1;
             foreach (string s in errori.Keys)
             {
-               
+
                 //num = 1;
                 List<string> messaggi;
 
@@ -374,16 +374,21 @@ namespace ProgettoRespa.net
                 {
                     string[] divisa;
                     divisa = messaggio.Split('_');
-                    
-                    if (divisa[1].Equals("il vestito esiste e puo essere ricercato"))
+                    //se il vestito non esiste allora il messaggio non conterr° solo l'errore e non il colore dell'indumento, quindi l'indice 1 non esiste nell'array di stringhe generato dalla divisione del messaggio
+                    if (divisa[0] != null && !divisa[0].Equals("il vestito ricercato non esiste "))
                     {
-                        
-                        string colore = divisa[0].Replace('(', ' ').Replace(')', ' ').TrimEnd().TrimStart();
+                        if (divisa[1].Equals("il vestito esiste e puo essere ricercato"))
+                        {
 
-                        ModificasaVestiti(s, colore, num);
-                        aggiornamentoscelte(s, colore);
-                        num++;
+                            string colore = divisa[0].Replace('(', ' ').Replace(')', ' ').TrimEnd().TrimStart();
+
+                            ModificasaVestiti(s, colore, num);
+                            aggiornamentoscelte(s, colore);
+                            num++;
+                        }
                     }
+
+
                 }
 
             }
@@ -394,7 +399,7 @@ namespace ProgettoRespa.net
         /// <param name="indumento">riporta in nome dell'indumento trovato</param>
         /// <param name="colore">riporta il colore dell'indumento trovato</param>
         /// <param name="num">riporta il numero della scelta </param>
-       
+
         private void ModificasaVestiti(string indumento, string colore, int num)
         {
 
@@ -486,10 +491,10 @@ namespace ProgettoRespa.net
         {
 
         }
-     /// <summary>
-     /// funzione che stampa a schermo la lista degli errori generata da <see cref="ErroriVestiti.ErroriVestiti(Dictionary{string, List{string}}, Dictionary{string, List{string}}) "/>durante la ricerca <see cref="ErroriVestiti.GetErrori"/>
-     /// </summary>
-     /// <param name="errori">errori di ricerca</param>
+        /// <summary>
+        /// funzione che stampa a schermo la lista degli errori generata da <see cref="ErroriVestiti.ErroriVestiti(Dictionary{string, List{string}}, Dictionary{string, List{string}}) "/>durante la ricerca <see cref="ErroriVestiti.GetErrori"/>
+        /// </summary>
+        /// <param name="errori">errori di ricerca</param>
         private void stampaErrori(Dictionary<string, List<string>> errori)
         {
             string messaggio = "";
@@ -498,17 +503,26 @@ namespace ProgettoRespa.net
                 int i = 1;
                 List<string> erroriattuali = new List<string>();
                 errori.TryGetValue(s, out erroriattuali);
-                foreach(string errore in erroriattuali)
+                foreach (string errore in erroriattuali)
                 {
-                    string[] divisa;
-                    divisa = errore.Split('_');
-                    messaggio = messaggio + "\n" + "indumento " + s +" "+ divisa[0] + ": " + divisa[1];
+                    if (!errore.Equals("il vestito ricercato non esiste "))
+                    {
+                        string[] divisa;
+                        divisa = errore.Split('_');
+                        messaggio = messaggio + "\n" + "indumento " + s + " " + divisa[0] + ": " + divisa[1];
+                    }
+                    else
+                    {
+                        messaggio = errore;
+                    }
+
                 }
-                
+
 
             }
             MessageBox.Show(messaggio);
         }
+
 
         private void BarraRicercaVestiti1_TextChanged(object sender, EventArgs e)
         {
