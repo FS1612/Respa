@@ -262,7 +262,12 @@ namespace ProgettoRespa.net
             //controllo la stringa del vestito scelto per vedere se è una giacca. Se è una giacca prima di separare in indumento e colore, devo rimuovere il 'di' e '_' altrimenti la separazione in indumento e colore non ha effetto
             if (abito.ToLower().StartsWith("giacca"))
             {// per rimuovere i caratteri necessari ho bisogno del carattere di inizio(che trovovo con il metodo .indexOf()) e definisco quanti caratteri devo rimuovere con l'intero (3) e con split separo le parole
-                divisione = abito.TrimStart().Remove(abito.IndexOf('d'), 3).Split(' ');
+                if (abito.ToLower().Contains("di")) { divisione = abito.TrimStart().Remove(abito.ToLower().IndexOf('d'), 3).Split(' '); }
+                else
+                {
+                    divisione = abito.TrimStart().Split(' ');
+                }
+                
             }
             else
             {
