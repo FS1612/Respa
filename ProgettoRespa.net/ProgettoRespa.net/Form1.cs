@@ -409,7 +409,7 @@ namespace ProgettoRespa.net
                 fcdSensore.BackColor = Color.Red;
                 textFcdPorta.BackColor = Color.Red;
                 // se ho avviato il programma(start=true), quando il player si trova all'esterno della porta (sensore prossimità esterno= true) la porta si deve aprire per permettere l'accesso del player per poi richiudersi trascorsi 5 secondi. Stesso meccanismo si avvia quando il player vuole uscire e dunque il sensore di prossimità esterno divaenta vero
-                if (TextApriPorta.Text.Equals("True") || (TextSensorePortaInterno.Text.Equals("True")))
+                if (TextApriPorta.Text.Equals("True") )
                 {
                     posAttuale = posAttuale + (int)(delta * spostamento) / durataspostamento;
                     textFcsPorta.Text = "False";
@@ -419,11 +419,7 @@ namespace ProgettoRespa.net
                     {
                         Sensore_Prossimitàesterna.BackColor = Color.Green;
                     }
-                    if (TextSensorePortaInterno.Text.Equals("True"))
-                    {
-                        Prossimitainterna_sensore.BackColor = Color.Green;
-
-                    }
+                   
                 }
                 if (pos > 547)
                 {//se la porta è completamente aperta (posizione x=547) allora fcd è verificato e aumento iil contatore delle chiusure di uno dopo aver aggiornato il valore di Chiusura_aggiornata
@@ -437,7 +433,7 @@ namespace ProgettoRespa.net
                     textFcdPorta.BackColor = Color.Green;
                     fcdSensore.BackColor = Color.Green;
                     TextApriPorta.Text = "";
-                    TextSensorePortaInterno.Text = "";
+                   
 
                 }
                 if (pos < 250)
@@ -463,7 +459,7 @@ namespace ProgettoRespa.net
                     fcs_sensore.BackColor = Color.Green;
 
                 }
-                if (TextApriPorta.Text.Equals("") && (TextSensorePortaInterno.Text.Equals("")))
+                if (TextApriPorta.Text.Equals("") )
                 {//la porta si chiude solo se i due sensori di prossiimita risultano falsi 
                     if (!Porta_timer)
                     {
@@ -623,8 +619,7 @@ namespace ProgettoRespa.net
 
             if (posRobot < 525)
             {
-                //posAttualeRobot = 0;
-                //robot.Location = new Point(posinizialeRobot, posYinizialeRobot);
+                
                 fcs_Robot.BackColor = Color.Green;
                 textFcsRobot.Text = "True";
                 textFcsRobot.BackColor = Color.Green;
@@ -655,7 +650,7 @@ namespace ProgettoRespa.net
 
                 if (posRobot > 825 && posRobot < 835)
                 {
-                    //posAttualeRobot = 305;
+                    
 
                     fc1.BackColor = Color.Green;
                     textFc1.Text = "True";
@@ -671,7 +666,7 @@ namespace ProgettoRespa.net
 
                 if (posRobot > 920 && posRobot < 930)
                 {
-                    //posAttualeRobot = 410;
+                    
 
                     fc2.BackColor = Color.Green;
                     textFc2.Text = "True";
@@ -1250,13 +1245,13 @@ namespace ProgettoRespa.net
                 if (textBraccio1.Text.Equals("True"))
                 {
                     tcClient.WriteAny(hvar_name[9], true);
-                    //ritratto3 = false;
+                   
                 }
 
                 if (textBraccio1.Text.Equals("False"))
                 {
                     tcClient.WriteAny(hvar_name[9], false);
-                    //ritratto3 = true;
+                    
                 }
 
             }
